@@ -73,7 +73,7 @@ Public Class frmLauncher
     Private Sub cmdLaunchGame_Click(sender As Object, e As EventArgs) Handles cmdLaunchGame.Click
         If File.Exists(OpenRCTEXEName) And File.Exists(OpenRCTDLLName) Then
             Dim Launch As New ProcessStartInfo
-            Launch.WindowStyle = ProcessWindowStyle.Normal
+            Launch.WindowStyle = ProcessWindowStyle.Maximized
             Launch.FileName = OpenRCTEXEName
             Process.Start(Launch)
             Close()
