@@ -1,7 +1,9 @@
 ﻿Imports System.IO
+Imports System.IO.Compression
 Imports System.Net
 Imports System.Threading
 Imports Microsoft.Win32
+Imports System.Text.RegularExpressions
 
 Public Class frmLauncher
 
@@ -81,8 +83,42 @@ Public Class frmLauncher
     End Sub
 
     Private Sub DownloadUpdate()
-        Dim WS As New WebClient
-        WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.zip")
-        'This can't work yet, no access to Download ZIP
+        Try
+            Dim WS As New WebClient
+            WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.html")
+            Dim HTML As String = File.ReadAllText(Path.GetTempPath & "OpenRCT2Update.html")
+            Dim Stuff As ArrayList = ParseLinks(HTML)
+            For Each thing In Stuff
+                If thing.ToString.ToLower.StartsWith("http://cdn.limetric.com/games/openrct2") And thing.ToString.ToLower.EndsWith(".zip") Then
+                    WS.DownloadFile(thing, "./update.zip")
+                End If
+            Next
+            ZipFile.ExtractToDirectory("./update.zip", "./")
+            File.Delete("./update.zip")
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Public Function ParseLinks(ByVal HTML As String) As ArrayList
+        Dim objRegEx As Regex
+        Dim objMatch As Match
+        Dim arrLinks As New System.Collections.ArrayList()
+        ' Create regular expression
+        objRegEx = New System.Text.RegularExpressions.Regex("a.*href\s*=\s*(?:""(?<1>[^""]*)""|(?<1>\S+))", System.Text.RegularExpressions.RegexOptions.IgnoreCase Or System.Text.RegularExpressions.RegexOptions.Compiled)
+        ' Match expression to HTML
+        objMatch = objRegEx.Match(HTML)
+        ' Loop through matches and add <1> to ArrayList
+        While objMatch.Success
+            Dim strMatch As String
+            strMatch = objMatch.Groups(1).ToString
+            arrLinks.Add(strMatch)
+            objMatch = objMatch.NextMatch()
+        End While
+        ' Pass back results
+        Return arrLinks
+    End Function
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Call DownloadUpdate()
     End Sub
 End Class

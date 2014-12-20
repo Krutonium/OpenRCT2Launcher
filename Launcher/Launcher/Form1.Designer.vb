@@ -26,6 +26,7 @@ Partial Class frmLauncher
         Me.tmrCheckIfDone = New System.Windows.Forms.Timer(Me.components)
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.cmdLaunchGame = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'tmrCheckIfDone
@@ -50,11 +51,21 @@ Partial Class frmLauncher
         Me.cmdLaunchGame.Text = "Launch OpenRCT2"
         Me.cmdLaunchGame.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(226, 127)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(156, 92)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "TestUpdate"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmLauncher
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(484, 261)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.cmdLaunchGame)
         Me.Controls.Add(Me.lblStatus)
         Me.Name = "frmLauncher"
@@ -66,5 +77,6 @@ Partial Class frmLauncher
     Friend WithEvents tmrCheckIfDone As System.Windows.Forms.Timer
     Friend WithEvents lblStatus As System.Windows.Forms.Label
     Friend WithEvents cmdLaunchGame As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class
