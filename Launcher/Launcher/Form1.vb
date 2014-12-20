@@ -31,7 +31,7 @@ Public Class frmLauncher
         If My.Computer.Network.IsAvailable = True Then
             Try 'If the computer has a network connection but no internet, we want to avoid crashing.
                 Dim WC As New WebClient
-                RemoteVer = WC.DownloadString(VerURL & "L")
+                RemoteVer = WC.DownloadString(VerURL)
             Catch ex As Exception
                 'MsgBox(ex.ToString)
                 RemoteVer = Integer.MinValue
