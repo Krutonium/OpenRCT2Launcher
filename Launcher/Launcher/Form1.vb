@@ -5,7 +5,7 @@ Imports Microsoft.Win32
 
 Public Class frmLauncher
 
-    Dim URL As String = "https://openrct2.com/download/latest" ' Should always give us the latest download ;)
+    Dim URL As String = "https://openrct2.com/download/latest" ' Need to replace with Download from Version Text
     Dim VerURL As String = "https://www.dropbox.com/s/9uk7qdb5s4coakn/OpenRCTV.txt?dl=1"
     Dim RemoteVer As Integer        'Will contain the version of OpenRCT2 from the server
     Dim LocalVer As Integer         'Will contain the version of OpenRCT2 on this computer
@@ -31,8 +31,8 @@ Public Class frmLauncher
         If My.Computer.Network.IsAvailable = True Then
             Try 'If the computer has a network connection but no internet, we want to avoid crashing.
                 Dim WC As New WebClient
-                RemoteVer = WC.DownloadString(VerURL)
-            Catch ex As Exception
+                RemoteVer = WC.DownloadString(VerURL)       'Later on I am going to have to do some additional processing
+            Catch ex As Exception                           'because I want to grab the Download URL at the same time.
                 'MsgBox(ex.ToString)
                 RemoteVer = Integer.MinValue
             End Try
@@ -78,5 +78,11 @@ Public Class frmLauncher
         Else
             'Code that does a force update
         End If
+    End Sub
+
+    Private Sub DownloadUpdate()
+        Dim WS As New WebClient
+        WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.zip")
+        'This can't work yet, no access to Download ZIP
     End Sub
 End Class
