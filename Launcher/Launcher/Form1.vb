@@ -109,23 +109,14 @@ Public Class frmLauncher
     Private Sub ActualDownload()
         Try
             Dim WS As New WebClient
-            WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.html")
-            Dim HTML As String = File.ReadAllText(Path.GetTempPath & "OpenRCT2Update.html")     ' We have downloaded the Automated Builds Page
-            Dim Links As ArrayList = ParseLinks(HTML)
-            Dim RemoteURL As String = Nothing
-            For Each link In Links
-                If link Like "http://cdn.limetric.com/games/openrct2*.zip" Then
-                    WS.DownloadFile(link, "./update.zip")
-                    RemoteURL = link
-                End If
-            Next
+            WS.DownloadFile(RemoteVer, "./update.zip")
             If Directory.Exists("OpenRCT2") Then
                 Directory.Delete("OpenRCT2", True)      'Delete old folder if it exists.
             End If
             ZipFile.ExtractToDirectory("./update.zip", "./OpenRCT2")    'Extracts to said folder.
             File.Delete("./update.zip")
             Dim Reg As RegistryKey = (Registry.CurrentUser.CreateSubKey("OpenRCT2Launcher"))    'Sets the current version info in registry
-            Reg.SetValue("LocalVer", RemoteURL)
+            Reg.SetValue("LocalVer", RemoteVer)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
