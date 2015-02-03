@@ -27,6 +27,8 @@ Partial Class frmLauncher
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.cmdLaunchGame = New System.Windows.Forms.Button()
         Me.cmdForceUpdate = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tmrCheckIfDone
@@ -62,16 +64,27 @@ Partial Class frmLauncher
         Me.cmdForceUpdate.Text = "Force Update"
         Me.cmdForceUpdate.UseVisualStyleBackColor = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 16)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(460, 190)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 3
+        Me.PictureBox1.TabStop = False
+        '
         'frmLauncher
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(484, 261)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.cmdForceUpdate)
         Me.Controls.Add(Me.cmdLaunchGame)
         Me.Controls.Add(Me.lblStatus)
         Me.Name = "frmLauncher"
         Me.Text = "OpenRCT2 Launcher"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -80,5 +93,6 @@ Partial Class frmLauncher
     Friend WithEvents lblStatus As System.Windows.Forms.Label
     Friend WithEvents cmdLaunchGame As System.Windows.Forms.Button
     Friend WithEvents cmdForceUpdate As System.Windows.Forms.Button
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 
 End Class

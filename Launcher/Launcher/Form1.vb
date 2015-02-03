@@ -29,6 +29,7 @@ Public Class frmLauncher
         GetRemote.Start()
         GetLocal.Start()
         GetLauncher.Start()
+        PictureBox1.Image = My.Resources.rollercoaster_tycoon_2_001
     End Sub
 
     Private Sub GetRemoteVer()
@@ -153,5 +154,9 @@ Public Class frmLauncher
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
         Call DownloadUpdate()
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
     End Sub
 End Class
