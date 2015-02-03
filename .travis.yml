@@ -1,2 +1,2 @@
 language: csharp
-solution: Launcher.sln
+solution: Launcher/Launcher.sln
