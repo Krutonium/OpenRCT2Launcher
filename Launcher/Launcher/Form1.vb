@@ -54,7 +54,8 @@ Public Class frmLauncher
 
     Private Sub GetLocalVer()
         Try
-            Dim Reg As RegistryKey = (Registry.CurrentUser.CreateSubKey("OpenRCT2Launcher"))
+            Dim Key As RegistryKey = Registry.CurrentUser.OpenSubKey("Software", True)
+            Dim Reg As RegistryKey = Key.CreateSubKey("OpenRCT2Launcher")
             If Reg.GetValue("LocalVer") Is Nothing Then
                 Reg.SetValue("LocalVer", "0", RegistryValueKind.String)
                 LocalVer = "0"
@@ -124,7 +125,8 @@ Public Class frmLauncher
             End If
             ZipFile.ExtractToDirectory("./update.zip", "./OpenRCT2")    'Extracts to said folder.
             File.Delete("./update.zip")
-            Dim Reg As RegistryKey = (Registry.CurrentUser.CreateSubKey("OpenRCT2Launcher"))    'Sets the current version info in registry
+            Dim Key As RegistryKey = Registry.CurrentUser.OpenSubKey("Software", True)
+            Dim Reg As RegistryKey = Key.CreateSubKey("OpenRCT2Launcher")    'Sets the current version info in registry
             Reg.SetValue("LocalVer", RemoteURL)
         Catch ex As Exception
             MsgBox(ex.ToString)
