@@ -30,6 +30,7 @@ Public Class frmLauncher
         GetLocal.Start()
         GetLauncher.Start()
         PictureBox1.Image = My.Resources.rollercoaster_tycoon_2_001
+
     End Sub
 
     Private Sub GetRemoteVer()
