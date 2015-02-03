@@ -144,7 +144,7 @@ Public Class frmLauncher
         Return arrLinks
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
+    Private Sub cmdForceUpdate_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
         Call DownloadUpdate()
     End Sub
 
