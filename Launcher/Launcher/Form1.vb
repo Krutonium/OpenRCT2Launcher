@@ -4,7 +4,6 @@ Imports System.Net
 Imports System.Threading
 Imports Microsoft.Win32
 Imports System.Text.RegularExpressions
-Imports System.Random
 
 Public Class frmLauncher
 
@@ -39,10 +38,11 @@ Public Class frmLauncher
                 Dim WS As New WebClient
                 WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.html")
                 Dim HTML As String = File.ReadAllText(Path.GetTempPath & "OpenRCT2Update.html")
-                Dim Stuff As ArrayList = ParseLinks(HTML)
-                For Each thing In Stuff
-                    If thing.ToString.ToLower.StartsWith("http://cdn.limetric.com/games/openrct2") And thing.ToString.ToLower.EndsWith(".zip") Then
-                        RemoteVer = thing
+                Dim Links As ArrayList = ParseLinks(HTML)
+                For Each link In Links
+                    If link Like "http://cdn.limetric.com/games/openrct2*.zip" Then
+                        RemoteVer = link
+                        Exit For
                     End If
                 Next
             Catch ex As Exception                           'because I want to grab the Download URL at the same time.
@@ -78,7 +78,7 @@ Public Class frmLauncher
     End Sub
 
     Private Sub UpdateGUI()
-        If RemoteVer = LocalVer = False Then
+        If RemoteVer <> LocalVer Then
             lblStatus.Text = "Updating..."
             Call DownloadUpdate()
         Else
@@ -110,16 +110,7 @@ Public Class frmLauncher
     Private Sub ActualDownload()
         Try
             Dim WS As New WebClient
-            WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.html")
-            Dim HTML As String = File.ReadAllText(Path.GetTempPath & "OpenRCT2Update.html")     ' We have downloaded the Automated Builds Page
-            Dim Stuff As ArrayList = ParseLinks(HTML)
-            Dim RemoteURL As String = Nothing
-            For Each thing In Stuff
-                If thing.ToString.ToLower.StartsWith("http://cdn.limetric.com/games/openrct2") And thing.ToString.ToLower.EndsWith(".zip") Then 'Parsing for the download link.
-                    WS.DownloadFile(thing, "./update.zip")
-                    RemoteURL = thing
-                End If
-            Next
+            WS.DownloadFile(RemoteVer, "./update.zip")
             If Directory.Exists("OpenRCT2") Then
                 Directory.Delete("OpenRCT2", True)      'Delete old folder if it exists.
             End If
@@ -127,7 +118,7 @@ Public Class frmLauncher
             File.Delete("./update.zip")
             Dim Key As RegistryKey = Registry.CurrentUser.OpenSubKey("Software", True)
             Dim Reg As RegistryKey = Key.CreateSubKey("OpenRCT2Launcher")    'Sets the current version info in registry
-            Reg.SetValue("LocalVer", RemoteURL)
+            Reg.SetValue("LocalVer", RemoteVer)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
@@ -155,7 +146,7 @@ Public Class frmLauncher
         Return arrLinks
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
+    Private Sub cmdForceUpdate_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
         Call DownloadUpdate()
     End Sub
 
