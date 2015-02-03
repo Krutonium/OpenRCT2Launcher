@@ -26,7 +26,7 @@ Partial Class frmLauncher
         Me.tmrCheckIfDone = New System.Windows.Forms.Timer(Me.components)
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.cmdLaunchGame = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmdForceUpdate = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'tmrCheckIfDone
@@ -36,7 +36,7 @@ Partial Class frmLauncher
         'lblStatus
         '
         Me.lblStatus.AutoSize = True
-        Me.lblStatus.Location = New System.Drawing.Point(12, 9)
+        Me.lblStatus.Location = New System.Drawing.Point(0, 0)
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(158, 13)
         Me.lblStatus.TabIndex = 0
@@ -44,28 +44,30 @@ Partial Class frmLauncher
         '
         'cmdLaunchGame
         '
-        Me.cmdLaunchGame.Location = New System.Drawing.Point(15, 50)
+        Me.cmdLaunchGame.Enabled = False
+        Me.cmdLaunchGame.Location = New System.Drawing.Point(345, 212)
         Me.cmdLaunchGame.Name = "cmdLaunchGame"
-        Me.cmdLaunchGame.Size = New System.Drawing.Size(157, 59)
+        Me.cmdLaunchGame.Size = New System.Drawing.Size(127, 37)
         Me.cmdLaunchGame.TabIndex = 1
         Me.cmdLaunchGame.Text = "Launch OpenRCT2"
         Me.cmdLaunchGame.UseVisualStyleBackColor = True
         '
-        'Button1
+        'cmdForceUpdate
         '
-        Me.Button1.Location = New System.Drawing.Point(226, 127)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(156, 92)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "TestUpdate"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cmdForceUpdate.Enabled = False
+        Me.cmdForceUpdate.Location = New System.Drawing.Point(212, 212)
+        Me.cmdForceUpdate.Name = "cmdForceUpdate"
+        Me.cmdForceUpdate.Size = New System.Drawing.Size(127, 37)
+        Me.cmdForceUpdate.TabIndex = 2
+        Me.cmdForceUpdate.Text = "Force Update"
+        Me.cmdForceUpdate.UseVisualStyleBackColor = True
         '
         'frmLauncher
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(484, 261)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cmdForceUpdate)
         Me.Controls.Add(Me.cmdLaunchGame)
         Me.Controls.Add(Me.lblStatus)
         Me.Name = "frmLauncher"
@@ -77,6 +79,6 @@ Partial Class frmLauncher
     Friend WithEvents tmrCheckIfDone As System.Windows.Forms.Timer
     Friend WithEvents lblStatus As System.Windows.Forms.Label
     Friend WithEvents cmdLaunchGame As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cmdForceUpdate As System.Windows.Forms.Button
 
 End Class

@@ -8,6 +8,7 @@ Imports System.Random
 
 Public Class frmLauncher
 
+
     Dim URL As String = "https://openrct2.com/download/latest" ' Need to replace with Download from Version Text
     Dim RemoteVer As String        'Will contain the version of OpenRCT2 from the server
     Dim LocalVer As String         'Will contain the version of OpenRCT2 on this computer
@@ -21,6 +22,7 @@ Public Class frmLauncher
     Dim LauncherVersion As Integer = "1" 'The Version of the launcher, so we can update the launcher as well.
 
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Control.CheckForIllegalCrossThreadCalls = False
         Dim GetRemote = New Thread(AddressOf GetRemoteVer)
         Dim GetLocal = New Thread(AddressOf GetLocalVer)
         Dim GetLauncher = New Thread(AddressOf LauncherUpdate)
@@ -68,11 +70,18 @@ Public Class frmLauncher
     Private Sub tmrCheckIfDone_Tick(sender As Object, e As EventArgs) Handles tmrCheckIfDone.Tick
         If LocalDone = True And RemoteDone = True Then
             tmrCheckIfDone.Enabled = False
-            If RemoteVer = LocalVer = False Then
-                lblStatus.Text = "Update is Available"
-            Else
-                lblStatus.Text = "Up to Date"
-            End If
+            Call UpdateGUI()
+        End If
+    End Sub
+
+    Private Sub UpdateGUI()
+        If RemoteVer = LocalVer = False Then
+            lblStatus.Text = "Updating..."
+            Call DownloadUpdate()
+        Else
+            lblStatus.Text = "Up to Date!"
+            cmdLaunchGame.Enabled = True
+            cmdForceUpdate.Enabled = True
         End If
     End Sub
 
@@ -91,29 +100,36 @@ Public Class frmLauncher
     End Sub
 
     Private Sub DownloadUpdate()
+        Dim Download = New Thread(AddressOf ActualDownload)
+        Download.Start()
+    End Sub
+
+    Private Sub ActualDownload()
         Try
             Dim WS As New WebClient
             WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.html")
-            Dim HTML As String = File.ReadAllText(Path.GetTempPath & "OpenRCT2Update.html")
+            Dim HTML As String = File.ReadAllText(Path.GetTempPath & "OpenRCT2Update.html")     ' We have downloaded the Automated Builds Page
             Dim Stuff As ArrayList = ParseLinks(HTML)
             Dim RemoteURL As String = Nothing
             For Each thing In Stuff
-                If thing.ToString.ToLower.StartsWith("http://cdn.limetric.com/games/openrct2") And thing.ToString.ToLower.EndsWith(".zip") Then
+                If thing.ToString.ToLower.StartsWith("http://cdn.limetric.com/games/openrct2") And thing.ToString.ToLower.EndsWith(".zip") Then 'Parsing for the download link.
                     WS.DownloadFile(thing, "./update.zip")
                     RemoteURL = thing
                 End If
             Next
             If Directory.Exists("OpenRCT2") Then
-
-                Directory.Delete("OpenRCT2", True)
+                Directory.Delete("OpenRCT2", True)      'Delete old folder if it exists.
             End If
-            ZipFile.ExtractToDirectory("./update.zip", "./OpenRCT2")
+            ZipFile.ExtractToDirectory("./update.zip", "./OpenRCT2")    'Extracts to said folder.
             File.Delete("./update.zip")
-            Dim Reg As RegistryKey = (Registry.CurrentUser.CreateSubKey("OpenRCT2Launcher"))
+            Dim Reg As RegistryKey = (Registry.CurrentUser.CreateSubKey("OpenRCT2Launcher"))    'Sets the current version info in registry
             Reg.SetValue("LocalVer", RemoteURL)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+        lblStatus.Text = "Up to Date!"
+        cmdLaunchGame.Enabled = True
+        cmdForceUpdate.Enabled = True
     End Sub
 
     Public Function ParseLinks(ByVal HTML As String) As ArrayList
@@ -135,7 +151,7 @@ Public Class frmLauncher
         Return arrLinks
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
         Call DownloadUpdate()
     End Sub
 End Class
