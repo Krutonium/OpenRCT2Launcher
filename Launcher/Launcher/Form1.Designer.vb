@@ -28,6 +28,7 @@ Partial Class frmLauncher
         Me.cmdLaunchGame = New System.Windows.Forms.Button()
         Me.cmdForceUpdate = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.chkVerbose = New System.Windows.Forms.CheckBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -73,11 +74,22 @@ Partial Class frmLauncher
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         '
+        'chkVerbose
+        '
+        Me.chkVerbose.AutoSize = True
+        Me.chkVerbose.Location = New System.Drawing.Point(12, 232)
+        Me.chkVerbose.Name = "chkVerbose"
+        Me.chkVerbose.Size = New System.Drawing.Size(100, 17)
+        Me.chkVerbose.TabIndex = 4
+        Me.chkVerbose.Text = "Verbose Output"
+        Me.chkVerbose.UseVisualStyleBackColor = True
+        '
         'frmLauncher
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(484, 261)
+        Me.Controls.Add(Me.chkVerbose)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.cmdForceUpdate)
         Me.Controls.Add(Me.cmdLaunchGame)
@@ -94,5 +106,6 @@ Partial Class frmLauncher
     Friend WithEvents cmdLaunchGame As System.Windows.Forms.Button
     Friend WithEvents cmdForceUpdate As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents chkVerbose As System.Windows.Forms.CheckBox
 
 End Class

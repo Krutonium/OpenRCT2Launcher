@@ -93,6 +93,9 @@ Public Class frmLauncher
             Dim Launch As New ProcessStartInfo
             Launch.WorkingDirectory = ".\OpenRCT2"
             Launch.FileName = "OpenRCT2.exe"
+            If chkVerbose.Checked = True Then
+                Launch.Arguments = "--verbose"
+            End If
             Process.Start(Launch)
             Close()
 
@@ -147,6 +150,9 @@ Public Class frmLauncher
     End Function
 
     Private Sub cmdForceUpdate_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
+        cmdForceUpdate.Enabled = False
+        cmdLaunchGame.Enabled = False
+        lblStatus.Text = "Force Updating..."
         Call DownloadUpdate()
     End Sub
 
