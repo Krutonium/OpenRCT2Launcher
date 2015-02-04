@@ -35,6 +35,7 @@ Public Class frmLauncher
         If Reg.GetValue("Verbose") = "True" Then
             chkVerbose.Checked = True
         End If
+        Me.Icon = My.Resources.cat_paw
     End Sub
 
     Private Sub GetRemoteVer()
