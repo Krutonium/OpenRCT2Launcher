@@ -20,6 +20,9 @@ Public Class frmLauncher
 
     Dim LauncherVersion As Integer = "1" 'The Version of the launcher, so we can update the launcher as well.
 
+    Dim Key As RegistryKey = Registry.CurrentUser.OpenSubKey("Software", True)
+    Dim Reg As RegistryKey = Key.CreateSubKey("OpenRCT2Launcher")
+
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Control.CheckForIllegalCrossThreadCalls = False
         Dim GetRemote = New Thread(AddressOf GetRemoteVer)
@@ -29,7 +32,9 @@ Public Class frmLauncher
         GetLocal.Start()
         GetLauncher.Start()
         PictureBox1.Image = My.Resources.rollercoaster_tycoon_2_001
-
+        If Reg.GetValue("Verbose") = "True" Then
+            chkVerbose.Checked = True
+        End If
     End Sub
 
     Private Sub GetRemoteVer()
@@ -54,8 +59,6 @@ Public Class frmLauncher
 
     Private Sub GetLocalVer()
         Try
-            Dim Key As RegistryKey = Registry.CurrentUser.OpenSubKey("Software", True)
-            Dim Reg As RegistryKey = Key.CreateSubKey("OpenRCT2Launcher")
             If Reg.GetValue("LocalVer") Is Nothing Then
                 Reg.SetValue("LocalVer", "0", RegistryValueKind.String)
                 LocalVer = "0"
@@ -95,6 +98,9 @@ Public Class frmLauncher
             Launch.FileName = "OpenRCT2.exe"
             If chkVerbose.Checked = True Then
                 Launch.Arguments = "--verbose"
+                Reg.SetValue("Verbose", "True", RegistryValueKind.String)
+            Else
+                Reg.SetValue("Verbose", "False", RegistryValueKind.String)
             End If
             Process.Start(Launch)
             Close()
@@ -119,8 +125,6 @@ Public Class frmLauncher
             End If
             ZipFile.ExtractToDirectory("./update.zip", "./OpenRCT2")    'Extracts to said folder.
             File.Delete("./update.zip")
-            Dim Key As RegistryKey = Registry.CurrentUser.OpenSubKey("Software", True)
-            Dim Reg As RegistryKey = Key.CreateSubKey("OpenRCT2Launcher")    'Sets the current version info in registry
             Reg.SetValue("LocalVer", RemoteVer)
         Catch ex As Exception
             MsgBox(ex.ToString)
