@@ -26,7 +26,7 @@ Public Class frmLauncher
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Control.CheckForIllegalCrossThreadCalls = False
         Dim GetRemote = New Thread(AddressOf GetRemoteVer)
-        Dim GetLocal = New Thread(AddressOf GetLocalVer)
+        Dim GetLocal = New Thread(AddressOf GetLocalVer)        'Threads for Update Checking.
         Dim GetLauncher = New Thread(AddressOf LauncherUpdate)
         GetRemote.Start()
         GetLocal.Start()
