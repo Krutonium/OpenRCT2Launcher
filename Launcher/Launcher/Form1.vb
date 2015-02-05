@@ -72,47 +72,50 @@ Public Class frmLauncher
         LocalDone = True
     End Sub
     Private Sub LauncherUpdate()
-
+        'Really should add some updater here...
     End Sub
     Private Sub tmrCheckIfDone_Tick(sender As Object, e As EventArgs) Handles tmrCheckIfDone.Tick
         If LocalDone = True And RemoteDone = True Then
-            tmrCheckIfDone.Enabled = False
+            tmrCheckIfDone.Enabled = False              'Disables itself from running  further, and has the UpdateGUI call run to Check for Updates.
             Call UpdateGUI()
         End If
     End Sub
 
     Private Sub UpdateGUI()
-        If RemoteVer <> LocalVer Then
+        If RemoteVer <> LocalVer Then           'If the local and remote versions are not in sync, Update
             lblStatus.Text = "Updating..."
             Call DownloadUpdate()
-        Else
+        Else                                    'Otherwise we are up to date :D
             lblStatus.Text = "Up to Date!"
             cmdLaunchGame.Enabled = True
-            cmdForceUpdate.Enabled = True
+            cmdForceUpdate.Enabled = True       'Enabling these Buttons :)
         End If
     End Sub
 
     Private Sub cmdLaunchGame_Click(sender As Object, e As EventArgs) Handles cmdLaunchGame.Click
         If File.Exists(OpenRCTEXEName) And File.Exists(OpenRCTDLLName) Then
             Dim Launch As New ProcessStartInfo
-            Launch.WorkingDirectory = ".\OpenRCT2"
-            Launch.FileName = "OpenRCT2.exe"
+            Launch.WorkingDirectory = ".\OpenRCT2"          'OpenRCT2's Executibles will be stored here, so we make this the working dir.
+            Launch.FileName = "OpenRCT2.exe"                'The EXE of course.
             If chkVerbose.Checked = True Then
-                Launch.Arguments = "--verbose"
+                Launch.Arguments = "--verbose"              'This will allow easier debugging for anyone using this Launcher.
                 Reg.SetValue("Verbose", "True", RegistryValueKind.String)
-            Else
+            Else                                            'It also saves the state so that the next time the launcher is run, it can put the check box back.
                 Reg.SetValue("Verbose", "False", RegistryValueKind.String)
             End If
             Process.Start(Launch)
             Close()
 
         Else
-            MsgBox("OpenRCT2 Not Installed or Not Found!")
-            'Code that does a force update
+            MsgBox("OpenRCT2 Not Installed or Not Found!, Downloading. When it is done, feel free to press play again.")
+            lblStatus.Text = "Updating due to Missing Files..."
+            Call DownloadUpdate()
         End If
     End Sub
 
     Private Sub DownloadUpdate()
+        cmdLaunchGame.Enabled = True
+        cmdForceUpdate.Enabled = True           'Added these because we may as well not keep calling them over and over.
         Dim Download = New Thread(AddressOf ActualDownload)
         Download.Start()
     End Sub
@@ -155,8 +158,6 @@ Public Class frmLauncher
     End Function
 
     Private Sub cmdForceUpdate_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
-        cmdForceUpdate.Enabled = False
-        cmdLaunchGame.Enabled = False
         lblStatus.Text = "Force Updating..."
         Call DownloadUpdate()
     End Sub
