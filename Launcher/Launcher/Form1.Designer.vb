@@ -29,6 +29,7 @@ Partial Class frmLauncher
         Me.cmdForceUpdate = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.chkVerbose = New System.Windows.Forms.CheckBox()
+        Me.cmdExtras = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -84,11 +85,21 @@ Partial Class frmLauncher
         Me.chkVerbose.Text = "Verbose Output"
         Me.chkVerbose.UseVisualStyleBackColor = True
         '
+        'cmdExtras
+        '
+        Me.cmdExtras.Location = New System.Drawing.Point(118, 212)
+        Me.cmdExtras.Name = "cmdExtras"
+        Me.cmdExtras.Size = New System.Drawing.Size(88, 37)
+        Me.cmdExtras.TabIndex = 5
+        Me.cmdExtras.Text = "Extra's"
+        Me.cmdExtras.UseVisualStyleBackColor = True
+        '
         'frmLauncher
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(484, 261)
+        Me.Controls.Add(Me.cmdExtras)
         Me.Controls.Add(Me.chkVerbose)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.cmdForceUpdate)
@@ -107,5 +118,6 @@ Partial Class frmLauncher
     Friend WithEvents cmdForceUpdate As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents chkVerbose As System.Windows.Forms.CheckBox
+    Friend WithEvents cmdExtras As System.Windows.Forms.Button
 
 End Class

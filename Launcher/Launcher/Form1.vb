@@ -162,4 +162,9 @@ Public Class frmLauncher
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
+
+    Private Sub cmdExtras_Click(sender As Object, e As EventArgs) Handles cmdExtras.Click
+        Extras.Show()
+
+    End Sub
 End Class
