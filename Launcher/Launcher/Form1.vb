@@ -8,7 +8,7 @@ Imports System.Text.RegularExpressions
 Public Class frmLauncher
 
 
-    Dim URL As String = "https://openrct2.com/download/latest" ' Need to replace with Download from Version Text
+    Dim URL As String = "https://openrct2.com/download/latest" ' Download link for UnOfficial 3rd party builds.
     Dim RemoteVer As String        'Will contain the version of OpenRCT2 from the server
     Dim LocalVer As String         'Will contain the version of OpenRCT2 on this computer
 
@@ -18,7 +18,7 @@ Public Class frmLauncher
     Dim OpenRCTEXEName As String = ".\OpenRCT2\openrct2.exe"   'So it's easy to change when/if it gets changed officially.
     Dim OpenRCTDLLName As String = ".\OpenRCT2\openrct2.dll"
 
-    Dim LauncherVersion As Integer = "1" 'The Version of the launcher, so we can update the launcher as well.
+    Dim LauncherVersion As Integer = "1" 'The Version of the launcher, so we can update the launcher as well. Need to write code.
 
     Dim Key As RegistryKey = Registry.CurrentUser.OpenSubKey("Software", True)
     Dim Reg As RegistryKey = Key.CreateSubKey("OpenRCT2Launcher")
@@ -27,10 +27,10 @@ Public Class frmLauncher
         Control.CheckForIllegalCrossThreadCalls = False
         Dim GetRemote = New Thread(AddressOf GetRemoteVer)
         Dim GetLocal = New Thread(AddressOf GetLocalVer)        'Threads for Update Checking.
-        Dim GetLauncher = New Thread(AddressOf LauncherUpdate)
+        'Dim GetLauncher = New Thread(AddressOf LauncherUpdate)
         GetRemote.Start()
         GetLocal.Start()
-        GetLauncher.Start()
+        'GetLauncher.Start()
         PictureBox1.Image = My.Resources.rollercoaster_tycoon_2_001
         If Reg.GetValue("Verbose") = "True" Then
             chkVerbose.Checked = True
@@ -73,6 +73,7 @@ Public Class frmLauncher
     End Sub
     Private Sub LauncherUpdate()
         'Really should add some updater here...
+        'For now, this will never be called, disabled above.
     End Sub
     Private Sub tmrCheckIfDone_Tick(sender As Object, e As EventArgs) Handles tmrCheckIfDone.Tick
         If LocalDone = True And RemoteDone = True Then
