@@ -1,2 +1,3 @@
 language: csharp
-solution: Launcher\Launcher.sln
+solution: Launcher.sln
+before_script: cd Launcher
