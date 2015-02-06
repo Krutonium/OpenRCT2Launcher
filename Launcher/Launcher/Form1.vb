@@ -44,8 +44,7 @@ Public Class frmLauncher
                 Dim WS As New WebClient
                 WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.html")
                 Dim HTML As String = File.ReadAllText(Path.GetTempPath & "OpenRCT2Update.html")
-                Dim Links As ArrayList = ParseLinks(HTML)
-                For Each link In Links
+                For Each link In ParseLinks(HTML)
                     If link Like "http://cdn.limetric.com/games/openrct2*.zip" Then
                         RemoteVer = link
                         Exit For
@@ -139,10 +138,9 @@ Public Class frmLauncher
         cmdForceUpdate.Enabled = True
     End Sub
 
-    Public Function ParseLinks(ByVal HTML As String) As ArrayList
+    Public Iterator Function ParseLinks(ByVal HTML As String) As IEnumerable(Of String)
         Dim objRegEx As Regex
         Dim objMatch As Match
-        Dim arrLinks As New System.Collections.ArrayList()
         ' Create regular expression
         objRegEx = New System.Text.RegularExpressions.Regex("a.*href\s*=\s*(?:""(?<1>[^""]*)""|(?<1>\S+))", System.Text.RegularExpressions.RegexOptions.IgnoreCase Or System.Text.RegularExpressions.RegexOptions.Compiled)
         ' Match expression to HTML
@@ -151,11 +149,9 @@ Public Class frmLauncher
         While objMatch.Success
             Dim strMatch As String
             strMatch = objMatch.Groups(1).ToString
-            arrLinks.Add(strMatch)
+            Yield strMatch
             objMatch = objMatch.NextMatch()
         End While
-        ' Pass back results
-        Return arrLinks
     End Function
 
     Private Sub cmdForceUpdate_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
