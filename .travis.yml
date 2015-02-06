@@ -1,3 +1,3 @@
 language: csharp
 solution: Launcher.sln
-before_script: cd Launcher
+before_install: cd Launcher
