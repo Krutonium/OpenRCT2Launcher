@@ -24,22 +24,33 @@ Partial Class Extras
     Private Sub InitializeComponent()
         Me.cmdCSS17 = New System.Windows.Forms.Button()
         Me.OFD1 = New System.Windows.Forms.OpenFileDialog()
+        Me.cmdCSS17File = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'cmdCSS17
         '
         Me.cmdCSS17.Location = New System.Drawing.Point(12, 12)
         Me.cmdCSS17.Name = "cmdCSS17"
-        Me.cmdCSS17.Size = New System.Drawing.Size(146, 29)
+        Me.cmdCSS17.Size = New System.Drawing.Size(146, 23)
         Me.cmdCSS17.TabIndex = 0
         Me.cmdCSS17.Text = "Add RCT 1 Title Music"
         Me.cmdCSS17.UseVisualStyleBackColor = True
+        '
+        'cmdCSS17File
+        '
+        Me.cmdCSS17File.Location = New System.Drawing.Point(164, 12)
+        Me.cmdCSS17File.Name = "cmdCSS17File"
+        Me.cmdCSS17File.Size = New System.Drawing.Size(165, 23)
+        Me.cmdCSS17File.TabIndex = 1
+        Me.cmdCSS17File.Text = "Add RCT1 Title Music from File"
+        Me.cmdCSS17File.UseVisualStyleBackColor = True
         '
         'Extras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(434, 211)
+        Me.Controls.Add(Me.cmdCSS17File)
         Me.Controls.Add(Me.cmdCSS17)
         Me.Name = "Extras"
         Me.Text = "Extras"
@@ -48,4 +59,5 @@ Partial Class Extras
     End Sub
     Friend WithEvents cmdCSS17 As System.Windows.Forms.Button
     Friend WithEvents OFD1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents cmdCSS17File As System.Windows.Forms.Button
 End Class

@@ -112,6 +112,8 @@ Public Class frmLauncher
         Else
             MsgBox("OpenRCT2 Not Installed or Not Found!, Downloading. When it is done, feel free to press play again.")
             lblStatus.Text = "Updating due to Missing Files..."
+            cmdLaunchGame.Enabled = False
+            cmdForceUpdate.Enabled = False
             Call DownloadUpdate()
         End If
     End Sub
