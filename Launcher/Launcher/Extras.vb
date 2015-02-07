@@ -14,6 +14,7 @@ Public Class Extras
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.WindowState = FormWindowState.Normal
         Me.MaximizeBox = False
+        Call SetupReg()
     End Sub
 
     Private Sub SetupReg()
