@@ -36,6 +36,9 @@ Public Class frmLauncher
             chkVerbose.Checked = True
         End If
         Me.Icon = My.Resources.cat_paw
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.WindowState = FormWindowState.Normal
+        Me.MaximizeBox = False
     End Sub
 
     Private Sub GetRemoteVer()
@@ -165,6 +168,5 @@ Public Class frmLauncher
 
     Private Sub cmdExtras_Click(sender As Object, e As EventArgs) Handles cmdExtras.Click
         Extras.Show()
-
     End Sub
 End Class
