@@ -59,9 +59,9 @@ Partial Class frmLauncher
         'cmdForceUpdate
         '
         Me.cmdForceUpdate.Enabled = False
-        Me.cmdForceUpdate.Location = New System.Drawing.Point(212, 212)
+        Me.cmdForceUpdate.Location = New System.Drawing.Point(246, 212)
         Me.cmdForceUpdate.Name = "cmdForceUpdate"
-        Me.cmdForceUpdate.Size = New System.Drawing.Size(127, 37)
+        Me.cmdForceUpdate.Size = New System.Drawing.Size(93, 37)
         Me.cmdForceUpdate.TabIndex = 2
         Me.cmdForceUpdate.Text = "Force Update"
         Me.cmdForceUpdate.UseVisualStyleBackColor = True
@@ -78,7 +78,7 @@ Partial Class frmLauncher
         'chkVerbose
         '
         Me.chkVerbose.AutoSize = True
-        Me.chkVerbose.Location = New System.Drawing.Point(12, 232)
+        Me.chkVerbose.Location = New System.Drawing.Point(12, 223)
         Me.chkVerbose.Name = "chkVerbose"
         Me.chkVerbose.Size = New System.Drawing.Size(100, 17)
         Me.chkVerbose.TabIndex = 4
@@ -87,9 +87,9 @@ Partial Class frmLauncher
         '
         'cmdExtras
         '
-        Me.cmdExtras.Location = New System.Drawing.Point(118, 212)
+        Me.cmdExtras.Location = New System.Drawing.Point(147, 212)
         Me.cmdExtras.Name = "cmdExtras"
-        Me.cmdExtras.Size = New System.Drawing.Size(88, 37)
+        Me.cmdExtras.Size = New System.Drawing.Size(93, 37)
         Me.cmdExtras.TabIndex = 5
         Me.cmdExtras.Text = "Extra's"
         Me.cmdExtras.UseVisualStyleBackColor = True
