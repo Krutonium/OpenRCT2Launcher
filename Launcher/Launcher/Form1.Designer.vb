@@ -30,6 +30,7 @@ Partial Class frmLauncher
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.chkVerbose = New System.Windows.Forms.CheckBox()
         Me.cmdExtras = New System.Windows.Forms.Button()
+        Me.chkLogToFile = New System.Windows.Forms.CheckBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -78,7 +79,7 @@ Partial Class frmLauncher
         'chkVerbose
         '
         Me.chkVerbose.AutoSize = True
-        Me.chkVerbose.Location = New System.Drawing.Point(12, 223)
+        Me.chkVerbose.Location = New System.Drawing.Point(12, 212)
         Me.chkVerbose.Name = "chkVerbose"
         Me.chkVerbose.Size = New System.Drawing.Size(100, 17)
         Me.chkVerbose.TabIndex = 4
@@ -94,11 +95,22 @@ Partial Class frmLauncher
         Me.cmdExtras.Text = "Extra's"
         Me.cmdExtras.UseVisualStyleBackColor = True
         '
+        'chkLogToFile
+        '
+        Me.chkLogToFile.AutoSize = True
+        Me.chkLogToFile.Location = New System.Drawing.Point(12, 235)
+        Me.chkLogToFile.Name = "chkLogToFile"
+        Me.chkLogToFile.Size = New System.Drawing.Size(110, 17)
+        Me.chkLogToFile.TabIndex = 6
+        Me.chkLogToFile.Text = "Log Output to File"
+        Me.chkLogToFile.UseVisualStyleBackColor = True
+        '
         'frmLauncher
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(484, 261)
+        Me.Controls.Add(Me.chkLogToFile)
         Me.Controls.Add(Me.cmdExtras)
         Me.Controls.Add(Me.chkVerbose)
         Me.Controls.Add(Me.PictureBox1)
@@ -119,5 +131,6 @@ Partial Class frmLauncher
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents chkVerbose As System.Windows.Forms.CheckBox
     Friend WithEvents cmdExtras As System.Windows.Forms.Button
+    Friend WithEvents chkLogToFile As System.Windows.Forms.CheckBox
 
 End Class

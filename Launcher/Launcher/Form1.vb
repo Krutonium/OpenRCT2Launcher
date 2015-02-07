@@ -7,7 +7,6 @@ Imports System.Text.RegularExpressions
 
 Public Class frmLauncher
 
-
     Dim URL As String = "https://openrct2.com/download/latest" ' Download link for UnOfficial 3rd party builds.
     Dim RemoteVer As String        'Will contain the version of OpenRCT2 from the server
     Dim LocalVer As String         'Will contain the version of OpenRCT2 on this computer
@@ -109,6 +108,10 @@ Public Class frmLauncher
             Else                                            'It also saves the state so that the next time the launcher is run, it can put the check box back.
                 Reg.SetValue("Verbose", "False", RegistryValueKind.String)
             End If
+            If chkLogToFile.Checked = True Then
+                Launch.Arguments = Launch.Arguments & " >C:\Users\Kenton\Desktop\Log.txt 2>&1"
+            End If
+            MsgBox(Launch.Arguments)
             Process.Start(Launch)
             Close()
 
@@ -173,5 +176,9 @@ Public Class frmLauncher
 
     Private Sub cmdExtras_Click(sender As Object, e As EventArgs) Handles cmdExtras.Click
         Extras.Show()
+    End Sub
+
+    Private Sub chkLogToFile_CheckedChanged(sender As Object, e As EventArgs) Handles chkLogToFile.CheckedChanged
+
     End Sub
 End Class

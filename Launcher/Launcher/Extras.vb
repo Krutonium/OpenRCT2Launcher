@@ -2,12 +2,12 @@
 Imports System.IO
 Public Class Extras
     'This Chunk here gets the Install Directories and CD Path's for RCT1 & 2.
-    Dim Key1 As RegistryKey = Registry.LocalMachine.OpenSubKey("Software\fish technology group\rollercoaster tycoon setup")
-    Dim RCT1CD As String = Key1.GetValue("SetupPath")   'Where RCT sees the CD as located
-    Dim RCT1 As String = Key1.GetValue("Path")          'Actual Install Location
-    Dim Key2 As RegistryKey = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
-    Dim RCT2CD As String = Key2.GetValue("SetupPath")   'Where RCT2 sees the CD as located
-    Dim RCT2 As String = Key2.GetValue("Path")          'Actual Install Location
+    Dim Key1 As RegistryKey
+    Dim RCT1CD As String
+    Dim RCT1 As String
+    Dim Key2 As RegistryKey
+    Dim RCT2CD As String
+    Dim RCT2 As String
     'End Chunk
     Private Sub Extras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = My.Resources.cat_paw
@@ -15,6 +15,23 @@ Public Class Extras
         Me.WindowState = FormWindowState.Normal
         Me.MaximizeBox = False
     End Sub
+
+    Private Sub SetupReg()
+        Try
+            Key1 = Registry.LocalMachine.OpenSubKey("Software\fish technology group\rollercoaster tycoon setup")
+            RCT1CD = Key1.GetValue("SetupPath")
+            RCT1 = Key1.GetValue("Path")
+            Key2 = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
+            RCT2CD = Key2.GetValue("SetupPath")   'Where RCT2 sees the CD as located
+            RCT2 = Key2.GetValue("Path")
+        Catch ex As Exception
+            MsgBox("Do you have Both RCT1 & RCT2 Installed? If you do, please open an issue on GitHub.")
+            cmdCSS17.Enabled = False
+            cmdCSS17File.Enabled = True
+            cmdDebug.Enabled = False
+        End Try
+    End Sub
+
 
     Private Sub cmdCSS17_Click(sender As Object, e As EventArgs) Handles cmdCSS17.Click
         MsgBox("If you are using a CD to run RollerCoaster Tycoon 1, Please insert it now.", MsgBoxStyle.Information, "Please Insert RCT 1 CD")
