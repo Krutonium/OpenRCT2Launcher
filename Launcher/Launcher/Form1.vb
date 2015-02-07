@@ -71,6 +71,9 @@ Public Class frmLauncher
         Catch ex As Exception
             'MsgBox(ex.ToString)
         End Try
+        If Directory.Exists(".\OpenRCT2") = False Then
+            LocalVer = 0
+        End If
         LocalDone = True
     End Sub
     Private Sub LauncherUpdate()
@@ -119,8 +122,8 @@ Public Class frmLauncher
     End Sub
 
     Private Sub DownloadUpdate()
-        cmdLaunchGame.Enabled = True
-        cmdForceUpdate.Enabled = True           'Added these because we may as well not keep calling them over and over.
+        cmdLaunchGame.Enabled = False
+        cmdForceUpdate.Enabled = False           'Added these because we may as well not keep calling them over and over.
         Dim Download = New Thread(AddressOf ActualDownload)
         Download.Start()
     End Sub
