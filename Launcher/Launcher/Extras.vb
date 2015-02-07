@@ -4,6 +4,9 @@ Public Class Extras
 
     Private Sub Extras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = My.Resources.cat_paw
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.WindowState = FormWindowState.Normal
+        Me.MaximizeBox = False
     End Sub
 
     Private Sub cmdCSS17_Click(sender As Object, e As EventArgs) Handles cmdCSS17.Click
