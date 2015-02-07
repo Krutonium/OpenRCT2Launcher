@@ -38,6 +38,8 @@ Public Class frmLauncher
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.WindowState = FormWindowState.Normal
         Me.MaximizeBox = False
+        chkLogToFile.Visible = False
+
     End Sub
 
     Private Sub GetRemoteVer()
@@ -111,7 +113,7 @@ Public Class frmLauncher
             If chkLogToFile.Checked = True Then
                 Launch.Arguments = Launch.Arguments & " >C:\Users\Kenton\Desktop\Log.txt 2>&1"
             End If
-            MsgBox(Launch.Arguments)
+            'MsgBox(Launch.Arguments)
             Process.Start(Launch)
             Close()
 
