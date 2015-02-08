@@ -7,6 +7,9 @@ Imports System.Text.RegularExpressions
 
 Public Class frmLauncher
 
+    Dim OpenRCT2Folder As String = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2"
+    Dim OpenRCT2Config As String = OpenRCT2Folder & "/config.ini"
+
     Dim URL As String = "https://openrct2.com/download/latest" ' Download link for UnOfficial 3rd party builds.
     Dim RemoteVer As String        'Will contain the version of OpenRCT2 from the server
     Dim LocalVer As String         'Will contain the version of OpenRCT2 on this computer
@@ -39,7 +42,20 @@ Public Class frmLauncher
         Me.WindowState = FormWindowState.Normal
         Me.MaximizeBox = False
         chkLogToFile.Visible = False
-
+        If Directory.Exists(OpenRCT2Folder) = False Then
+            Directory.CreateDirectory(OpenRCT2Folder)
+        End If
+        If File.Exists(OpenRCT2Config) = False Then
+            Try
+                Dim RCT2Reg = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
+                Dim InstalledDir As String = RCT2Reg.GetValue("Path")
+                File.WriteAllText(OpenRCT2Config, "[general]" & vbNewLine & _
+                                  "game_path = " & InstalledDir)
+            Catch ex As Exception
+                MsgBox("Have you installed and ran RCT2 at least once? If not, then please do so and try again.")
+                If File.Exists(OpenRCT2Config) Then File.Delete(OpenRCT2Config)
+            End Try
+        End If
     End Sub
 
     Private Sub GetRemoteVer()
