@@ -26,6 +26,7 @@ Partial Class Extras
         Me.OFD1 = New System.Windows.Forms.OpenFileDialog()
         Me.cmdCSS17File = New System.Windows.Forms.Button()
         Me.cmdDebug = New System.Windows.Forms.Button()
+        Me.cmdDropboxSync = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'cmdCSS17
@@ -55,11 +56,21 @@ Partial Class Extras
         Me.cmdDebug.Text = "Show File Locations (Debug)"
         Me.cmdDebug.UseVisualStyleBackColor = True
         '
+        'cmdDropboxSync
+        '
+        Me.cmdDropboxSync.Location = New System.Drawing.Point(12, 41)
+        Me.cmdDropboxSync.Name = "cmdDropboxSync"
+        Me.cmdDropboxSync.Size = New System.Drawing.Size(165, 23)
+        Me.cmdDropboxSync.TabIndex = 3
+        Me.cmdDropboxSync.Text = "Sync Saves to Dropbox"
+        Me.cmdDropboxSync.UseVisualStyleBackColor = True
+        '
         'Extras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(434, 211)
+        Me.Controls.Add(Me.cmdDropboxSync)
         Me.Controls.Add(Me.cmdDebug)
         Me.Controls.Add(Me.cmdCSS17File)
         Me.Controls.Add(Me.cmdCSS17)
@@ -72,4 +83,5 @@ Partial Class Extras
     Friend WithEvents OFD1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents cmdCSS17File As System.Windows.Forms.Button
     Friend WithEvents cmdDebug As System.Windows.Forms.Button
+    Friend WithEvents cmdDropboxSync As System.Windows.Forms.Button
 End Class

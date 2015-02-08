@@ -1,5 +1,7 @@
 ﻿Imports Microsoft.Win32
 Imports System.IO
+Imports System.Text
+
 Public Class Extras
     'This Chunk here gets the Install Directories and CD Path's for RCT1 & 2.
     Dim Key1 As RegistryKey
@@ -9,6 +11,8 @@ Public Class Extras
     Dim RCT2CD As String
     Dim RCT2 As String
     'End Chunk
+
+    Dim DropboxPath As String = GetDropBoxPath()
     Private Sub Extras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = My.Resources.cat_paw
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
@@ -79,5 +83,28 @@ Public Class Extras
                RCT1CD & vbNewLine & vbNewLine & _
                "RollerCoaster Tycoon 2: " & vbNewLine & RCT2 & vbNewLine & _
                RCT2CD)   'This Section is a Debug button - so I can find out a users path.
+    End Sub
+
+    Private Shared Function GetDropBoxPath() As String
+        Dim appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+        Dim dbPath = Path.Combine(appDataPath, "Dropbox\host.db")
+
+        If Not File.Exists(dbPath) Then
+            Return Nothing
+        End If
+
+        Dim lines = File.ReadAllLines(dbPath)
+        Dim dbBase64Text = Convert.FromBase64String(lines(1))
+        Dim folderPath = Encoding.UTF8.GetString(dbBase64Text)
+
+        Return folderPath
+    End Function
+
+    Private Sub cmdDropboxSync_Click(sender As Object, e As EventArgs) Handles cmdDropboxSync.Click
+        If DropboxPath = Nothing Then
+            MsgBox("Sorry, I don't think you have Dropbox Installed.")
+        Else
+            MsgBox(DropboxPath)
+        End If
     End Sub
 End Class
