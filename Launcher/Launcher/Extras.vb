@@ -82,7 +82,8 @@ Public Class Extras
         MsgBox("RollerCoaster Tycoon 1: " & vbNewLine & RCT1 & vbNewLine & _
                RCT1CD & vbNewLine & vbNewLine & _
                "RollerCoaster Tycoon 2: " & vbNewLine & RCT2 & vbNewLine & _
-               RCT2CD)   'This Section is a Debug button - so I can find out a users path.
+               RCT2CD & vbNewLine & vbNewLine & _
+               "Dropbox: " & vbNewLine & DropboxPath)   'This Section is a Debug button - so I can find out a users path.
     End Sub
 
     Private Shared Function GetDropBoxPath() As String
@@ -104,7 +105,32 @@ Public Class Extras
         If DropboxPath = Nothing Then
             MsgBox("Sorry, I don't think you have Dropbox Installed.")
         Else
-            MsgBox(DropboxPath)
+            Dim Response = (MsgBox("Are you sure you want to move your Saves to Dropbox?", MsgBoxStyle.YesNo, "Move Saves?"))
+            If Response = DialogResult.Yes Then
+                Dim SavePathOriginal As String = RCT2 & "\Saved Games"
+                Dim DropBoxSavePath As String = DropboxPath & "\OpenRCT2 Saves"
+                If Directory.Exists(DropBoxSavePath) = False Then
+                    Directory.CreateDirectory(DropBoxSavePath)
+                End If
+                Try
+                    For Each Save In Directory.EnumerateFiles(SavePathOriginal)
+                        File.Copy(Save, DropBoxSavePath & "/" & Path.GetFileName(Save), True)
+                    Next
+                    Directory.Delete(SavePathOriginal, True)
+                Catch ex As Exception
+                    'If there is no pre-existing files or the directory does not exist this will error out.
+                End Try
+
+                Dim CreateSymLink As New ProcessStartInfo
+                CreateSymLink.FileName = ("C:\Windows\System32\cmd.exe")
+                CreateSymLink.Arguments = ("/c mklink /J """ & SavePathOriginal & """ """ & DropBoxSavePath & """")
+                CreateSymLink.Verb = ("runas")
+                CreateSymLink.WorkingDirectory = ""
+                Process.Start(CreateSymLink)
+                MsgBox("Saves moved to Dropbox and Linked!", , "Saves Moved!")
+            ElseIf Response = DialogResult.No Then
+                'They answered no... so no.
+            End If
         End If
     End Sub
 End Class
