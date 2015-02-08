@@ -26,7 +26,7 @@ Public Class Extras
             RCT2CD = Key2.GetValue("SetupPath")   'Where RCT2 sees the CD as located
             RCT2 = Key2.GetValue("Path")
         Catch ex As Exception
-            MsgBox("Do you have Both RCT1 & RCT2 Installed? If you do, please open an issue on GitHub.")
+            MsgBox("The launcher could not find the registry keys. Do you have Both RCT1 & RCT2 Installed? If you do, please open an issue on GitHub.")
             cmdCSS17.Enabled = False
             cmdCSS17File.Enabled = True
             cmdDebug.Enabled = False
@@ -36,13 +36,20 @@ Public Class Extras
 
     Private Sub cmdCSS17_Click(sender As Object, e As EventArgs) Handles cmdCSS17.Click
         MsgBox("If you are using a CD to run RollerCoaster Tycoon 1, Please insert it now.", MsgBoxStyle.Information, "Please Insert RCT 1 CD")
+
+        Dim succes As Boolean = True
+
         Try
             FileCopy(RCT1CD & "/Data/CSS17.dat", RCT2 & "/Data/CSS50.dat")
         Catch ex As Exception
             MsgBox("Failed to copy file - Do you have the CD inserted and the game installed?" & vbNewLine & vbNewLine & "Exact Error:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "An Error has occured!")
+            succes = False
         End Try
 
-        MsgBox("Done! Assuming you saw no errors, your all good to go!", MsgBoxStyle.Information, "Complete")
+        If succes Then
+            MsgBox("Done! Assuming you saw no errors, you're all good to go!", MsgBoxStyle.Information, "Complete")
+        End If
+
     End Sub
 
     Private Sub cmdCSS17File_Click(sender As Object, e As EventArgs) Handles cmdCSS17File.Click
@@ -50,12 +57,21 @@ Public Class Extras
         OFD1.Filter = "RCT1 Theme Music|*.dat"
         MsgBox("The file you are looking for is CSS17.dat")
         OFD1.ShowDialog()
+
         If File.Exists(OFD1.FileName) Then
-            FileCopy(OFD1.FileName, RCT2 & "/Data/CSS50.dat")
+            Dim succes As Boolean = True
+            Try
+                FileCopy(OFD1.FileName, RCT2 & "/Data/CSS50.dat")
+            Catch ex As Exception
+                succes = False
+                MsgBox("Failed to copy file - Do you have the CD inserted and the game installed?" & vbNewLine & vbNewLine & "Exact Error:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "An Error has occured!")
+            End Try
+            If succes Then
+                MsgBox("Done! Assuming you saw no errors, you're all good to go!", MsgBoxStyle.Information, "Complete")
+            End If
         Else
             MsgBox("No File Selected.")
         End If
-        MsgBox("Done! Assuming you saw no errors, your all good to go!", MsgBoxStyle.Information, "Complete")
     End Sub
 
     Private Sub cmdDebug_Click(sender As Object, e As EventArgs) Handles cmdDebug.Click
