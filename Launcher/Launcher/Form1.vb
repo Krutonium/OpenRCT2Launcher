@@ -50,7 +50,8 @@ Public Class frmLauncher
                 Dim RCT2Reg = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
                 Dim InstalledDir As String = RCT2Reg.GetValue("Path")
                 File.WriteAllText(OpenRCT2Config, "[general]" & vbNewLine & _
-                                  "game_path = " & InstalledDir)
+                                  "game_path = " & InstalledDir & vbNewLine & _
+                                  "fullscreen_mode = borderless_fullscreen")
             Catch ex As Exception
                 MsgBox("Have you installed and ran RCT2 at least once? If not, then please do so and try again.")
                 If File.Exists(OpenRCT2Config) Then File.Delete(OpenRCT2Config)
