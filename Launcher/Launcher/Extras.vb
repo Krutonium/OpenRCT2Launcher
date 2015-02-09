@@ -33,7 +33,7 @@ Public Class Extras
             MsgBox("The launcher could not find the registry keys. Do you have Both RCT1 & RCT2 Installed? If you do, please open an issue on GitHub.")
             cmdCSS17.Enabled = False
             cmdCSS17File.Enabled = True
-            cmdDebug.Enabled = False
+            cmdDebug.Enabled = True
         End Try
     End Sub
 
@@ -116,11 +116,14 @@ Public Class Extras
                     For Each Save In Directory.EnumerateFiles(SavePathOriginal)
                         File.Copy(Save, DropBoxSavePath & "/" & Path.GetFileName(Save), True)
                     Next
-                    Directory.Delete(SavePathOriginal, True)
                 Catch ex As Exception
                     'If there is no pre-existing files or the directory does not exist this will error out.
                 End Try
+                Try
+                    Directory.Delete(SavePathOriginal, True)
+                Catch ex As Exception
 
+                End Try
                 Dim CreateSymLink As New ProcessStartInfo
                 CreateSymLink.FileName = ("C:\Windows\System32\cmd.exe")
                 CreateSymLink.Arguments = ("/c mklink /J """ & SavePathOriginal & """ """ & DropBoxSavePath & """")
@@ -130,6 +133,37 @@ Public Class Extras
                 MsgBox("Saves moved to Dropbox and Linked!", , "Saves Moved!")
             ElseIf Response = DialogResult.No Then
                 'They answered no... so no.
+            End If
+        End If
+    End Sub
+
+    Private Sub cmdSyncAnyFolder_Click(sender As Object, e As EventArgs) Handles cmdSyncAnyFolder.Click
+        Dim Result = MsgBox("Are you sure you want to move your saves to a new folder?", MsgBoxStyle.YesNo, "Are you sure?")
+        If Result = DialogResult.Yes Then
+            FBD.Description = ("Select where you want the saves to be stored.")
+            FBD.ShowDialog()
+            If Directory.Exists(FBD.SelectedPath) = True Then
+                Dim SavePathOriginal As String = RCT2 & "\Saved Games"
+                Try
+                    For Each Save In Directory.EnumerateFiles(SavePathOriginal)
+                        File.Copy(Save, FBD.SelectedPath & "/" & Path.GetFileName(Save), True)
+                    Next
+                Catch ex As Exception
+                    'Error's if folder doesn't exist/contain files.
+                End Try
+                Try
+                    Directory.Delete(SavePathOriginal, True)
+                Catch ex As Exception
+                End Try
+                Dim CreateSymLink As New ProcessStartInfo
+                CreateSymLink.FileName = ("C:\Windows\System32\cmd.exe")
+                CreateSymLink.Arguments = ("/c mklink /J """ & SavePathOriginal & """ """ & FBD.SelectedPath & """")
+                CreateSymLink.Verb = ("runas")
+                CreateSymLink.WorkingDirectory = ""
+                Process.Start(CreateSymLink)
+                MsgBox("Saves moved to Dropbox and Linked!", , "Saves Moved!")
+            Else
+                MsgBox("The folder you selected doesn't exist!")
             End If
         End If
     End Sub

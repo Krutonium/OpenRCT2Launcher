@@ -27,6 +27,8 @@ Partial Class Extras
         Me.cmdCSS17File = New System.Windows.Forms.Button()
         Me.cmdDebug = New System.Windows.Forms.Button()
         Me.cmdDropboxSync = New System.Windows.Forms.Button()
+        Me.cmdSyncAnyFolder = New System.Windows.Forms.Button()
+        Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
         Me.SuspendLayout()
         '
         'cmdCSS17
@@ -65,11 +67,21 @@ Partial Class Extras
         Me.cmdDropboxSync.Text = "Sync Saves to Dropbox"
         Me.cmdDropboxSync.UseVisualStyleBackColor = True
         '
+        'cmdSyncAnyFolder
+        '
+        Me.cmdSyncAnyFolder.Location = New System.Drawing.Point(183, 41)
+        Me.cmdSyncAnyFolder.Name = "cmdSyncAnyFolder"
+        Me.cmdSyncAnyFolder.Size = New System.Drawing.Size(165, 23)
+        Me.cmdSyncAnyFolder.TabIndex = 4
+        Me.cmdSyncAnyFolder.Text = "Sync Saves to Any Folder"
+        Me.cmdSyncAnyFolder.UseVisualStyleBackColor = True
+        '
         'Extras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(434, 211)
+        Me.Controls.Add(Me.cmdSyncAnyFolder)
         Me.Controls.Add(Me.cmdDropboxSync)
         Me.Controls.Add(Me.cmdDebug)
         Me.Controls.Add(Me.cmdCSS17File)
@@ -84,4 +96,6 @@ Partial Class Extras
     Friend WithEvents cmdCSS17File As System.Windows.Forms.Button
     Friend WithEvents cmdDebug As System.Windows.Forms.Button
     Friend WithEvents cmdDropboxSync As System.Windows.Forms.Button
+    Friend WithEvents cmdSyncAnyFolder As System.Windows.Forms.Button
+    Friend WithEvents FBD As System.Windows.Forms.FolderBrowserDialog
 End Class
