@@ -1,5 +1,9 @@
 version: 1.0.{build}
 configuration:
   - Release
+
 build:
   verbosity: normal
+
+artifacts:
+  - path: Launcher\Launcher\bin\Release
