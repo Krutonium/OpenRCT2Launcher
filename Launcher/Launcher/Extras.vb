@@ -30,7 +30,7 @@ Public Class Extras
             RCT2CD = Key2.GetValue("SetupPath")   'Where RCT2 sees the CD as located
             RCT2 = Key2.GetValue("Path")
         Catch ex As Exception
-            MsgBox("The launcher could not find the registry keys. Do you have Both RCT1 & RCT2 Installed? If you do, please open an issue on GitHub.")
+            MsgBox(My.Resources.strings.extras_registry_keys_not_found)
             cmdCSS17.Enabled = False
             cmdCSS17File.Enabled = True
             cmdDebug.Enabled = True
@@ -39,19 +39,19 @@ Public Class Extras
 
 
     Private Sub cmdCSS17_Click(sender As Object, e As EventArgs) Handles cmdCSS17.Click
-        MsgBox("If you are using a CD to run RollerCoaster Tycoon 1, Please insert it now.", MsgBoxStyle.Information, "Please Insert RCT 1 CD")
+        MsgBox(My.Resources.strings.extras_rct1_music_copy_insert_disk_text, MsgBoxStyle.Information, My.Resources.strings.extras_rct1_music_copy_insert_disk_title)
 
         Dim succes As Boolean = True
 
         Try
             FileCopy(RCT1CD & "/Data/CSS17.dat", RCT2 & "/Data/CSS50.dat")
         Catch ex As Exception
-            MsgBox("Failed to copy file - Do you have the CD inserted and the game installed?" & vbNewLine & vbNewLine & "Exact Error:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "An Error has occured!")
+            MsgBox(My.Resources.strings.extras_rct1_music_copy_failed_text & vbNewLine & vbNewLine & My.Resources.strings.extras_rct1_music_copy_exact_error & vbNewLine & ex.ToString, MsgBoxStyle.Critical, My.Resources.strings.extras_rct1_music_copy_failed_title)
             succes = False
         End Try
 
         If succes Then
-            MsgBox("Done! Assuming you saw no errors, you're all good to go!", MsgBoxStyle.Information, "Complete")
+            MsgBox(My.Resources.strings.extras_rct1_music_copy_succes_text, MsgBoxStyle.Information, My.Resources.strings.extras_rct1_music_copy_succes_title)
         End If
 
     End Sub
@@ -59,7 +59,7 @@ Public Class Extras
     Private Sub cmdCSS17File_Click(sender As Object, e As EventArgs) Handles cmdCSS17File.Click
 
         OFD1.Filter = "RCT1 Theme Music|*.dat"
-        MsgBox("The file you are looking for is CSS17.dat")
+        MsgBox(My.Resources.strings.extras_rct1_music_manual_copy_file_instrutions)
         OFD1.ShowDialog()
 
         If File.Exists(OFD1.FileName) Then
@@ -68,22 +68,23 @@ Public Class Extras
                 FileCopy(OFD1.FileName, RCT2 & "/Data/CSS50.dat")
             Catch ex As Exception
                 succes = False
-                MsgBox("Failed to copy file - Do you have the CD inserted and the game installed?" & vbNewLine & vbNewLine & "Exact Error:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "An Error has occured!")
+                MsgBox(My.Resources.strings.extras_rct1_music_copy_failed_text & vbNewLine & vbNewLine & My.Resources.strings.extras_rct1_music_copy_exact_error & vbNewLine & ex.ToString, MsgBoxStyle.Critical, My.Resources.strings.extras_rct1_music_copy_failed_title)
             End Try
             If succes Then
-                MsgBox("Done! Assuming you saw no errors, you're all good to go!", MsgBoxStyle.Information, "Complete")
+                MsgBox(My.Resources.strings.extras_rct1_music_copy_succes_text, MsgBoxStyle.Information, My.Resources.strings.extras_rct1_music_copy_succes_title
+                       )
             End If
         Else
-            MsgBox("No File Selected.")
+            MsgBox(My.Resources.strings.extras_rct1_music_manual_copy_no_file_selected)
         End If
     End Sub
 
     Private Sub cmdDebug_Click(sender As Object, e As EventArgs) Handles cmdDebug.Click
-        MsgBox("RollerCoaster Tycoon 1: " & vbNewLine & RCT1 & vbNewLine & _
+        MsgBox(My.Resources.strings.extras_debug_rct1 & vbNewLine & RCT1 & vbNewLine & _
                RCT1CD & vbNewLine & vbNewLine & _
-               "RollerCoaster Tycoon 2: " & vbNewLine & RCT2 & vbNewLine & _
+               My.Resources.strings.extras_rct1_music_copy_exact_error & vbNewLine & RCT2 & vbNewLine & _
                RCT2CD & vbNewLine & vbNewLine & _
-               "Dropbox: " & vbNewLine & DropboxPath)   'This Section is a Debug button - so I can find out a users path.
+               My.Resources.strings.extras_debug_dropbox & vbNewLine & DropboxPath)   'This Section is a Debug button - so I can find out a users path.
     End Sub
 
     Private Shared Function GetDropBoxPath() As String
@@ -103,9 +104,9 @@ Public Class Extras
 
     Private Sub cmdDropboxSync_Click(sender As Object, e As EventArgs) Handles cmdDropboxSync.Click
         If DropboxPath = Nothing Then
-            MsgBox("Sorry, I don't think you have Dropbox Installed.")
+            MsgBox(My.Resources.strings.extras_cloud_save_dropbox_not_installed)
         Else
-            Dim Response = (MsgBox("Are you sure you want to move your Saves to Dropbox?", MsgBoxStyle.YesNo, "Move Saves?"))
+            Dim Response = (MsgBox(My.Resources.strings.extras_cloud_save_dropbox_text, MsgBoxStyle.YesNo, My.Resources.strings.extras_cloud_save_dropbox_title))
             If Response = DialogResult.Yes Then
                 Dim SavePathOriginal As String = RCT2 & "\Saved Games"
                 Dim DropBoxSavePath As String = DropboxPath & "\OpenRCT2 Saves"
@@ -130,7 +131,7 @@ Public Class Extras
                 CreateSymLink.Verb = ("runas")
                 CreateSymLink.WorkingDirectory = ""
                 Process.Start(CreateSymLink)
-                MsgBox("Saves moved to Dropbox and Linked!", , "Saves Moved!")
+                MsgBox(My.Resources.strings.extras_cloud_save_dropbox_succes_text, , My.Resources.strings.extras_cloud_save_dropbox_succes_title)
             ElseIf Response = DialogResult.No Then
                 'They answered no... so no.
             End If
@@ -138,9 +139,9 @@ Public Class Extras
     End Sub
 
     Private Sub cmdSyncAnyFolder_Click(sender As Object, e As EventArgs) Handles cmdSyncAnyFolder.Click
-        Dim Result = MsgBox("Are you sure you want to move your saves to a new folder?", MsgBoxStyle.YesNo, "Are you sure?")
+        Dim Result = MsgBox(My.Resources.strings.extras_cloud_save_folder_text, MsgBoxStyle.YesNo, My.Resources.strings.extras_cloud_save_folder_title)
         If Result = DialogResult.Yes Then
-            FBD.Description = ("Select where you want the saves to be stored.")
+            FBD.Description = (My.Resources.strings.extras_cloud_save_folder_select)
             FBD.ShowDialog()
             If Directory.Exists(FBD.SelectedPath) = True Then
                 Dim SavePathOriginal As String = RCT2 & "\Saved Games"
@@ -161,9 +162,9 @@ Public Class Extras
                 CreateSymLink.Verb = ("runas")
                 CreateSymLink.WorkingDirectory = ""
                 Process.Start(CreateSymLink)
-                MsgBox("Saves moved to Dropbox and Linked!", , "Saves Moved!")
+                MsgBox(My.Resources.strings.extras_cloud_save_folder_succes_text, , My.Resources.strings.extras_cloud_save_folder_succes_title)
             Else
-                MsgBox("The folder you selected doesn't exist!")
+                MsgBox(My.Resources.strings.extras_cloud_save_folder_does_not_exist)
             End If
         End If
     End Sub

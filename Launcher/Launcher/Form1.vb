@@ -53,7 +53,7 @@ Public Class frmLauncher
                                   "game_path = " & InstalledDir & vbNewLine & _
                                   "fullscreen_mode = borderless_fullscreen")
             Catch ex As Exception
-                MsgBox("Have you installed and ran RCT2 at least once? If not, then please do so and try again.")
+                MsgBox(My.Resources.strings.main_have_you_installed_and_ran_rct2_at_least_once)
                 If File.Exists(OpenRCT2Config) Then File.Delete(OpenRCT2Config)
             End Try
         End If
@@ -107,10 +107,10 @@ Public Class frmLauncher
 
     Private Sub UpdateGUI()
         If RemoteVer <> LocalVer Then           'If the local and remote versions are not in sync, Update
-            lblStatus.Text = "Updating..."
+            lblStatus.Text = My.Resources.strings.main_updating
             Call DownloadUpdate()
         Else                                    'Otherwise we are up to date :D
-            lblStatus.Text = "Up to Date!"
+            lblStatus.Text = My.Resources.strings.main_up_to_date
             cmdLaunchGame.Enabled = True
             cmdForceUpdate.Enabled = True       'Enabling these Buttons :)
         End If
@@ -135,8 +135,8 @@ Public Class frmLauncher
             Close()
 
         Else
-            MsgBox("OpenRCT2 Not Installed or Not Found!, Downloading. When it is done, feel free to press play again.")
-            lblStatus.Text = "Updating due to Missing Files..."
+            MsgBox(My.Resources.strings.main_openrct2_not_installed_or_not_found)
+            lblStatus.Text = My.Resources.strings.main_updating_due_to_missing_files
             cmdLaunchGame.Enabled = False
             cmdForceUpdate.Enabled = False
             Call DownloadUpdate()
@@ -163,7 +163,7 @@ Public Class frmLauncher
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-        lblStatus.Text = "Up to Date!"
+        lblStatus.Text = My.Resources.strings.main_up_to_date
         cmdLaunchGame.Enabled = True
         cmdForceUpdate.Enabled = True
     End Sub
@@ -185,7 +185,7 @@ Public Class frmLauncher
     End Function
 
     Private Sub cmdForceUpdate_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
-        lblStatus.Text = "Force Updating..."
+        lblStatus.Text = My.Resources.strings.main_force_updating
         Call DownloadUpdate()
     End Sub
 

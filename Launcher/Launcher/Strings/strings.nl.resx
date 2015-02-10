@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="extras_cloud_save_dropbox_not_installed" xml:space="preserve">
+    <value>Sorry, ik geloof dat Dropbox niet geïnstalleerd is.</value>
+  </data>
+  <data name="extras_cloud_save_dropbox_succes_text" xml:space="preserve">
+    <value>Saves naar Dropbox verplaatst en gelinkt.</value>
+  </data>
+  <data name="extras_cloud_save_dropbox_succes_title" xml:space="preserve">
+    <value>Saves verplaatst!</value>
+  </data>
+  <data name="extras_cloud_save_dropbox_text" xml:space="preserve">
+    <value>Weet je zeker dat je je opslagbestanden naar Dropbox wilt verplaatsen?</value>
+  </data>
+  <data name="extras_cloud_save_dropbox_title" xml:space="preserve">
+    <value>Opslagbestanden verplaatsen?</value>
+  </data>
+  <data name="extras_cloud_save_folder_does_not_exist" xml:space="preserve">
+    <value>De geselecteerde map bestaat niet!</value>
+  </data>
+  <data name="extras_cloud_save_folder_select" xml:space="preserve">
+    <value>Kies waar je je opslagbestanden wilt bewaren.</value>
+  </data>
+  <data name="extras_cloud_save_folder_succes_text" xml:space="preserve">
+    <value>Opslagbestanden verplaatst en gelinkt.</value>
+  </data>
+  <data name="extras_cloud_save_folder_succes_title" xml:space="preserve">
+    <value>Opslagbestanden verplaatst!</value>
+  </data>
+  <data name="extras_cloud_save_folder_text" xml:space="preserve">
+    <value>Weet je zeker dat je je opslagbestanden naar een andere map wilt verplaatsen?</value>
+  </data>
+  <data name="extras_cloud_save_folder_title" xml:space="preserve">
+    <value>Weet je het zeker?</value>
+  </data>
+  <data name="extras_debug_dropbox" xml:space="preserve">
+    <value>Dropbox:</value>
+  </data>
+  <data name="extras_debug_rct1" xml:space="preserve">
+    <value>RollerCoaster Tycoon 1: </value>
+  </data>
+  <data name="extras_debug_rct2" xml:space="preserve">
+    <value>RollerCoaster Tycoon 2: </value>
+  </data>
+  <data name="extras_rct1_music_copy_exact_error" xml:space="preserve">
+    <value>Exacte fout:</value>
+  </data>
+  <data name="extras_rct1_music_copy_failed_text" xml:space="preserve">
+    <value>Bestand kopiëren mislukt - Heb je de cd ingevoerd en het spel geïnstalleerd?</value>
+  </data>
+  <data name="extras_rct1_music_copy_failed_title" xml:space="preserve">
+    <value>Er is een fout opgetreden!</value>
+  </data>
+  <data name="extras_rct1_music_copy_insert_disk_text" xml:space="preserve">
+    <value>Voer de cd nu in als je die gebruikt om RollerCoaster Tycoon 1 te draaien.</value>
+  </data>
+  <data name="extras_rct1_music_copy_insert_disk_title" xml:space="preserve">
+    <value>Voer de RCT1-cd in</value>
+  </data>
+  <data name="extras_rct1_music_copy_succes_text" xml:space="preserve">
+    <value>Klaar! Ervan uitgaande dat je geen fouten zag, is alles voor elkaar!</value>
+  </data>
+  <data name="extras_rct1_music_copy_succes_title" xml:space="preserve">
+    <value>Klaar!</value>
+  </data>
+  <data name="extras_rct1_music_manual_copy_file_instrutions" xml:space="preserve">
+    <value>Je zoekt naar het bestand CSS17.dat</value>
+  </data>
+  <data name="extras_rct1_music_manual_copy_no_file_selected" xml:space="preserve">
+    <value>Geen bestand geselecteerd.</value>
+  </data>
+  <data name="extras_registry_keys_not_found" xml:space="preserve">
+    <value>De launcher kon de registersleutels niet vinden. Heb je zowel RCT1 als RCT2 geïnstalleerd? Maak alsjeblieft een Issue aan op GitHub als dat het geval is.</value>
+  </data>
+  <data name="main_force_updating" xml:space="preserve">
+    <value>Geforceerd aan het bijwerken...</value>
+  </data>
+  <data name="main_have_you_installed_and_ran_rct2_at_least_once" xml:space="preserve">
+    <value>Heb je RCT2 geïnstalleerd en tenminste één keer geopend? Zo nee, doe dit alsjeblieft en probeer het opnieuw.</value>
+  </data>
+  <data name="main_openrct2_not_installed_or_not_found" xml:space="preserve">
+    <value>OpenRCT2 niet gevonden. Aan het downloaden. Druk op 'Speel OpenRCT2' als het installeren klaar is.</value>
+  </data>
+  <data name="main_updating" xml:space="preserve">
+    <value>Aan het bijwerken...</value>
+  </data>
+  <data name="main_updating_due_to_missing_files" xml:space="preserve">
+    <value>Aan het bijwerken wegens ontbrekende bestanden...</value>
+  </data>
+  <data name="main_up_to_date" xml:space="preserve">
+    <value>Up to date!</value>
+  </data>
+</root>

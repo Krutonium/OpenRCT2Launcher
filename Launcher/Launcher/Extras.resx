@@ -117,10 +117,165 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="OFD1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cmdDebug.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 176</value>
+  </data>
+  <data name="&gt;&gt;cmdCSS17File.Name" xml:space="preserve">
+    <value>cmdCSS17File</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;cmdDropboxSync.Name" xml:space="preserve">
+    <value>cmdDropboxSync</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cmdDropboxSync.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="cmdSyncAnyFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;cmdCSS17File.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cmdDebug.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdDropboxSync.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdDebug.Name" xml:space="preserve">
+    <value>cmdDebug</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Extras</value>
+  </data>
+  <data name="&gt;&gt;cmdCSS17.Name" xml:space="preserve">
+    <value>cmdCSS17</value>
+  </data>
+  <data name="&gt;&gt;OFD1.Name" xml:space="preserve">
+    <value>OFD1</value>
+  </data>
+  <data name="cmdCSS17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="cmdDebug.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 23</value>
+  </data>
+  <data name="&gt;&gt;cmdSyncAnyFolder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cmdCSS17File.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 23</value>
+  </data>
+  <data name="cmdCSS17File.Text" xml:space="preserve">
+    <value>Add RCT1 Title Music from File</value>
+  </data>
+  <data name="&gt;&gt;FBD.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>434, 211</value>
+  </data>
+  <data name="cmdDebug.Text" xml:space="preserve">
+    <value>Show File Locations (Debug)</value>
+  </data>
+  <data name="cmdDropboxSync.Text" xml:space="preserve">
+    <value>Sync Saves to Dropbox</value>
+  </data>
+  <data name="cmdCSS17File.Location" type="System.Drawing.Point, System.Drawing">
+    <value>218, 12</value>
+  </data>
+  <data name="&gt;&gt;cmdSyncAnyFolder.Name" xml:space="preserve">
+    <value>cmdSyncAnyFolder</value>
+  </data>
+  <data name="&gt;&gt;cmdCSS17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdSyncAnyFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdCSS17.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cmdSyncAnyFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 23</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdDropboxSync.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cmdDropboxSync.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 41</value>
+  </data>
+  <data name="&gt;&gt;FBD.Name" xml:space="preserve">
+    <value>FBD</value>
+  </data>
+  <data name="cmdSyncAnyFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>218, 41</value>
+  </data>
+  <data name="&gt;&gt;cmdCSS17.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cmdCSS17File.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="cmdCSS17.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="cmdDebug.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="cmdDropboxSync.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 23</value>
+  </data>
+  <data name="&gt;&gt;cmdSyncAnyFolder.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cmdCSS17File.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cmdCSS17.Text" xml:space="preserve">
+    <value>Add RCT 1 Title Music</value>
+  </data>
+  <data name="&gt;&gt;cmdDebug.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;OFD1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cmdSyncAnyFolder.Text" xml:space="preserve">
+    <value>Sync Saves to Any Folder</value>
+  </data>
+  <data name="&gt;&gt;cmdDebug.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cmdDropboxSync.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cmdCSS17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 23</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Extras</value>
+  </data>
+  <data name="&gt;&gt;cmdCSS17File.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>nl</value>
   </metadata>
   <metadata name="FBD.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>99, 17</value>
+  </metadata>
+  <metadata name="OFD1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
 </root>
