@@ -3,7 +3,7 @@ OpenRCT2 Launcher
 
 [![Join the chat at https://gitter.im/PFCKrutonium/OpenRCT2Launcher](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/PFCKrutonium/OpenRCT2Launcher?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Build Status](https://travis-ci.org/PFCKrutonium/OpenRCT2Launcher.svg?branch=master)](https://travis-ci.org/PFCKrutonium/OpenRCT2Launcher)
+[![Build status](https://ci.appveyor.com/api/projects/status/k0yrr9b169epvf3y?svg=true)](https://ci.appveyor.com/project/PFCKrutonium/openrct2launcher)
 
 An Open Source Launcher &amp; Updater for OpenRCT2:
 
