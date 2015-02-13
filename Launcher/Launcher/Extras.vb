@@ -2,7 +2,7 @@
 Imports System.IO
 Imports System.Text
 Imports System.Runtime.InteropServices
-
+Imports JunctionPoints
 
 Public Class Extras
     'This Chunk here gets the Install Directories and CD Path's for RCT1 & 2.
@@ -150,7 +150,12 @@ Public Class Extras
                 Catch ex As Exception
                 End Try
 
-                CreateSymbolicLink(SavePathOriginal, FBD.SelectedPath, SymbolicLink.Directory)
+                Try
+                    JunctionPoint.Create(SavePathOriginal, FBD.SelectedPath, True)
+                Catch ex As Exception
+                    'No NTFS filesystem, create normal symlink
+                    CreateSymbolicLink(SavePathOriginal, FBD.SelectedPath, SymbolicLink.Directory)
+                End Try
 
                 MsgBox("Saves moved to Dropbox and Linked!", , "Saves Moved!")
             Else
