@@ -71,6 +71,162 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Complete.
+        '''</summary>
+        Friend ReadOnly Property common_complete() As String
+            Get
+                Return ResourceManager.GetString("common_complete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to An Error has occured!.
+        '''</summary>
+        Friend ReadOnly Property common_errorOccurred() As String
+            Get
+                Return ResourceManager.GetString("common_errorOccurred", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Done! You&apos;re all good to go!.
+        '''</summary>
+        Friend ReadOnly Property extras_cdSoundtrack_done_text() As String
+            Get
+                Return ResourceManager.GetString("extras_cdSoundtrack_done_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Failed to copy file - Do you have the CD inserted and the game installed?
+        '''
+        '''Exact Error:
+        '''.
+        '''</summary>
+        Friend ReadOnly Property extras_cdSoundtrack_failed_text() As String
+            Get
+                Return ResourceManager.GetString("extras_cdSoundtrack_failed_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to If you are using a CD to run RollerCoaster Tycoon 1, Please insert it now..
+        '''</summary>
+        Friend ReadOnly Property extras_cdSoundtrack_firstWarning_text() As String
+            Get
+                Return ResourceManager.GetString("extras_cdSoundtrack_firstWarning_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Please Insert RCT 1 CD.
+        '''</summary>
+        Friend ReadOnly Property extras_cdSoundtrack_firstWarning_title() As String
+            Get
+                Return ResourceManager.GetString("extras_cdSoundtrack_firstWarning_title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to The file you are looking for is CSS17.dat.
+        '''</summary>
+        Friend ReadOnly Property extras_fileSoundtrack_hint() As String
+            Get
+                Return ResourceManager.GetString("extras_fileSoundtrack_hint", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to No file selected..
+        '''</summary>
+        Friend ReadOnly Property extras_fileSoundtrack_noFileSelected() As String
+            Get
+                Return ResourceManager.GetString("extras_fileSoundtrack_noFileSelected", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to The launcher could not find the registry keys. Do you have Both RCT1 &amp; RCT2 Installed? If you do, please open an issue on GitHub..
+        '''</summary>
+        Friend ReadOnly Property extras_setupReg_noRegisterKeys() As String
+            Get
+                Return ResourceManager.GetString("extras_setupReg_noRegisterKeys", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Are you sure you want to move your Saves to Dropbox?.
+        '''</summary>
+        Friend ReadOnly Property extras_syncDropbox_firstWarning_text() As String
+            Get
+                Return ResourceManager.GetString("extras_syncDropbox_firstWarning_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Move Saves?.
+        '''</summary>
+        Friend ReadOnly Property extras_syncDropbox_firstWarning_title() As String
+            Get
+                Return ResourceManager.GetString("extras_syncDropbox_firstWarning_title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Saves moved to Dropbox and Linked!.
+        '''</summary>
+        Friend ReadOnly Property extras_syncDropbox_moved_text() As String
+            Get
+                Return ResourceManager.GetString("extras_syncDropbox_moved_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Saves Moved!.
+        '''</summary>
+        Friend ReadOnly Property extras_syncDropbox_moved_title() As String
+            Get
+                Return ResourceManager.GetString("extras_syncDropbox_moved_title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Sorry, I don&apos;t think you have Dropbox Installed..
+        '''</summary>
+        Friend ReadOnly Property extras_syncDropbox_notInstalled() As String
+            Get
+                Return ResourceManager.GetString("extras_syncDropbox_notInstalled", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Extra&apos;s.
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_extrasButton_text() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_extrasButton_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Force Update.
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_forceUpdateButton_text() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_forceUpdateButton_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to OpenRCT2 not installed or not found! Downloading. When it is done, feel free to press play again..
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_launchGame_RCT2NotFound() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_launchGame_RCT2NotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Updating due to Missing Files....
         '''</summary>
         Friend ReadOnly Property frmLauncher_launchGame_updateMessage() As String
@@ -80,11 +236,83 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Launch OpenRCT2.
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_launchGameButton_text() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_launchGameButton_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Have you installed and ran RCT2 at least once? If not, then please do so and try again..
         '''</summary>
         Friend ReadOnly Property frmLauncher_Load_neverRun() As String
             Get
                 Return ResourceManager.GetString("frmLauncher_Load_neverRun", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Log Output to File.
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_logButton_text() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_logButton_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to OpenRCT2 Launcher.
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_title() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Force updating....
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_update_forceUpdate() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_update_forceUpdate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Updating....
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_updateStateMessage_updating() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_updateStateMessage_updating", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Up to Date!.
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_updateStateMessage_uptodate() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_updateStateMessage_uptodate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Checking if you are up to date....
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_updateStatus_baseText() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_updateStatus_baseText", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Verbose Output.
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_verboseOutputButton_text() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_verboseOutputButton_text", resourceCulture)
             End Get
         End Property
         

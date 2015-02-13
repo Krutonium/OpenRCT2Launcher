@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports Launcher.My.Resources
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class frmLauncher
     Inherits System.Windows.Forms.Form
 
@@ -45,7 +47,7 @@ Partial Class frmLauncher
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(158, 13)
         Me.lblStatus.TabIndex = 0
-        Me.lblStatus.Text = "Checking if you are up to date..."
+        Me.lblStatus.Text = frmLauncher_updateStatus_baseText
         '
         'cmdLaunchGame
         '
@@ -54,7 +56,7 @@ Partial Class frmLauncher
         Me.cmdLaunchGame.Name = "cmdLaunchGame"
         Me.cmdLaunchGame.Size = New System.Drawing.Size(127, 37)
         Me.cmdLaunchGame.TabIndex = 1
-        Me.cmdLaunchGame.Text = "Launch OpenRCT2"
+        Me.cmdLaunchGame.Text = frmLauncher_launchGameButton_text
         Me.cmdLaunchGame.UseVisualStyleBackColor = True
         '
         'cmdForceUpdate
@@ -64,7 +66,7 @@ Partial Class frmLauncher
         Me.cmdForceUpdate.Name = "cmdForceUpdate"
         Me.cmdForceUpdate.Size = New System.Drawing.Size(93, 37)
         Me.cmdForceUpdate.TabIndex = 2
-        Me.cmdForceUpdate.Text = "Force Update"
+        Me.cmdForceUpdate.Text = frmLauncher_forceUpdateButton_text
         Me.cmdForceUpdate.UseVisualStyleBackColor = True
         '
         'PictureBox1
@@ -83,7 +85,7 @@ Partial Class frmLauncher
         Me.chkVerbose.Name = "chkVerbose"
         Me.chkVerbose.Size = New System.Drawing.Size(100, 17)
         Me.chkVerbose.TabIndex = 4
-        Me.chkVerbose.Text = "Verbose Output"
+        Me.chkVerbose.Text = frmLauncher_verboseOutputButton_text
         Me.chkVerbose.UseVisualStyleBackColor = True
         '
         'cmdExtras
@@ -92,7 +94,7 @@ Partial Class frmLauncher
         Me.cmdExtras.Name = "cmdExtras"
         Me.cmdExtras.Size = New System.Drawing.Size(93, 37)
         Me.cmdExtras.TabIndex = 5
-        Me.cmdExtras.Text = "Extra's"
+        Me.cmdExtras.Text = frmLauncher_extrasButton_text
         Me.cmdExtras.UseVisualStyleBackColor = True
         '
         'chkLogToFile
@@ -102,7 +104,7 @@ Partial Class frmLauncher
         Me.chkLogToFile.Name = "chkLogToFile"
         Me.chkLogToFile.Size = New System.Drawing.Size(110, 17)
         Me.chkLogToFile.TabIndex = 6
-        Me.chkLogToFile.Text = "Log Output to File"
+        Me.chkLogToFile.Text = frmLauncher_logButton_text
         Me.chkLogToFile.UseVisualStyleBackColor = True
         '
         'frmLauncher
@@ -118,7 +120,7 @@ Partial Class frmLauncher
         Me.Controls.Add(Me.cmdLaunchGame)
         Me.Controls.Add(Me.lblStatus)
         Me.Name = "frmLauncher"
-        Me.Text = "OpenRCT2 Launcher"
+        Me.Text = frmLauncher_title
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

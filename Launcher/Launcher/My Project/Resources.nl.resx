@@ -123,4 +123,37 @@
   <data name="frmLauncher_Load_neverRun" xml:space="preserve">
     <value>Heb je RCT2 geïnstalleerd en gestart? Zo nee, doe dat en probeer het opnieuw</value>
   </data>
+  <data name="frmLauncher_launchGame_RCT2NotFound" xml:space="preserve">
+    <value>OpenRCT2 is niet geïnstalleerd of niet gevonden! Downloaden... Als het klaar is, druk weer op "Start".</value>
+  </data>
+  <data name="frmLauncher_update_forceUpdate" xml:space="preserve">
+    <value>Geforceerd updaten...</value>
+  </data>
+  <data name="frmLauncher_updateStateMessage_updating" xml:space="preserve">
+    <value>Updaten...</value>
+  </data>
+  <data name="frmLauncher_updateStateMessage_uptodate" xml:space="preserve">
+    <value>Bijgewerkt!</value>
+  </data>
+  <data name="frmLauncher_extrasButton_text" xml:space="preserve">
+    <value>Extra's</value>
+  </data>
+  <data name="frmLauncher_forceUpdateButton_text" xml:space="preserve">
+    <value>Forceer update</value>
+  </data>
+  <data name="frmLauncher_launchGameButton_text" xml:space="preserve">
+    <value>Start OpenRCT2</value>
+  </data>
+  <data name="frmLauncher_logButton_text" xml:space="preserve">
+    <value>Houd logs bij in bestand</value>
+  </data>
+  <data name="frmLauncher_title" xml:space="preserve">
+    <value>OpenRCT2 Launcher</value>
+  </data>
+  <data name="frmLauncher_updateStatus_baseText" xml:space="preserve">
+    <value>Controleren op updates....</value>
+  </data>
+  <data name="frmLauncher_verboseOutputButton_text" xml:space="preserve">
+    <value>Verbose Output</value>
+  </data>
 </root>

@@ -34,11 +34,11 @@ Public Class frmLauncher
         GetRemote.Start()
         GetLocal.Start()
         'GetLauncher.Start()
-        PictureBox1.Image = My.Resources.rollercoaster_tycoon_2_001
+        PictureBox1.Image = rollercoaster_tycoon_2_001
         If Reg.GetValue("Verbose") = "True" Then
             chkVerbose.Checked = True
         End If
-        Icon = My.Resources.cat_paw
+        Icon = cat_paw
         FormBorderStyle = Windows.Forms.FormBorderStyle.Fixed3D
         WindowState = FormWindowState.Normal
         MaximizeBox = False
@@ -108,10 +108,10 @@ Public Class frmLauncher
 
     Private Sub UpdateGUI()
         If RemoteVer <> LocalVer Then           'If the local and remote versions are not in sync, Update
-            lblStatus.Text = "Updating..."
+            lblStatus.Text = frmLauncher_updateStateMessage_updating
             Call DownloadUpdate()
         Else                                    'Otherwise we are up to date :D
-            lblStatus.Text = "Up to Date!"
+            lblStatus.Text = frmLauncher_updateStateMessage_uptodate
             cmdLaunchGame.Enabled = True
             cmdForceUpdate.Enabled = True       'Enabling these Buttons :)
         End If
@@ -136,7 +136,7 @@ Public Class frmLauncher
             Close()
 
         Else
-            MsgBox("OpenRCT2 Not Installed or Not Found!, Downloading. When it is done, feel free to press play again.")
+            MsgBox(frmLauncher_launchGame_RCT2NotFound)
             lblStatus.Text = frmLauncher_launchGame_updateMessage
             cmdLaunchGame.Enabled = False
             cmdForceUpdate.Enabled = False
@@ -164,7 +164,7 @@ Public Class frmLauncher
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-        lblStatus.Text = "Up to Date!"
+        lblStatus.Text = frmLauncher_updateStateMessage_uptodate
         cmdLaunchGame.Enabled = True
         cmdForceUpdate.Enabled = True
     End Sub
@@ -186,7 +186,7 @@ Public Class frmLauncher
     End Function
 
     Private Sub cmdForceUpdate_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
-        lblStatus.Text = "Force Updating..."
+        lblStatus.Text = frmLauncher_update_forceUpdate
         Call DownloadUpdate()
     End Sub
 
