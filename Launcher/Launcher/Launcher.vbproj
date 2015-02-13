@@ -185,6 +185,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JunctionPoints\JunctionPoints.csproj">
+      <Project>{c9076a7c-d890-45da-8cbe-80958d781af7}</Project>
+      <Name>JunctionPoints</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
     <PostBuildEvent>
