@@ -65,7 +65,7 @@ namespace JunctionPoints {
             GenericRead = 0x80000000,
             GenericWrite = 0x40000000,
             GenericExecute = 0x20000000,
-            GenericAll = 0x10000000,
+            GenericAll = 0x10000000
         }
 
         [Flags]
@@ -73,7 +73,7 @@ namespace JunctionPoints {
             None = 0x00000000,
             Read = 0x00000001,
             Write = 0x00000002,
-            Delete = 0x00000004,
+            Delete = 0x00000004
         }
 
         private enum ECreationDisposition : uint {
@@ -81,7 +81,7 @@ namespace JunctionPoints {
             CreateAlways = 2,
             OpenExisting = 3,
             OpenAlways = 4,
-            TruncateExisting = 5,
+            TruncateExisting = 5
         }
 
         [Flags]
