@@ -156,4 +156,81 @@
   <data name="frmLauncher_verboseOutputButton_text" xml:space="preserve">
     <value>Verbose Output</value>
   </data>
+  <data name="common_complete" xml:space="preserve">
+    <value>Voltooid</value>
+  </data>
+  <data name="common_errorOccurred" xml:space="preserve">
+    <value>Er ging iets fout!</value>
+  </data>
+  <data name="extras_anyFolderSync_done" xml:space="preserve">
+    <value>'Opgeslagen spellen'-map verplaatst en gekoppeld!</value>
+  </data>
+  <data name="extras_anyFolderSync_error_notexists" xml:space="preserve">
+    <value>De geselecteerde map bestaat niet!</value>
+  </data>
+  <data name="extras_anyFolderSync_fileDialog_desc" xml:space="preserve">
+    <value>Kies de plaats waar de spellen moeten worden opgeslagen</value>
+  </data>
+  <data name="extras_anyFolderSync_firstWarning_text" xml:space="preserve">
+    <value>Weet je zeker dat je je opgeslagen spellen wilt verplaatsen?</value>
+  </data>
+  <data name="extras_anyFolderSync_firstWarning_title" xml:space="preserve">
+    <value>Weet je het zeker?</value>
+  </data>
+  <data name="extras_cdSoundtrack_done_text" xml:space="preserve">
+    <value>Voltooid!</value>
+  </data>
+  <data name="extras_cdSoundtrack_failed_text" xml:space="preserve">
+    <value>Bestand kon niet worden gekopieerd. Heb je de CD ingevoerd en het spel geïnstalleerd?
+
+Exacte fout:</value>
+  </data>
+  <data name="extras_cdSoundtrack_firstWarning_text" xml:space="preserve">
+    <value>Als je een CD gebruikt om RCT1 te spelen, voer deze dan nu in</value>
+  </data>
+  <data name="extras_cdSoundtrack_firstWarning_title" xml:space="preserve">
+    <value>Voer RCT1 CD in</value>
+  </data>
+  <data name="extras_fileLocationsButton_text" xml:space="preserve">
+    <value>Toon bestandlocaties (debug)</value>
+  </data>
+  <data name="extras_fileSoundtrack_hint" xml:space="preserve">
+    <value>Het bestand wat je zoekt is CSS17.dat</value>
+  </data>
+  <data name="extras_fileSoundtrack_noFileSelected" xml:space="preserve">
+    <value>Geen bestand gekozen</value>
+  </data>
+  <data name="extras_rct1musicButton_text" xml:space="preserve">
+    <value>Voeg RCT1-startmuziek toe</value>
+  </data>
+  <data name="extras_rct1musicFileButton_text" xml:space="preserve">
+    <value>Voeg RCT1-startmuziek toe uit een bestand</value>
+  </data>
+  <data name="extras_setupReg_noRegisterKeys" xml:space="preserve">
+    <value>De launcher kon de registerwaarden niet vinden. Heb je RCT1 én RCT2 geïnstalleerd? Zo ja, open dan een issue op GitHub</value>
+  </data>
+  <data name="extras_syncDropbox_firstWarning_text" xml:space="preserve">
+    <value>Weet je zeker dat je je opgeslagen spellen wilt verplaatsen naar Dropbox?</value>
+  </data>
+  <data name="extras_syncDropbox_firstWarning_title" xml:space="preserve">
+    <value>Verplaats opgeslagen spellen?</value>
+  </data>
+  <data name="extras_syncDropbox_moved_text" xml:space="preserve">
+    <value>Opgeslagen spellen verplaatst naar Dropbox en gekoppeld!</value>
+  </data>
+  <data name="extras_syncDropbox_moved_title" xml:space="preserve">
+    <value>Opgeslagen spellen verplaatst!</value>
+  </data>
+  <data name="extras_syncDropbox_notInstalled" xml:space="preserve">
+    <value>Dropbox-installatie niet gevonden</value>
+  </data>
+  <data name="extras_syncSavesAnyFolderButton_text" xml:space="preserve">
+    <value>Verplaats opgeslagen spellen naar een map</value>
+  </data>
+  <data name="extras_syncSavesDropboxButton_text" xml:space="preserve">
+    <value>Verplaats opgeslagen spellen naar Dropbox</value>
+  </data>
+  <data name="extras_title" xml:space="preserve">
+    <value>Extra's</value>
+  </data>
 </root>

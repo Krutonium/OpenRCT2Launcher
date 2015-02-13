@@ -170,7 +170,7 @@
     <value>If you are using a CD to run RollerCoaster Tycoon 1, Please insert it now.</value>
   </data>
   <data name="extras_cdSoundtrack_firstWarning_title" xml:space="preserve">
-    <value>Please Insert RCT 1 CD</value>
+    <value>Please insert RCT 1 CD</value>
   </data>
   <data name="extras_cdSoundtrack_failed_text" xml:space="preserve">
     <value>Failed to copy file - Do you have the CD inserted and the game installed?
@@ -207,5 +207,38 @@ Exact Error:
   </data>
   <data name="extras_syncDropbox_moved_title" xml:space="preserve">
     <value>Saves Moved!</value>
+  </data>
+  <data name="extras_anyFolderSync_firstWarning_text" xml:space="preserve">
+    <value>Are you sure you want to move your saves to a new folder?</value>
+  </data>
+  <data name="extras_anyFolderSync_firstWarning_title" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="extras_anyFolderSync_fileDialog_desc" xml:space="preserve">
+    <value>Select where you want the saves to be stored.</value>
+  </data>
+  <data name="extras_anyFolderSync_done" xml:space="preserve">
+    <value>Saves moved to folder and Linked!</value>
+  </data>
+  <data name="extras_anyFolderSync_error_notexists" xml:space="preserve">
+    <value>The folder you selected doesn't exist!</value>
+  </data>
+  <data name="extras_rct1musicButton_text" xml:space="preserve">
+    <value>Add RCT 1 Title Music</value>
+  </data>
+  <data name="extras_rct1musicFileButton_text" xml:space="preserve">
+    <value>Add RCT1 Title Music from File</value>
+  </data>
+  <data name="extras_fileLocationsButton_text" xml:space="preserve">
+    <value>Show File Locations (Debug)</value>
+  </data>
+  <data name="extras_syncSavesDropboxButton_text" xml:space="preserve">
+    <value>Sync Saves to Dropbox</value>
+  </data>
+  <data name="extras_syncSavesAnyFolderButton_text" xml:space="preserve">
+    <value>Sync Saves to Any Folder</value>
+  </data>
+  <data name="extras_title" xml:space="preserve">
+    <value>Extras</value>
   </data>
 </root>

@@ -136,9 +136,9 @@ Public Class Extras
     End Sub
 
     Private Sub cmdSyncAnyFolder_Click(sender As Object, e As EventArgs) Handles cmdSyncAnyFolder.Click
-        Dim Result = MsgBox("Are you sure you want to move your saves to a new folder?", MsgBoxStyle.YesNo, "Are you sure?")
+        Dim Result = MsgBox(extras_anyFolderSync_firstWarning_text, MsgBoxStyle.YesNo, extras_anyFolderSync_firstWarning_title)
         If Result = DialogResult.Yes Then
-            FBD.Description = ("Select where you want the saves to be stored.")
+            FBD.Description = extras_anyFolderSync_fileDialog_desc
             FBD.ShowDialog()
             If Directory.Exists(FBD.SelectedPath) = True Then
                 Dim SavePathOriginal As String = RCT2 & "\Saved Games"
@@ -161,9 +161,9 @@ Public Class Extras
                     CreateSymbolicLink(SavePathOriginal, FBD.SelectedPath, SymbolicLink.Directory)
                 End Try
 
-                MsgBox("Saves moved to folder and Linked!", , extras_syncDropbox_moved_title)
+                MsgBox(extras_anyFolderSync_done, , extras_syncDropbox_moved_title)
             Else
-                MsgBox("The folder you selected doesn't exist!")
+                MsgBox(extras_anyFolderSync_error_notexists)
             End If
         End If
     End Sub

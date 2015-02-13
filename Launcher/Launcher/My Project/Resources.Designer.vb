@@ -89,6 +89,51 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Saves moved to folder and Linked!.
+        '''</summary>
+        Friend ReadOnly Property extras_anyFolderSync_done() As String
+            Get
+                Return ResourceManager.GetString("extras_anyFolderSync_done", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to The folder you selected doesn&apos;t exist!.
+        '''</summary>
+        Friend ReadOnly Property extras_anyFolderSync_error_notexists() As String
+            Get
+                Return ResourceManager.GetString("extras_anyFolderSync_error_notexists", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Select where you want the saves to be stored..
+        '''</summary>
+        Friend ReadOnly Property extras_anyFolderSync_fileDialog_desc() As String
+            Get
+                Return ResourceManager.GetString("extras_anyFolderSync_fileDialog_desc", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Are you sure you want to move your saves to a new folder?.
+        '''</summary>
+        Friend ReadOnly Property extras_anyFolderSync_firstWarning_text() As String
+            Get
+                Return ResourceManager.GetString("extras_anyFolderSync_firstWarning_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Are you sure?.
+        '''</summary>
+        Friend ReadOnly Property extras_anyFolderSync_firstWarning_title() As String
+            Get
+                Return ResourceManager.GetString("extras_anyFolderSync_firstWarning_title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Done! You&apos;re all good to go!.
         '''</summary>
         Friend ReadOnly Property extras_cdSoundtrack_done_text() As String
@@ -119,11 +164,20 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please Insert RCT 1 CD.
+        '''  Looks up a localized string similar to Please insert RCT 1 CD.
         '''</summary>
         Friend ReadOnly Property extras_cdSoundtrack_firstWarning_title() As String
             Get
                 Return ResourceManager.GetString("extras_cdSoundtrack_firstWarning_title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Show File Locations (Debug).
+        '''</summary>
+        Friend ReadOnly Property extras_fileLocationsButton_text() As String
+            Get
+                Return ResourceManager.GetString("extras_fileLocationsButton_text", resourceCulture)
             End Get
         End Property
         
@@ -142,6 +196,24 @@ Namespace My.Resources
         Friend ReadOnly Property extras_fileSoundtrack_noFileSelected() As String
             Get
                 Return ResourceManager.GetString("extras_fileSoundtrack_noFileSelected", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Add RCT 1 Title Music.
+        '''</summary>
+        Friend ReadOnly Property extras_rct1musicButton_text() As String
+            Get
+                Return ResourceManager.GetString("extras_rct1musicButton_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Add RCT1 Title Music from File.
+        '''</summary>
+        Friend ReadOnly Property extras_rct1musicFileButton_text() As String
+            Get
+                Return ResourceManager.GetString("extras_rct1musicFileButton_text", resourceCulture)
             End Get
         End Property
         
@@ -196,6 +268,33 @@ Namespace My.Resources
         Friend ReadOnly Property extras_syncDropbox_notInstalled() As String
             Get
                 Return ResourceManager.GetString("extras_syncDropbox_notInstalled", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Sync Saves to Any Folder.
+        '''</summary>
+        Friend ReadOnly Property extras_syncSavesAnyFolderButton_text() As String
+            Get
+                Return ResourceManager.GetString("extras_syncSavesAnyFolderButton_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Sync Saves to Dropbox.
+        '''</summary>
+        Friend ReadOnly Property extras_syncSavesDropboxButton_text() As String
+            Get
+                Return ResourceManager.GetString("extras_syncSavesDropboxButton_text", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Extras.
+        '''</summary>
+        Friend ReadOnly Property extras_title() As String
+            Get
+                Return ResourceManager.GetString("extras_title", resourceCulture)
             End Get
         End Property
         
