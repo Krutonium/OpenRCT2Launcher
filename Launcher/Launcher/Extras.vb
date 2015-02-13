@@ -1,6 +1,8 @@
 ﻿Imports Microsoft.Win32
 Imports System.IO
 Imports System.Text
+Imports System.Runtime.InteropServices
+Imports JunctionPoints
 
 Public Class Extras
     'This Chunk here gets the Install Directories and CD Path's for RCT1 & 2.
@@ -41,19 +43,14 @@ Public Class Extras
     Private Sub cmdCSS17_Click(sender As Object, e As EventArgs) Handles cmdCSS17.Click
         MsgBox("If you are using a CD to run RollerCoaster Tycoon 1, Please insert it now.", MsgBoxStyle.Information, "Please Insert RCT 1 CD")
 
-        Dim succes As Boolean = True
-
         Try
             FileCopy(RCT1CD & "/Data/CSS17.dat", RCT2 & "/Data/CSS50.dat")
         Catch ex As Exception
             MsgBox("Failed to copy file - Do you have the CD inserted and the game installed?" & vbNewLine & vbNewLine & "Exact Error:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "An Error has occured!")
-            succes = False
+            Return
         End Try
 
-        If succes Then
-            MsgBox("Done! Assuming you saw no errors, you're all good to go!", MsgBoxStyle.Information, "Complete")
-        End If
-
+        MsgBox("Done! You're all good to go!", MsgBoxStyle.Information, "Complete")
     End Sub
 
     Private Sub cmdCSS17File_Click(sender As Object, e As EventArgs) Handles cmdCSS17File.Click
@@ -63,18 +60,15 @@ Public Class Extras
         OFD1.ShowDialog()
 
         If File.Exists(OFD1.FileName) Then
-            Dim succes As Boolean = True
             Try
                 FileCopy(OFD1.FileName, RCT2 & "/Data/CSS50.dat")
             Catch ex As Exception
-                succes = False
                 MsgBox("Failed to copy file - Do you have the CD inserted and the game installed?" & vbNewLine & vbNewLine & "Exact Error:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "An Error has occured!")
+                Return
             End Try
-            If succes Then
-                MsgBox("Done! Assuming you saw no errors, you're all good to go!", MsgBoxStyle.Information, "Complete")
-            End If
+            MsgBox("Done! You're all good to go!", MsgBoxStyle.Information, "Complete")
         Else
-            MsgBox("No File Selected.")
+            MsgBox("No file selected.")
         End If
     End Sub
 
@@ -155,16 +149,28 @@ Public Class Extras
                     Directory.Delete(SavePathOriginal, True)
                 Catch ex As Exception
                 End Try
-                Dim CreateSymLink As New ProcessStartInfo
-                CreateSymLink.FileName = ("C:\Windows\System32\cmd.exe")
-                CreateSymLink.Arguments = ("/c mklink /J """ & SavePathOriginal & """ """ & FBD.SelectedPath & """")
-                CreateSymLink.Verb = ("runas")
-                CreateSymLink.WorkingDirectory = ""
-                Process.Start(CreateSymLink)
+
+                Try
+                    JunctionPoint.Create(SavePathOriginal, FBD.SelectedPath, True)
+                Catch ex As Exception
+                    'No NTFS filesystem, create normal symlink
+                    CreateSymbolicLink(SavePathOriginal, FBD.SelectedPath, SymbolicLink.Directory)
+                End Try
+
                 MsgBox("Saves moved to Dropbox and Linked!", , "Saves Moved!")
             Else
                 MsgBox("The folder you selected doesn't exist!")
             End If
         End If
     End Sub
+
+    <DllImport("kernel32.dll")> _
+    Private Shared Function CreateSymbolicLink(lpSymlinkName As String, lpTargetName As String, dwFlags As SymbolicLink) As Boolean
+    End Function
+
+    Enum SymbolicLink
+        File = 0
+        Directory = 1
+    End Enum
+
 End Class
