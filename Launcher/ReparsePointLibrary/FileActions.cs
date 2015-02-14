@@ -1,26 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HelperLibrary {
     public class FileActions {
-        public static void CopyDirectory(string sourcePath, string targetPath) {
-            if (!Directory.Exists(sourcePath)) return;
+        public static int CopyDirectory(string sourcePath, string targetPath) {
+            var doubles = 0;
+
+            if (!Directory.Exists(sourcePath)) return 0;
             if (!Directory.Exists(targetPath)) Directory.CreateDirectory(targetPath);
 
             foreach (var file in Directory.GetFiles(sourcePath)) {
                 var destination = Path.Combine(targetPath, Path.GetFileName(file));
-                File.Copy(file, destination);
+                try {
+                    File.Copy(file, destination);
+                } catch (Exception) {
+                    // File already exists at destination
+                    doubles++;
+                }
             }
 
             foreach (var dir in Directory.GetDirectories(sourcePath)) {
                 var destination = Path.Combine(targetPath, Path.GetFileName(dir));
-                CopyDirectory(dir, destination);
+                doubles += CopyDirectory(dir, destination);
             }
+
+            return doubles;
         }
 
         public static void ClearDirectory(string path) {
