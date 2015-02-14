@@ -15,6 +15,9 @@ Public Class Extras
     'End Chunk
 
     Dim DropboxPath As String = GetDropBoxPath()
+
+    Dim OpenRCT2Folder As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2"
+
     Private Sub Extras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = My.Resources.cat_paw
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
@@ -114,7 +117,18 @@ Public Class Extras
                     'If there is no pre-existing files or the directory does not exist this will error out.
                 End Try
                 Try
+                    For Each Save In Directory.EnumerateFiles(OpenRCT2Folder & "/save")
+                        File.Copy(Save, DropBoxSavePath & "/" & Path.GetFileName(Save), True)
+                    Next
+                Catch ex As Exception
+
+                End Try
+                Try
                     Directory.Delete(SavePathOriginal, True)
+                Catch ex As Exception
+                End Try
+                Try
+                    Directory.Delete(OpenRCT2Folder & "/save", True)
                 Catch ex As Exception
 
                 End Try
@@ -123,6 +137,8 @@ Public Class Extras
                 CreateSymLink.Arguments = ("/c mklink /J """ & SavePathOriginal & """ """ & DropBoxSavePath & """")
                 CreateSymLink.Verb = ("runas")
                 CreateSymLink.WorkingDirectory = ""
+                Process.Start(CreateSymLink)
+                CreateSymLink.Arguments = ("/c mklink /J """ & OpenRCT2Folder & "/save" & """ """ & DropBoxSavePath & """")
                 Process.Start(CreateSymLink)
                 MsgBox("Saves moved to Dropbox and Linked!", , "Saves Moved!")
             ElseIf Response = DialogResult.No Then

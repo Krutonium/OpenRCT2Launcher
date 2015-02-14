@@ -69,6 +69,8 @@ Public Class frmLauncher
                     If link Like "http://cdn.limetric.com/games/openrct2*.zip" Then
                         RemoteVer = link
                         Exit For
+                    Else
+                        RemoteVer = "NONE"
                     End If
                 Next
             Catch ex As Exception                           'because I want to grab the Download URL at the same time.
@@ -144,10 +146,15 @@ Public Class frmLauncher
     End Sub
 
     Private Sub DownloadUpdate()
-        cmdLaunchGame.Enabled = False
-        cmdForceUpdate.Enabled = False           'Added these because we may as well not keep calling them over and over.
-        Dim Download = New Thread(AddressOf ActualDownload)
-        Download.Start()
+        If RemoteVer = "NONE" Then
+            MsgBox("Your internet connection appears to be not working correctly, please re-start the Launcher.")
+        Else
+            cmdLaunchGame.Enabled = False
+            cmdForceUpdate.Enabled = False           'Added these because we may as well not keep calling them over and over.
+            Dim Download = New Thread(AddressOf ActualDownload)
+            Download.Start()
+        End If
+
     End Sub
 
     Private Sub ActualDownload()
