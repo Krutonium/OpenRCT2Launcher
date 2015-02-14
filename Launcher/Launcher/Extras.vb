@@ -1,8 +1,7 @@
 ﻿Imports Microsoft.Win32
 Imports System.IO
 Imports System.Text
-Imports System.Runtime.InteropServices
-Imports JunctionPoints
+Imports HelperLibrary
 Imports Launcher.My.Resources
 
 Public Class Extras
@@ -18,10 +17,10 @@ Public Class Extras
     ReadOnly _dropboxPath As String = GetDropBoxPath()
 
     Private Sub Extras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Icon = My.Resources.cat_paw
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.WindowState = FormWindowState.Normal
-        Me.MaximizeBox = False
+        Icon = cat_paw
+        FormBorderStyle = Windows.Forms.FormBorderStyle.Fixed3D
+        WindowState = FormWindowState.Normal
+        MaximizeBox = False
         Call SetupReg()
     End Sub
 
@@ -101,66 +100,29 @@ Public Class Extras
         If _dropboxPath = Nothing Then
             MsgBox(extras_syncDropbox_notInstalled)
         Else
-            Dim Response = (MsgBox(extras_syncDropbox_firstWarning_text, MsgBoxStyle.YesNo, extras_syncDropbox_firstWarning_title))
-            If Response = DialogResult.Yes Then
+            Dim response = (MsgBox(extras_syncDropbox_firstWarning_text, MsgBoxStyle.YesNo, extras_syncDropbox_firstWarning_title))
+            If response = DialogResult.Yes Then
                 Dim SavePathOriginal As String = RCT2 & "\Saved Games"
                 Dim DropBoxSavePath As String = _dropboxPath & "\OpenRCT2 Saves"
-                If Directory.Exists(DropBoxSavePath) = False Then
+                If Not Directory.Exists(DropBoxSavePath) Then
                     Directory.CreateDirectory(DropBoxSavePath)
                 End If
-                Try
-                    For Each Save In Directory.EnumerateFiles(SavePathOriginal)
-                        File.Copy(Save, DropBoxSavePath & "/" & Path.GetFileName(Save), True)
-                    Next
-                Catch ex As Exception
-                    'If there is no pre-existing files or the directory does not exist this will error out.
-                End Try
-                Try
-                    Directory.Delete(SavePathOriginal, True)
-                Catch ex As Exception
 
-                End Try
-
-                Try
-                    JunctionPoint.Create(SavePathOriginal, DropBoxSavePath, True)
-                Catch ex As Exception
-                    'No NTFS filesystem, create normal symlink
-                    CreateSymbolicLink(SavePathOriginal, DropBoxSavePath, SymbolicLink.Directory)
-                End Try
-
-                MsgBox(extras_syncDropbox_moved_text, , extras_syncDropbox_moved_title)
-            ElseIf Response = DialogResult.No Then
-                'They answered no... so no.
+                If CopyFilesToFolderAndLink(SavePathOriginal, DropBoxSavePath) Then
+                    MsgBox(extras_syncDropbox_moved_text, , extras_syncDropbox_moved_title)
+                End If
             End If
         End If
     End Sub
 
     Private Sub cmdSyncAnyFolder_Click(sender As Object, e As EventArgs) Handles cmdSyncAnyFolder.Click
-        Dim Result = MsgBox(extras_anyFolderSync_firstWarning_text, MsgBoxStyle.YesNo, extras_anyFolderSync_firstWarning_title)
-        If Result = DialogResult.Yes Then
+        Dim result = MsgBox(extras_anyFolderSync_firstWarning_text, MsgBoxStyle.YesNo, extras_anyFolderSync_firstWarning_title)
+        If result = DialogResult.Yes Then
             FBD.Description = extras_anyFolderSync_fileDialog_desc
             FBD.ShowDialog()
-            If Directory.Exists(FBD.SelectedPath) = True Then
-                Dim SavePathOriginal As String = RCT2 & "\Saved Games"
-                Try
-                    For Each Save In Directory.EnumerateFiles(SavePathOriginal)
-                        File.Copy(Save, FBD.SelectedPath & "/" & Path.GetFileName(Save), True)
-                    Next
-                Catch ex As Exception
-                    'Error's if folder doesn't exist/contain files.
-                End Try
-                Try
-                    Directory.Delete(SavePathOriginal, True)
-                Catch ex As Exception
-                End Try
+            Dim SavePathOriginal As String = RCT2 & "\Saved Games"
 
-                Try
-                    JunctionPoint.Create(SavePathOriginal, FBD.SelectedPath, True)
-                Catch ex As Exception
-                    'No NTFS filesystem, create normal symlink
-                    CreateSymbolicLink(SavePathOriginal, FBD.SelectedPath, SymbolicLink.Directory)
-                End Try
-
+            If CopyFilesToFolderAndLink(SavePathOriginal, FBD.SelectedPath) Then
                 MsgBox(extras_anyFolderSync_done, , extras_syncDropbox_moved_title)
             Else
                 MsgBox(extras_anyFolderSync_error_notexists)
@@ -168,13 +130,15 @@ Public Class Extras
         End If
     End Sub
 
-    <DllImport("kernel32.dll")> _
-    Private Shared Function CreateSymbolicLink(lpSymlinkName As String, lpTargetName As String, dwFlags As SymbolicLink) As Boolean
+    Private Shared Function CopyFilesToFolderAndLink(sourcePath As String, targetPath As String) As Boolean
+        If Not Directory.Exists(targetPath) Then
+            Return False
+        End If
+
+        FileActions.CopyDirectory(sourcePath, targetPath)
+
+        ReparsePoint.Create(sourcePath, targetPath, True, ReparsePoint.LinkType.DirectoryLink)
+
+        Return True
     End Function
-
-    Enum SymbolicLink
-        File = 0
-        Directory = 1
-    End Enum
-
 End Class
