@@ -51,6 +51,9 @@ namespace Tests {
             if (!Directory.Exists(FirstTargetPath)) {
                 Directory.CreateDirectory(FirstTargetPath);
             }
+            if (!Directory.Exists(SecondTargetPath)) {
+                Directory.CreateDirectory(SecondTargetPath);
+            }
             if (Directory.GetFiles(FirstTargetPath).Length + Directory.GetDirectories(FirstTargetPath).Length > 0) return;
 
             // Else, add a file
