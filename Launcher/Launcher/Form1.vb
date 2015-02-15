@@ -67,12 +67,16 @@ Public Class frmLauncher
                 WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.html")
                 Dim HTML As String = File.ReadAllText(Path.GetTempPath & "OpenRCT2Update.html")
                 For Each link In ParseLinks(HTML)
-                    If link Like "http://cdn.limetric.com/games/openrct2*.zip" Then
+                    If link.StartsWith("http://cdn.limetric.com/games/openrct2") And link.EndsWith(".zip") Then
                         RemoteVer = link
-                        Exit For
-                    Else
-                        RemoteVer = "NONE"
                     End If
+
+                    'If link Like "http://cdn.limetric.com/games/openrct2*.zip" Then
+                    'RemoteVer = link
+                    'Exit For
+                    'Else
+                    'RemoteVer = "NONE"
+                    'End If
                 Next
             Catch ex As Exception                           'because I want to grab the Download URL at the same time.
 
@@ -170,7 +174,10 @@ Public Class frmLauncher
             File.Delete("./update.zip")
             Reg.SetValue("LocalVer", RemoteVer)
         Catch ex As Exception
-            'MsgBox(ex.ToString)   'Disabled to hide error that occurs when remote host does not respond.
+            MsgBox(ex.ToString)
+            'MsgBox(RemoteVer)
+            'MsgBox(LocalVer)
+            'MsgBox(Directory.EnumerateDirectories("./"))
         End Try
         lblStatus.Text = frmLauncher_updateStateMessage_uptodate
         cmdLaunchGame.Enabled = True
