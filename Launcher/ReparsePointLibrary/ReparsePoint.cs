@@ -39,6 +39,12 @@ namespace HelperLibrary {
                         !Enum.TryParse(parameters[CreateLinkTypeArgumentTitle], out type)) {
                             return;
                     }
+                    var linkPath = parameters[CreateLinkPathArgumentTitle];
+
+                    if(Directory.Exists(linkPath))
+                        Directory.Delete(linkPath, true);
+                    else if(File.Exists(linkPath))
+                        File.Delete(linkPath);
 
                     var success = CreateSymbolicLink(parameters[CreateLinkPathArgumentTitle], parameters[CreateDestinationArgumentTitle], type);
                     if (!success) {
@@ -123,12 +129,10 @@ namespace HelperLibrary {
                 if (!overrideExisting) {
                     throw new TargetAlreadyExistsException("Directory already exists");
                 }
-                Directory.Delete(linkPath, true);
             } else if (type == LinkType.FileLink && File.Exists(linkPath)) {
                 if (!overrideExisting) {
                     throw new TargetAlreadyExistsException("File already exists");
                 }
-                File.Delete(linkPath);
             }
 
             // Start process with privileges

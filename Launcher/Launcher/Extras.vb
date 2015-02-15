@@ -123,7 +123,7 @@ Public Class Extras
             FBD.ShowDialog()
             Dim SavePathOriginal As String = RCT2 & "\Saved Games"
 
-            If CopyFilesToFolderAndLink(SavePathOriginal, FBD.SelectedPath) And CopyFilesToFolderAndLink(_openRCT2Folder & "\save", FBD.SelectedPath) Then
+            If CopyFilesToFolderAndLink(SavePathOriginal, FBD.SelectedPath) And CopyFilesToFolderAndLink(_openRCT2Folder & "", FBD.SelectedPath) Then
                 MsgBox(extras_anyFolderSync_done, , extras_syncDropbox_moved_title)
             Else
                 MsgBox(extras_anyFolderSync_error_notexists)
