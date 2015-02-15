@@ -138,6 +138,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.nl.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -185,10 +186,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\JunctionPoints\JunctionPoints.csproj">
-      <Project>{c9076a7c-d890-45da-8cbe-80958d781af7}</Project>
-      <Name>JunctionPoints</Name>
+    <ProjectReference Include="..\ReparsePointLibrary\HelperLibrary.csproj">
+      <Project>{e84d866b-4176-4444-a2ab-ce820001ae4a}</Project>
+      <Name>HelperLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

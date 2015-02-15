@@ -1,8 +1,8 @@
 ﻿Imports Microsoft.Win32
 Imports System.IO
 Imports System.Text
-Imports System.Runtime.InteropServices
-Imports JunctionPoints
+Imports HelperLibrary
+Imports Launcher.My.Resources
 
 Public Class Extras
     'This Chunk here gets the Install Directories and CD Path's for RCT1 & 2.
@@ -14,15 +14,14 @@ Public Class Extras
     Dim RCT2 As String
     'End Chunk
 
-    Dim DropboxPath As String = GetDropBoxPath()
-
-    Dim OpenRCT2Folder As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2"
+    ReadOnly _dropboxPath As String = GetDropBoxPath()
+    ReadOnly _openRCT2Folder As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2"
 
     Private Sub Extras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Icon = My.Resources.cat_paw
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.WindowState = FormWindowState.Normal
-        Me.MaximizeBox = False
+        Icon = cat_paw
+        FormBorderStyle = Windows.Forms.FormBorderStyle.Fixed3D
+        WindowState = FormWindowState.Normal
+        MaximizeBox = False
         Call SetupReg()
     End Sub
 
@@ -35,7 +34,7 @@ Public Class Extras
             RCT2CD = Key2.GetValue("SetupPath")   'Where RCT2 sees the CD as located
             RCT2 = Key2.GetValue("Path")
         Catch ex As Exception
-            MsgBox("The launcher could not find the registry keys. Do you have Both RCT1 & RCT2 Installed? If you do, please open an issue on GitHub.")
+            MsgBox(extras_setupReg_noRegisterKeys)
             cmdCSS17.Enabled = False
             cmdCSS17File.Enabled = True
             cmdDebug.Enabled = True
@@ -44,34 +43,34 @@ Public Class Extras
 
 
     Private Sub cmdCSS17_Click(sender As Object, e As EventArgs) Handles cmdCSS17.Click
-        MsgBox("If you are using a CD to run RollerCoaster Tycoon 1, Please insert it now.", MsgBoxStyle.Information, "Please Insert RCT 1 CD")
+        MsgBox(extras_cdSoundtrack_firstWarning_text, MsgBoxStyle.Information, extras_cdSoundtrack_firstWarning_title)
 
         Try
             FileCopy(RCT1CD & "/Data/CSS17.dat", RCT2 & "/Data/CSS50.dat")
         Catch ex As Exception
-            MsgBox("Failed to copy file - Do you have the CD inserted and the game installed?" & vbNewLine & vbNewLine & "Exact Error:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "An Error has occured!")
+            MsgBox(extras_cdSoundtrack_failed_text & ex.ToString, MsgBoxStyle.Critical, common_errorOccurred)
             Return
         End Try
 
-        MsgBox("Done! You're all good to go!", MsgBoxStyle.Information, "Complete")
+        MsgBox(extras_cdSoundtrack_done_text, MsgBoxStyle.Information, common_complete)
     End Sub
 
     Private Sub cmdCSS17File_Click(sender As Object, e As EventArgs) Handles cmdCSS17File.Click
 
         OFD1.Filter = "RCT1 Theme Music|*.dat"
-        MsgBox("The file you are looking for is CSS17.dat")
+        MsgBox(extras_fileSoundtrack_hint)
         OFD1.ShowDialog()
 
         If File.Exists(OFD1.FileName) Then
             Try
                 FileCopy(OFD1.FileName, RCT2 & "/Data/CSS50.dat")
             Catch ex As Exception
-                MsgBox("Failed to copy file - Do you have the CD inserted and the game installed?" & vbNewLine & vbNewLine & "Exact Error:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "An Error has occured!")
+                MsgBox(extras_cdSoundtrack_failed_text & ex.ToString, MsgBoxStyle.Critical, common_errorOccurred)
                 Return
             End Try
-            MsgBox("Done! You're all good to go!", MsgBoxStyle.Information, "Complete")
+            MsgBox(extras_cdSoundtrack_done_text, MsgBoxStyle.Information, common_complete)
         Else
-            MsgBox("No file selected.")
+            MsgBox(extras_fileSoundtrack_noFileSelected)
         End If
     End Sub
 
@@ -80,7 +79,7 @@ Public Class Extras
                RCT1CD & vbNewLine & vbNewLine & _
                "RollerCoaster Tycoon 2: " & vbNewLine & RCT2 & vbNewLine & _
                RCT2CD & vbNewLine & vbNewLine & _
-               "Dropbox: " & vbNewLine & DropboxPath)   'This Section is a Debug button - so I can find out a users path.
+               "Dropbox: " & vbNewLine & _dropboxPath)   'This Section is a Debug button - so I can find out a users path.
     End Sub
 
     Private Shared Function GetDropBoxPath() As String
@@ -99,94 +98,48 @@ Public Class Extras
     End Function
 
     Private Sub cmdDropboxSync_Click(sender As Object, e As EventArgs) Handles cmdDropboxSync.Click
-        If DropboxPath = Nothing Then
-            MsgBox("Sorry, I don't think you have Dropbox Installed.")
+        If _dropboxPath = Nothing Then
+            MsgBox(extras_syncDropbox_notInstalled)
         Else
-            Dim Response = (MsgBox("Are you sure you want to move your Saves to Dropbox?", MsgBoxStyle.YesNo, "Move Saves?"))
-            If Response = DialogResult.Yes Then
+            Dim response = (MsgBox(extras_syncDropbox_firstWarning_text, MsgBoxStyle.YesNo, extras_syncDropbox_firstWarning_title))
+            If response = DialogResult.Yes Then
                 Dim SavePathOriginal As String = RCT2 & "\Saved Games"
-                Dim DropBoxSavePath As String = DropboxPath & "\OpenRCT2 Saves"
-                If Directory.Exists(DropBoxSavePath) = False Then
+                Dim DropBoxSavePath As String = _dropboxPath & "\OpenRCT2 Saves"
+                If Not Directory.Exists(DropBoxSavePath) Then
                     Directory.CreateDirectory(DropBoxSavePath)
                 End If
-                Try
-                    For Each Save In Directory.EnumerateFiles(SavePathOriginal)
-                        File.Copy(Save, DropBoxSavePath & "/" & Path.GetFileName(Save), True)
-                    Next
-                Catch ex As Exception
-                    'If there is no pre-existing files or the directory does not exist this will error out.
-                End Try
-                Try
-                    For Each Save In Directory.EnumerateFiles(OpenRCT2Folder & "/save")
-                        File.Copy(Save, DropBoxSavePath & "/" & Path.GetFileName(Save), True)
-                    Next
-                Catch ex As Exception
 
-                End Try
-                Try
-                    Directory.Delete(SavePathOriginal, True)
-                Catch ex As Exception
-                End Try
-                Try
-                    Directory.Delete(OpenRCT2Folder & "/save", True)
-                Catch ex As Exception
-
-                End Try
-                Dim CreateSymLink As New ProcessStartInfo
-                CreateSymLink.FileName = ("C:\Windows\System32\cmd.exe")
-                CreateSymLink.Arguments = ("/c mklink /J """ & SavePathOriginal & """ """ & DropBoxSavePath & """")
-                CreateSymLink.Verb = ("runas")
-                CreateSymLink.WorkingDirectory = ""
-                Process.Start(CreateSymLink)
-                CreateSymLink.Arguments = ("/c mklink /J """ & OpenRCT2Folder & "/save" & """ """ & DropBoxSavePath & """")
-                Process.Start(CreateSymLink)
-                MsgBox("Saves moved to Dropbox and Linked!", , "Saves Moved!")
-            ElseIf Response = DialogResult.No Then
-                'They answered no... so no.
+                If CopyFilesToFolderAndLink(SavePathOriginal, DropBoxSavePath) And CopyFilesToFolderAndLink(_openRCT2Folder & "\save", DropBoxSavePath) Then
+                    MsgBox(extras_syncDropbox_moved_text, , extras_syncDropbox_moved_title)
+                End If
             End If
         End If
     End Sub
 
     Private Sub cmdSyncAnyFolder_Click(sender As Object, e As EventArgs) Handles cmdSyncAnyFolder.Click
-        Dim Result = MsgBox("Are you sure you want to move your saves to a new folder?", MsgBoxStyle.YesNo, "Are you sure?")
-        If Result = DialogResult.Yes Then
-            FBD.Description = ("Select where you want the saves to be stored.")
+        Dim result = MsgBox(extras_anyFolderSync_firstWarning_text, MsgBoxStyle.YesNo, extras_anyFolderSync_firstWarning_title)
+        If result = DialogResult.Yes Then
+            FBD.Description = extras_anyFolderSync_fileDialog_desc
             FBD.ShowDialog()
-            If Directory.Exists(FBD.SelectedPath) = True Then
-                Dim SavePathOriginal As String = RCT2 & "\Saved Games"
-                Try
-                    For Each Save In Directory.EnumerateFiles(SavePathOriginal)
-                        File.Copy(Save, FBD.SelectedPath & "/" & Path.GetFileName(Save), True)
-                    Next
-                Catch ex As Exception
-                    'Error's if folder doesn't exist/contain files.
-                End Try
-                Try
-                    Directory.Delete(SavePathOriginal, True)
-                Catch ex As Exception
-                End Try
+            Dim SavePathOriginal As String = RCT2 & "\Saved Games"
 
-                Try
-                    JunctionPoint.Create(SavePathOriginal, FBD.SelectedPath, True)
-                Catch ex As Exception
-                    'No NTFS filesystem, create normal symlink
-                    CreateSymbolicLink(SavePathOriginal, FBD.SelectedPath, SymbolicLink.Directory)
-                End Try
-
-                MsgBox("Saves moved to Dropbox and Linked!", , "Saves Moved!")
+            If CopyFilesToFolderAndLink(SavePathOriginal, FBD.SelectedPath) And CopyFilesToFolderAndLink(_openRCT2Folder & "\save", FBD.SelectedPath) Then
+                MsgBox(extras_anyFolderSync_done, , extras_syncDropbox_moved_title)
             Else
-                MsgBox("The folder you selected doesn't exist!")
+                MsgBox(extras_anyFolderSync_error_notexists)
             End If
         End If
     End Sub
 
-    <DllImport("kernel32.dll")> _
-    Private Shared Function CreateSymbolicLink(lpSymlinkName As String, lpTargetName As String, dwFlags As SymbolicLink) As Boolean
+    Private Shared Function CopyFilesToFolderAndLink(sourcePath As String, targetPath As String) As Boolean
+        If Not Directory.Exists(targetPath) Then
+            Return False
+        End If
+
+        FileActions.CopyDirectory(sourcePath, targetPath)
+
+        ReparsePoint.Create(sourcePath, targetPath, True, ReparsePoint.LinkType.DirectoryLink)
+
+        Return True
     End Function
-
-    Enum SymbolicLink
-        File = 0
-        Directory = 1
-    End Enum
-
 End Class

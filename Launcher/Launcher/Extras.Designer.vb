@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports Launcher.My.Resources
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Extras
     Inherits System.Windows.Forms.Form
 
@@ -37,7 +39,7 @@ Partial Class Extras
         Me.cmdCSS17.Name = "cmdCSS17"
         Me.cmdCSS17.Size = New System.Drawing.Size(165, 23)
         Me.cmdCSS17.TabIndex = 0
-        Me.cmdCSS17.Text = "Add RCT 1 Title Music"
+        Me.cmdCSS17.Text = extras_rct1musicButton_text
         Me.cmdCSS17.UseVisualStyleBackColor = True
         '
         'cmdCSS17File
@@ -46,7 +48,7 @@ Partial Class Extras
         Me.cmdCSS17File.Name = "cmdCSS17File"
         Me.cmdCSS17File.Size = New System.Drawing.Size(165, 23)
         Me.cmdCSS17File.TabIndex = 1
-        Me.cmdCSS17File.Text = "Add RCT1 Title Music from File"
+        Me.cmdCSS17File.Text = extras_rct1musicFileButton_text
         Me.cmdCSS17File.UseVisualStyleBackColor = True
         '
         'cmdDebug
@@ -55,7 +57,7 @@ Partial Class Extras
         Me.cmdDebug.Name = "cmdDebug"
         Me.cmdDebug.Size = New System.Drawing.Size(165, 23)
         Me.cmdDebug.TabIndex = 2
-        Me.cmdDebug.Text = "Show File Locations (Debug)"
+        Me.cmdDebug.Text = extras_fileLocationsButton_text
         Me.cmdDebug.UseVisualStyleBackColor = True
         '
         'cmdDropboxSync
@@ -64,7 +66,7 @@ Partial Class Extras
         Me.cmdDropboxSync.Name = "cmdDropboxSync"
         Me.cmdDropboxSync.Size = New System.Drawing.Size(165, 23)
         Me.cmdDropboxSync.TabIndex = 3
-        Me.cmdDropboxSync.Text = "Sync Saves to Dropbox"
+        Me.cmdDropboxSync.Text = extras_syncSavesDropboxButton_text
         Me.cmdDropboxSync.UseVisualStyleBackColor = True
         '
         'cmdSyncAnyFolder
@@ -73,7 +75,7 @@ Partial Class Extras
         Me.cmdSyncAnyFolder.Name = "cmdSyncAnyFolder"
         Me.cmdSyncAnyFolder.Size = New System.Drawing.Size(165, 23)
         Me.cmdSyncAnyFolder.TabIndex = 4
-        Me.cmdSyncAnyFolder.Text = "Sync Saves to Any Folder"
+        Me.cmdSyncAnyFolder.Text = extras_syncSavesAnyFolderButton_text
         Me.cmdSyncAnyFolder.UseVisualStyleBackColor = True
         '
         'Extras
@@ -86,8 +88,8 @@ Partial Class Extras
         Me.Controls.Add(Me.cmdDebug)
         Me.Controls.Add(Me.cmdCSS17File)
         Me.Controls.Add(Me.cmdCSS17)
-        Me.Name = "Extras"
-        Me.Text = "Extras"
+        Me.Name = extras_title
+        Me.Text = extras_title
         Me.ResumeLayout(False)
 
     End Sub

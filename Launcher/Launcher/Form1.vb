@@ -4,10 +4,11 @@ Imports System.Net
 Imports System.Threading
 Imports Microsoft.Win32
 Imports System.Text.RegularExpressions
+Imports Launcher.My.Resources
 
 Public Class frmLauncher
 
-    Dim OpenRCT2Folder As String = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2"
+    Dim OpenRCT2Folder As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2"
     Dim OpenRCT2Config As String = OpenRCT2Folder & "/config.ini"
 
     Dim URL As String = "https://openrct2.com/download/latest" ' Download link for UnOfficial 3rd party builds.
@@ -26,21 +27,21 @@ Public Class frmLauncher
     Dim Reg As RegistryKey = Key.CreateSubKey("OpenRCT2Launcher")
 
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Control.CheckForIllegalCrossThreadCalls = False
+        CheckForIllegalCrossThreadCalls = False
         Dim GetRemote = New Thread(AddressOf GetRemoteVer)
         Dim GetLocal = New Thread(AddressOf GetLocalVer)        'Threads for Update Checking.
         'Dim GetLauncher = New Thread(AddressOf LauncherUpdate)
         GetRemote.Start()
         GetLocal.Start()
         'GetLauncher.Start()
-        PictureBox1.Image = My.Resources.rollercoaster_tycoon_2_001
+        PictureBox1.Image = rollercoaster_tycoon_2_001
         If Reg.GetValue("Verbose") = "True" Then
             chkVerbose.Checked = True
         End If
-        Me.Icon = My.Resources.cat_paw
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.WindowState = FormWindowState.Normal
-        Me.MaximizeBox = False
+        Icon = cat_paw
+        FormBorderStyle = Windows.Forms.FormBorderStyle.Fixed3D
+        WindowState = FormWindowState.Normal
+        MaximizeBox = False
         chkLogToFile.Visible = False
         If Directory.Exists(OpenRCT2Folder) = False Then
             Directory.CreateDirectory(OpenRCT2Folder)
@@ -53,7 +54,7 @@ Public Class frmLauncher
                                   "game_path = " & InstalledDir & vbNewLine & _
                                   "fullscreen_mode = borderless_fullscreen")
             Catch ex As Exception
-                MsgBox("Have you installed and ran RCT2 at least once? If not, then please do so and try again.")
+                MsgBox(frmLauncher_Load_neverRun)
                 If File.Exists(OpenRCT2Config) Then File.Delete(OpenRCT2Config)
             End Try
         End If
@@ -109,10 +110,10 @@ Public Class frmLauncher
 
     Private Sub UpdateGUI()
         If RemoteVer <> LocalVer Then           'If the local and remote versions are not in sync, Update
-            lblStatus.Text = "Updating..."
+            lblStatus.Text = frmLauncher_updateStateMessage_updating
             Call DownloadUpdate()
         Else                                    'Otherwise we are up to date :D
-            lblStatus.Text = "Up to Date!"
+            lblStatus.Text = frmLauncher_updateStateMessage_uptodate
             cmdLaunchGame.Enabled = True
             cmdForceUpdate.Enabled = True       'Enabling these Buttons :)
         End If
@@ -137,8 +138,8 @@ Public Class frmLauncher
             Close()
 
         Else
-            MsgBox("OpenRCT2 Not Installed or Not Found!, Downloading. When it is done, feel free to press play again.")
-            lblStatus.Text = "Updating due to Missing Files..."
+            MsgBox(frmLauncher_launchGame_RCT2NotFound)
+            lblStatus.Text = frmLauncher_launchGame_updateMessage
             cmdLaunchGame.Enabled = False
             cmdForceUpdate.Enabled = False
             Call DownloadUpdate()
@@ -170,7 +171,7 @@ Public Class frmLauncher
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-        lblStatus.Text = "Up to Date!"
+        lblStatus.Text = frmLauncher_updateStateMessage_uptodate
         cmdLaunchGame.Enabled = True
         cmdForceUpdate.Enabled = True
     End Sub
@@ -192,7 +193,7 @@ Public Class frmLauncher
     End Function
 
     Private Sub cmdForceUpdate_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
-        lblStatus.Text = "Force Updating..."
+        lblStatus.Text = frmLauncher_update_forceUpdate
         Call DownloadUpdate()
     End Sub
 
