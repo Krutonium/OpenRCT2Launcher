@@ -104,6 +104,7 @@ Public Class frmLauncher
     Private Sub tmrCheckIfDone_Tick(sender As Object, e As EventArgs) Handles tmrCheckIfDone.Tick
         If LocalDone = True And RemoteDone = True Then
             tmrCheckIfDone.Enabled = False              'Disables itself from running  further, and has the UpdateGUI call run to Check for Updates.
+            MsgBox(RemoteVer)
             Call UpdateGUI()
         End If
     End Sub
@@ -169,7 +170,7 @@ Public Class frmLauncher
             File.Delete("./update.zip")
             Reg.SetValue("LocalVer", RemoteVer)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            'MsgBox(ex.ToString)   'Disabled to hide error that occurs when remote host does not respond.
         End Try
         lblStatus.Text = frmLauncher_updateStateMessage_uptodate
         cmdLaunchGame.Enabled = True
@@ -203,9 +204,5 @@ Public Class frmLauncher
 
     Private Sub cmdExtras_Click(sender As Object, e As EventArgs) Handles cmdExtras.Click
         Extras.Show()
-    End Sub
-
-    Private Sub chkLogToFile_CheckedChanged(sender As Object, e As EventArgs) Handles chkLogToFile.CheckedChanged
-
     End Sub
 End Class
