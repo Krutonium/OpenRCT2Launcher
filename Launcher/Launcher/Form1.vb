@@ -67,12 +67,16 @@ Public Class frmLauncher
                 WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.html")
                 Dim HTML As String = File.ReadAllText(Path.GetTempPath & "OpenRCT2Update.html")
                 For Each link In ParseLinks(HTML)
-                    If link Like "http://cdn.limetric.com/games/openrct2*.zip" Then
+                    If link.StartsWith("http://cdn.limetric.com/games/openrct2") And link.EndsWith(".zip") Then
                         RemoteVer = link
-                        Exit For
-                    Else
-                        RemoteVer = "NONE"
                     End If
+
+                    'If link Like "http://cdn.limetric.com/games/openrct2*.zip" Then
+                    'RemoteVer = link
+                    'Exit For
+                    'Else
+                    'RemoteVer = "NONE"
+                    'End If
                 Next
             Catch ex As Exception                           'because I want to grab the Download URL at the same time.
 
@@ -104,6 +108,7 @@ Public Class frmLauncher
     Private Sub tmrCheckIfDone_Tick(sender As Object, e As EventArgs) Handles tmrCheckIfDone.Tick
         If LocalDone = True And RemoteDone = True Then
             tmrCheckIfDone.Enabled = False              'Disables itself from running  further, and has the UpdateGUI call run to Check for Updates.
+            'MsgBox(RemoteVer)
             Call UpdateGUI()
         End If
     End Sub
@@ -170,6 +175,9 @@ Public Class frmLauncher
             Reg.SetValue("LocalVer", RemoteVer)
         Catch ex As Exception
             MsgBox(ex.ToString)
+            'MsgBox(RemoteVer)
+            'MsgBox(LocalVer)
+            'MsgBox(Directory.EnumerateDirectories("./"))
         End Try
         lblStatus.Text = frmLauncher_updateStateMessage_uptodate
         cmdLaunchGame.Enabled = True
@@ -203,9 +211,5 @@ Public Class frmLauncher
 
     Private Sub cmdExtras_Click(sender As Object, e As EventArgs) Handles cmdExtras.Click
         Extras.Show()
-    End Sub
-
-    Private Sub chkLogToFile_CheckedChanged(sender As Object, e As EventArgs) Handles chkLogToFile.CheckedChanged
-
     End Sub
 End Class
