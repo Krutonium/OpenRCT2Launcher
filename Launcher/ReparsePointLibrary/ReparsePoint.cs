@@ -13,7 +13,7 @@ namespace HelperLibrary {
         [STAThread]
         static void Main() {
             var args = Environment.GetCommandLineArgs();
-            var parameters = args.Reverse().Take(args.Length - 1).Select(s => s.Split('=')).ToDictionary(s => s[0], s => s[1]);
+            var parameters = args.Reverse().Take(args.Length - 1).Where(s => s.Contains("=")).Select(s => s.Split('=')).ToDictionary(s => s[0], s => s[1]);
 
             if (!Debugger.IsAttached && 
                 parameters.ContainsKey(DebugArgumentTitle) && 
