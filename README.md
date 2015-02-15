@@ -27,6 +27,6 @@ If you find any bugs/want features added, please feel free to file an issue or m
 * IntelOrca
 * Adrian17
 * ThomasdenH
-
+* FWest98
 
 (Feel free to add yourself when you contribute!)

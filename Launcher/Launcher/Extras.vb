@@ -15,6 +15,7 @@ Public Class Extras
     'End Chunk
 
     ReadOnly _dropboxPath As String = GetDropBoxPath()
+    ReadOnly _openRCT2Folder As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2"
 
     Private Sub Extras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Icon = cat_paw
@@ -108,7 +109,7 @@ Public Class Extras
                     Directory.CreateDirectory(DropBoxSavePath)
                 End If
 
-                If CopyFilesToFolderAndLink(SavePathOriginal, DropBoxSavePath) Then
+                If CopyFilesToFolderAndLink(SavePathOriginal, DropBoxSavePath) And CopyFilesToFolderAndLink(_openRCT2Folder, DropBoxSavePath) Then
                     MsgBox(extras_syncDropbox_moved_text, , extras_syncDropbox_moved_title)
                 End If
             End If
@@ -122,7 +123,7 @@ Public Class Extras
             FBD.ShowDialog()
             Dim SavePathOriginal As String = RCT2 & "\Saved Games"
 
-            If CopyFilesToFolderAndLink(SavePathOriginal, FBD.SelectedPath) Then
+            If CopyFilesToFolderAndLink(SavePathOriginal, FBD.SelectedPath) And CopyFilesToFolderAndLink(_openRCT2Folder, FBD.SelectedPath) Then
                 MsgBox(extras_anyFolderSync_done, , extras_syncDropbox_moved_title)
             Else
                 MsgBox(extras_anyFolderSync_error_notexists)

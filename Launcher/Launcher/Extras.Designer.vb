@@ -82,7 +82,7 @@ Partial Class Extras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(434, 211)
+        Me.ClientSize = New System.Drawing.Size(369, 211)
         Me.Controls.Add(Me.cmdSyncAnyFolder)
         Me.Controls.Add(Me.cmdDropboxSync)
         Me.Controls.Add(Me.cmdDebug)
