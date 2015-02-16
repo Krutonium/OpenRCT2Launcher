@@ -104,7 +104,7 @@ Public Class Extras
             Dim response = (MsgBox(extras_syncDropbox_firstWarning_text, MsgBoxStyle.YesNo, extras_syncDropbox_firstWarning_title))
             If response = DialogResult.Yes Then
                 Dim SavePathOriginal As String = RCT2 & "\Saved Games"
-                Dim DropBoxSavePath As String = _dropboxPath & "\OpenRCT2 Saves"
+                Dim DropBoxSavePath As String = _dropboxPath & "\OpenRCT2Saves"
                 If Not Directory.Exists(DropBoxSavePath) Then
                     Directory.CreateDirectory(DropBoxSavePath)
                 End If
@@ -142,4 +142,8 @@ Public Class Extras
 
         Return True
     End Function
+
+    Private Sub cmdLoginOpenRCTnet_Click(sender As Object, e As EventArgs) Handles cmdLoginOpenRCTnet.Click
+        LoginForm1.Show()
+    End Sub
 End Class
