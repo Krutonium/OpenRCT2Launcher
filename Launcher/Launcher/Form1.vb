@@ -11,7 +11,7 @@ Public Class frmLauncher
     Dim OpenRCT2Folder As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2"
     Dim OpenRCT2Config As String = OpenRCT2Folder & "/config.ini"
 
-    Dim URL As String = "https://openrct2.com/download/latest" ' Download link for UnOfficial 3rd party builds.
+    Dim URL As String = "https://openrct.net/latest.zip" ' Download link for UnOfficial 3rd party builds.
     Dim RemoteVer As String        'Will contain the version of OpenRCT2 from the server
     Dim LocalVer As String         'Will contain the version of OpenRCT2 on this computer
 
@@ -64,20 +64,7 @@ Public Class frmLauncher
         If My.Computer.Network.IsAvailable = True Then
             Try 'If the computer has a network connection but no internet, we want to avoid crashing.
                 Dim WS As New WebClient
-                WS.DownloadFile(URL, Path.GetTempPath & "OpenRCT2Update.html")
-                Dim HTML As String = File.ReadAllText(Path.GetTempPath & "OpenRCT2Update.html")
-                For Each link In ParseLinks(HTML)
-                    If link.StartsWith("http://cdn.limetric.com/games/openrct2") And link.EndsWith(".zip") Then
-                        RemoteVer = link
-                    End If
-
-                    'If link Like "http://cdn.limetric.com/games/openrct2*.zip" Then
-                    'RemoteVer = link
-                    'Exit For
-                    'Else
-                    'RemoteVer = "NONE"
-                    'End If
-                Next
+                RemoteVer = WS.DownloadString("https://openrct.net/latest.zip?a=version")
             Catch ex As Exception                           'because I want to grab the Download URL at the same time.
 
             End Try
@@ -166,7 +153,7 @@ Public Class frmLauncher
     Private Sub ActualDownload()
         Try
             Dim WS As New WebClient
-            WS.DownloadFile(RemoteVer, "./update.zip")
+            WS.DownloadFile(URL, "./update.zip")
             If Directory.Exists("OpenRCT2") Then
                 Directory.Delete("OpenRCT2", True)      'Delete old folder if it exists.
             End If
@@ -183,23 +170,6 @@ Public Class frmLauncher
         cmdLaunchGame.Enabled = True
         cmdForceUpdate.Enabled = True
     End Sub
-
-    Public Iterator Function ParseLinks(ByVal HTML As String) As IEnumerable(Of String)
-        Dim objRegEx As Regex
-        Dim objMatch As Match
-        ' Create regular expression
-        objRegEx = New System.Text.RegularExpressions.Regex("a.*href\s*=\s*(?:""(?<1>[^""]*)""|(?<1>\S+))", System.Text.RegularExpressions.RegexOptions.IgnoreCase Or System.Text.RegularExpressions.RegexOptions.Compiled)
-        ' Match expression to HTML
-        objMatch = objRegEx.Match(HTML)
-        ' Loop through matches and add <1> to ArrayList
-        While objMatch.Success
-            Dim strMatch As String
-            strMatch = objMatch.Groups(1).ToString
-            Yield strMatch
-            objMatch = objMatch.NextMatch()
-        End While
-    End Function
-
     Private Sub cmdForceUpdate_Click(sender As Object, e As EventArgs) Handles cmdForceUpdate.Click
         lblStatus.Text = frmLauncher_update_forceUpdate
         Call DownloadUpdate()
