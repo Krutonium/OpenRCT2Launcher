@@ -5,7 +5,7 @@ configuration:
 build:
   verbosity: normal
 
-after_build:
+after_test:
   - md LauncherRelease
   - robocopy *.exe *.dll "%CD%\Launcher\Launcher\bin\Release" "%CD%\LauncherRelease"
   
