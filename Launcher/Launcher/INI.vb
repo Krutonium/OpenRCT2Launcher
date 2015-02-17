@@ -15,6 +15,7 @@ End Class
 Public Class INI
     Dim Sections As New List(Of INISection)
 
+    'TODO: Rewrite this code
     Public Sub Load(File As String)
         Dim Reader As StreamReader
 
@@ -34,14 +35,20 @@ Public Class INI
             If Line.Contains("[") And Line.Contains("]") Then 'Two square brackets with text in between represent a section
                 Sections.Add(New INISection(Line.Substring(Line.IndexOf("[") + 1, Line.IndexOf("]") - Line.IndexOf("[") - 1)))
             ElseIf Line.Contains("=") Then 'A equals sign represents a key and a value
-                Sections(Sections.Count - 1).Keys.Add(Line.Substring(0, Line.IndexOf("=")).Trim(" "))
-                Sections(Sections.Count - 1).Values.Add(Line.Substring(Line.IndexOf("=") + 1).Trim(" "))
+                If Line.Contains(Chr(34)) Then '"Dirty" Solution
+                    Sections(Sections.Count - 1).Keys.Add(Line.Substring(0, Line.IndexOf("=")).Trim(" "))
+                    Sections(Sections.Count - 1).Values.Add(Line.Substring(Line.IndexOf(Chr(34), Line.IndexOf("=")) + 1, Line.LastIndexOf(Chr(34)) - Line.IndexOf(Chr(34), Line.IndexOf("=")) - 1))
+                Else
+                    Sections(Sections.Count - 1).Keys.Add(Line.Substring(0, Line.IndexOf("=")).Trim(" "))
+                    Sections(Sections.Count - 1).Values.Add(Line.Substring(Line.IndexOf("=") + 1).Trim(" "))
+                End If
             End If
         End While
 
         Reader.Close() 'I don't think I have to do this but I think it's safer
     End Sub
 
+    'TODO: Rewrite this code
     Public Sub Save(File As String)
         Dim Writer As StreamWriter
 
@@ -51,7 +58,11 @@ Public Class INI
             Writer.WriteLine("[" + Section.Name + "]")
 
             For Index = 0 To Section.Keys.Count - 1
-                Writer.WriteLine(Section.Keys(Index) + " = " + Section.Values(Index))
+                If Section.Values(Index).Contains(" ") Then '"Dirty" Solution
+                    Writer.WriteLine(Section.Keys(Index) + " = " + Chr(34) + Section.Values(Index) + Chr(34))
+                Else
+                    Writer.WriteLine(Section.Keys(Index) + " = " + Section.Values(Index))
+                End If
             Next
         Next
 

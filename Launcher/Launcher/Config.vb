@@ -106,6 +106,7 @@ Public Class OpenRCT2Config
 
     Public Sub LoadINI(File As String)
         Dim Value As String
+        Dim Number As Integer
 
         INIConfig.Clear()
 
@@ -142,18 +143,18 @@ Public Class OpenRCT2Config
         Value = INIConfig.FindValue("general", "measurement_format")
 
         Select Case Value
-            Case "imperial"
+            Case "IMPERIAL"
                 MeasurementFormat = EnumMeasurementFormat.Imperial
-            Case "metric"
+            Case "METRIC"
                 MeasurementFormat = EnumMeasurementFormat.Metric
         End Select
 
         Value = INIConfig.FindValue("general", "temperature_format")
 
         Select Case Value
-            Case "celsius"
+            Case "CELSIUS"
                 TemperatureFormat = EnumTemperatureFormat.Celsius
-            Case "fahrenheit"
+            Case "FAHRENHEIT"
                 TemperatureFormat = EnumTemperatureFormat.Fahrenheit
         End Select
 
@@ -250,29 +251,44 @@ Public Class OpenRCT2Config
 
         Value = INIConfig.FindValue("general", "fullscreen_width")
 
-        If Value <> Nothing Then
-            FullscreenWidth = Convert.ToInt32(Value)
+        If Int32.TryParse(Value, Number) Then
+            FullscreenWidth = Number
         End If
 
         Value = INIConfig.FindValue("general", "fullscreen_height")
 
-        If Value <> Nothing Then
-            FullscreenHeight = Convert.ToInt32(Value)
+        If Int32.TryParse(Value, Number) Then
+            FullscreenHeight = Number
         End If
 
         Value = INIConfig.FindValue("general", "language")
 
-        'If Value <> Nothing Then
-        'If Convert.ToInt32(Value) >= 1 And Convert.ToInt32(Value) <= 9 Then
-        'Language = Convert.ToInt32(Value)
-        'End If
-        'End If
+        Select Case Value
+            Case "en-GB"
+                Language = EnumLanguage.EnglishUK
+            Case "en-US"
+                Language = EnumLanguage.EnglishUS
+            Case "de-DE"
+                Language = EnumLanguage.German
+            Case "nl-NL"
+                Language = EnumLanguage.Dutch
+            Case "fr-FR"
+                Language = EnumLanguage.French
+            Case "hu-HU"
+                Language = EnumLanguage.Hungarian
+            Case "pl-PL"
+                Language = EnumLanguage.Polish
+            Case "es-ES"
+                Language = EnumLanguage.Spanish
+            Case "sv-SE"
+                Language = EnumLanguage.Swedish
+        End Select
 
         Value = INIConfig.FindValue("general", "title_music")
 
-        If Value <> Nothing Then
-            If Convert.ToInt32(Value) >= 0 And Convert.ToInt32(Value) <= 2 Then
-                TitleMusic = Convert.ToInt32(Value)
+        If Int32.TryParse(Value, Number) Then
+            If Number >= 0 And Number <= 2 Then
+                TitleMusic = Number
             End If
         End If
 
@@ -315,16 +331,16 @@ Public Class OpenRCT2Config
 
         Select Case MeasurementFormat
             Case EnumMeasurementFormat.Imperial
-                INIConfig.SetValue("general", "measurement_format", "imperial")
+                INIConfig.SetValue("general", "measurement_format", "IMPERIAL")
             Case EnumMeasurementFormat.Metric
-                INIConfig.SetValue("general", "measurement_format", "metric")
+                INIConfig.SetValue("general", "measurement_format", "METRIC")
         End Select
 
         Select Case TemperatureFormat
             Case EnumTemperatureFormat.Celsius
-                INIConfig.SetValue("general", "temperature_format", "celsius")
+                INIConfig.SetValue("general", "temperature_format", "CELSIUS")
             Case EnumTemperatureFormat.Fahrenheit
-                INIConfig.SetValue("general", "temperature_format", "fahrenheit")
+                INIConfig.SetValue("general", "temperature_format", "FAHRENHEIT")
         End Select
 
         Select Case Currency
@@ -393,7 +409,26 @@ Public Class OpenRCT2Config
 
         INIConfig.SetValue("general", "fullscreen_height", FullscreenWidth.ToString())
 
-        INIConfig.SetValue("general", "language", Language)
+        Select Case Language
+            Case EnumLanguage.EnglishUK
+                INIConfig.SetValue("general", "language", "en-GB")
+            Case EnumLanguage.EnglishUS
+                INIConfig.SetValue("general", "language", "en-US")
+            Case EnumLanguage.German
+                INIConfig.SetValue("general", "language", "de-DE")
+            Case EnumLanguage.Dutch
+                INIConfig.SetValue("general", "language", "nl-NL")
+            Case EnumLanguage.French
+                INIConfig.SetValue("general", "language", "fr-FR")
+            Case EnumLanguage.Hungarian
+                INIConfig.SetValue("general", "language", "hu-HU")
+            Case EnumLanguage.Polish
+                INIConfig.SetValue("general", "language", "pl-PL")
+            Case EnumLanguage.Spanish
+                INIConfig.SetValue("general", "language", "es-ES")
+            Case EnumLanguage.Swedish
+                INIConfig.SetValue("general", "language", "sv-SE")
+        End Select
 
         INIConfig.SetValue("general", "title_music", TitleMusic)
 
