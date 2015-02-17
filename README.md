@@ -28,5 +28,5 @@ If you find any bugs/want features added, please feel free to file an issue or m
 * Adrian17
 * ThomasdenH
 * FWest98
-
+* falki147
 (Feel free to add yourself when you contribute!)
