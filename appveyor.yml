@@ -7,7 +7,7 @@ build:
 
 after_test:
   - md LauncherRelease
-  - robocopy *.exe *.dll "%CD%\Launcher\Launcher\bin\Release" "%CD%\LauncherRelease"
+  - (robocopy *.exe *.dll "%CD%\Launcher\Launcher\bin\Release" "%CD%\LauncherRelease") ^& exit 0
   
 artifacts:
   - path: LauncherRelease
