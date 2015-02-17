@@ -43,8 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileActions.cs" />
+    <Compile Include="IniConfiguration.cs" />
     <Compile Include="ReparsePoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextReaderExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
