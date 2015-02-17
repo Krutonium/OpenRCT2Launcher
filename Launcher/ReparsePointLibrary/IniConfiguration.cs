@@ -258,7 +258,10 @@ namespace HelperLibrary
 
 		private string GetPropertySetValueLine(string propertyName, string value)
 		{
-			return propertyName + " = " + value;
+            if (value.Contains(" "))
+                return propertyName + " = \"" + value + "\"";
+            else
+                return propertyName + " = " + value;
 		}
 
 		private void InsertLine(int index, string line)

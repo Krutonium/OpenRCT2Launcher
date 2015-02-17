@@ -118,6 +118,8 @@ Public Class OpenRCT2Config
 
         PlayIntro = INIConfig.GetPropertyBoolean("general", "play_intro")
 
+        ConfirmationPrompt = INIConfig.GetPropertyInt32("general", "confirmation_prompt")
+
         Select Case INIConfig.GetProperty("general", "screenshot_format", "PNG")
             Case "BMP"
                 ScreenshotFormat = EnumScreenshotFormat.BMP
@@ -225,24 +227,23 @@ Public Class OpenRCT2Config
             TitleMusic = Number
         End If
 
-        Select Case INIConfig.GetProperty("sound", "sound_quality", 2)
-            Case "low"
-                SoundQuality = EnumSoundQuality.Low
-            Case "medium"
-                SoundQuality = EnumSoundQuality.Medium
-            Case "high"
-                SoundQuality = EnumSoundQuality.High
-        End Select
+        Number = INIConfig.GetPropertyInt32("sound", "sound_quality", 2)
+
+        If Number >= 0 And Number <= 2 Then
+            SoundQuality = Number
+        End If
 
         ForcedSoftwareBuffering = INIConfig.GetPropertyBoolean("sound", "forced_software_buffering")
     End Sub
 
     Public Sub SaveINI(File As String)
-        If ConfirmationPrompt Then
-            INIConfig.SetProperty("general", "confirmation_prompt", "true")
+        If PlayIntro Then
+            INIConfig.SetProperty("general", "play_intro", "true")
         Else
-            INIConfig.SetProperty("general", "confirmation_prompt", "false")
+            INIConfig.SetProperty("general", "play_intro", "false")
         End If
+
+        INIConfig.SetProperty("general", "confirmation_prompt", Convert.ToInt32(ConfirmationPrompt))
 
         Select Case ScreenshotFormat
             Case EnumScreenshotFormat.BMP
@@ -349,14 +350,7 @@ Public Class OpenRCT2Config
 
         INIConfig.SetProperty("sound", "title_music", TitleMusic)
 
-        Select Case SoundQuality
-            Case EnumSoundQuality.Low
-                INIConfig.SetProperty("sound", "sound_quality", "low")
-            Case EnumSoundQuality.Medium
-                INIConfig.SetProperty("sound", "sound_quality", "medium")
-            Case EnumSoundQuality.High
-                INIConfig.SetProperty("sound", "sound_quality", "high")
-        End Select
+        INIConfig.SetProperty("sound", "sound_quality", SoundQuality)
 
         If ForcedSoftwareBuffering Then
             INIConfig.SetProperty("sound", "forced_software_buffering", "true")
@@ -381,7 +375,7 @@ Public Class LauncherConfig
     Public SaveOutput As Boolean
     Public OutputPath As String
 
-    Dim INIConfig As New INI
+    Dim INIConfig As IniConfiguration
 
     Public Sub LoadDefault()
         LocalVersion = ""
@@ -394,69 +388,53 @@ Public Class LauncherConfig
     Public Sub LoadINI(File As String)
         Dim Value As String
 
-        INIConfig.Clear()
-
         Try
-            INIConfig.Load(File)
+            INIConfig = New IniConfiguration(File)
         Catch ex As Exception
             Return
         End Try
 
-        Value = INIConfig.FindValue("general", "local_version")
+        Value = INIConfig.GetProperty("general", "local_version")
 
-        If Value <> Nothing Then
+        If Not String.IsNullOrEmpty(Value) Then
             LocalVersion = Value
         End If
 
-        Value = INIConfig.FindValue("general", "verbose")
+        Verbose = INIConfig.GetPropertyBoolean("general", "verbose")
 
-        Select Case Value
-            Case "true"
-                Verbose = True
-            Case "false"
-                Verbose = False
-        End Select
+        Value = INIConfig.GetProperty("general", "arguments")
 
-        Value = INIConfig.FindValue("general", "arguments")
-
-        If Value <> Nothing Then
+        If Not String.IsNullOrEmpty(Value) Then
             Arguments = Value
         End If
 
-        Value = INIConfig.FindValue("general", "save_output")
+        SaveOutput = INIConfig.GetProperty("general", "save_output")
 
-        Select Case Value
-            Case "true"
-                SaveOutput = True
-            Case "false"
-                SaveOutput = False
-        End Select
+        Value = INIConfig.GetProperty("general", "output_path")
 
-        Value = INIConfig.FindValue("general", "output_path")
-
-        If Value <> Nothing Then
+        If Not String.IsNullOrEmpty(Value) Then
             OutputPath = Value
         End If
     End Sub
 
     Public Sub SaveINI(File As String)
-        INIConfig.SetValue("general", "local_version", LocalVersion)
+        INIConfig.SetProperty("general", "local_version", LocalVersion)
 
         If Verbose Then
-            INIConfig.SetValue("general", "verbose", "true")
+            INIConfig.SetProperty("general", "verbose", "true")
         Else
-            INIConfig.SetValue("general", "verbose", "false")
+            INIConfig.SetProperty("general", "verbose", "false")
         End If
 
-        INIConfig.SetValue("general", "arguments", Arguments)
+        INIConfig.SetProperty("general", "arguments", Arguments)
 
         If SaveOutput Then
-            INIConfig.SetValue("general", "save_output", "true")
+            INIConfig.SetProperty("general", "save_output", "true")
         Else
-            INIConfig.SetValue("general", "save_output", "false")
+            INIConfig.SetProperty("general", "save_output", "false")
         End If
 
-        INIConfig.SetValue("general", "output_path", OutputPath)
+        INIConfig.SetProperty("general", "output_path", OutputPath)
 
         Try
             INIConfig.Save(File)
