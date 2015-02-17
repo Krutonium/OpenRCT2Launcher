@@ -241,4 +241,184 @@ Exact Error:
   <data name="extras_title" xml:space="preserve">
     <value>Extras</value>
   </data>
+  <data name="frmLauncher_update_failed" xml:space="preserve">
+    <value>Failed to download update</value>
+  </data>
+  <data name="frmLauncher_updateButton_text" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="frmLauncher_optionsButton_title" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_usernameLabel" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_passwordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="common_ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="common_cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_title" xml:space="preserve">
+    <value>Login to OpenRCT.NET</value>
+  </data>
+  <data name="frmOptions_closeConfirmation_text" xml:space="preserve">
+    <value>Configuration has been changed. Save Changes?</value>
+  </data>
+  <data name="common_confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="frmOptions_gamePath_label" xml:space="preserve">
+    <value>Game Path:</value>
+  </data>
+  <data name="frmOptions_screenshotFormat_label" xml:space="preserve">
+    <value>Screenshot Format:</value>
+  </data>
+  <data name="frmOptions_playIntroButton_label" xml:space="preserve">
+    <value>Play Intro</value>
+  </data>
+  <data name="frmOptions_showConfirmationPrompt_label" xml:space="preserve">
+    <value>Show Confirmation Prompt</value>
+  </data>
+  <data name="frmOptions_edgeScrolling_label" xml:space="preserve">
+    <value>Scroll view when pointer at screen edge</value>
+  </data>
+  <data name="frmOptions_currency_label" xml:space="preserve">
+    <value>Currency:</value>
+  </data>
+  <data name="frmOptions_currency_pound" xml:space="preserve">
+    <value>Pounds (£)</value>
+  </data>
+  <data name="frmOptions_currency_dollar" xml:space="preserve">
+    <value>Dollars ($)</value>
+  </data>
+  <data name="frmOptions_currency_franc" xml:space="preserve">
+    <value>Franc (F)</value>
+  </data>
+  <data name="frmOptions_currency_deutchmark" xml:space="preserve">
+    <value>Deutschmark (DM)</value>
+  </data>
+  <data name="frmOptions_currency_yen" xml:space="preserve">
+    <value>Yen (¥)</value>
+  </data>
+  <data name="frmOptions_currency_peseta" xml:space="preserve">
+    <value>Peseta (Pts)</value>
+  </data>
+  <data name="frmOptions_currency_lira" xml:space="preserve">
+    <value>Lira (L)</value>
+  </data>
+  <data name="frmOptions_currency_guilder" xml:space="preserve">
+    <value>Guilders (Dfl.)</value>
+  </data>
+  <data name="frmOptions_currency_krona" xml:space="preserve">
+    <value>Krona (kr)</value>
+  </data>
+  <data name="frmOptions_currency_euro" xml:space="preserve">
+    <value>Euro (€)</value>
+  </data>
+  <data name="frmOptions_distSpeed_label" xml:space="preserve">
+    <value>Distance and Speed:</value>
+  </data>
+  <data name="frmOptions_temperature_label" xml:space="preserve">
+    <value>Temperature:</value>
+  </data>
+  <data name="frmOptions_distSpeed_imperial" xml:space="preserve">
+    <value>Imperial</value>
+  </data>
+  <data name="frmOptions_distSpeed_metric" xml:space="preserve">
+    <value>Metric</value>
+  </data>
+  <data name="frmOptions_temperature_celsius" xml:space="preserve">
+    <value>Celsius (°C)</value>
+  </data>
+  <data name="frmOptions_temperature_fahrenheit" xml:space="preserve">
+    <value>Fahrenheit (F)</value>
+  </data>
+  <data name="frmOptions_alwaysGridLines_label" xml:space="preserve">
+    <value>Gridlines on Landscape</value>
+  </data>
+  <data name="frmOptions_landscapeSmoothing_label" xml:space="preserve">
+    <value>Landscape Smoothing</value>
+  </data>
+  <data name="frmOptions_savePluginData_label" xml:space="preserve">
+    <value>Export plug-in objects with saved games</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_label" xml:space="preserve">
+    <value>Fullscreen mode:</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_windowed" xml:space="preserve">
+    <value>Windowed</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_fullscreen" xml:space="preserve">
+    <value>Fullscreen</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_fullscreenDesktop" xml:space="preserve">
+    <value>Fullscreen (desktop)</value>
+  </data>
+  <data name="frmOptions_fullscreenWidth_label" xml:space="preserve">
+    <value>Fullscreen width:</value>
+  </data>
+  <data name="frmOptions_fullscreenHeight_label" xml:space="preserve">
+    <value>Fullscreen height:</value>
+  </data>
+  <data name="frmOptions_language_label" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_label" xml:space="preserve">
+    <value>Title screen music:</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_none" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_RCT1" xml:space="preserve">
+    <value>RollerCoaster Tycoon 1</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_RCT2" xml:space="preserve">
+    <value>RollerCoaster Tycoon 2</value>
+  </data>
+  <data name="frmOptions_soundQuality_label" xml:space="preserve">
+    <value>Sound Quality:</value>
+  </data>
+  <data name="frmOptions_soundQuality_low" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="frmOptions_soundQuality_medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="frmOptions_soundQuality_high" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="frmOptions_forcedSoftwareBuffering_label" xml:space="preserve">
+    <value>Forced Software Buffer Mixing</value>
+  </data>
+  <data name="frmOptions_heightLabels_label" xml:space="preserve">
+    <value>Height Labels:</value>
+  </data>
+  <data name="frmOptions_heightLabels_units" xml:space="preserve">
+    <value>Units</value>
+  </data>
+  <data name="frmOptions_heightLabels_real" xml:space="preserve">
+    <value>Real Values</value>
+  </data>
+  <data name="common_apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="common_reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="frmOptions_startArguments_label" xml:space="preserve">
+    <value>Arguments:</value>
+  </data>
+  <data name="frmOptions_outputPath_label" xml:space="preserve">
+    <value>Output Path:</value>
+  </data>
+  <data name="frmOptions_saveOutputFile_label" xml:space="preserve">
+    <value>Save Output to File</value>
+  </data>
+  <data name="frmOptions_title" xml:space="preserve">
+    <value>Options</value>
+  </data>
 </root>

@@ -233,4 +233,184 @@ Exacte fout:</value>
   <data name="extras_title" xml:space="preserve">
     <value>Extra's</value>
   </data>
+  <data name="frmLauncher_update_failed" xml:space="preserve">
+    <value>Kon update niet downloaden</value>
+  </data>
+  <data name="frmLauncher_updateButton_text" xml:space="preserve">
+    <value>Werk bij</value>
+  </data>
+  <data name="frmLauncher_optionsButton_title" xml:space="preserve">
+    <value>Opties</value>
+  </data>
+  <data name="common_cancel" xml:space="preserve">
+    <value>Annuleer</value>
+  </data>
+  <data name="common_ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_passwordLabel" xml:space="preserve">
+    <value>Wachtwoord</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_title" xml:space="preserve">
+    <value>Login bij OpenRCT.NET</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_usernameLabel" xml:space="preserve">
+    <value>Gebruikersnaam</value>
+  </data>
+  <data name="common_confirm" xml:space="preserve">
+    <value>Bevestig</value>
+  </data>
+  <data name="frmOptions_closeConfirmation_text" xml:space="preserve">
+    <value>Instellingen zijn veranderd. Wijzigingen opslaan?</value>
+  </data>
+  <data name="common_apply" xml:space="preserve">
+    <value>Toepassen</value>
+  </data>
+  <data name="common_reset" xml:space="preserve">
+    <value>Herstel</value>
+  </data>
+  <data name="frmOptions_alwaysGridLines_label" xml:space="preserve">
+    <value>Rasterlijnen op landschap</value>
+  </data>
+  <data name="frmOptions_currency_deutchmark" xml:space="preserve">
+    <value>Duitse Mark (DM)</value>
+  </data>
+  <data name="frmOptions_currency_dollar" xml:space="preserve">
+    <value>Dollar ($)</value>
+  </data>
+  <data name="frmOptions_currency_euro" xml:space="preserve">
+    <value>Euro (€)</value>
+  </data>
+  <data name="frmOptions_currency_franc" xml:space="preserve">
+    <value>Frank (F)</value>
+  </data>
+  <data name="frmOptions_currency_guilder" xml:space="preserve">
+    <value>Gulden (Dfl.)</value>
+  </data>
+  <data name="frmOptions_currency_krona" xml:space="preserve">
+    <value>Kronen (kr)</value>
+  </data>
+  <data name="frmOptions_currency_label" xml:space="preserve">
+    <value>Valuta:</value>
+  </data>
+  <data name="frmOptions_currency_lira" xml:space="preserve">
+    <value>Lire (L)</value>
+  </data>
+  <data name="frmOptions_currency_peseta" xml:space="preserve">
+    <value>Peseta (Pts)</value>
+  </data>
+  <data name="frmOptions_currency_pound" xml:space="preserve">
+    <value>Ponden (£)</value>
+  </data>
+  <data name="frmOptions_currency_yen" xml:space="preserve">
+    <value>Yen (¥)</value>
+  </data>
+  <data name="frmOptions_distSpeed_imperial" xml:space="preserve">
+    <value>Imperieel</value>
+  </data>
+  <data name="frmOptions_distSpeed_label" xml:space="preserve">
+    <value>Afstand en snelheid:</value>
+  </data>
+  <data name="frmOptions_distSpeed_metric" xml:space="preserve">
+    <value>Metrisch</value>
+  </data>
+  <data name="frmOptions_edgeScrolling_label" xml:space="preserve">
+    <value>Verplaats beeld met muisaanwijzer aan schermrand</value>
+  </data>
+  <data name="frmOptions_forcedSoftwareBuffering_label" xml:space="preserve">
+    <value>Forceer software buffer mixing</value>
+  </data>
+  <data name="frmOptions_fullscreenHeight_label" xml:space="preserve">
+    <value>Volledig scherm hoogte:</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_fullscreen" xml:space="preserve">
+    <value>Volledig scherm</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_fullscreenDesktop" xml:space="preserve">
+    <value>Volledig scherm (desktop)</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_label" xml:space="preserve">
+    <value>Schermmodus:</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_windowed" xml:space="preserve">
+    <value>Venster</value>
+  </data>
+  <data name="frmOptions_fullscreenWidth_label" xml:space="preserve">
+    <value>Volledig scherm breedte:</value>
+  </data>
+  <data name="frmOptions_gamePath_label" xml:space="preserve">
+    <value>Spellocatie:</value>
+  </data>
+  <data name="frmOptions_heightLabels_label" xml:space="preserve">
+    <value>Hoogtewaarden:</value>
+  </data>
+  <data name="frmOptions_heightLabels_real" xml:space="preserve">
+    <value>Echte waarden</value>
+  </data>
+  <data name="frmOptions_heightLabels_units" xml:space="preserve">
+    <value>Spelwaarden</value>
+  </data>
+  <data name="frmOptions_landscapeSmoothing_label" xml:space="preserve">
+    <value>Landschap verzachten</value>
+  </data>
+  <data name="frmOptions_language_label" xml:space="preserve">
+    <value>Taal:</value>
+  </data>
+  <data name="frmOptions_outputPath_label" xml:space="preserve">
+    <value>Resultatenlocatie:</value>
+  </data>
+  <data name="frmOptions_playIntroButton_label" xml:space="preserve">
+    <value>Speel intro</value>
+  </data>
+  <data name="frmOptions_saveOutputFile_label" xml:space="preserve">
+    <value>Sla resultaten op in bestand</value>
+  </data>
+  <data name="frmOptions_savePluginData_label" xml:space="preserve">
+    <value>Exporteer plug-in-gegevens naar opgeslagen spellen</value>
+  </data>
+  <data name="frmOptions_screenshotFormat_label" xml:space="preserve">
+    <value>Schermafbeeldingformaat</value>
+  </data>
+  <data name="frmOptions_showConfirmationPrompt_label" xml:space="preserve">
+    <value>Toon bevestiging</value>
+  </data>
+  <data name="frmOptions_soundQuality_high" xml:space="preserve">
+    <value>Hoog</value>
+  </data>
+  <data name="frmOptions_soundQuality_label" xml:space="preserve">
+    <value>Geluidskwaliteit</value>
+  </data>
+  <data name="frmOptions_soundQuality_low" xml:space="preserve">
+    <value>Laag</value>
+  </data>
+  <data name="frmOptions_soundQuality_medium" xml:space="preserve">
+    <value>Middel</value>
+  </data>
+  <data name="frmOptions_startArguments_label" xml:space="preserve">
+    <value>Startparameters:</value>
+  </data>
+  <data name="frmOptions_temperature_celsius" xml:space="preserve">
+    <value>Celsius (°C)</value>
+  </data>
+  <data name="frmOptions_temperature_fahrenheit" xml:space="preserve">
+    <value>Fahrenheit (F)</value>
+  </data>
+  <data name="frmOptions_temperature_label" xml:space="preserve">
+    <value>Temperatuur:</value>
+  </data>
+  <data name="frmOptions_title" xml:space="preserve">
+    <value>Opties</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_label" xml:space="preserve">
+    <value>Startschermmuziek</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_none" xml:space="preserve">
+    <value>Geen</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_RCT1" xml:space="preserve">
+    <value>Rollercoaster Tycoon 1</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_RCT2" xml:space="preserve">
+    <value>Rollercoaster Tycoon 2</value>
+  </data>
 </root>

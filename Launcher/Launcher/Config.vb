@@ -426,6 +426,10 @@ Public Class LauncherConfig
     End Sub
 
     Public Sub SaveINI(File As String)
+        If (INIConfig Is Nothing) Then
+            Return
+        End If
+
         INIConfig.SetProperty("general", "local_version", LocalVersion)
 
         If Verbose Then

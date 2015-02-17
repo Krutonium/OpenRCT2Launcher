@@ -1,4 +1,6 @@
-﻿Public Class frmOptions
+﻿Imports Launcher.My.Resources
+
+Public Class frmOptions
     Private Sub frmOptions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UpdateGUI()
     End Sub
@@ -36,11 +38,11 @@
             ConfigSaveLauncher()
         End If
 
-        Me.Close()
+        Close()
     End Sub
 
     Private Sub cmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
-        Me.Close()
+        Close()
     End Sub
 
     Private Sub cmdApply_Click(sender As Object, e As EventArgs) Handles cmdApply.Click
@@ -61,7 +63,7 @@
 
     Private Sub frmOptions_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If ConfigHasChangedOpenRCT2() Or ConfigHasChangedLauncher() Then 'Has the configuration been changed?
-            Dim Result As DialogResult = MessageBox.Show("Configuration has been changed. Save Changes?", "Confirm", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information)
+            Dim Result As DialogResult = MessageBox.Show(frmOptions_closeConfirmation_text, common_confirm, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information)
 
             Select Case Result
                 Case Windows.Forms.DialogResult.Yes 'Save and close

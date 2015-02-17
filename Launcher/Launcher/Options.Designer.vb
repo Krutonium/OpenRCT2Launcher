@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports Launcher.My.Resources
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class frmOptions
     Inherits System.Windows.Forms.Form
 
@@ -104,7 +106,7 @@ Partial Class frmOptions
         Me.label1.Name = "label1"
         Me.label1.Size = New System.Drawing.Size(63, 13)
         Me.label1.TabIndex = 2
-        Me.label1.Text = "Game Path:"
+        Me.label1.Text = frmOptions_gamePath_label
         '
         'Label2
         '
@@ -113,7 +115,7 @@ Partial Class frmOptions
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(99, 13)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Screenshot Format:"
+        Me.Label2.Text = frmOptions_screenshotFormat_label
         '
         'cbScreenshotFormat
         '
@@ -133,7 +135,7 @@ Partial Class frmOptions
         Me.chkPlayIntro.Name = "chkPlayIntro"
         Me.chkPlayIntro.Size = New System.Drawing.Size(70, 17)
         Me.chkPlayIntro.TabIndex = 5
-        Me.chkPlayIntro.Text = "Play Intro"
+        Me.chkPlayIntro.Text = frmOptions_playIntroButton_label
         Me.chkPlayIntro.UseVisualStyleBackColor = True
         '
         'chkConfirmationPrompt
@@ -143,7 +145,7 @@ Partial Class frmOptions
         Me.chkConfirmationPrompt.Name = "chkConfirmationPrompt"
         Me.chkConfirmationPrompt.Size = New System.Drawing.Size(150, 17)
         Me.chkConfirmationPrompt.TabIndex = 6
-        Me.chkConfirmationPrompt.Text = "Show Confirmation Prompt"
+        Me.chkConfirmationPrompt.Text = frmOptions_showConfirmationPrompt_label
         Me.chkConfirmationPrompt.UseVisualStyleBackColor = True
         '
         'chkEdgeScrolling
@@ -153,7 +155,7 @@ Partial Class frmOptions
         Me.chkEdgeScrolling.Name = "chkEdgeScrolling"
         Me.chkEdgeScrolling.Size = New System.Drawing.Size(215, 17)
         Me.chkEdgeScrolling.TabIndex = 7
-        Me.chkEdgeScrolling.Text = "Scroll view when pointer at screen edge"
+        Me.chkEdgeScrolling.Text = frmOptions_edgeScrolling_label
         Me.chkEdgeScrolling.UseVisualStyleBackColor = True
         '
         'Label3
@@ -163,13 +165,13 @@ Partial Class frmOptions
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 8
-        Me.Label3.Text = "Currency:"
+        Me.Label3.Text = frmOptions_currency_label
         '
         'cbCurrency
         '
         Me.cbCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbCurrency.FormattingEnabled = True
-        Me.cbCurrency.Items.AddRange(New Object() {"Pounds (£)", "Dollars ($)", "Franc (F)", "Deutschmark (DM)", "Yen (¥)", "Peseta (Pts)", "Lira (L)", "Guilders (Dfl.)", "Krona (kr)", "Euro (€)"})
+        Me.cbCurrency.Items.AddRange(New Object() {frmOptions_currency_pound, frmOptions_currency_dollar, frmOptions_currency_franc, frmOptions_currency_deutchmark, frmOptions_currency_yen, frmOptions_currency_peseta, frmOptions_currency_lira, frmOptions_currency_guilder, frmOptions_currency_krona, frmOptions_currency_euro})
         Me.cbCurrency.Location = New System.Drawing.Point(131, 32)
         Me.cbCurrency.Name = "cbCurrency"
         Me.cbCurrency.Size = New System.Drawing.Size(121, 21)
@@ -182,7 +184,7 @@ Partial Class frmOptions
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(107, 13)
         Me.Label4.TabIndex = 10
-        Me.Label4.Text = "Distance and Speed:"
+        Me.Label4.Text = frmOptions_distSpeed_label
         '
         'Label5
         '
@@ -191,13 +193,13 @@ Partial Class frmOptions
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(70, 13)
         Me.Label5.TabIndex = 11
-        Me.Label5.Text = "Temperature:"
+        Me.Label5.Text = frmOptions_temperature_label
         '
         'cbMeasurementFormat
         '
         Me.cbMeasurementFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbMeasurementFormat.FormattingEnabled = True
-        Me.cbMeasurementFormat.Items.AddRange(New Object() {"Imperial", "Metric"})
+        Me.cbMeasurementFormat.Items.AddRange(New Object() {frmOptions_distSpeed_imperial, frmOptions_distSpeed_metric})
         Me.cbMeasurementFormat.Location = New System.Drawing.Point(6, 73)
         Me.cbMeasurementFormat.Name = "cbMeasurementFormat"
         Me.cbMeasurementFormat.Size = New System.Drawing.Size(121, 21)
@@ -207,7 +209,7 @@ Partial Class frmOptions
         '
         Me.cbTemperatureFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbTemperatureFormat.FormattingEnabled = True
-        Me.cbTemperatureFormat.Items.AddRange(New Object() {"Celsius (°C)", "Fahrenheit (F)"})
+        Me.cbTemperatureFormat.Items.AddRange(New Object() {frmOptions_temperature_celsius, frmOptions_temperature_fahrenheit})
         Me.cbTemperatureFormat.Location = New System.Drawing.Point(131, 73)
         Me.cbTemperatureFormat.Name = "cbTemperatureFormat"
         Me.cbTemperatureFormat.Size = New System.Drawing.Size(121, 21)
@@ -220,7 +222,7 @@ Partial Class frmOptions
         Me.chkAlwaysShowGridlines.Name = "chkAlwaysShowGridlines"
         Me.chkAlwaysShowGridlines.Size = New System.Drawing.Size(137, 17)
         Me.chkAlwaysShowGridlines.TabIndex = 14
-        Me.chkAlwaysShowGridlines.Text = "Gridlines on Landscape"
+        Me.chkAlwaysShowGridlines.Text = frmOptions_alwaysGridLines_label
         Me.chkAlwaysShowGridlines.UseVisualStyleBackColor = True
         '
         'chkLandscapeSmoothing
@@ -230,7 +232,7 @@ Partial Class frmOptions
         Me.chkLandscapeSmoothing.Name = "chkLandscapeSmoothing"
         Me.chkLandscapeSmoothing.Size = New System.Drawing.Size(132, 17)
         Me.chkLandscapeSmoothing.TabIndex = 15
-        Me.chkLandscapeSmoothing.Text = "Landscape Smoothing"
+        Me.chkLandscapeSmoothing.Text = frmOptions_landscapeSmoothing_label
         Me.chkLandscapeSmoothing.UseVisualStyleBackColor = True
         '
         'chkSavePluginData
@@ -240,7 +242,7 @@ Partial Class frmOptions
         Me.chkSavePluginData.Name = "chkSavePluginData"
         Me.chkSavePluginData.Size = New System.Drawing.Size(215, 17)
         Me.chkSavePluginData.TabIndex = 17
-        Me.chkSavePluginData.Text = "Export plug-in objects with saved games"
+        Me.chkSavePluginData.Text = frmOptions_savePluginData_label
         Me.chkSavePluginData.UseVisualStyleBackColor = True
         '
         'Label6
@@ -250,13 +252,13 @@ Partial Class frmOptions
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(87, 13)
         Me.Label6.TabIndex = 18
-        Me.Label6.Text = "Fullscreen mode:"
+        Me.Label6.Text = frmOptions_fullscreenMode_label
         '
         'cbFullscreenMode
         '
         Me.cbFullscreenMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbFullscreenMode.FormattingEnabled = True
-        Me.cbFullscreenMode.Items.AddRange(New Object() {"Windowed", "Fullscreen", "Fullscreen (desktop)"})
+        Me.cbFullscreenMode.Items.AddRange(New Object() {frmOptions_fullscreenMode_windowed, frmOptions_fullscreenMode_fullscreen, frmOptions_fullscreenMode_fullscreenDesktop})
         Me.cbFullscreenMode.Location = New System.Drawing.Point(6, 71)
         Me.cbFullscreenMode.Name = "cbFullscreenMode"
         Me.cbFullscreenMode.Size = New System.Drawing.Size(246, 21)
@@ -269,7 +271,7 @@ Partial Class frmOptions
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(86, 13)
         Me.Label7.TabIndex = 20
-        Me.Label7.Text = "Fullscreen width:"
+        Me.Label7.Text = frmOptions_fullscreenWidth_label
         '
         'numFullscreenWidth
         '
@@ -298,7 +300,7 @@ Partial Class frmOptions
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(90, 13)
         Me.Label8.TabIndex = 23
-        Me.Label8.Text = "Fullscreen height:"
+        Me.Label8.Text = frmOptions_fullscreenHeight_label
         '
         'Label9
         '
@@ -307,7 +309,7 @@ Partial Class frmOptions
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(58, 13)
         Me.Label9.TabIndex = 25
-        Me.Label9.Text = "Language:"
+        Me.Label9.Text = frmOptions_language_label
         '
         'cbLanguage
         '
@@ -326,13 +328,13 @@ Partial Class frmOptions
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(95, 13)
         Me.Label10.TabIndex = 27
-        Me.Label10.Text = "Title screen music:"
+        Me.Label10.Text = frmOptions_titleScreenMusic_label
         '
         'cbTitleMusic
         '
         Me.cbTitleMusic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbTitleMusic.FormattingEnabled = True
-        Me.cbTitleMusic.Items.AddRange(New Object() {"None", "RollerCoaster Tycoon 1", "RollerCoaster Tycoon 2"})
+        Me.cbTitleMusic.Items.AddRange(New Object() {frmOptions_titleScreenMusic_none, frmOptions_titleScreenMusic_RCT1, frmOptions_titleScreenMusic_RCT2})
         Me.cbTitleMusic.Location = New System.Drawing.Point(6, 72)
         Me.cbTitleMusic.Name = "cbTitleMusic"
         Me.cbTitleMusic.Size = New System.Drawing.Size(246, 21)
@@ -345,13 +347,13 @@ Partial Class frmOptions
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(76, 13)
         Me.Label11.TabIndex = 29
-        Me.Label11.Text = "Sound Quality:"
+        Me.Label11.Text = frmOptions_soundQuality_label
         '
         'cbSoundQuality
         '
         Me.cbSoundQuality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbSoundQuality.FormattingEnabled = True
-        Me.cbSoundQuality.Items.AddRange(New Object() {"Low", "Medium", "High"})
+        Me.cbSoundQuality.Items.AddRange(New Object() {frmOptions_soundQuality_low, frmOptions_soundQuality_medium, frmOptions_soundQuality_high})
         Me.cbSoundQuality.Location = New System.Drawing.Point(6, 32)
         Me.cbSoundQuality.Name = "cbSoundQuality"
         Me.cbSoundQuality.Size = New System.Drawing.Size(246, 21)
@@ -364,7 +366,7 @@ Partial Class frmOptions
         Me.chkForcedSoftwareBuffering.Name = "chkForcedSoftwareBuffering"
         Me.chkForcedSoftwareBuffering.Size = New System.Drawing.Size(168, 17)
         Me.chkForcedSoftwareBuffering.TabIndex = 31
-        Me.chkForcedSoftwareBuffering.Text = "Forced Software Buffer Mixing"
+        Me.chkForcedSoftwareBuffering.Text = frmOptions_forcedSoftwareBuffering_label
         Me.chkForcedSoftwareBuffering.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -405,7 +407,7 @@ Partial Class frmOptions
         '
         Me.cbShowHeightAsUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbShowHeightAsUnits.FormattingEnabled = True
-        Me.cbShowHeightAsUnits.Items.AddRange(New Object() {"Units", "Real Values"})
+        Me.cbShowHeightAsUnits.Items.AddRange(New Object() {frmOptions_heightLabels_units, frmOptions_heightLabels_real})
         Me.cbShowHeightAsUnits.Location = New System.Drawing.Point(6, 113)
         Me.cbShowHeightAsUnits.Name = "cbShowHeightAsUnits"
         Me.cbShowHeightAsUnits.Size = New System.Drawing.Size(121, 21)
@@ -418,7 +420,7 @@ Partial Class frmOptions
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(75, 13)
         Me.Label12.TabIndex = 27
-        Me.Label12.Text = "Height Labels:"
+        Me.Label12.Text = frmOptions_heightLabels_label
         '
         'GroupBox3
         '
@@ -456,7 +458,7 @@ Partial Class frmOptions
         Me.cmdOk.Name = "cmdOk"
         Me.cmdOk.Size = New System.Drawing.Size(126, 23)
         Me.cmdOk.TabIndex = 36
-        Me.cmdOk.Text = "Ok"
+        Me.cmdOk.Text = common_ok
         Me.cmdOk.UseVisualStyleBackColor = True
         '
         'cmdCancel
@@ -465,7 +467,7 @@ Partial Class frmOptions
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(126, 23)
         Me.cmdCancel.TabIndex = 37
-        Me.cmdCancel.Text = "Cancel"
+        Me.cmdCancel.Text = common_cancel
         Me.cmdCancel.UseVisualStyleBackColor = True
         '
         'cmdApply
@@ -474,7 +476,7 @@ Partial Class frmOptions
         Me.cmdApply.Name = "cmdApply"
         Me.cmdApply.Size = New System.Drawing.Size(126, 23)
         Me.cmdApply.TabIndex = 38
-        Me.cmdApply.Text = "Apply"
+        Me.cmdApply.Text = common_apply
         Me.cmdApply.UseVisualStyleBackColor = True
         '
         'cmdReset
@@ -483,7 +485,7 @@ Partial Class frmOptions
         Me.cmdReset.Name = "cmdReset"
         Me.cmdReset.Size = New System.Drawing.Size(126, 23)
         Me.cmdReset.TabIndex = 40
-        Me.cmdReset.Text = "Reset"
+        Me.cmdReset.Text = common_reset
         Me.cmdReset.UseVisualStyleBackColor = True
         '
         'GroupBox5
@@ -508,7 +510,7 @@ Partial Class frmOptions
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(60, 13)
         Me.Label14.TabIndex = 6
-        Me.Label14.Text = "Arguments:"
+        Me.Label14.Text = frmOptions_startArguments_label
         '
         'tbArguments
         '
@@ -540,7 +542,7 @@ Partial Class frmOptions
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(67, 13)
         Me.Label13.TabIndex = 2
-        Me.Label13.Text = "Output Path:"
+        Me.Label13.Text = frmOptions_outputPath_label
         '
         'chkSaveOutput
         '
@@ -549,7 +551,7 @@ Partial Class frmOptions
         Me.chkSaveOutput.Name = "chkSaveOutput"
         Me.chkSaveOutput.Size = New System.Drawing.Size(117, 17)
         Me.chkSaveOutput.TabIndex = 1
-        Me.chkSaveOutput.Text = "Save Output to File"
+        Me.chkSaveOutput.Text = frmOptions_saveOutputFile_label
         Me.chkSaveOutput.UseVisualStyleBackColor = True
         '
         'chkVerbose
@@ -559,7 +561,7 @@ Partial Class frmOptions
         Me.chkVerbose.Name = "chkVerbose"
         Me.chkVerbose.Size = New System.Drawing.Size(100, 17)
         Me.chkVerbose.TabIndex = 0
-        Me.chkVerbose.Text = "Verbose Output"
+        Me.chkVerbose.Text = frmLauncher_verboseOutputButton_text
         Me.chkVerbose.UseVisualStyleBackColor = True
         '
         'frmOptions
@@ -582,7 +584,7 @@ Partial Class frmOptions
         Me.Name = "frmOptions"
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
-        Me.Text = "Options"
+        Me.Text = frmOptions_title
         CType(Me.numFullscreenWidth, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numFullscreenHeight, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

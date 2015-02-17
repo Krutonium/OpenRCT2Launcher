@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports Launcher.My.Resources
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class frmLauncher
     Inherits System.Windows.Forms.Form
 
@@ -37,7 +39,7 @@ Partial Class frmLauncher
         Me.cmdLaunchGame.Name = "cmdLaunchGame"
         Me.cmdLaunchGame.Size = New System.Drawing.Size(110, 37)
         Me.cmdLaunchGame.TabIndex = 1
-        Me.cmdLaunchGame.Text = "Launch OpenRCT2"
+        Me.cmdLaunchGame.Text = frmLauncher_launchGameButton_text
         Me.cmdLaunchGame.UseVisualStyleBackColor = True
         '
         'cmdUpdate
@@ -47,7 +49,7 @@ Partial Class frmLauncher
         Me.cmdUpdate.Name = "cmdUpdate"
         Me.cmdUpdate.Size = New System.Drawing.Size(110, 37)
         Me.cmdUpdate.TabIndex = 2
-        Me.cmdUpdate.Text = "Update"
+        Me.cmdUpdate.Text = frmLauncher_updateButton_text
         Me.cmdUpdate.UseVisualStyleBackColor = True
         '
         'PictureBox1
@@ -65,7 +67,7 @@ Partial Class frmLauncher
         Me.cmdOptions.Name = "cmdOptions"
         Me.cmdOptions.Size = New System.Drawing.Size(110, 37)
         Me.cmdOptions.TabIndex = 5
-        Me.cmdOptions.Text = "Options"
+        Me.cmdOptions.Text = frmLauncher_optionsButton_title
         Me.cmdOptions.UseVisualStyleBackColor = True
         '
         'cmdExtras
@@ -74,7 +76,7 @@ Partial Class frmLauncher
         Me.cmdExtras.Name = "cmdExtras"
         Me.cmdExtras.Size = New System.Drawing.Size(110, 37)
         Me.cmdExtras.TabIndex = 6
-        Me.cmdExtras.Text = "Extras"
+        Me.cmdExtras.Text = frmLauncher_extrasButton_text
         Me.cmdExtras.UseVisualStyleBackColor = True
         '
         'frmLauncher
@@ -90,7 +92,7 @@ Partial Class frmLauncher
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.MaximizeBox = False
         Me.Name = "frmLauncher"
-        Me.Text = "OpenRCT2 Launcher"
+        Me.Text = frmLauncher_title
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

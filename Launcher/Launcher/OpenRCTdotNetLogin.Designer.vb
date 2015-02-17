@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports Launcher.My.Resources
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 <Global.System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726")> _
 Partial Class OpenRCTdotNetLogin
     Inherits System.Windows.Forms.Form
@@ -57,7 +59,7 @@ Partial Class OpenRCTdotNetLogin
         Me.UsernameLabel.Name = "UsernameLabel"
         Me.UsernameLabel.Size = New System.Drawing.Size(220, 23)
         Me.UsernameLabel.TabIndex = 0
-        Me.UsernameLabel.Text = "&User name"
+        Me.UsernameLabel.Text = OpenRCTdotNetLogin_usernameLabel
         Me.UsernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'PasswordLabel
@@ -66,7 +68,7 @@ Partial Class OpenRCTdotNetLogin
         Me.PasswordLabel.Name = "PasswordLabel"
         Me.PasswordLabel.Size = New System.Drawing.Size(220, 23)
         Me.PasswordLabel.TabIndex = 2
-        Me.PasswordLabel.Text = "&Password"
+        Me.PasswordLabel.Text = OpenRCTdotNetLogin_passwordLabel
         Me.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'UsernameTextBox
@@ -90,7 +92,7 @@ Partial Class OpenRCTdotNetLogin
         Me.OK.Name = "OK"
         Me.OK.Size = New System.Drawing.Size(94, 23)
         Me.OK.TabIndex = 4
-        Me.OK.Text = "&OK"
+        Me.OK.Text = common_ok
         '
         'Cancel
         '
@@ -99,7 +101,7 @@ Partial Class OpenRCTdotNetLogin
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(94, 23)
         Me.Cancel.TabIndex = 5
-        Me.Cancel.Text = "&Cancel"
+        Me.Cancel.Text = common_cancel
         '
         'Label1
         '
@@ -131,7 +133,7 @@ Partial Class OpenRCTdotNetLogin
         Me.Name = "OpenRCTdotNetLogin"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Login to OpenRCT.NET"
+        Me.Text = OpenRCTdotNetLogin_title
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
