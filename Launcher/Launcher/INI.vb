@@ -19,7 +19,7 @@ Public Class INI
     Public Sub Load(File As String)
         Dim Reader As StreamReader
 
-        Reader = My.Computer.FileSystem.OpenTextFileReader(File, Encoding.ASCII)
+        Reader = My.Computer.FileSystem.OpenTextFileReader(File, Encoding.UTF8)
 
         While Reader.EndOfStream = False 'Quit when at the end
             Dim Line As String = Reader.ReadLine()
@@ -52,7 +52,7 @@ Public Class INI
     Public Sub Save(File As String)
         Dim Writer As StreamWriter
 
-        Writer = My.Computer.FileSystem.OpenTextFileWriter(File, False, Encoding.ASCII)
+        Writer = My.Computer.FileSystem.OpenTextFileWriter(File, False, Encoding.UTF8)
 
         For Each Section In Sections
             Writer.WriteLine("[" + Section.Name + "]")

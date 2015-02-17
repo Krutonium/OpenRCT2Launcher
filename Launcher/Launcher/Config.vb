@@ -240,14 +240,11 @@ Public Class OpenRCT2Config
 
         Value = INIConfig.FindValue("general", "fullscreen_mode")
 
-        Select Case Value
-            Case "window"
-                FullscreenMode = EnumFullscreenMode.Window
-            Case "fullscreen"
-                FullscreenMode = EnumFullscreenMode.Fullscreen
-            Case "borderless_fullscreen"
-                FullscreenMode = EnumFullscreenMode.BorderlessFullscreen
-        End Select
+        If Int32.TryParse(Value, Number) Then
+            If Number >= 0 And Number <= 2 Then
+                FullscreenMode = Number
+            End If
+        End If
 
         Value = INIConfig.FindValue("general", "fullscreen_width")
 
@@ -396,18 +393,11 @@ Public Class OpenRCT2Config
             INIConfig.SetValue("general", "save_plugin_data", "false")
         End If
 
-        Select Case FullscreenMode
-            Case EnumFullscreenMode.Window
-                INIConfig.SetValue("general", "fullscreen_mode", "window")
-            Case EnumFullscreenMode.Fullscreen
-                INIConfig.SetValue("general", "fullscreen_mode", "fullscreen")
-            Case EnumFullscreenMode.BorderlessFullscreen
-                INIConfig.SetValue("general", "fullscreen_mode", "borderless_fullscreen")
-        End Select
+        INIConfig.SetValue("general", "fullscreen_mode", FullscreenMode)
 
         INIConfig.SetValue("general", "fullscreen_width", FullscreenWidth.ToString())
 
-        INIConfig.SetValue("general", "fullscreen_height", FullscreenWidth.ToString())
+        INIConfig.SetValue("general", "fullscreen_height", FullscreenHeight.ToString())
 
         Select Case Language
             Case EnumLanguage.EnglishUK
