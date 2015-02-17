@@ -144,6 +144,6 @@ Public Class Extras
     End Function
 
     Private Sub cmdLoginOpenRCTnet_Click(sender As Object, e As EventArgs) Handles cmdLoginOpenRCTnet.Click
-        LoginForm1.Show()
+        OpenRCTdotNetLogin.Show()
     End Sub
 End Class

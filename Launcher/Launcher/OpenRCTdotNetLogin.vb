@@ -1,11 +1,8 @@
 ﻿Imports Launcher.My.Resources
 Imports System.Net
-Imports HelperLibrary
-Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
-Imports HelperLibrary
 
-Public Class LoginForm1
+Public Class OpenRCTdotNetLogin
 
     ' TODO: Insert code to perform custom authentication using the provided username and password 
     ' (See http://go.microsoft.com/fwlink/?LinkId=35339).  
@@ -15,7 +12,7 @@ Public Class LoginForm1
     ' Subsequently, My.User will return identity information encapsulated in the CustomPrincipal object
     ' such as the username, display name, etc.
 
-    Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
+    Private Sub OK_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles OK.Click
         Dim username As String = UsernameTextBox.Text
         Dim password As String = PasswordTextBox.Text
         Const secret As String = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
@@ -33,8 +30,8 @@ Public Class LoginForm1
         End If
     End Sub
 
-    Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel.Click
-        Me.Close()
+    Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Cancel.Click
+        Close()
     End Sub
 
     Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load

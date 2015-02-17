@@ -120,10 +120,10 @@
       <DependentUpon>Launcher.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm1.Designer.vb">
-      <DependentUpon>LoginForm1.vb</DependentUpon>
+    <Compile Include="OpenRCTdotNetLogin.Designer.vb">
+      <DependentUpon>OpenRCTdotNetLogin.vb</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm1.vb">
+    <Compile Include="OpenRCTdotNetLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.vb" />
@@ -156,8 +156,8 @@
     <EmbeddedResource Include="Launcher.resx">
       <DependentUpon>Launcher.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm1.resx">
-      <DependentUpon>LoginForm1.vb</DependentUpon>
+    <EmbeddedResource Include="OpenRCTdotNetLogin.resx">
+      <DependentUpon>OpenRCTdotNetLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.nl.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
