@@ -31,6 +31,7 @@ Partial Class Extras
         Me.cmdDropboxSync = New System.Windows.Forms.Button()
         Me.cmdSyncAnyFolder = New System.Windows.Forms.Button()
         Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
+        Me.cmdLoginOpenRCTnet = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'cmdCSS17
@@ -39,7 +40,7 @@ Partial Class Extras
         Me.cmdCSS17.Name = "cmdCSS17"
         Me.cmdCSS17.Size = New System.Drawing.Size(165, 23)
         Me.cmdCSS17.TabIndex = 0
-        Me.cmdCSS17.Text = extras_rct1musicButton_text
+        Me.cmdCSS17.Text = Global.Launcher.My.Resources.Resources.extras_rct1musicButton_text
         Me.cmdCSS17.UseVisualStyleBackColor = True
         '
         'cmdCSS17File
@@ -48,7 +49,7 @@ Partial Class Extras
         Me.cmdCSS17File.Name = "cmdCSS17File"
         Me.cmdCSS17File.Size = New System.Drawing.Size(165, 23)
         Me.cmdCSS17File.TabIndex = 1
-        Me.cmdCSS17File.Text = extras_rct1musicFileButton_text
+        Me.cmdCSS17File.Text = Global.Launcher.My.Resources.Resources.extras_rct1musicFileButton_text
         Me.cmdCSS17File.UseVisualStyleBackColor = True
         '
         'cmdDebug
@@ -57,7 +58,7 @@ Partial Class Extras
         Me.cmdDebug.Name = "cmdDebug"
         Me.cmdDebug.Size = New System.Drawing.Size(165, 23)
         Me.cmdDebug.TabIndex = 2
-        Me.cmdDebug.Text = extras_fileLocationsButton_text
+        Me.cmdDebug.Text = Global.Launcher.My.Resources.Resources.extras_fileLocationsButton_text
         Me.cmdDebug.UseVisualStyleBackColor = True
         '
         'cmdDropboxSync
@@ -66,7 +67,7 @@ Partial Class Extras
         Me.cmdDropboxSync.Name = "cmdDropboxSync"
         Me.cmdDropboxSync.Size = New System.Drawing.Size(165, 23)
         Me.cmdDropboxSync.TabIndex = 3
-        Me.cmdDropboxSync.Text = extras_syncSavesDropboxButton_text
+        Me.cmdDropboxSync.Text = Global.Launcher.My.Resources.Resources.extras_syncSavesDropboxButton_text
         Me.cmdDropboxSync.UseVisualStyleBackColor = True
         '
         'cmdSyncAnyFolder
@@ -75,21 +76,31 @@ Partial Class Extras
         Me.cmdSyncAnyFolder.Name = "cmdSyncAnyFolder"
         Me.cmdSyncAnyFolder.Size = New System.Drawing.Size(165, 23)
         Me.cmdSyncAnyFolder.TabIndex = 4
-        Me.cmdSyncAnyFolder.Text = extras_syncSavesAnyFolderButton_text
+        Me.cmdSyncAnyFolder.Text = Global.Launcher.My.Resources.Resources.extras_syncSavesAnyFolderButton_text
         Me.cmdSyncAnyFolder.UseVisualStyleBackColor = True
+        '
+        'cmdLoginOpenRCTnet
+        '
+        Me.cmdLoginOpenRCTnet.Location = New System.Drawing.Point(12, 70)
+        Me.cmdLoginOpenRCTnet.Name = "cmdLoginOpenRCTnet"
+        Me.cmdLoginOpenRCTnet.Size = New System.Drawing.Size(165, 23)
+        Me.cmdLoginOpenRCTnet.TabIndex = 5
+        Me.cmdLoginOpenRCTnet.Text = "Sign into OpenRCT.NET"
+        Me.cmdLoginOpenRCTnet.UseVisualStyleBackColor = True
         '
         'Extras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(369, 211)
+        Me.Controls.Add(Me.cmdLoginOpenRCTnet)
         Me.Controls.Add(Me.cmdSyncAnyFolder)
         Me.Controls.Add(Me.cmdDropboxSync)
         Me.Controls.Add(Me.cmdDebug)
         Me.Controls.Add(Me.cmdCSS17File)
         Me.Controls.Add(Me.cmdCSS17)
-        Me.Name = extras_title
-        Me.Text = extras_title
+        Me.Name = "Extras"
+        Me.Text = "Extras"
         Me.ResumeLayout(False)
 
     End Sub
@@ -100,4 +111,5 @@ Partial Class Extras
     Friend WithEvents cmdDropboxSync As System.Windows.Forms.Button
     Friend WithEvents cmdSyncAnyFolder As System.Windows.Forms.Button
     Friend WithEvents FBD As System.Windows.Forms.FolderBrowserDialog
+    Friend WithEvents cmdLoginOpenRCTnet As System.Windows.Forms.Button
 End Class

@@ -5,5 +5,10 @@ configuration:
 build:
   verbosity: normal
 
+after_test:
+  - md LauncherRelease
+  - xcopy "%CD%\Launcher\Launcher\bin\Release\*.exe" "%CD%\LauncherRelease" /y
+  - xcopy "%CD%\Launcher\Launcher\bin\Release\*.dll" "%CD%\LauncherRelease" /y
+  
 artifacts:
-  - path: Launcher\Launcher\bin\Release
+  - path: LauncherRelease
