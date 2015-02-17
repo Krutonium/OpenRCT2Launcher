@@ -262,11 +262,11 @@ Public Class OpenRCT2Config
 
         Value = INIConfig.FindValue("general", "language")
 
-        If Value <> Nothing Then
-            If Convert.ToInt32(Value) >= 1 And Convert.ToInt32(Value) <= 9 Then
-                Language = Convert.ToInt32(Value)
-            End If
-        End If
+        'If Value <> Nothing Then
+        'If Convert.ToInt32(Value) >= 1 And Convert.ToInt32(Value) <= 9 Then
+        'Language = Convert.ToInt32(Value)
+        'End If
+        'End If
 
         Value = INIConfig.FindValue("general", "title_music")
 
