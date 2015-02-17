@@ -1,8 +1,9 @@
 ﻿Imports Launcher.My.Resources
 Imports System.Net
+Imports HelperLibrary
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
-Imports Microsoft.Win32
+Imports HelperLibrary
 
 Public Class LoginForm1
 
@@ -17,13 +18,16 @@ Public Class LoginForm1
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
         Dim username As String = UsernameTextBox.Text
         Dim password As String = PasswordTextBox.Text
-        Dim secret = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
-        Dim WS As New WebClient
-        Dim json As JObject = JObject.Parse(WS.DownloadString("https://openrct.net/api/?a=auth&username=" & username & "&password=" & password & "&secret=" & secret))
+        Const secret As String = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
+        Dim WC As New WebClient
+        Dim json As JObject = JObject.Parse(WC.DownloadString("https://openrct.net/api/?a=auth&username=" & username & "&password=" & password & "&secret=" & secret))
         'MsgBox(json.SelectToken("error"))
         If json.SelectToken("error") Is Nothing Then
             Dim user As String = json.SelectToken("user_name")
             MsgBox("Login Worked, " & user & "!")
+            Main.LauncherConfig.UserKey = json.SelectToken("authcode")
+            Main.LauncherConfig.HasChanged = True
+
         Else
             MsgBox(json.SelectToken("error"))
         End If

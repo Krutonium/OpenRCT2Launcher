@@ -374,6 +374,7 @@ Public Class LauncherConfig
     Public Arguments As String
     Public SaveOutput As Boolean
     Public OutputPath As String
+    Public UserKey As String
 
     Dim INIConfig As IniConfiguration
 
@@ -383,6 +384,7 @@ Public Class LauncherConfig
         Arguments = ""
         SaveOutput = False
         OutputPath = Main.OpenRCT2Folder + "\log.txt"
+        UserKey = ""
     End Sub
 
     Public Sub LoadINI(File As String)
@@ -415,6 +417,12 @@ Public Class LauncherConfig
         If Not String.IsNullOrEmpty(Value) Then
             OutputPath = Value
         End If
+
+        Value = INIConfig.GetProperty("general", "UserKey") 'Get the value
+
+        If Not String.IsNullOrEmpty(Value) Then 'Check it
+            UserKey = Value
+        End If
     End Sub
 
     Public Sub SaveINI(File As String)
@@ -435,6 +443,8 @@ Public Class LauncherConfig
         End If
 
         INIConfig.SetProperty("general", "output_path", OutputPath)
+
+        INIConfig.SetProperty("general", "UserKey", UserKey)
 
         Try
             INIConfig.Save(File)
