@@ -10,4 +10,4 @@ after_test:
   - robocopy *.exe *.dll "%CD%\Launcher\Launcher\bin\Release" "%CD%\LauncherRelease"
   
 artifacts:
-  - path: \LauncherRelease
+  - path: LauncherRelease
