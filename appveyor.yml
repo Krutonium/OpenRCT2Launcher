@@ -8,6 +8,6 @@ build:
 after_build:
   - md LauncherRelease
   - robocopy *.exe *.dll "%CD%\Launcher\Launcher\bin\Release" "%CD%\LauncherRelease"
-  - echo %CD%
+  
 artifacts:
-  - path: LauncherRelease
+  - path: \LauncherRelease
