@@ -38,6 +38,20 @@ namespace Tests {
         }
 
         [TestMethod]
+        public void Copy_Files_From_Symlink() {
+            SetupTests();
+
+            var originalFiles = Directory.GetFiles(FirstTargetPath).Length;
+
+            ReparsePoint.Create(SymlinkPath, FirstTargetPath, true, ReparsePoint.LinkType.DirectoryLink);
+            FileActions.CopyDirectory(SymlinkPath, SecondTargetPath);
+
+            var measuredFiles = Directory.GetFiles(SecondTargetPath).Length;
+
+            Assert.AreEqual(originalFiles, measuredFiles);
+        }
+
+        [TestMethod]
         public void Delete_Symlink() {
             SetupTests();
 

@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
@@ -12,8 +12,7 @@ namespace HelperLibrary {
 
         [STAThread]
         static void Main() {
-            var args = Environment.GetCommandLineArgs();
-            var parameters = args.Reverse().Take(args.Length - 1).Where(s => s.Contains("=")).Select(s => s.Split('=')).ToDictionary(s => s[0], s => s[1]);
+            var parameters = new CommandLineArgs(Environment.GetCommandLineArgs());
 
             if (!Debugger.IsAttached && 
                 parameters.ContainsKey(DebugArgumentTitle) && 
@@ -39,6 +38,12 @@ namespace HelperLibrary {
                         !Enum.TryParse(parameters[CreateLinkTypeArgumentTitle], out type)) {
                             return;
                     }
+                    var linkPath = parameters[CreateLinkPathArgumentTitle];
+
+                    if(Directory.Exists(linkPath))
+                        Directory.Delete(linkPath, true);
+                    else if(File.Exists(linkPath))
+                        File.Delete(linkPath);
 
                     var success = CreateSymbolicLink(parameters[CreateLinkPathArgumentTitle], parameters[CreateDestinationArgumentTitle], type);
                     if (!success) {
@@ -123,12 +128,10 @@ namespace HelperLibrary {
                 if (!overrideExisting) {
                     throw new TargetAlreadyExistsException("Directory already exists");
                 }
-                Directory.Delete(linkPath, true);
             } else if (type == LinkType.FileLink && File.Exists(linkPath)) {
                 if (!overrideExisting) {
                     throw new TargetAlreadyExistsException("File already exists");
                 }
-                File.Delete(linkPath);
             }
 
             // Start process with privileges
@@ -136,12 +139,12 @@ namespace HelperLibrary {
             process.StartInfo.FileName = Assembly.GetExecutingAssembly().CodeBase;
             process.StartInfo.Verb = "runas"; // Adminrights
             process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.Arguments = string.Join(" ", 
-                ActionArgumentTitle + "=" + ActionArgumentCreate,
-                //DebugArgumentTitle + "=True",
-                CreateLinkPathArgumentTitle + "=" + linkPath,
-                CreateDestinationArgumentTitle + "=" + destination,
-                CreateLinkTypeArgumentTitle + "=" + type);
+            process.StartInfo.Arguments = string.Join(" ", CommandLineArgs.ArgsFromDictionary(new Dictionary<string, string> {
+                { ActionArgumentTitle, ActionArgumentCreate },
+                //{ DebugArgumentTitle, "=True" },
+                { CreateLinkPathArgumentTitle, linkPath },
+                { CreateDestinationArgumentTitle, destination },
+                { CreateLinkTypeArgumentTitle, type.ToString() }}));
 
             process.Start();
             process.WaitForExit();
