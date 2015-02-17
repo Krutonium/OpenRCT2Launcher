@@ -32,6 +32,7 @@ Partial Class Extras
         Me.cmdSyncAnyFolder = New System.Windows.Forms.Button()
         Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
         Me.cmdLoginOpenRCTnet = New System.Windows.Forms.Button()
+        Me.cmdSyncToOpenRCT = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'cmdCSS17
@@ -85,14 +86,25 @@ Partial Class Extras
         Me.cmdLoginOpenRCTnet.Name = "cmdLoginOpenRCTnet"
         Me.cmdLoginOpenRCTnet.Size = New System.Drawing.Size(165, 23)
         Me.cmdLoginOpenRCTnet.TabIndex = 5
-        Me.cmdLoginOpenRCTnet.Text = "Sign into OpenRCT.NET"
+        Me.cmdLoginOpenRCTnet.Text = "Sign into OpenRCT.net" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.cmdLoginOpenRCTnet.UseVisualStyleBackColor = True
+        '
+        'cmdSyncToOpenRCT
+        '
+        Me.cmdSyncToOpenRCT.Enabled = False
+        Me.cmdSyncToOpenRCT.Location = New System.Drawing.Point(183, 70)
+        Me.cmdSyncToOpenRCT.Name = "cmdSyncToOpenRCT"
+        Me.cmdSyncToOpenRCT.Size = New System.Drawing.Size(165, 23)
+        Me.cmdSyncToOpenRCT.TabIndex = 6
+        Me.cmdSyncToOpenRCT.Text = "Sync Saves to OpenRCT.net"
+        Me.cmdSyncToOpenRCT.UseVisualStyleBackColor = True
         '
         'Extras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(369, 211)
+        Me.ClientSize = New System.Drawing.Size(362, 211)
+        Me.Controls.Add(Me.cmdSyncToOpenRCT)
         Me.Controls.Add(Me.cmdLoginOpenRCTnet)
         Me.Controls.Add(Me.cmdSyncAnyFolder)
         Me.Controls.Add(Me.cmdDropboxSync)
@@ -112,4 +124,5 @@ Partial Class Extras
     Friend WithEvents cmdSyncAnyFolder As System.Windows.Forms.Button
     Friend WithEvents FBD As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents cmdLoginOpenRCTnet As System.Windows.Forms.Button
+    Friend WithEvents cmdSyncToOpenRCT As System.Windows.Forms.Button
 End Class

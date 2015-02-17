@@ -23,6 +23,7 @@ Public Class Extras
         WindowState = FormWindowState.Normal
         MaximizeBox = False
         Call SetupReg()
+        Call CheckIfLoggedIn()
     End Sub
 
     Private Sub SetupReg()
@@ -41,6 +42,13 @@ Public Class Extras
         End Try
     End Sub
 
+    Private Sub CheckIfLoggedIn()
+        If Main.LauncherConfig.UserID = Nothing Then
+            'If we ever want to do somthing if they are not logged in, here is the place!
+        Else
+            cmdSyncToOpenRCT.Enabled = True
+        End If
+    End Sub
 
     Private Sub cmdCSS17_Click(sender As Object, e As EventArgs) Handles cmdCSS17.Click
         MsgBox(extras_cdSoundtrack_firstWarning_text, MsgBoxStyle.Information, extras_cdSoundtrack_firstWarning_title)
@@ -145,5 +153,9 @@ Public Class Extras
 
     Private Sub cmdLoginOpenRCTnet_Click(sender As Object, e As EventArgs) Handles cmdLoginOpenRCTnet.Click
         OpenRCTdotNetLogin.Show()
+    End Sub
+
+    Private Sub cmdSyncToOpenRCT_Click(sender As Object, e As EventArgs) Handles cmdSyncToOpenRCT.Click
+
     End Sub
 End Class

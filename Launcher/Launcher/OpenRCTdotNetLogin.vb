@@ -23,8 +23,9 @@ Public Class OpenRCTdotNetLogin
             Dim user As String = json.SelectToken("user_name")
             MsgBox("Login Worked, " & user & "!")
             Main.LauncherConfig.UserKey = json.SelectToken("authcode")
+            Main.LauncherConfig.UserID = json.SelectToken("user_id")
             Main.LauncherConfig.HasChanged = True
-
+            Close()
         Else
             MsgBox(json.SelectToken("error"))
         End If
