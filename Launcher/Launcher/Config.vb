@@ -15,7 +15,7 @@ Public Class OpenRCT2Config
         Fahrenheit
     End Enum
 
-    Enum EnumCurrency
+    Enum EnumCurrencyFormat
         Pounds
         Dollars
         Franc
@@ -66,7 +66,7 @@ Public Class OpenRCT2Config
     Public GamePath As String
     Public MeasurementFormat As EnumMeasurementFormat
     Public TemperatureFormat As EnumTemperatureFormat
-    Public Currency As EnumCurrency
+    Public CurrencyFormat As EnumCurrencyFormat
     Public EdgeScrolling As Boolean
     Public AlwaysShowGridlines As Boolean
     Public LandscapeSmoothing As Boolean
@@ -89,7 +89,7 @@ Public Class OpenRCT2Config
         GamePath = ""
         MeasurementFormat = EnumMeasurementFormat.Imperial
         TemperatureFormat = EnumTemperatureFormat.Celsius
-        Currency = EnumCurrency.Pounds
+        CurrencyFormat = EnumCurrencyFormat.Pounds
         EdgeScrolling = True
         AlwaysShowGridlines = False
         LandscapeSmoothing = True
@@ -158,39 +158,39 @@ Public Class OpenRCT2Config
                 TemperatureFormat = EnumTemperatureFormat.Fahrenheit
         End Select
 
-        Value = INIConfig.FindValue("general", "currency")
+        Value = INIConfig.FindValue("general", "currency_format")
 
         Select Case Value
             Case "GBP"
-                Currency = EnumCurrency.Pounds
+                CurrencyFormat = EnumCurrencyFormat.Pounds
             Case "USD"
-                Currency = EnumCurrency.Dollars
+                CurrencyFormat = EnumCurrencyFormat.Dollars
             Case "FRF"
-                Currency = EnumCurrency.Franc
+                CurrencyFormat = EnumCurrencyFormat.Franc
             Case "DEM"
-                Currency = EnumCurrency.Deutschmark
+                CurrencyFormat = EnumCurrencyFormat.Deutschmark
             Case "YEN"
-                Currency = EnumCurrency.Yen
+                CurrencyFormat = EnumCurrencyFormat.Yen
             Case "ESP"
-                Currency = EnumCurrency.Peseta
+                CurrencyFormat = EnumCurrencyFormat.Peseta
             Case "ITL"
-                Currency = EnumCurrency.Lira
+                CurrencyFormat = EnumCurrencyFormat.Lira
             Case "NLG"
-                Currency = EnumCurrency.Guilders
+                CurrencyFormat = EnumCurrencyFormat.Guilders
             Case "NOK"
-                Currency = EnumCurrency.Krona
+                CurrencyFormat = EnumCurrencyFormat.Krona
             Case "SEK"
-                Currency = EnumCurrency.Krona
+                CurrencyFormat = EnumCurrencyFormat.Krona
             Case "DEK"
-                Currency = EnumCurrency.Krona
+                CurrencyFormat = EnumCurrencyFormat.Krona
             Case Chr(163)
-                Currency = EnumCurrency.Pounds
+                CurrencyFormat = EnumCurrencyFormat.Pounds
             Case Chr(36)
-                Currency = EnumCurrency.Dollars
+                CurrencyFormat = EnumCurrencyFormat.Dollars
             Case Chr(165)
-                Currency = EnumCurrency.Yen
+                CurrencyFormat = EnumCurrencyFormat.Yen
             Case Chr(181)
-                Currency = EnumCurrency.Euros
+                CurrencyFormat = EnumCurrencyFormat.Euros
         End Select
 
         Value = INIConfig.FindValue("general", "edge_scrolling")
@@ -340,27 +340,27 @@ Public Class OpenRCT2Config
                 INIConfig.SetValue("general", "temperature_format", "FAHRENHEIT")
         End Select
 
-        Select Case Currency
-            Case EnumCurrency.Pounds
-                INIConfig.SetValue("general", "currency", "GBP")
-            Case EnumCurrency.Dollars
-                INIConfig.SetValue("general", "currency", "USD")
-            Case EnumCurrency.Franc
-                INIConfig.SetValue("general", "currency", "FRF")
-            Case EnumCurrency.Deutschmark
-                INIConfig.SetValue("general", "currency", "DEM")
-            Case EnumCurrency.Yen
-                INIConfig.SetValue("general", "currency", "YEN")
-            Case EnumCurrency.Peseta
-                INIConfig.SetValue("general", "currency", "ESP")
-            Case EnumCurrency.Lira
-                INIConfig.SetValue("general", "currency", "ITL")
-            Case EnumCurrency.Guilders
-                INIConfig.SetValue("general", "currency", "NLG")
-            Case EnumCurrency.Krona
-                INIConfig.SetValue("general", "currency", "NOK")
-            Case EnumCurrency.Euros
-                INIConfig.SetValue("general", "currency", "EUR")
+        Select Case CurrencyFormat
+            Case EnumCurrencyFormat.Pounds
+                INIConfig.SetValue("general", "currency_format", "GBP")
+            Case EnumCurrencyFormat.Dollars
+                INIConfig.SetValue("general", "currency_format", "USD")
+            Case EnumCurrencyFormat.Franc
+                INIConfig.SetValue("general", "currency_format", "FRF")
+            Case EnumCurrencyFormat.Deutschmark
+                INIConfig.SetValue("general", "currency_format", "DEM")
+            Case EnumCurrencyFormat.Yen
+                INIConfig.SetValue("general", "currency_format", "YEN")
+            Case EnumCurrencyFormat.Peseta
+                INIConfig.SetValue("general", "currency_format", "ESP")
+            Case EnumCurrencyFormat.Lira
+                INIConfig.SetValue("general", "currency_format", "ITL")
+            Case EnumCurrencyFormat.Guilders
+                INIConfig.SetValue("general", "currency_format", "NLG")
+            Case EnumCurrencyFormat.Krona
+                INIConfig.SetValue("general", "currency_format", "NOK")
+            Case EnumCurrencyFormat.Euros
+                INIConfig.SetValue("general", "currency_format", "EUR")
         End Select
 
         If EdgeScrolling Then

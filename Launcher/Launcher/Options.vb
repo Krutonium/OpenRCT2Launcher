@@ -87,11 +87,17 @@
         tbGamePath.Text = Main.OpenRCT2Config.GamePath
         cbMeasurementFormat.SelectedIndex = Main.OpenRCT2Config.MeasurementFormat
         cbTemperatureFormat.SelectedIndex = Main.OpenRCT2Config.TemperatureFormat
-        cbCurrency.SelectedIndex = Main.OpenRCT2Config.Currency
+        cbCurrency.SelectedIndex = Main.OpenRCT2Config.CurrencyFormat
         chkEdgeScrolling.Checked = Main.OpenRCT2Config.EdgeScrolling
         chkAlwaysShowGridlines.Checked = Main.OpenRCT2Config.AlwaysShowGridlines
         chkLandscapeSmoothing.Checked = Main.OpenRCT2Config.LandscapeSmoothing
-        cbShowHeightAsUnits.SelectedIndex = 1 - Main.OpenRCT2Config.ShowHeightAsUnits
+
+        If Main.OpenRCT2Config.ShowHeightAsUnits Then
+            cbShowHeightAsUnits.SelectedIndex = 0
+        Else
+            cbShowHeightAsUnits.SelectedIndex = 1
+        End If
+
         chkSavePluginData.Checked = Main.OpenRCT2Config.SavePluginData
         cbFullscreenMode.SelectedIndex = Main.OpenRCT2Config.FullscreenMode
         numFullscreenWidth.Value = Main.OpenRCT2Config.FullscreenWidth
@@ -137,7 +143,7 @@
             Return True
         End If
 
-        If cbCurrency.SelectedIndex <> Main.OpenRCT2Config.Currency Then
+        If cbCurrency.SelectedIndex <> Main.OpenRCT2Config.CurrencyFormat Then
             Return True
         End If
 
@@ -221,7 +227,7 @@
         Main.OpenRCT2Config.GamePath = tbGamePath.Text
         Main.OpenRCT2Config.MeasurementFormat = cbMeasurementFormat.SelectedIndex
         Main.OpenRCT2Config.TemperatureFormat = cbTemperatureFormat.SelectedIndex
-        Main.OpenRCT2Config.Currency = cbCurrency.SelectedIndex
+        Main.OpenRCT2Config.CurrencyFormat = cbCurrency.SelectedIndex
         Main.OpenRCT2Config.EdgeScrolling = chkEdgeScrolling.Checked
         Main.OpenRCT2Config.AlwaysShowGridlines = chkAlwaysShowGridlines.Checked
         Main.OpenRCT2Config.LandscapeSmoothing = chkLandscapeSmoothing.Checked
