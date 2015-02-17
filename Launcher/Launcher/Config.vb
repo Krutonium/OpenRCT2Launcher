@@ -15,7 +15,7 @@ Public Class OpenRCT2Config
         Fahrenheit
     End Enum
 
-    Enum EnumCurrency
+    Enum EnumCurrencyFormat
         Pounds
         Dollars
         Franc
@@ -66,7 +66,7 @@ Public Class OpenRCT2Config
     Public GamePath As String
     Public MeasurementFormat As EnumMeasurementFormat
     Public TemperatureFormat As EnumTemperatureFormat
-    Public Currency As EnumCurrency
+    Public CurrencyFormat As EnumCurrencyFormat
     Public EdgeScrolling As Boolean
     Public AlwaysShowGridlines As Boolean
     Public LandscapeSmoothing As Boolean
@@ -89,7 +89,7 @@ Public Class OpenRCT2Config
         GamePath = ""
         MeasurementFormat = EnumMeasurementFormat.Imperial
         TemperatureFormat = EnumTemperatureFormat.Celsius
-        Currency = EnumCurrency.Pounds
+        CurrencyFormat = EnumCurrencyFormat.Pounds
         EdgeScrolling = True
         AlwaysShowGridlines = False
         LandscapeSmoothing = True
@@ -106,6 +106,7 @@ Public Class OpenRCT2Config
 
     Public Sub LoadINI(File As String)
         Dim Value As String
+        Dim Number As Integer
 
         INIConfig.Clear()
 
@@ -142,54 +143,54 @@ Public Class OpenRCT2Config
         Value = INIConfig.FindValue("general", "measurement_format")
 
         Select Case Value
-            Case "imperial"
+            Case "IMPERIAL"
                 MeasurementFormat = EnumMeasurementFormat.Imperial
-            Case "metric"
+            Case "METRIC"
                 MeasurementFormat = EnumMeasurementFormat.Metric
         End Select
 
         Value = INIConfig.FindValue("general", "temperature_format")
 
         Select Case Value
-            Case "celsius"
+            Case "CELSIUS"
                 TemperatureFormat = EnumTemperatureFormat.Celsius
-            Case "fahrenheit"
+            Case "FAHRENHEIT"
                 TemperatureFormat = EnumTemperatureFormat.Fahrenheit
         End Select
 
-        Value = INIConfig.FindValue("general", "currency")
+        Value = INIConfig.FindValue("general", "currency_format")
 
         Select Case Value
             Case "GBP"
-                Currency = EnumCurrency.Pounds
+                CurrencyFormat = EnumCurrencyFormat.Pounds
             Case "USD"
-                Currency = EnumCurrency.Dollars
+                CurrencyFormat = EnumCurrencyFormat.Dollars
             Case "FRF"
-                Currency = EnumCurrency.Franc
+                CurrencyFormat = EnumCurrencyFormat.Franc
             Case "DEM"
-                Currency = EnumCurrency.Deutschmark
+                CurrencyFormat = EnumCurrencyFormat.Deutschmark
             Case "YEN"
-                Currency = EnumCurrency.Yen
+                CurrencyFormat = EnumCurrencyFormat.Yen
             Case "ESP"
-                Currency = EnumCurrency.Peseta
+                CurrencyFormat = EnumCurrencyFormat.Peseta
             Case "ITL"
-                Currency = EnumCurrency.Lira
+                CurrencyFormat = EnumCurrencyFormat.Lira
             Case "NLG"
-                Currency = EnumCurrency.Guilders
+                CurrencyFormat = EnumCurrencyFormat.Guilders
             Case "NOK"
-                Currency = EnumCurrency.Krona
+                CurrencyFormat = EnumCurrencyFormat.Krona
             Case "SEK"
-                Currency = EnumCurrency.Krona
+                CurrencyFormat = EnumCurrencyFormat.Krona
             Case "DEK"
-                Currency = EnumCurrency.Krona
+                CurrencyFormat = EnumCurrencyFormat.Krona
             Case Chr(163)
-                Currency = EnumCurrency.Pounds
+                CurrencyFormat = EnumCurrencyFormat.Pounds
             Case Chr(36)
-                Currency = EnumCurrency.Dollars
+                CurrencyFormat = EnumCurrencyFormat.Dollars
             Case Chr(165)
-                Currency = EnumCurrency.Yen
+                CurrencyFormat = EnumCurrencyFormat.Yen
             Case Chr(181)
-                Currency = EnumCurrency.Euros
+                CurrencyFormat = EnumCurrencyFormat.Euros
         End Select
 
         Value = INIConfig.FindValue("general", "edge_scrolling")
@@ -239,40 +240,52 @@ Public Class OpenRCT2Config
 
         Value = INIConfig.FindValue("general", "fullscreen_mode")
 
-        Select Case Value
-            Case "window"
-                FullscreenMode = EnumFullscreenMode.Window
-            Case "fullscreen"
-                FullscreenMode = EnumFullscreenMode.Fullscreen
-            Case "borderless_fullscreen"
-                FullscreenMode = EnumFullscreenMode.BorderlessFullscreen
-        End Select
+        If Int32.TryParse(Value, Number) Then
+            If Number >= 0 And Number <= 2 Then
+                FullscreenMode = Number
+            End If
+        End If
 
         Value = INIConfig.FindValue("general", "fullscreen_width")
 
-        If Value <> Nothing Then
-            FullscreenWidth = Convert.ToInt32(Value)
+        If Int32.TryParse(Value, Number) Then
+            FullscreenWidth = Number
         End If
 
         Value = INIConfig.FindValue("general", "fullscreen_height")
 
-        If Value <> Nothing Then
-            FullscreenHeight = Convert.ToInt32(Value)
+        If Int32.TryParse(Value, Number) Then
+            FullscreenHeight = Number
         End If
 
         Value = INIConfig.FindValue("general", "language")
 
-        'If Value <> Nothing Then
-        'If Convert.ToInt32(Value) >= 1 And Convert.ToInt32(Value) <= 9 Then
-        'Language = Convert.ToInt32(Value)
-        'End If
-        'End If
+        Select Case Value
+            Case "en-GB"
+                Language = EnumLanguage.EnglishUK
+            Case "en-US"
+                Language = EnumLanguage.EnglishUS
+            Case "de-DE"
+                Language = EnumLanguage.German
+            Case "nl-NL"
+                Language = EnumLanguage.Dutch
+            Case "fr-FR"
+                Language = EnumLanguage.French
+            Case "hu-HU"
+                Language = EnumLanguage.Hungarian
+            Case "pl-PL"
+                Language = EnumLanguage.Polish
+            Case "es-ES"
+                Language = EnumLanguage.Spanish
+            Case "sv-SE"
+                Language = EnumLanguage.Swedish
+        End Select
 
         Value = INIConfig.FindValue("general", "title_music")
 
-        If Value <> Nothing Then
-            If Convert.ToInt32(Value) >= 0 And Convert.ToInt32(Value) <= 2 Then
-                TitleMusic = Convert.ToInt32(Value)
+        If Int32.TryParse(Value, Number) Then
+            If Number >= 0 And Number <= 2 Then
+                TitleMusic = Number
             End If
         End If
 
@@ -315,39 +328,39 @@ Public Class OpenRCT2Config
 
         Select Case MeasurementFormat
             Case EnumMeasurementFormat.Imperial
-                INIConfig.SetValue("general", "measurement_format", "imperial")
+                INIConfig.SetValue("general", "measurement_format", "IMPERIAL")
             Case EnumMeasurementFormat.Metric
-                INIConfig.SetValue("general", "measurement_format", "metric")
+                INIConfig.SetValue("general", "measurement_format", "METRIC")
         End Select
 
         Select Case TemperatureFormat
             Case EnumTemperatureFormat.Celsius
-                INIConfig.SetValue("general", "temperature_format", "celsius")
+                INIConfig.SetValue("general", "temperature_format", "CELSIUS")
             Case EnumTemperatureFormat.Fahrenheit
-                INIConfig.SetValue("general", "temperature_format", "fahrenheit")
+                INIConfig.SetValue("general", "temperature_format", "FAHRENHEIT")
         End Select
 
-        Select Case Currency
-            Case EnumCurrency.Pounds
-                INIConfig.SetValue("general", "currency", "GBP")
-            Case EnumCurrency.Dollars
-                INIConfig.SetValue("general", "currency", "USD")
-            Case EnumCurrency.Franc
-                INIConfig.SetValue("general", "currency", "FRF")
-            Case EnumCurrency.Deutschmark
-                INIConfig.SetValue("general", "currency", "DEM")
-            Case EnumCurrency.Yen
-                INIConfig.SetValue("general", "currency", "YEN")
-            Case EnumCurrency.Peseta
-                INIConfig.SetValue("general", "currency", "ESP")
-            Case EnumCurrency.Lira
-                INIConfig.SetValue("general", "currency", "ITL")
-            Case EnumCurrency.Guilders
-                INIConfig.SetValue("general", "currency", "NLG")
-            Case EnumCurrency.Krona
-                INIConfig.SetValue("general", "currency", "NOK")
-            Case EnumCurrency.Euros
-                INIConfig.SetValue("general", "currency", "EUR")
+        Select Case CurrencyFormat
+            Case EnumCurrencyFormat.Pounds
+                INIConfig.SetValue("general", "currency_format", "GBP")
+            Case EnumCurrencyFormat.Dollars
+                INIConfig.SetValue("general", "currency_format", "USD")
+            Case EnumCurrencyFormat.Franc
+                INIConfig.SetValue("general", "currency_format", "FRF")
+            Case EnumCurrencyFormat.Deutschmark
+                INIConfig.SetValue("general", "currency_format", "DEM")
+            Case EnumCurrencyFormat.Yen
+                INIConfig.SetValue("general", "currency_format", "YEN")
+            Case EnumCurrencyFormat.Peseta
+                INIConfig.SetValue("general", "currency_format", "ESP")
+            Case EnumCurrencyFormat.Lira
+                INIConfig.SetValue("general", "currency_format", "ITL")
+            Case EnumCurrencyFormat.Guilders
+                INIConfig.SetValue("general", "currency_format", "NLG")
+            Case EnumCurrencyFormat.Krona
+                INIConfig.SetValue("general", "currency_format", "NOK")
+            Case EnumCurrencyFormat.Euros
+                INIConfig.SetValue("general", "currency_format", "EUR")
         End Select
 
         If EdgeScrolling Then
@@ -380,20 +393,32 @@ Public Class OpenRCT2Config
             INIConfig.SetValue("general", "save_plugin_data", "false")
         End If
 
-        Select Case FullscreenMode
-            Case EnumFullscreenMode.Window
-                INIConfig.SetValue("general", "fullscreen_mode", "window")
-            Case EnumFullscreenMode.Fullscreen
-                INIConfig.SetValue("general", "fullscreen_mode", "fullscreen")
-            Case EnumFullscreenMode.BorderlessFullscreen
-                INIConfig.SetValue("general", "fullscreen_mode", "borderless_fullscreen")
-        End Select
+        INIConfig.SetValue("general", "fullscreen_mode", FullscreenMode)
 
         INIConfig.SetValue("general", "fullscreen_width", FullscreenWidth.ToString())
 
-        INIConfig.SetValue("general", "fullscreen_height", FullscreenWidth.ToString())
+        INIConfig.SetValue("general", "fullscreen_height", FullscreenHeight.ToString())
 
-        INIConfig.SetValue("general", "language", Language)
+        Select Case Language
+            Case EnumLanguage.EnglishUK
+                INIConfig.SetValue("general", "language", "en-GB")
+            Case EnumLanguage.EnglishUS
+                INIConfig.SetValue("general", "language", "en-US")
+            Case EnumLanguage.German
+                INIConfig.SetValue("general", "language", "de-DE")
+            Case EnumLanguage.Dutch
+                INIConfig.SetValue("general", "language", "nl-NL")
+            Case EnumLanguage.French
+                INIConfig.SetValue("general", "language", "fr-FR")
+            Case EnumLanguage.Hungarian
+                INIConfig.SetValue("general", "language", "hu-HU")
+            Case EnumLanguage.Polish
+                INIConfig.SetValue("general", "language", "pl-PL")
+            Case EnumLanguage.Spanish
+                INIConfig.SetValue("general", "language", "es-ES")
+            Case EnumLanguage.Swedish
+                INIConfig.SetValue("general", "language", "sv-SE")
+        End Select
 
         INIConfig.SetValue("general", "title_music", TitleMusic)
 
