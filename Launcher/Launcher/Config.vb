@@ -291,14 +291,11 @@ Public Class OpenRCT2Config
 
         Value = INIConfig.FindValue("sound", "sound_quality")
 
-        Select Case Value
-            Case "low"
-                SoundQuality = EnumSoundQuality.Low
-            Case "medium"
-                SoundQuality = EnumSoundQuality.Medium
-            Case "high"
-                SoundQuality = EnumSoundQuality.High
-        End Select
+        If Int32.TryParse(Value, Number) Then
+            If Number >= 0 And Number <= 2 Then
+                SoundQuality = Number
+            End If
+        End If
 
         Value = INIConfig.FindValue("sound", "forced_software_buffering")
 
@@ -422,14 +419,7 @@ Public Class OpenRCT2Config
 
         INIConfig.SetValue("general", "title_music", TitleMusic)
 
-        Select Case SoundQuality
-            Case EnumSoundQuality.Low
-                INIConfig.SetValue("sound", "sound_quality", "low")
-            Case EnumSoundQuality.Medium
-                INIConfig.SetValue("sound", "sound_quality", "medium")
-            Case EnumSoundQuality.High
-                INIConfig.SetValue("sound", "sound_quality", "high")
-        End Select
+        INIConfig.SetValue("sound", "sound_quality", SoundQuality)
 
         If ForcedSoftwareBuffering Then
             INIConfig.SetValue("sound", "forced_software_buffering", "true")

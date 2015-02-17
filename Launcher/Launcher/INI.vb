@@ -15,7 +15,6 @@ End Class
 Public Class INI
     Dim Sections As New List(Of INISection)
 
-    'TODO: Rewrite this code
     Public Sub Load(File As String)
         Dim Reader As StreamReader
 
@@ -24,23 +23,37 @@ Public Class INI
         While Reader.EndOfStream = False 'Quit when at the end
             Dim Line As String = Reader.ReadLine()
 
-            If Line.Length = 0 Or Line.Trim(" ").Length = 0 Then 'If line has a length of 0 or only consits of whitespaces, get next line
+            Line = Line.TrimStart() 'Remove whitespaces from the beginning of the line
+
+            If Line.Length = 0 Then 'String contains only whitespaces
                 Continue While
             End If
 
-            If Line.Trim(" ")(0) = "#" Then 'Go to next line when the line represents a comment (first non whitespace character is a number sign)
-                Continue While
-            End If
-
-            If Line.Contains("[") And Line.Contains("]") Then 'Two square brackets with text in between represent a section
-                Sections.Add(New INISection(Line.Substring(Line.IndexOf("[") + 1, Line.IndexOf("]") - Line.IndexOf("[") - 1)))
-            ElseIf Line.Contains("=") Then 'A equals sign represents a key and a value
-                If Line.Contains(Chr(34)) Then '"Dirty" Solution
-                    Sections(Sections.Count - 1).Keys.Add(Line.Substring(0, Line.IndexOf("=")).Trim(" "))
-                    Sections(Sections.Count - 1).Values.Add(Line.Substring(Line.IndexOf(Chr(34), Line.IndexOf("=")) + 1, Line.LastIndexOf(Chr(34)) - Line.IndexOf(Chr(34), Line.IndexOf("=")) - 1))
+            If Line(0) = "[" Then 'Line is a section
+                If Line.IndexOfAny(New Char() {" ", "]"}, 1) = -1 Or (Line.IndexOfAny(New Char() {"#", "["}, 1) <> -1 And Line.IndexOfAny(New Char() {"#", "["}, 1) < Line.IndexOfAny(New Char() {" ", "]"}, 1)) Then
+                    Continue While
                 Else
-                    Sections(Sections.Count - 1).Keys.Add(Line.Substring(0, Line.IndexOf("=")).Trim(" "))
-                    Sections(Sections.Count - 1).Values.Add(Line.Substring(Line.IndexOf("=") + 1).Trim(" "))
+                    Sections.Add(New INISection(Line.Substring(1, Line.IndexOfAny(New Char() {" ", "]"}, 1) - 1)))
+                End If
+            ElseIf Sections.Count <> 0 Then
+                If Not Line.Contains("=") Or (Line.IndexOfAny("#") <> -1 And Line.IndexOfAny("#") < Line.IndexOfAny(New Char() {" ", "="})) Then
+                    Continue While
+                Else
+                    Dim Key As String = Line.Substring(0, Line.IndexOfAny(New Char() {" ", "="}))
+                    Dim Value As String = Line.Substring(Line.IndexOf("=") + 1).TrimStart()
+
+                    If Value.Length = 0 Then
+                        Continue While
+                    End If
+
+                    If Value(0) = Chr(34) Then 'String starts with quotation marks
+                        Value = Value.Substring(1, Value.Length - 2)
+                    ElseIf Value.IndexOfAny(New Char() {" ", "#"}) <> -1 Then
+                        Value = Value.Substring(0, Value.IndexOfAny(New Char() {" ", "#"}))
+                    End If
+
+                    Sections(Sections.Count - 1).Keys.Add(Key)
+                    Sections(Sections.Count - 1).Values.Add(Value)
                 End If
             End If
         End While
@@ -48,7 +61,6 @@ Public Class INI
         Reader.Close() 'I don't think I have to do this but I think it's safer
     End Sub
 
-    'TODO: Rewrite this code
     Public Sub Save(File As String)
         Dim Writer As StreamWriter
 
@@ -58,7 +70,7 @@ Public Class INI
             Writer.WriteLine("[" + Section.Name + "]")
 
             For Index = 0 To Section.Keys.Count - 1
-                If Section.Values(Index).Contains(" ") Then '"Dirty" Solution
+                If Section.Values(Index).Contains(" ") Or Section.Values(Index).Contains("#") Or Section.Values(Index).Length = 0 Then
                     Writer.WriteLine(Section.Keys(Index) + " = " + Chr(34) + Section.Values(Index) + Chr(34))
                 Else
                     Writer.WriteLine(Section.Keys(Index) + " = " + Section.Values(Index))
