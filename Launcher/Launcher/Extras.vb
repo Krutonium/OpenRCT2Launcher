@@ -46,7 +46,7 @@ Public Class Extras
         If Main.LauncherConfig.UserID = Nothing Then
             'If we ever want to do somthing if they are not logged in, here is the place!
         Else
-            cmdSyncToOpenRCT.Enabled = True
+            cmdOpenRCTNetFeatures.Enabled = True
         End If
     End Sub
 
@@ -155,7 +155,7 @@ Public Class Extras
         OpenRCTdotNetLogin.Show()
     End Sub
 
-    Private Sub cmdSyncToOpenRCT_Click(sender As Object, e As EventArgs) Handles cmdSyncToOpenRCT.Click
-
+    Private Sub cmdOpenRCTNetFeatures_Click(sender As Object, e As EventArgs) Handles cmdOpenRCTNetFeatures.Click
+        OpenRCTdotNetConfigure.Visible = True
     End Sub
 End Class

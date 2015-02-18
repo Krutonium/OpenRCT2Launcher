@@ -376,6 +376,7 @@ Public Class LauncherConfig
     Public OutputPath As String
     Public UserKey As String
     Public UserID As String
+    Public UploadTime As Boolean
 
     Dim INIConfig As IniConfiguration
 
@@ -387,6 +388,7 @@ Public Class LauncherConfig
         OutputPath = Main.OpenRCT2Folder + "\log.txt"
         UserKey = ""
         UserID = ""
+        UploadTime = False
     End Sub
 
     Public Sub LoadINI(File As String)
@@ -426,11 +428,16 @@ Public Class LauncherConfig
             UserKey = Value
         End If
 
-
         Value = INIConfig.GetProperty("general", "UserID") 'Get the value
 
         If Not String.IsNullOrEmpty(Value) Then 'Check it
             UserID = Value
+        End If
+
+        Value = INIConfig.GetProperty("general", "UploadTime") 'Get the value
+
+        If Not String.IsNullOrEmpty(Value) Then 'Check it
+            UploadTime = Value
         End If
     End Sub
 
@@ -455,6 +462,7 @@ Public Class LauncherConfig
 
         INIConfig.SetProperty("general", "UserKey", UserKey)
         INIConfig.SetProperty("general", "UserID", UserID)
+        INIConfig.SetProperty("general", "UploadTime", UploadTime)
         Try
             INIConfig.Save(File)
         Catch ex As Exception

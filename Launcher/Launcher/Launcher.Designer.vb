@@ -22,11 +22,13 @@ Partial Class frmLauncher
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.cmdLaunchGame = New System.Windows.Forms.Button()
         Me.cmdUpdate = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cmdOptions = New System.Windows.Forms.Button()
         Me.cmdExtras = New System.Windows.Forms.Button()
+        Me.tmrUsedForUploadingTime = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,6 +79,10 @@ Partial Class frmLauncher
         Me.cmdExtras.Text = "Extras"
         Me.cmdExtras.UseVisualStyleBackColor = True
         '
+        'tmrUsedForUploadingTime
+        '
+        Me.tmrUsedForUploadingTime.Interval = 300000
+        '
         'frmLauncher
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -100,5 +106,6 @@ Partial Class frmLauncher
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents cmdOptions As System.Windows.Forms.Button
     Friend WithEvents cmdExtras As System.Windows.Forms.Button
+    Friend WithEvents tmrUsedForUploadingTime As System.Windows.Forms.Timer
 
 End Class

@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports Microsoft.Win32
 Imports System.Threading
+Imports Newtonsoft.Json.Linq
 
 Public Class frmLauncher
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -27,6 +28,10 @@ Public Class frmLauncher
             Catch ex As Exception
                 MsgBox("Have you installed and ran RCT2 at least once? If not, then please do so and try again.")
             End Try
+        End If
+
+        If Main.LauncherConfig.UserID <> Nothing Then
+            'Add code here for Stats etc.
         End If
     End Sub
 
@@ -74,7 +79,17 @@ Public Class frmLauncher
                 End If
             End If
 
-            Close()
+
+            'THIS NEEDS TO REMAIN LAST BECAUSE IT HANDLES WHETHER WE NEED TO CLOSE!
+            If Main.LauncherConfig.UploadTime = True Then
+                Me.Visible = False
+                tmrUsedForUploadingTime.Interval = 10000
+                tmrUsedForUploadingTime.Enabled = True
+            Else
+                Close()
+            End If
+
+
         Else
             MsgBox("OpenRCT2 Not Installed or Not Found!, Downloading. When it is done, feel free to press play again.")
 
@@ -169,5 +184,23 @@ Public Class frmLauncher
 
         cmdLaunchGame.Enabled = True
         cmdUpdate.Enabled = True
+    End Sub
+
+    Private Sub tmrUsedForUploadingTime_Tick(sender As Object, e As EventArgs) Handles tmrUsedForUploadingTime.Tick
+
+        'This code will run every 5 minutes if UploadTime is Enabled. It will add 5 minutes, then if the game is closed, exit.
+
+        Const secret As String = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
+        Dim WS As New System.Net.WebClient
+        Dim Response As String = WS.DownloadString("https://openrct.net/api/?a=set_time_played&user=" & Main.LauncherConfig.UserID & _
+                                                   "&minutes=5&auth=" & Main.LauncherConfig.UserKey & "&secret=" & secret)
+        'We aren't actually using the output for anything - in fact, all we are doing is informing the server that the player played for 5 minutes.
+        Dim isRunning = Process.GetProcessesByName("openrct2.exe")
+        If isRunning.Count > 0 Then
+            ' Process is running
+        Else
+            ' Process is not running
+            Close()
+        End If
     End Sub
 End Class

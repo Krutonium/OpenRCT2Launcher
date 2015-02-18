@@ -38,7 +38,6 @@ Partial Class OpenRCTdotNetLogin
         Me.PasswordTextBox = New System.Windows.Forms.TextBox()
         Me.OK = New System.Windows.Forms.Button()
         Me.Cancel = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -53,7 +52,7 @@ Partial Class OpenRCTdotNetLogin
         '
         'UsernameLabel
         '
-        Me.UsernameLabel.Location = New System.Drawing.Point(171, 54)
+        Me.UsernameLabel.Location = New System.Drawing.Point(167, 24)
         Me.UsernameLabel.Name = "UsernameLabel"
         Me.UsernameLabel.Size = New System.Drawing.Size(220, 23)
         Me.UsernameLabel.TabIndex = 0
@@ -62,7 +61,7 @@ Partial Class OpenRCTdotNetLogin
         '
         'PasswordLabel
         '
-        Me.PasswordLabel.Location = New System.Drawing.Point(170, 97)
+        Me.PasswordLabel.Location = New System.Drawing.Point(167, 88)
         Me.PasswordLabel.Name = "PasswordLabel"
         Me.PasswordLabel.Size = New System.Drawing.Size(220, 23)
         Me.PasswordLabel.TabIndex = 2
@@ -71,14 +70,14 @@ Partial Class OpenRCTdotNetLogin
         '
         'UsernameTextBox
         '
-        Me.UsernameTextBox.Location = New System.Drawing.Point(173, 74)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(169, 44)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.Size = New System.Drawing.Size(220, 20)
         Me.UsernameTextBox.TabIndex = 1
         '
         'PasswordTextBox
         '
-        Me.PasswordTextBox.Location = New System.Drawing.Point(173, 117)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(170, 108)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PasswordTextBox.Size = New System.Drawing.Size(220, 20)
@@ -101,15 +100,6 @@ Partial Class OpenRCTdotNetLogin
         Me.Cancel.TabIndex = 5
         Me.Cancel.Text = "&Cancel"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(206, 26)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(158, 13)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "This is NOT YET FUNCTIONAL"
-        '
         'OpenRCTdotNetLogin
         '
         Me.AcceptButton = Me.OK
@@ -117,7 +107,6 @@ Partial Class OpenRCTdotNetLogin
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel
         Me.ClientSize = New System.Drawing.Size(401, 192)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Cancel)
         Me.Controls.Add(Me.OK)
         Me.Controls.Add(Me.PasswordTextBox)
@@ -137,6 +126,5 @@ Partial Class OpenRCTdotNetLogin
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class
