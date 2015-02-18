@@ -16,15 +16,16 @@ Public Class OpenRCTdotNetLogin
         Dim username As String = UsernameTextBox.Text
         Dim password As String = PasswordTextBox.Text
         Const secret As String = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
-        Dim WC As New WebClient
+        Dim WC As New WebClient 'Switched the above to const because I wanted it all to line up, plus that should never change, so all things considered, it worked out well.
         Dim json As JObject = JObject.Parse(WC.DownloadString("https://openrct.net/api/?a=auth&username=" & username & "&password=" & password & "&secret=" & secret))
         'MsgBox(json.SelectToken("error"))
         If json.SelectToken("error") Is Nothing Then
             Dim user As String = json.SelectToken("user_name")
             MsgBox("Login Worked, " & user & "!")
             Main.LauncherConfig.UserKey = json.SelectToken("authcode")
+            Main.LauncherConfig.UserID = json.SelectToken("user_id")
             Main.LauncherConfig.HasChanged = True
-
+            Close()
         Else
             MsgBox(json.SelectToken("error"))
         End If

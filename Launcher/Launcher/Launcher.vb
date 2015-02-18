@@ -1,19 +1,19 @@
 ﻿Imports System.IO
 Imports Microsoft.Win32
 Imports System.Threading
-Imports Launcher.My.Resources
+Imports Newtonsoft.Json.Linq
 
 Public Class frmLauncher
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Main.Initialize() 'Initialize Main class
 
         'Check for updates
-        CheckForIllegalCrossThreadCalls = False
+        Control.CheckForIllegalCrossThreadCalls = False
         Dim Thread = New Thread(AddressOf GameCheckAndUpdate)
         Thread.Start()
 
-        PictureBox1.Image = rollercoaster_tycoon_2_001
-        Icon = cat_paw
+        PictureBox1.Image = My.Resources.rollercoaster_tycoon_2_001
+        Icon = My.Resources.cat_paw
 
         'If the OpenRCT2 folder doesn't exist, create it
         If Directory.Exists(Main.OpenRCT2Folder) = False Then
@@ -26,33 +26,41 @@ Public Class frmLauncher
                 Main.OpenRCT2Config.GamePath = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup").GetValue("Path")
                 Main.OpenRCT2Config.HasChanged = True
             Catch ex As Exception
-                MsgBox(frmLauncher_Load_neverRun)
+                MsgBox("Have you installed and ran RCT2 at least once? If not, then please do so and try again.")
             End Try
+        End If
+
+        If Main.LauncherConfig.UserID <> Nothing Then
+            'Add code here for Stats etc.
         End If
     End Sub
 
-    Private Async Sub cmdLaunchGame_Click(sender As Object, e As EventArgs) Handles cmdLaunchGame.Click
+    Private Sub cmdLaunchGame_Click(sender As Object, e As EventArgs) Handles cmdLaunchGame.Click
         If File.Exists(Main.OpenRCT2EXE) And File.Exists(Main.OpenRCT2DLL) Then
-            Dim launch As New ProcessStartInfo
+            Dim Launch As New ProcessStartInfo
 
             'Redirect output if needed
             If Main.LauncherConfig.SaveOutput Then
                 If Directory.Exists(Path.GetDirectoryName(Main.LauncherConfig.OutputPath)) Then
-                    launch.RedirectStandardOutput = True
-                    launch.RedirectStandardError = True
-                    launch.UseShellExecute = False
+                    Launch.RedirectStandardOutput = True
+                    Launch.RedirectStandardError = True
+                    Launch.UseShellExecute = False
                 End If
             End If
 
-            launch.WorkingDirectory = Main.OpenRCT2BinFolder    'OpenRCT2's Executibles will be stored here, so we make this the working dir.
-            launch.FileName = Main.OpenRCT2EXE                  'The EXE of course.
+            Launch.WorkingDirectory = Main.OpenRCT2BinFolder    'OpenRCT2's Executibles will be stored here, so we make this the working dir.
+            Launch.FileName = Main.OpenRCT2EXE                  'The EXE of course.
 
             If Main.LauncherConfig.Verbose Then
-                launch.Arguments += "--verbose "
+                Launch.Arguments += "--verbose"
             End If
 
             If Main.LauncherConfig.Arguments <> "" Then
-                launch.Arguments += Main.LauncherConfig.Arguments
+                If Launch.Arguments <> "" Then 'Add space to arguments (is this necessary?)
+                    Launch.Arguments += " "
+                End If
+
+                Launch.Arguments += Main.LauncherConfig.Arguments
             End If
 
             'Save before starting the *.exe to prevent it from failing to load
@@ -61,18 +69,28 @@ Public Class frmLauncher
                 Main.LauncherConfig.HasChanged = False
             End If
 
-            Dim process As Process = process.Start(launch)
+            Dim Process As Process = Process.Start(Launch)
 
             'Start new thread for saving the output of the *.exe
             If Main.LauncherConfig.SaveOutput Then
                 If Directory.Exists(Path.GetDirectoryName(Main.LauncherConfig.OutputPath)) Then
-                    Await WriteOutput(process)
+                    Dim Thread = New Thread(Sub() WriteOutput(Process))
+                    Thread.Start()
                 End If
             End If
 
-            Close()
+
+            'THIS NEEDS TO REMAIN LAST BECAUSE IT HANDLES WHETHER WE NEED TO CLOSE!
+            If Main.LauncherConfig.UploadTime = True Then
+                Me.Visible = False
+                tmrUsedForUploadingTime.Enabled = True
+            Else
+                Close()
+            End If
+
+
         Else
-            MsgBox(frmLauncher_launchGame_RCT2NotFound)
+            MsgBox("OpenRCT2 Not Installed or Not Found!, Downloading. When it is done, feel free to press play again.")
 
             'Redownload
             Dim Thread = New Thread(AddressOf GameUpdate)
@@ -104,18 +122,22 @@ Public Class frmLauncher
         End If
     End Sub
 
-    Private Async Function WriteOutput(process As Process) As Task
-        Dim out = Await process.StandardOutput.ReadToEndAsync()
-        Dim errorEnd = Await process.StandardError.ReadToEndAsync()
+    Private Sub WriteOutput(Process As Process)
+        Dim TaskOut As Task(Of String) = Process.StandardOutput.ReadToEndAsync() 'I need to use Async here because it crashes the game if I won't use it
+        Dim TaskError As Task(Of String) = Process.StandardError.ReadToEndAsync()
+
+        'Wait for both tasks to get done
+        TaskOut.Wait()
+        TaskError.Wait()
 
         'Write output to file
-        Dim writer As New StreamWriter(Main.LauncherConfig.OutputPath)
-        writer.WriteLine("Standard Output:")
-        writer.WriteLine(out)
-        writer.WriteLine("Standard Error:")
-        writer.WriteLine(errorEnd)
-        writer.Close()
-    End Function
+        Dim Writer As New StreamWriter(Main.LauncherConfig.OutputPath)
+        Writer.WriteLine("Standart Output:")
+        Writer.WriteLine(TaskOut.Result)
+        Writer.WriteLine("Standart Error:")
+        Writer.WriteLine(TaskError.Result)
+        Writer.Close()
+    End Sub
 
     Private Sub GameCheckAndUpdate()
         cmdLaunchGame.Enabled = False
@@ -156,10 +178,28 @@ Public Class frmLauncher
 
             Main.Update(RemoteVersion)
         Catch ex As Exception
-            MessageBox.Show(frmLauncher_update_failed)
+            MessageBox.Show("Failed to download update")
         End Try
 
         cmdLaunchGame.Enabled = True
         cmdUpdate.Enabled = True
+    End Sub
+
+    Private Sub tmrUsedForUploadingTime_Tick(sender As Object, e As EventArgs) Handles tmrUsedForUploadingTime.Tick
+
+        'This code will run every 5 minutes if UploadTime is Enabled. It will add 5 minutes, then if the game is closed, exit.
+
+        Const secret As String = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
+        Dim WS As New System.Net.WebClient
+        Dim Response As String = WS.DownloadString("https://openrct.net/api/?a=set_time_played&user=" & Main.LauncherConfig.UserID & _
+                                                   "&minutes=5&auth=" & Main.LauncherConfig.UserKey & "&secret=" & secret)
+        'We aren't actually using the output for anything - in fact, all we are doing is informing the server that the player played for 5 minutes.
+        Dim isRunning = Process.GetProcessesByName("openrct2.exe")
+        If isRunning.Count > 0 Then
+            ' Process is running
+        Else
+            ' Process is not running
+            Close()
+        End If
     End Sub
 End Class
