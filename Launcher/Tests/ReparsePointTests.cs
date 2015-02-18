@@ -5,8 +5,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests {
     [TestClass]
-    public class UnitTest1 {
+    public class ReparsePointTests {
         private const string SymlinkPath = @"C:\SymlinkTests\LinkFolder";
+        private const string SpacedSymlinkPath = @"C:\SymlinkTests\Linked Folder";
         private const string FirstTargetPath = @"C:\SymlinkTests\ExistingFolder";
         private const string SecondTargetPath = @"C:\SymlinkTests\SecondFolder";
 
@@ -17,7 +18,11 @@ namespace Tests {
             ReparsePoint.Create(SymlinkPath, FirstTargetPath, true, ReparsePoint.LinkType.DirectoryLink);
             var measuredTargetPath = ReparsePoint.GetTarget(SymlinkPath);
 
+            ReparsePoint.Create(SpacedSymlinkPath, FirstTargetPath, true, ReparsePoint.LinkType.DirectoryLink);
+            var measuredSpacedTargetpath = ReparsePoint.GetTarget(SpacedSymlinkPath);
+
             Assert.AreEqual(FirstTargetPath, measuredTargetPath, true);
+            Assert.AreEqual(FirstTargetPath, measuredSpacedTargetpath, true);
         }
 
         [TestMethod]
@@ -68,7 +73,8 @@ namespace Tests {
             if (!Directory.Exists(SecondTargetPath)) {
                 Directory.CreateDirectory(SecondTargetPath);
             }
-            if (Directory.GetFiles(FirstTargetPath).Length + Directory.GetDirectories(FirstTargetPath).Length > 0) return;
+            FileActions.ClearDirectory(FirstTargetPath);
+            FileActions.ClearDirectory(SecondTargetPath);
 
             // Else, add a file
             var file = File.CreateText(Path.Combine(FirstTargetPath, "testFile.txt"));
