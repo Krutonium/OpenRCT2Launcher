@@ -83,7 +83,6 @@ Public Class frmLauncher
             'THIS NEEDS TO REMAIN LAST BECAUSE IT HANDLES WHETHER WE NEED TO CLOSE!
             If Main.LauncherConfig.UploadTime = True Then
                 Me.Visible = False
-                tmrUsedForUploadingTime.Interval = 10000
                 tmrUsedForUploadingTime.Enabled = True
             Else
                 Close()
