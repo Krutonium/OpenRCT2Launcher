@@ -164,6 +164,8 @@ Public Class frmLauncher
         Catch ex As Exception
         End Try
 
+
+        ' Update checker for launcher
         Try
             Dim WS As New System.Net.WebClient
             Dim Response As String = WS.DownloadString("https://openrct.net/launcher.zip?a=version")
