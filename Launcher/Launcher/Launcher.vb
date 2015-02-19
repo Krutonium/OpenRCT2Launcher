@@ -1,18 +1,19 @@
 ﻿Imports System.IO
 Imports Microsoft.Win32
 Imports System.Threading
+Imports Launcher.My.Resources
 
 Public Class frmLauncher
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Main.Initialize() 'Initialize Main class
 
         'Check for updates
-        Control.CheckForIllegalCrossThreadCalls = False
+        CheckForIllegalCrossThreadCalls = False
         Dim Thread = New Thread(AddressOf GameCheckAndUpdate)
         Thread.Start()
 
-        PictureBox1.Image = My.Resources.rollercoaster_tycoon_2_001
-        Icon = My.Resources.cat_paw
+        PictureBox1.Image = rollercoaster_tycoon_2_001
+        Icon = cat_paw
 
         'If the OpenRCT2 folder doesn't exist, create it
         If Directory.Exists(Main.OpenRCT2Folder) = False Then
@@ -25,7 +26,7 @@ Public Class frmLauncher
                 Main.OpenRCT2Config.GamePath = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup").GetValue("Path")
                 Main.OpenRCT2Config.HasChanged = True
             Catch ex As Exception
-                MsgBox("Have you installed and ran RCT2 at least once? If not, then please do so and try again.")
+                MsgBox(frmLauncher_Load_neverRun)
             End Try
         End If
 
@@ -34,7 +35,7 @@ Public Class frmLauncher
         End If
     End Sub
 
-    Private Sub cmdLaunchGame_Click(sender As Object, e As EventArgs) Handles cmdLaunchGame.Click
+    Private Async Sub cmdLaunchGame_Click(sender As Object, e As EventArgs) Handles cmdLaunchGame.Click
         If File.Exists(Main.OpenRCT2EXE) And File.Exists(Main.OpenRCT2DLL) Then
             Dim Launch As New ProcessStartInfo
 
@@ -68,20 +69,24 @@ Public Class frmLauncher
                 Main.LauncherConfig.HasChanged = False
             End If
 
-            Dim Process As Process = Process.Start(Launch)
+            If Main.OpenRCT2Config.HasChanged Then
+                Main.OpenRCT2Config.SaveINI(Main.LauncherConfigFile)
+                Main.OpenRCT2Config.HasChanged = False
+            End If
+
+            Dim process As Process = process.Start(Launch)
 
             'Start new thread for saving the output of the *.exe
             If Main.LauncherConfig.SaveOutput Then
                 If Directory.Exists(Path.GetDirectoryName(Main.LauncherConfig.OutputPath)) Then
-                    Dim Thread = New Thread(Sub() WriteOutput(Process))
-                    Thread.Start()
+                    Await WriteOutput(process)
                 End If
             End If
 
 
             'THIS NEEDS TO REMAIN LAST BECAUSE IT HANDLES WHETHER WE NEED TO CLOSE!
             If Main.LauncherConfig.UploadTime = True Then
-                Me.Visible = False
+                Visible = False
                 tmrUsedForUploadingTime.Enabled = True
             Else
                 Close()
@@ -89,7 +94,7 @@ Public Class frmLauncher
 
 
         Else
-            MsgBox("OpenRCT2 Not Installed or Not Found!, Downloading. When it is done, feel free to press play again.")
+            MsgBox(frmLauncher_launchGame_RCT2NotFound)
 
             'Redownload
             Dim Thread = New Thread(AddressOf GameUpdate)
@@ -121,22 +126,18 @@ Public Class frmLauncher
         End If
     End Sub
 
-    Private Sub WriteOutput(Process As Process)
-        Dim TaskOut As Task(Of String) = Process.StandardOutput.ReadToEndAsync() 'I need to use Async here because it crashes the game if I won't use it
-        Dim TaskError As Task(Of String) = Process.StandardError.ReadToEndAsync()
-
-        'Wait for both tasks to get done
-        TaskOut.Wait()
-        TaskError.Wait()
+    Private Async Function WriteOutput(process As Process) As Task
+        Dim out As String = Await Process.StandardOutput.ReadToEndAsync() 'I need to use Async here because it crashes the game if I won't use it
+        Dim e As String = Await Process.StandardError.ReadToEndAsync()
 
         'Write output to file
         Dim Writer As New StreamWriter(Main.LauncherConfig.OutputPath)
         Writer.WriteLine("Standart Output:")
-        Writer.WriteLine(TaskOut.Result)
+        Writer.WriteLine(out)
         Writer.WriteLine("Standart Error:")
-        Writer.WriteLine(TaskError.Result)
+        Writer.WriteLine(e)
         Writer.Close()
-    End Sub
+    End Function
 
     Private Sub GameCheckAndUpdate()
         cmdLaunchGame.Enabled = False
@@ -181,7 +182,7 @@ Public Class frmLauncher
 
             Main.Update(RemoteVersion)
         Catch ex As Exception
-            MessageBox.Show("Failed to download update")
+            MessageBox.Show(frmLauncher_update_failed)
         End Try
 
         cmdLaunchGame.Enabled = True
@@ -202,9 +203,9 @@ Public Class frmLauncher
         Else
             ' Process is not running
             Const secret As String = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
-            Dim WS As New System.Net.WebClient
-            Dim Response As String = WS.DownloadString("https://openrct.net/api/?a=set_time_played&user=" & Main.LauncherConfig.UserID & _
-                                                       "&minutes=" & minutesPlayed.ToString() & "&auth=" & Main.LauncherConfig.UserKey & "&secret=" & secret)
+            Dim WS As New Net.WebClient
+            WS.DownloadString("https://openrct.net/api/?a=set_time_played&user=" & Main.LauncherConfig.UserID & _
+                              "&minutes=" & minutesPlayed.ToString() & "&auth=" & Main.LauncherConfig.UserKey & "&secret=" & secret)
             'We aren't actually using the output for anything - in fact, all we are doing is informing the server that the player played for x minutes.
             Close()
         End If
