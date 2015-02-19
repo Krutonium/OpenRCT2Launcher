@@ -24,12 +24,13 @@ Partial Class OpenRCTdotNetConfigure
     Private Sub InitializeComponent()
         Me.ChkUploadTime = New System.Windows.Forms.CheckBox()
         Me.chkUploadSaves = New System.Windows.Forms.CheckBox()
+        Me.lblUsername = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ChkUploadTime
         '
         Me.ChkUploadTime.AutoSize = True
-        Me.ChkUploadTime.Location = New System.Drawing.Point(12, 12)
+        Me.ChkUploadTime.Location = New System.Drawing.Point(12, 32)
         Me.ChkUploadTime.Name = "ChkUploadTime"
         Me.ChkUploadTime.Size = New System.Drawing.Size(150, 17)
         Me.ChkUploadTime.TabIndex = 0
@@ -40,18 +41,27 @@ Partial Class OpenRCTdotNetConfigure
         '
         Me.chkUploadSaves.AutoSize = True
         Me.chkUploadSaves.Enabled = False
-        Me.chkUploadSaves.Location = New System.Drawing.Point(12, 35)
+        Me.chkUploadSaves.Location = New System.Drawing.Point(12, 55)
         Me.chkUploadSaves.Name = "chkUploadSaves"
         Me.chkUploadSaves.Size = New System.Drawing.Size(139, 17)
         Me.chkUploadSaves.TabIndex = 1
         Me.chkUploadSaves.Text = "Upload Saves to Server"
         Me.chkUploadSaves.UseVisualStyleBackColor = True
         '
+        'lblUsername
+        '
+        Me.lblUsername.AutoSize = True
+        Me.lblUsername.Location = New System.Drawing.Point(13, 13)
+        Me.lblUsername.Name = "lblUsername"
+        Me.lblUsername.Size = New System.Drawing.Size(0, 13)
+        Me.lblUsername.TabIndex = 2
+        '
         'OpenRCTdotNetConfigure
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(371, 226)
+        Me.Controls.Add(Me.lblUsername)
         Me.Controls.Add(Me.chkUploadSaves)
         Me.Controls.Add(Me.ChkUploadTime)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
@@ -63,4 +73,5 @@ Partial Class OpenRCTdotNetConfigure
     End Sub
     Friend WithEvents ChkUploadTime As System.Windows.Forms.CheckBox
     Friend WithEvents chkUploadSaves As System.Windows.Forms.CheckBox
+    Friend WithEvents lblUsername As System.Windows.Forms.Label
 End Class

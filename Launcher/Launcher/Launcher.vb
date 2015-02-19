@@ -161,6 +161,10 @@ Public Class frmLauncher
 
         cmdLaunchGame.Enabled = True
         cmdUpdate.Enabled = True
+
+        'Set focus to the Launch button so game could be launched by pressing Enter
+        'Must be placed here and not in constructor because buttons start disabled
+        cmdLaunchGame.Select()
     End Sub
 
     Private Sub GameUpdate()
@@ -185,20 +189,24 @@ Public Class frmLauncher
         cmdUpdate.Enabled = True
     End Sub
 
+    ' keep minutes played offline until game exits
+    Private minutesPlayed As Integer = 0
+
     Private Sub tmrUsedForUploadingTime_Tick(sender As Object, e As EventArgs) Handles tmrUsedForUploadingTime.Tick
 
-        'This code will run every 5 minutes if UploadTime is Enabled. It will add 5 minutes, then if the game is closed, exit.
+        'This code will run every 1 minutes if UploadTime is Enabled. It will add 1 minute, then if the game is closed,  upload and exit.
+        minutesPlayed += 1
 
-        Const secret As String = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
-        Dim WS As New System.Net.WebClient
-        Dim Response As String = WS.DownloadString("https://openrct.net/api/?a=set_time_played&user=" & Main.LauncherConfig.UserID & _
-                                                   "&minutes=5&auth=" & Main.LauncherConfig.UserKey & "&secret=" & secret)
-        'We aren't actually using the output for anything - in fact, all we are doing is informing the server that the player played for 5 minutes.
         Dim isRunning = Process.GetProcessesByName("openrct2.exe")
         If isRunning.Count > 0 Then
             ' Process is running
         Else
             ' Process is not running
+            Const secret As String = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
+            Dim WS As New System.Net.WebClient
+            Dim Response As String = WS.DownloadString("https://openrct.net/api/?a=set_time_played&user=" & Main.LauncherConfig.UserID & _
+                                                       "&minutes=" & minutesPlayed.ToString() & "&auth=" & Main.LauncherConfig.UserKey & "&secret=" & secret)
+            'We aren't actually using the output for anything - in fact, all we are doing is informing the server that the player played for x minutes.
             Close()
         End If
     End Sub
