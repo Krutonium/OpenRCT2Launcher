@@ -21,9 +21,10 @@ Public Class OpenRCTdotNetLogin
         'MsgBox(json.SelectToken("error"))
         If json.SelectToken("error") Is Nothing Then
             Dim user As String = json.SelectToken("user_name")
-            MsgBox("Login Worked, " & user & "!")
+            MsgBox("Welcome " & user & "!")
             Main.LauncherConfig.UserKey = json.SelectToken("authcode")
             Main.LauncherConfig.UserID = json.SelectToken("user_id")
+            Main.LauncherConfig.UserName = json.SelectToken("user_name")
             Main.LauncherConfig.HasChanged = True
             Close()
         Else
@@ -37,5 +38,9 @@ Public Class OpenRCTdotNetLogin
 
     Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LogoPictureBox.Image = rollercoaster_tycoon_2_001
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Process.Start("http://openrct.net/")
     End Sub
 End Class

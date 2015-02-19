@@ -6,6 +6,8 @@ Public Class OpenRCTdotNetConfigure
         If Main.LauncherConfig.UploadTime = True Then
             ChkUploadTime.Checked = True
         End If
+
+        lblUsername.Text = "You are logged in as " & Main.LauncherConfig.UserName
     End Sub
 
     Private Sub ChkUploadTime_CheckedChanged(sender As Object, e As EventArgs) Handles ChkUploadTime.CheckedChanged

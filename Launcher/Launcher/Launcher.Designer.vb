@@ -41,7 +41,7 @@ Partial Class frmLauncher
         Me.cmdLaunchGame.Name = "cmdLaunchGame"
         Me.cmdLaunchGame.Size = New System.Drawing.Size(110, 37)
         Me.cmdLaunchGame.TabIndex = 1
-        Me.cmdLaunchGame.Text = frmLauncher_launchGameButton_text
+        Me.cmdLaunchGame.Text = Global.Launcher.My.Resources.Resources.frmLauncher_launchGameButton_text
         Me.cmdLaunchGame.UseVisualStyleBackColor = True
         '
         'cmdUpdate
@@ -51,7 +51,7 @@ Partial Class frmLauncher
         Me.cmdUpdate.Name = "cmdUpdate"
         Me.cmdUpdate.Size = New System.Drawing.Size(110, 37)
         Me.cmdUpdate.TabIndex = 2
-        Me.cmdUpdate.Text = frmLauncher_updateButton_text
+        Me.cmdUpdate.Text = Global.Launcher.My.Resources.Resources.frmLauncher_updateButton_text
         Me.cmdUpdate.UseVisualStyleBackColor = True
         '
         'PictureBox1
@@ -69,7 +69,7 @@ Partial Class frmLauncher
         Me.cmdOptions.Name = "cmdOptions"
         Me.cmdOptions.Size = New System.Drawing.Size(110, 37)
         Me.cmdOptions.TabIndex = 5
-        Me.cmdOptions.Text = frmLauncher_optionsButton_title
+        Me.cmdOptions.Text = Global.Launcher.My.Resources.Resources.frmLauncher_optionsButton_title
         Me.cmdOptions.UseVisualStyleBackColor = True
         '
         'cmdExtras
@@ -78,12 +78,12 @@ Partial Class frmLauncher
         Me.cmdExtras.Name = "cmdExtras"
         Me.cmdExtras.Size = New System.Drawing.Size(110, 37)
         Me.cmdExtras.TabIndex = 6
-        Me.cmdExtras.Text = frmLauncher_extrasButton_text
+        Me.cmdExtras.Text = Global.Launcher.My.Resources.Resources.frmLauncher_extrasButton_text
         Me.cmdExtras.UseVisualStyleBackColor = True
         '
         'tmrUsedForUploadingTime
         '
-        Me.tmrUsedForUploadingTime.Interval = 300000
+        Me.tmrUsedForUploadingTime.Interval = 60000
         '
         'frmLauncher
         '
@@ -98,7 +98,7 @@ Partial Class frmLauncher
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.MaximizeBox = False
         Me.Name = "frmLauncher"
-        Me.Text = frmLauncher_title
+        Me.Text = "OpenRCT2 Launcher"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

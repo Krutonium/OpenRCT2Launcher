@@ -376,6 +376,7 @@ Public Class LauncherConfig
     Public OutputPath As String
     Public UserKey As String
     Public UserID As String
+    Public UserName As String
     Public UploadTime As Boolean
 
     Dim INIConfig As IniConfiguration
