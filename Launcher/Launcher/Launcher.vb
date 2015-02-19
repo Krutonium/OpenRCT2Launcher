@@ -161,6 +161,10 @@ Public Class frmLauncher
 
         cmdLaunchGame.Enabled = True
         cmdUpdate.Enabled = True
+
+        'Set focus to the Launch button so game could be launched by pressing Enter
+        'Must be placed here and not in constructor because buttons start disabled
+        cmdLaunchGame.Select()
     End Sub
 
     Private Sub GameUpdate()
@@ -185,7 +189,8 @@ Public Class frmLauncher
         cmdUpdate.Enabled = True
     End Sub
 
-    Dim minutesPlayed As Integer = 0
+    ' keep minutes played offline until game exits
+    Private minutesPlayed As Integer = 0
 
     Private Sub tmrUsedForUploadingTime_Tick(sender As Object, e As EventArgs) Handles tmrUsedForUploadingTime.Tick
 

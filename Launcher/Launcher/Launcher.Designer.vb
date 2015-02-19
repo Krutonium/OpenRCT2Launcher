@@ -39,18 +39,18 @@ Partial Class frmLauncher
         Me.cmdLaunchGame.Enabled = False
         Me.cmdLaunchGame.Location = New System.Drawing.Point(12, 158)
         Me.cmdLaunchGame.Name = "cmdLaunchGame"
-        Me.cmdLaunchGame.Size = New System.Drawing.Size(110, 37)
-        Me.cmdLaunchGame.TabIndex = 1
+        Me.cmdLaunchGame.Size = New System.Drawing.Size(179, 37)
+        Me.cmdLaunchGame.TabIndex = 0
         Me.cmdLaunchGame.Text = Global.Launcher.My.Resources.Resources.frmLauncher_launchGameButton_text
         Me.cmdLaunchGame.UseVisualStyleBackColor = True
         '
         'cmdUpdate
         '
         Me.cmdUpdate.Enabled = False
-        Me.cmdUpdate.Location = New System.Drawing.Point(128, 158)
+        Me.cmdUpdate.Location = New System.Drawing.Point(197, 158)
         Me.cmdUpdate.Name = "cmdUpdate"
-        Me.cmdUpdate.Size = New System.Drawing.Size(110, 37)
-        Me.cmdUpdate.TabIndex = 2
+        Me.cmdUpdate.Size = New System.Drawing.Size(87, 37)
+        Me.cmdUpdate.TabIndex = 1
         Me.cmdUpdate.Text = Global.Launcher.My.Resources.Resources.frmLauncher_updateButton_text
         Me.cmdUpdate.UseVisualStyleBackColor = True
         '
@@ -65,19 +65,19 @@ Partial Class frmLauncher
         '
         'cmdOptions
         '
-        Me.cmdOptions.Location = New System.Drawing.Point(244, 158)
+        Me.cmdOptions.Location = New System.Drawing.Point(290, 158)
         Me.cmdOptions.Name = "cmdOptions"
-        Me.cmdOptions.Size = New System.Drawing.Size(110, 37)
-        Me.cmdOptions.TabIndex = 5
+        Me.cmdOptions.Size = New System.Drawing.Size(87, 37)
+        Me.cmdOptions.TabIndex = 2
         Me.cmdOptions.Text = Global.Launcher.My.Resources.Resources.frmLauncher_optionsButton_title
         Me.cmdOptions.UseVisualStyleBackColor = True
         '
         'cmdExtras
         '
-        Me.cmdExtras.Location = New System.Drawing.Point(360, 158)
+        Me.cmdExtras.Location = New System.Drawing.Point(383, 158)
         Me.cmdExtras.Name = "cmdExtras"
-        Me.cmdExtras.Size = New System.Drawing.Size(110, 37)
-        Me.cmdExtras.TabIndex = 6
+        Me.cmdExtras.Size = New System.Drawing.Size(87, 37)
+        Me.cmdExtras.TabIndex = 3
         Me.cmdExtras.Text = Global.Launcher.My.Resources.Resources.frmLauncher_extrasButton_text
         Me.cmdExtras.UseVisualStyleBackColor = True
         '
