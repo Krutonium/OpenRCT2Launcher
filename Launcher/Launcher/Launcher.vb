@@ -4,11 +4,6 @@ Imports System.Threading
 Imports Newtonsoft.Json.Linq
 
 Public Class frmLauncher
-
-    ' Added nowStable variabele. This is the stable version of the game at the moment of building
-    ' check happens in GameCheckAndUpdate
-    Dim nowStable As Integer = 1
-
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Main.Initialize() 'Initialize Main class
 
@@ -162,21 +157,6 @@ Public Class frmLauncher
                 Main.Update(RemoteVersion)
             End If
         Catch ex As Exception
-        End Try
-
-        Try
-            Dim WS As New System.Net.WebClient
-            Dim Response As String = WS.DownloadString("https://openrct.net/launcher.zip?a=version")
-            Dim newestStable = Integer.Parse(Response)
-
-            If newestStable > nowStable Then
-                Dim DoIUpdate As Integer = MsgBox("An update of our Launcher is available to download\n Click OK to go to the website.", MsgBoxStyle.OkCancel, "Version " & Response & " available")
-                If DoIUpdate = MsgBoxResult.Ok Then
-                    Process.Start("https://openrct.net/play.php")
-                End If
-            End If
-        Catch ex As Exception
-
         End Try
 
         cmdLaunchGame.Enabled = True
