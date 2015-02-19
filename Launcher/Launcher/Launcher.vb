@@ -197,7 +197,7 @@ Public Class frmLauncher
         'This code will run every 1 minutes if UploadTime is Enabled. It will add 1 minute, then if the game is closed,  upload and exit.
         minutesPlayed += 1
 
-        Dim isRunning = Process.GetProcessesByName("openrct2.exe")
+        Dim isRunning = Process.GetProcessesByName("openrct2")
         If isRunning.Count > 0 Then
             ' Process is running
         Else
