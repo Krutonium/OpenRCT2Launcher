@@ -421,4 +421,22 @@ Exact Error:
   <data name="frmOptions_title" xml:space="preserve">
     <value>Options</value>
   </data>
+  <data name="OpenRCTdotNetConfigure_loggedInAs" xml:space="preserve">
+    <value>You are logged in as </value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_uploadPlayTime_label" xml:space="preserve">
+    <value>Upload play time to Server</value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_uploadSaves_label" xml:space="preserve">
+    <value>Upload Saves to Server</value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_title" xml:space="preserve">
+    <value>OpenRCT.net Configuration</value>
+  </data>
+  <data name="coomon_login" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_getAccountText" xml:space="preserve">
+    <value>Get your account at OpenRCT.net</value>
+  </data>
 </root>

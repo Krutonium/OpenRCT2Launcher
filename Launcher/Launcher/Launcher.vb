@@ -1,7 +1,6 @@
 ﻿Imports System.IO
 Imports Microsoft.Win32
 Imports System.Threading
-Imports Newtonsoft.Json.Linq
 
 Public Class frmLauncher
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load

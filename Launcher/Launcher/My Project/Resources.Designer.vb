@@ -134,6 +134,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Log in.
+        '''</summary>
+        Friend ReadOnly Property coomon_login() As String
+            Get
+                Return ResourceManager.GetString("coomon_login", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Saves moved to folder and Linked!.
         '''</summary>
         Friend ReadOnly Property extras_anyFolderSync_done() As String
@@ -925,6 +934,51 @@ Namespace My.Resources
         Friend ReadOnly Property frmOptions_titleScreenMusic_RCT2() As String
             Get
                 Return ResourceManager.GetString("frmOptions_titleScreenMusic_RCT2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to You are logged in as .
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetConfigure_loggedInAs() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetConfigure_loggedInAs", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to OpenRCT.net Configuration.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetConfigure_title() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetConfigure_title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Upload play time to Server.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetConfigure_uploadPlayTime_label() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetConfigure_uploadPlayTime_label", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Upload Saves to Server.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetConfigure_uploadSaves_label() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetConfigure_uploadSaves_label", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Get your account at OpenRCT.net.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetLogin_getAccountText() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetLogin_getAccountText", resourceCulture)
             End Get
         End Property
         

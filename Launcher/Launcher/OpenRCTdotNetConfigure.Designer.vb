@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports Launcher.My.Resources
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class OpenRCTdotNetConfigure
     Inherits System.Windows.Forms.Form
 
@@ -34,7 +36,7 @@ Partial Class OpenRCTdotNetConfigure
         Me.ChkUploadTime.Name = "ChkUploadTime"
         Me.ChkUploadTime.Size = New System.Drawing.Size(150, 17)
         Me.ChkUploadTime.TabIndex = 0
-        Me.ChkUploadTime.Text = "Upload play time to Server"
+        Me.ChkUploadTime.Text = OpenRCTdotNetConfigure_uploadPlayTime_label
         Me.ChkUploadTime.UseVisualStyleBackColor = True
         '
         'chkUploadSaves
@@ -45,7 +47,7 @@ Partial Class OpenRCTdotNetConfigure
         Me.chkUploadSaves.Name = "chkUploadSaves"
         Me.chkUploadSaves.Size = New System.Drawing.Size(139, 17)
         Me.chkUploadSaves.TabIndex = 1
-        Me.chkUploadSaves.Text = "Upload Saves to Server"
+        Me.chkUploadSaves.Text = OpenRCTdotNetConfigure_uploadSaves_label
         Me.chkUploadSaves.UseVisualStyleBackColor = True
         '
         'lblUsername
@@ -66,7 +68,7 @@ Partial Class OpenRCTdotNetConfigure
         Me.Controls.Add(Me.ChkUploadTime)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Name = "OpenRCTdotNetConfigure"
-        Me.Text = "OpenRCT.net Configuration"
+        Me.Text = OpenRCTdotNetConfigure_title
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

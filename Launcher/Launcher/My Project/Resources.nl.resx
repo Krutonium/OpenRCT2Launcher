@@ -413,4 +413,22 @@ Exacte fout:</value>
   <data name="frmOptions_titleScreenMusic_RCT2" xml:space="preserve">
     <value>Rollercoaster Tycoon 2</value>
   </data>
+  <data name="OpenRCTdotNetConfigure_loggedInAs" xml:space="preserve">
+    <value>Je bent ingelogd als </value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_title" xml:space="preserve">
+    <value>OpenRCT.net instellingen</value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_uploadPlayTime_label" xml:space="preserve">
+    <value>Upload speeltijd naar de server</value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_uploadSaves_label" xml:space="preserve">
+    <value>Upload gespeelde spellen naar de server</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_getAccountText" xml:space="preserve">
+    <value>Verkrijg je account op OpenRCT.net</value>
+  </data>
+  <data name="coomon_login" xml:space="preserve">
+    <value>Log in</value>
+  </data>
 </root>
