@@ -1,6 +1,7 @@
 ﻿Imports Launcher.My.Resources
 Imports System.Net
 Imports Newtonsoft.Json.Linq
+Imports Launcher.My
 
 Public Class OpenRCTdotNetLogin
 
@@ -22,10 +23,10 @@ Public Class OpenRCTdotNetLogin
         If json.SelectToken("error") Is Nothing Then
             Dim user As String = json.SelectToken("user_name")
             MsgBox("Welcome " & user & "!")
-            Main.LauncherConfig.UserKey = json.SelectToken("authcode")
-            Main.LauncherConfig.UserID = json.SelectToken("user_id")
-            Main.LauncherConfig.UserName = json.SelectToken("user_name")
-            Main.LauncherConfig.HasChanged = True
+            Settings.UserKey = json.SelectToken("authcode")
+            Settings.UserID = json.SelectToken("user_id")
+            Settings.UserName = json.SelectToken("user_name")
+            Settings.HasChanged = True
             Close()
         Else
             MsgBox(json.SelectToken("error"))

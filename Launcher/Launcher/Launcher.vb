@@ -1,23 +1,24 @@
 ﻿Imports System.IO
 Imports Microsoft.Win32
-Imports System.Threading
 Imports Launcher.My.Resources
+Imports Launcher.My
+Imports HelperLibrary.Classes
 
 Public Class frmLauncher
-    Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Async Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Main.Initialize() 'Initialize Main class
 
         'Check for updates
         CheckForIllegalCrossThreadCalls = False
-        Dim Thread = New Thread(AddressOf GameCheckAndUpdate)
-        Thread.Start()
+
+        Await GameUpdate(False)
 
         PictureBox1.Image = rollercoaster_tycoon_2_001
         Icon = cat_paw
 
         'If the OpenRCT2 folder doesn't exist, create it
-        If Directory.Exists(Main.OpenRCT2Folder) = False Then
-            Directory.CreateDirectory(Main.OpenRCT2Folder)
+        If Directory.Exists(Constants.OpenRCT2Folder) = False Then
+            Directory.CreateDirectory(Constants.OpenRCT2Folder)
         End If
 
         'If the programm couldn't find the path look for it in the registry
@@ -30,62 +31,62 @@ Public Class frmLauncher
             End Try
         End If
 
-        If Main.LauncherConfig.UserID <> Nothing Then
+        If Settings.UserID <> Nothing Then
             'Add code here for Stats etc.
         End If
     End Sub
 
     Private Async Sub cmdLaunchGame_Click(sender As Object, e As EventArgs) Handles cmdLaunchGame.Click
-        If File.Exists(Main.OpenRCT2EXE) And File.Exists(Main.OpenRCT2DLL) Then
-            Dim Launch As New ProcessStartInfo
+        If File.Exists(Constants.OpenRCT2Exe) And File.Exists(Constants.OpenRCT2Dll) Then
+            Dim launchProcess As New ProcessStartInfo
 
             'Redirect output if needed
-            If Main.LauncherConfig.SaveOutput Then
-                If Directory.Exists(Path.GetDirectoryName(Main.LauncherConfig.OutputPath)) Then
-                    Launch.RedirectStandardOutput = True
-                    Launch.RedirectStandardError = True
-                    Launch.UseShellExecute = False
+            If Settings.SaveOutput Then
+                If Directory.Exists(Path.GetDirectoryName(Settings.OutputPath)) Then
+                    launchProcess.RedirectStandardOutput = True
+                    launchProcess.RedirectStandardError = True
+                    launchProcess.UseShellExecute = False
                 End If
             End If
 
-            Launch.WorkingDirectory = Main.OpenRCT2BinFolder    'OpenRCT2's Executibles will be stored here, so we make this the working dir.
-            Launch.FileName = Main.OpenRCT2EXE                  'The EXE of course.
+            launchProcess.WorkingDirectory = Constants.OpenRCT2Bin     'OpenRCT2's Executibles will be stored here, so we make this the working dir.
+            launchProcess.FileName = Constants.OpenRCT2Exe                  'The EXE of course.
 
-            If Main.LauncherConfig.Verbose Then
-                Launch.Arguments += "--verbose"
+            If Settings.Verbose Then
+                launchProcess.Arguments += "--verbose"
             End If
 
-            If Main.LauncherConfig.Arguments <> "" Then
-                If Launch.Arguments <> "" Then 'Add space to arguments (is this necessary?)
-                    Launch.Arguments += " "
+            If Settings.Arguments <> "" Then
+                If launchProcess.Arguments <> "" Then 'Add space to arguments (is this necessary?)
+                    launchProcess.Arguments += " "
                 End If
 
-                Launch.Arguments += Main.LauncherConfig.Arguments
+                launchProcess.Arguments += Settings.Arguments
             End If
 
             'Save before starting the *.exe to prevent it from failing to load
-            If Main.LauncherConfig.HasChanged Then
-                Main.LauncherConfig.SaveINI(Main.LauncherConfigFile)
-                Main.LauncherConfig.HasChanged = False
+            If Settings.HasChanged Then
+                Settings.HasChanged = False
+                Settings.Save()
             End If
 
             If Main.OpenRCT2Config.HasChanged Then
-                Main.OpenRCT2Config.SaveINI(Main.LauncherConfigFile)
+                Await Main.OpenRCT2Config.SaveINI(Constants.OpenRCT2ConfigFile)
                 Main.OpenRCT2Config.HasChanged = False
             End If
 
-            Dim process As Process = process.Start(Launch)
+            Dim process As Process = process.Start(launchProcess)
 
             'Start new thread for saving the output of the *.exe
-            If Main.LauncherConfig.SaveOutput Then
-                If Directory.Exists(Path.GetDirectoryName(Main.LauncherConfig.OutputPath)) Then
+            If Settings.SaveOutput Then
+                If Directory.Exists(Path.GetDirectoryName(Settings.OutputPath)) Then
                     Await WriteOutput(process)
                 End If
             End If
 
 
             'THIS NEEDS TO REMAIN LAST BECAUSE IT HANDLES WHETHER WE NEED TO CLOSE!
-            If Main.LauncherConfig.UploadTime = True Then
+            If Settings.UploadTime = True Then
                 Visible = False
                 tmrUsedForUploadingTime.Enabled = True
             Else
@@ -97,14 +98,12 @@ Public Class frmLauncher
             MsgBox(frmLauncher_launchGame_RCT2NotFound)
 
             'Redownload
-            Dim Thread = New Thread(AddressOf GameUpdate)
-            Thread.Start()
+            Await GameUpdate(True)
         End If
     End Sub
 
-    Private Sub cmdUpdate_Click(sender As Object, e As EventArgs) Handles cmdUpdate.Click
-        Dim Thread = New Thread(AddressOf GameUpdate)
-        Thread.Start()
+    Private Async Sub cmdUpdate_Click(sender As Object, e As EventArgs) Handles cmdUpdate.Click
+        Await GameUpdate(True)
     End Sub
 
     Private Sub cmdOptions_Click(sender As Object, e As EventArgs) Handles cmdOptions.Click
@@ -115,14 +114,14 @@ Public Class frmLauncher
         Extras.ShowDialog()
     End Sub
 
-    Private Sub frmLauncher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Async Sub frmLauncher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         'Save changes
-        If Main.LauncherConfig.HasChanged Then
-            Main.LauncherConfig.SaveINI(Main.LauncherConfigFile)
+        If Settings.HasChanged Then
+            Settings.Save()
         End If
 
         If Main.OpenRCT2Config.HasChanged Then
-            Main.OpenRCT2Config.SaveINI(Main.OpenRCT2ConfigFile)
+            Await Main.OpenRCT2Config.SaveINI(Constants.OpenRCT2ConfigFile)
         End If
     End Sub
 
@@ -131,30 +130,30 @@ Public Class frmLauncher
         Dim e As String = Await Process.StandardError.ReadToEndAsync()
 
         'Write output to file
-        Dim Writer As New StreamWriter(Main.LauncherConfig.OutputPath)
-        Writer.WriteLine("Standart Output:")
-        Writer.WriteLine(out)
-        Writer.WriteLine("Standart Error:")
-        Writer.WriteLine(e)
-        Writer.Close()
+        Dim writer As New StreamWriter(Settings.OutputPath)
+        Await writer.WriteLineAsync("Standard Output:")
+        Await writer.WriteLineAsync(out)
+        Await writer.WriteLineAsync("Standard Error:")
+        Await writer.WriteLineAsync(e)
+        writer.Close()
     End Function
 
-    Private Sub GameCheckAndUpdate()
+    Private Async Function GameUpdate(force As Boolean) As Task
         cmdLaunchGame.Enabled = False
         cmdUpdate.Enabled = False
 
         Try
             'Get remote version from the webpage
-            Dim RemoteVersion As String = Main.RemoteVersionGet()
+            Dim remoteVersion As String = Await Main.RemoteVersionGet()
 
-            If RemoteVersion = Nothing Then 'Couldn't find the URL
+            If remoteVersion = Nothing Then 'Couldn't find the URL
                 cmdLaunchGame.Enabled = True
                 cmdUpdate.Enabled = True
                 Return
             End If
 
-            If RemoteVersion <> Main.LauncherConfig.LocalVersion Then
-                Main.Update(RemoteVersion)
+            If remoteVersion <> Settings.LocalVersion Or force Then
+                Main.Update(remoteVersion)
             End If
         Catch ex As Exception
         End Try
@@ -165,29 +164,7 @@ Public Class frmLauncher
         'Set focus to the Launch button so game could be launched by pressing Enter
         'Must be placed here and not in constructor because buttons start disabled
         cmdLaunchGame.Select()
-    End Sub
-
-    Private Sub GameUpdate()
-        cmdLaunchGame.Enabled = False
-        cmdUpdate.Enabled = False
-
-        Try
-            Dim RemoteVersion As String = Main.RemoteVersionGet() 'Get remote version from the webpage
-
-            If RemoteVersion = Nothing Then 'Couldn't find the URL
-                cmdLaunchGame.Enabled = True
-                cmdUpdate.Enabled = True
-                Return
-            End If
-
-            Main.Update(RemoteVersion)
-        Catch ex As Exception
-            MessageBox.Show(frmLauncher_update_failed)
-        End Try
-
-        cmdLaunchGame.Enabled = True
-        cmdUpdate.Enabled = True
-    End Sub
+    End Function
 
     ' keep minutes played offline until game exits
     Private minutesPlayed As Integer = 0
@@ -204,8 +181,8 @@ Public Class frmLauncher
             ' Process is not running
             Const secret As String = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
             Dim WS As New Net.WebClient
-            WS.DownloadString("https://openrct.net/api/?a=set_time_played&user=" & Main.LauncherConfig.UserID & _
-                              "&minutes=" & minutesPlayed.ToString() & "&auth=" & Main.LauncherConfig.UserKey & "&secret=" & secret)
+            WS.DownloadString("https://openrct.net/api/?a=set_time_played&user=" & Settings.UserID & _
+                              "&minutes=" & minutesPlayed.ToString() & "&auth=" & Settings.UserKey & "&secret=" & secret)
             'We aren't actually using the output for anything - in fact, all we are doing is informing the server that the player played for x minutes.
             Close()
         End If

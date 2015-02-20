@@ -1,21 +1,23 @@
 ﻿Imports Launcher.My.Resources
+Imports Launcher.My
+
 Public Class OpenRCTdotNetConfigure
 
     Private Sub OpenRCTdotNetConfigure_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Icon = cat_paw
-        If Main.LauncherConfig.UploadTime = True Then
+        If Settings.UploadTime = True Then
             ChkUploadTime.Checked = True
         End If
 
-        lblUsername.Text = OpenRCTdotNetConfigure_loggedInAs & Main.LauncherConfig.UserName
+        lblUsername.Text = OpenRCTdotNetConfigure_loggedInAs & Settings.Username
     End Sub
 
     Private Sub ChkUploadTime_CheckedChanged(sender As Object, e As EventArgs) Handles ChkUploadTime.CheckedChanged
         If ChkUploadTime.Checked = True Then
-            Main.LauncherConfig.UploadTime = True
+            Settings.UploadTime = True
         Else
-            Main.LauncherConfig.UploadTime = False
+            Settings.UploadTime = False
         End If
-        Main.LauncherConfig.HasChanged = True
+        Settings.HasChanged = True
     End Sub
 End Class

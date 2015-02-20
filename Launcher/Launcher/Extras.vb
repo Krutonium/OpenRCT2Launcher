@@ -3,6 +3,7 @@ Imports System.IO
 Imports System.Text
 Imports HelperLibrary
 Imports Launcher.My.Resources
+Imports Launcher.My
 
 Public Class Extras
     'This Chunk here gets the Install Directories and CD Path's for RCT1 & 2.
@@ -13,6 +14,7 @@ Public Class Extras
     Dim RCT2CD As String
     Dim RCT2 As String
     'End Chunk
+
 
     ReadOnly _dropboxPath As String = GetDropBoxPath()
     ReadOnly _openRCT2Folder As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2"
@@ -43,7 +45,7 @@ Public Class Extras
     End Sub
 
     Private Sub CheckIfLoggedIn()
-        If Main.LauncherConfig.UserID = Nothing Then
+        If Settings.UserID = Nothing Then
             'If we ever want to do somthing if they are not logged in, here is the place!
         Else
             cmdOpenRCTNetFeatures.Enabled = True

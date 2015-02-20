@@ -236,7 +236,7 @@ Public Class OpenRCT2Config
         ForcedSoftwareBuffering = INIConfig.GetPropertyBoolean("sound", "forced_software_buffering")
     End Sub
 
-    Public Sub SaveINI(File As String)
+    Public Async Function SaveINI(File As String) As Task
         If PlayIntro Then
             INIConfig.SetProperty("general", "play_intro", "true")
         Else
@@ -359,118 +359,8 @@ Public Class OpenRCT2Config
         End If
 
         Try
-            INIConfig.Save(File)
+            Await INIConfig.Save(File)
         Catch ex As Exception
         End Try
-    End Sub
-End Class
-
-'Stores the configuration of the Launcher
-Public Class LauncherConfig
-    Public HasChanged As Boolean = False
-
-    Public LocalVersion As String
-    Public Verbose As Boolean
-    Public Arguments As String
-    Public SaveOutput As Boolean
-    Public OutputPath As String
-    Public UserKey As String
-    Public UserID As String
-    Public UserName As String
-    Public UploadTime As Boolean
-
-    Dim INIConfig As IniConfiguration
-
-    Public Sub LoadDefault()
-        LocalVersion = ""
-        Verbose = False
-        Arguments = ""
-        SaveOutput = False
-        OutputPath = Main.OpenRCT2Folder + "\log.txt"
-        UserKey = ""
-        UserID = ""
-        UploadTime = False
-    End Sub
-
-    Public Sub LoadINI(File As String)
-        Dim Value As String
-
-        Try
-            INIConfig = New IniConfiguration(File)
-        Catch ex As Exception
-            Return
-        End Try
-
-        Value = INIConfig.GetProperty("general", "local_version")
-
-        If Not String.IsNullOrEmpty(Value) Then
-            LocalVersion = Value
-        End If
-
-        Verbose = INIConfig.GetPropertyBoolean("general", "verbose")
-
-        Value = INIConfig.GetProperty("general", "arguments")
-
-        If Not String.IsNullOrEmpty(Value) Then
-            Arguments = Value
-        End If
-
-        SaveOutput = INIConfig.GetProperty("general", "save_output")
-
-        Value = INIConfig.GetProperty("general", "output_path")
-
-        If Not String.IsNullOrEmpty(Value) Then
-            OutputPath = Value
-        End If
-
-        Value = INIConfig.GetProperty("general", "UserKey") 'Get the value
-
-        If Not String.IsNullOrEmpty(Value) Then 'Check it
-            UserKey = Value
-        End If
-
-        Value = INIConfig.GetProperty("general", "UserID") 'Get the value
-
-        If Not String.IsNullOrEmpty(Value) Then 'Check it
-            UserID = Value
-        End If
-
-        Value = INIConfig.GetProperty("general", "UploadTime") 'Get the value
-
-        If Not String.IsNullOrEmpty(Value) Then 'Check it
-            UploadTime = Value
-        End If
-    End Sub
-
-    Public Sub SaveINI(File As String)
-        If (INIConfig Is Nothing) Then
-            Return
-        End If
-
-        INIConfig.SetProperty("general", "local_version", LocalVersion)
-
-        If Verbose Then
-            INIConfig.SetProperty("general", "verbose", "true")
-        Else
-            INIConfig.SetProperty("general", "verbose", "false")
-        End If
-
-        INIConfig.SetProperty("general", "arguments", Arguments)
-
-        If SaveOutput Then
-            INIConfig.SetProperty("general", "save_output", "true")
-        Else
-            INIConfig.SetProperty("general", "save_output", "false")
-        End If
-
-        INIConfig.SetProperty("general", "output_path", OutputPath)
-
-        INIConfig.SetProperty("general", "UserKey", UserKey)
-        INIConfig.SetProperty("general", "UserID", UserID)
-        INIConfig.SetProperty("general", "UploadTime", UploadTime)
-        Try
-            INIConfig.Save(File)
-        Catch ex As Exception
-        End Try
-    End Sub
+    End Function
 End Class

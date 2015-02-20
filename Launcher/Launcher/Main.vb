@@ -1,38 +1,24 @@
 ﻿Imports System.IO
 Imports System.Net
 Imports System.Threading
-Imports System.Environment
 Imports System.IO.Compression
+Imports Launcher.My
+Imports HelperLibrary.Classes
 
 Public Class Main
     Public Shared OpenRCT2Config As New OpenRCT2Config
-    Public Shared LauncherConfig As New LauncherConfig
 
     'Paths to files and folders
-    Public Shared OpenRCT2Folder As String = GetFolderPath(SpecialFolder.MyDocuments) + "\OpenRCT2"
-    Public Shared OpenRCT2BinFolder As String = OpenRCT2Folder + "\bin"
-    Public Shared OpenRCT2ConfigFile As String = OpenRCT2Folder + "\config.ini"
-    Public Shared OpenRCT2EXE As String = OpenRCT2BinFolder + "\openrct2.exe"
-    Public Shared OpenRCT2DLL As String = OpenRCT2BinFolder + "\openrct2.dll"
-    Public Shared LauncherConfigFile As String = OpenRCT2Folder + "\launcher.ini"
-
-    Public Shared URLLatest As String = "https://openrct.net/latest.zip"
-    Public Shared URLRemoteVersion As String = "https://openrct.net/latest.zip?a=version"
-
-    Public Shared LauncherVersion As Integer = 1
 
     Shared Sub Initialize()
         OpenRCT2Config.LoadDefault()
-        LauncherConfig.LoadDefault()
-
-        OpenRCT2Config.LoadINI(OpenRCT2ConfigFile)
-        LauncherConfig.LoadINI(LauncherConfigFile)
+        OpenRCT2Config.LoadINI(Constants.OpenRCT2ConfigFile)
     End Sub
 
-    Shared Function RemoteVersionGet() As String
+    Shared Async Function RemoteVersionGet() As Task(Of String)
         If My.Computer.Network.IsAvailable = True Then
             Try 'If the computer has a network connection but no internet, we want to avoid crashing.
-                Return (New WebClient).DownloadString(URLRemoteVersion)
+                Return Await (New WebClient).DownloadStringTaskAsync(Constants.UpdateVersionURL)
             Catch ex As Exception 'because I want to grab the Download URL at the same time.
             End Try
         End If
@@ -40,23 +26,20 @@ Public Class Main
         Return Nothing
     End Function
 
-    Shared Sub Update(RemoteVersion As String)
+    Shared Sub Update(remoteVersion As String)
         Try
             Dim WS As New WebClient
 
-            If Directory.Exists(OpenRCT2BinFolder) Then
-                Directory.Delete(OpenRCT2BinFolder, True)      'Delete old folder if it exists.
+            If Directory.Exists(Constants.OpenRCT2Bin) Then
+                Directory.Delete(Constants.OpenRCT2Bin, True)      'Delete old folder if it exists.
             End If
 
-            Directory.CreateDirectory(OpenRCT2BinFolder)
+            Directory.CreateDirectory(Constants.OpenRCT2Bin)
 
-            WS.DownloadFile(URLLatest, OpenRCT2BinFolder + "\update.zip")
+            WS.DownloadFile(Constants.UpdateURL, Constants.OpenRCT2Bin + "\update.zip")
 
-            ZipFile.ExtractToDirectory(OpenRCT2BinFolder + "\update.zip", OpenRCT2BinFolder)    'Extracts to said folder.
-            File.Delete(OpenRCT2BinFolder + "\update.zip")
-
-            LauncherConfig.HasChanged = True
-            LauncherConfig.LocalVersion = RemoteVersion
+            ZipFile.ExtractToDirectory(Constants.OpenRCT2Bin + "\update.zip", Constants.OpenRCT2Bin)    'Extracts to said folder.
+            File.Delete(Constants.OpenRCT2Bin + "\update.zip")
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try

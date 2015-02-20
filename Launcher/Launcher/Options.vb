@@ -1,4 +1,5 @@
 ﻿Imports Launcher.My.Resources
+Imports Launcher.My
 
 Public Class frmOptions
     Private Sub frmOptions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -57,15 +58,15 @@ Public Class frmOptions
 
     Private Sub cmdReset_Click(sender As Object, e As EventArgs) Handles cmdReset.Click
         Main.OpenRCT2Config.LoadDefault()
-        Main.LauncherConfig.LoadDefault()
+        Settings.Reset()
         UpdateGUI()
     End Sub
 
     Private Sub frmOptions_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If ConfigHasChangedOpenRCT2() Or ConfigHasChangedLauncher() Then 'Has the configuration been changed?
-            Dim Result As DialogResult = MessageBox.Show(frmOptions_closeConfirmation_text, common_confirm, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information)
+            Dim result As DialogResult = MessageBox.Show(frmOptions_closeConfirmation_text, common_confirm, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information)
 
-            Select Case Result
+            Select Case result
                 Case Windows.Forms.DialogResult.Yes 'Save and close
                     If ConfigHasChangedOpenRCT2() Then
                         ConfigSaveOpenRCT2()
@@ -109,10 +110,10 @@ Public Class frmOptions
         cbSoundQuality.SelectedIndex = Main.OpenRCT2Config.SoundQuality
         chkForcedSoftwareBuffering.Checked = Main.OpenRCT2Config.ForcedSoftwareBuffering
 
-        chkVerbose.Checked = Main.LauncherConfig.Verbose
-        tbArguments.Text = Main.LauncherConfig.Arguments
-        chkSaveOutput.Checked = Main.LauncherConfig.SaveOutput
-        tbOutputPath.Text = Main.LauncherConfig.OutputPath
+        chkVerbose.Checked = Settings.Verbose
+        tbArguments.Text = Settings.Arguments
+        chkSaveOutput.Checked = Settings.SaveOutput
+        tbOutputPath.Text = Settings.OutputPath
 
         tbOutputPath.Enabled = chkSaveOutput.Checked
         cmdOutputPath.Enabled = chkSaveOutput.Checked
@@ -203,19 +204,19 @@ Public Class frmOptions
     Private Function ConfigHasChangedLauncher() As Boolean
         'Compare all fields with the current configuration to detect if any changes where made
 
-        If chkVerbose.Checked <> Main.LauncherConfig.Verbose Then
+        If chkVerbose.Checked <> Settings.Verbose Then
             Return True
         End If
 
-        If tbArguments.Text <> Main.LauncherConfig.Arguments Then
+        If tbArguments.Text <> Settings.Arguments Then
             Return True
         End If
 
-        If chkSaveOutput.Checked <> Main.LauncherConfig.SaveOutput Then
+        If chkSaveOutput.Checked <> Settings.SaveOutput Then
             Return True
         End If
 
-        If tbOutputPath.Text <> Main.LauncherConfig.OutputPath Then
+        If tbOutputPath.Text <> Settings.OutputPath Then
             Return True
         End If
 
@@ -247,11 +248,11 @@ Public Class frmOptions
     End Sub
 
     Private Sub ConfigSaveLauncher()
-        Main.LauncherConfig.Verbose = chkVerbose.Checked
-        Main.LauncherConfig.Arguments = tbArguments.Text
-        Main.LauncherConfig.SaveOutput = chkSaveOutput.Checked
-        Main.LauncherConfig.OutputPath = tbOutputPath.Text
+        Settings.Verbose = chkVerbose.Checked
+        Settings.Arguments = tbArguments.Text
+        Settings.SaveOutput = chkSaveOutput.Checked
+        Settings.OutputPath = tbOutputPath.Text
 
-        Main.LauncherConfig.HasChanged = True  'If this wouldn't be set the application would just ignore the changes and won't save them
+        Settings.HasChanged = True  'If this wouldn't be set the application would just ignore the changes and won't save them
     End Sub
 End Class

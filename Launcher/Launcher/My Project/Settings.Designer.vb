@@ -53,6 +53,126 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property LocalVersion() As String
+            Get
+                Return CType(Me("LocalVersion"),String)
+            End Get
+            Set
+                Me("LocalVersion") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property Verbose() As Boolean
+            Get
+                Return CType(Me("Verbose"),Boolean)
+            End Get
+            Set
+                Me("Verbose") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Arguments() As String
+            Get
+                Return CType(Me("Arguments"),String)
+            End Get
+            Set
+                Me("Arguments") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property SaveOutput() As Boolean
+            Get
+                Return CType(Me("SaveOutput"),Boolean)
+            End Get
+            Set
+                Me("SaveOutput") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property OutputPath() As String
+            Get
+                Return CType(Me("OutputPath"),String)
+            End Get
+            Set
+                Me("OutputPath") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property UserKey() As String
+            Get
+                Return CType(Me("UserKey"),String)
+            End Get
+            Set
+                Me("UserKey") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property UserID() As String
+            Get
+                Return CType(Me("UserID"),String)
+            End Get
+            Set
+                Me("UserID") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property UploadTime() As Boolean
+            Get
+                Return CType(Me("UploadTime"),Boolean)
+            End Get
+            Set
+                Me("UploadTime") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property HasChanged() As Boolean
+            Get
+                Return CType(Me("HasChanged"),Boolean)
+            End Get
+            Set
+                Me("HasChanged") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Username() As String
+            Get
+                Return CType(Me("Username"),String)
+            End Get
+            Set
+                Me("Username") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

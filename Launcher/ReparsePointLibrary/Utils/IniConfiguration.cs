@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace HelperLibrary
 {
@@ -99,17 +101,19 @@ namespace HelperLibrary
 					_lines.Add(line);
 
 			Parse();
+
+            
 		}
 
 		/// <summary>
 		/// Writes the configuration to an ini file.
 		/// </summary>
 		/// <param name="path">The path of the ini file to save as.</param>
-		public void Save(string path)
+		public async Task Save(string path)
 		{
 			using (var sw = new StreamWriter(new FileStream(path, FileMode.Create, FileAccess.Write)))
-				foreach (string line in _lines)
-					sw.WriteLine(line);
+				foreach (var line in _lines)
+					await sw.WriteLineAsync(line);
 		}
 
 		/// <summary>
