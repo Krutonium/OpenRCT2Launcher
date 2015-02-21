@@ -107,10 +107,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.vb" />
-    <Compile Include="Extras.Designer.vb">
+    <Compile Include="Forms\Extras.Designer.vb">
       <DependentUpon>Extras.vb</DependentUpon>
     </Compile>
-    <Compile Include="Extras.vb">
+    <Compile Include="Forms\Extras.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Launcher.vb">
@@ -125,16 +125,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="OpenRCTdotNetConfigure.Designer.vb">
+    <Compile Include="OpenRCTdotNet\OpenRCTdotNetConfigure.Designer.vb">
       <DependentUpon>OpenRCTdotNetConfigure.vb</DependentUpon>
     </Compile>
-    <Compile Include="OpenRCTdotNetConfigure.vb">
+    <Compile Include="OpenRCTdotNet\OpenRCTdotNetConfigure.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OpenRCTdotNetLogin.Designer.vb">
+    <Compile Include="OpenRCTdotNet\OpenRCTdotNetLogin.Designer.vb">
       <DependentUpon>OpenRCTdotNetLogin.vb</DependentUpon>
     </Compile>
-    <Compile Include="OpenRCTdotNetLogin.vb">
+    <Compile Include="OpenRCTdotNet\OpenRCTdotNetLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.vb" />
@@ -148,24 +148,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Options.Designer.vb">
+    <Compile Include="Forms\Options.Designer.vb">
       <DependentUpon>Options.vb</DependentUpon>
     </Compile>
-    <Compile Include="Options.vb">
+    <Compile Include="Forms\Options.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Extras.resx">
+    <EmbeddedResource Include="Forms\Extras.resx">
       <DependentUpon>Extras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Launcher.resx">
       <DependentUpon>Launcher.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OpenRCTdotNetConfigure.resx">
+    <EmbeddedResource Include="OpenRCTdotNet\OpenRCTdotNetConfigure.resx">
       <DependentUpon>OpenRCTdotNetConfigure.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OpenRCTdotNetLogin.resx">
+    <EmbeddedResource Include="OpenRCTdotNet\OpenRCTdotNetLogin.resx">
       <DependentUpon>OpenRCTdotNetLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.nl.resx" />
@@ -191,7 +191,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Options.resx">
+    <EmbeddedResource Include="Forms\Options.resx">
       <DependentUpon>Options.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\rollercoaster_tycoon_2_001.gif">

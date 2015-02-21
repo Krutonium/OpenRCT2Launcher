@@ -26,9 +26,9 @@ Public Class Main
         Return Nothing
     End Function
 
-    Shared Sub Update(remoteVersion As String)
+    Shared Async Function Update(remoteVersion As String) As Task
         Try
-            Dim WS As New WebClient
+            Dim ws As New WebClient
 
             If Directory.Exists(Constants.OpenRCT2Bin) Then
                 Directory.Delete(Constants.OpenRCT2Bin, True)      'Delete old folder if it exists.
@@ -36,12 +36,12 @@ Public Class Main
 
             Directory.CreateDirectory(Constants.OpenRCT2Bin)
 
-            WS.DownloadFile(Constants.UpdateURL, Constants.OpenRCT2Bin + "\update.zip")
+            Await ws.DownloadFileTaskAsync(New Uri(Constants.UpdateURL), Constants.OpenRCT2Bin + "\update.zip")
 
             ZipFile.ExtractToDirectory(Constants.OpenRCT2Bin + "\update.zip", Constants.OpenRCT2Bin)    'Extracts to said folder.
             File.Delete(Constants.OpenRCT2Bin + "\update.zip")
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-    End Sub
+    End Function
 End Class

@@ -1,7 +1,7 @@
 ﻿Imports Launcher.My.Resources
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmLauncher
+Partial Class FrmLauncher
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.

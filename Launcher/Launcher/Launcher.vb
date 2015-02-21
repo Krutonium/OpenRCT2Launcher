@@ -3,15 +3,16 @@ Imports Microsoft.Win32
 Imports Launcher.My.Resources
 Imports Launcher.My
 Imports HelperLibrary.Classes
+Imports Launcher.Forms
 
 Public Class frmLauncher
-    Private Async Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Main.Initialize() 'Initialize Main class
 
         'Check for updates
         CheckForIllegalCrossThreadCalls = False
 
-        Await GameUpdate(False)
+        Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
 
         PictureBox1.Image = rollercoaster_tycoon_2_001
         Icon = cat_paw
@@ -102,8 +103,8 @@ Public Class frmLauncher
         End If
     End Sub
 
-    Private Async Sub cmdUpdate_Click(sender As Object, e As EventArgs) Handles cmdUpdate.Click
-        Await GameUpdate(True)
+    Private Sub cmdUpdate_Click(sender As Object, e As EventArgs) Handles cmdUpdate.Click
+        Task.Run(DirectCast(Async Sub() Await GameUpdate(True), Action))
     End Sub
 
     Private Sub cmdOptions_Click(sender As Object, e As EventArgs) Handles cmdOptions.Click
@@ -114,20 +115,20 @@ Public Class frmLauncher
         Extras.ShowDialog()
     End Sub
 
-    Private Async Sub frmLauncher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub frmLauncher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         'Save changes
         If Settings.HasChanged Then
             Settings.Save()
         End If
 
         If Main.OpenRCT2Config.HasChanged Then
-            Await Main.OpenRCT2Config.SaveINI(Constants.OpenRCT2ConfigFile)
+            Task.Run(DirectCast(Async Sub() Await Main.OpenRCT2Config.SaveINI(Constants.OpenRCT2ConfigFile), Action))
         End If
     End Sub
 
     Private Async Function WriteOutput(process As Process) As Task
-        Dim out As String = Await Process.StandardOutput.ReadToEndAsync() 'I need to use Async here because it crashes the game if I won't use it
-        Dim e As String = Await Process.StandardError.ReadToEndAsync()
+        Dim out As String = Await process.StandardOutput.ReadToEndAsync() 'I need to use Async here because it crashes the game if I won't use it
+        Dim e As String = Await process.StandardError.ReadToEndAsync()
 
         'Write output to file
         Dim writer As New StreamWriter(Settings.OutputPath)
@@ -139,31 +140,34 @@ Public Class frmLauncher
     End Function
 
     Private Async Function GameUpdate(force As Boolean) As Task
-        cmdLaunchGame.Enabled = False
-        cmdUpdate.Enabled = False
+        RunWithInvoke(Sub(this)
+                          this.cmdLaunchGame.Enabled = False
+                          this.cmdUpdate.Enabled = False
+                      End Sub) 'Thread safety requires an invoke
 
         Try
             'Get remote version from the webpage
             Dim remoteVersion As String = Await Main.RemoteVersionGet()
 
             If remoteVersion = Nothing Then 'Couldn't find the URL
-                cmdLaunchGame.Enabled = True
-                cmdUpdate.Enabled = True
+                RunWithInvoke(Sub(this)
+                                  this.cmdLaunchGame.Enabled = True
+                                  this.cmdUpdate.Enabled = True
+                              End Sub)
                 Return
             End If
 
             If remoteVersion <> Settings.LocalVersion Or force Then
-                Main.Update(remoteVersion)
+                Await Main.Update(remoteVersion)
             End If
         Catch ex As Exception
         End Try
 
-        cmdLaunchGame.Enabled = True
-        cmdUpdate.Enabled = True
-
-        'Set focus to the Launch button so game could be launched by pressing Enter
-        'Must be placed here and not in constructor because buttons start disabled
-        cmdLaunchGame.Select()
+        RunWithInvoke(Sub(this)
+                          this.cmdLaunchGame.Enabled = True
+                          this.cmdUpdate.Enabled = True
+                          this.cmdLaunchGame.Select()
+                      End Sub)
     End Function
 
     ' keep minutes played offline until game exits
