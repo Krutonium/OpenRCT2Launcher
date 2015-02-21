@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace HelperLibrary {
+namespace HelperLibrary.Utils {
     internal class CommandLineArgs : Dictionary<string, string> {
         /// <summary>
         /// Creates a dictionarty with the arguments from the list of arguments

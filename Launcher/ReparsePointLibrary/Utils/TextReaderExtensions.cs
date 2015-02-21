@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace HelperLibrary
+namespace HelperLibrary.Utils
 {
 	public static class TextReaderExtensions
 	{

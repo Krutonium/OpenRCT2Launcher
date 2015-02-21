@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HelperLibrary
+namespace HelperLibrary.Utils
 {
 	/// <summary>
 	/// Represents an INI configuration which can be loaded and saved from and to files.

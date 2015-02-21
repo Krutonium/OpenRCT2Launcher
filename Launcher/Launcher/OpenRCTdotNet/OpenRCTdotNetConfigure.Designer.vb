@@ -38,7 +38,7 @@ Namespace OpenRCTdotNet
             Me.ChkUploadTime.Name = "ChkUploadTime"
             Me.ChkUploadTime.Size = New System.Drawing.Size(150, 17)
             Me.ChkUploadTime.TabIndex = 0
-            Me.ChkUploadTime.Text = OpenRCTdotNetConfigure_uploadPlayTime_label
+            Me.ChkUploadTime.Text = Global.Launcher.My.Resources.Resources.OpenRCTdotNetConfigure_uploadPlayTime_label
             Me.ChkUploadTime.UseVisualStyleBackColor = True
             '
             'chkUploadSaves
@@ -49,7 +49,7 @@ Namespace OpenRCTdotNet
             Me.chkUploadSaves.Name = "chkUploadSaves"
             Me.chkUploadSaves.Size = New System.Drawing.Size(139, 17)
             Me.chkUploadSaves.TabIndex = 1
-            Me.chkUploadSaves.Text = OpenRCTdotNetConfigure_uploadSaves_label
+            Me.chkUploadSaves.Text = Global.Launcher.My.Resources.Resources.OpenRCTdotNetConfigure_uploadSaves_label
             Me.chkUploadSaves.UseVisualStyleBackColor = True
             '
             'lblUsername
@@ -70,7 +70,7 @@ Namespace OpenRCTdotNet
             Me.Controls.Add(Me.ChkUploadTime)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
             Me.Name = "OpenRCTdotNetConfigure"
-            Me.Text = OpenRCTdotNetConfigure_title
+            Me.Text = "OpenRCT.net Configuration"
             Me.ResumeLayout(False)
             Me.PerformLayout()
 

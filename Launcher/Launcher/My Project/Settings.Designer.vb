@@ -114,63 +114,85 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property UserKey() As String
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("")> _
+        Public Property OpenRCTdotNetUserAuthCode() As String
             Get
-                Return CType(Me("UserKey"),String)
+                Return CType(Me("OpenRCTdotNetUserAuthCode"), String)
             End Get
-            Set
-                Me("UserKey") = value
+            Set(value As String)
+                Me("OpenRCTdotNetUserAuthCode") = Value
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property UserID() As String
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("")> _
+        Public Property OpenRCTdotNetUserID() As String
             Get
-                Return CType(Me("UserID"),String)
+                Return CType(Me("OpenRCTdotNetUserID"), String)
             End Get
-            Set
-                Me("UserID") = value
+            Set(value As String)
+                Me("OpenRCTdotNetUserID") = Value
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property UploadTime() As Boolean
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")> _
+        Public Property OpenRCTdotNetUploadTime() As Boolean
             Get
-                Return CType(Me("UploadTime"),Boolean)
+                Return CType(Me("OpenRCTdotNetUploadTime"), Boolean)
             End Get
-            Set
-                Me("UploadTime") = value
+            Set(value As Boolean)
+                Me("OpenRCTdotNetUploadTime") = value
             End Set
         End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")> _
         Public Property HasChanged() As Boolean
             Get
-                Return CType(Me("HasChanged"),Boolean)
+                Return CType(Me("HasChanged"), Boolean)
             End Get
-            Set
+            Set(value As Boolean)
                 Me("HasChanged") = value
             End Set
         End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property Username() As String
+
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("")> _
+        Public Property OpenRCTdotNetUsername() As String
             Get
-                Return CType(Me("Username"),String)
+                Return CType(Me("OpenRCTdotNetUsername"), String)
             End Get
-            Set
-                Me("Username") = value
+            Set(value As String)
+                Me("OpenRCTdotNetUsername") = value
+            End Set
+        End Property
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQL" & _
+            "br0mIDHoPMYropLd0Sg")> _
+        Public ReadOnly Property OpenRCTdotNetAPISecret() As String
+            Get
+                Return CType(Me("OpenRCTdotNetAPISecret"), String)
+            End Get
+        End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")> _
+        Public Property OpenRCTdotNetSaveGames() As Boolean
+            Get
+                Return CType(Me("OpenRCTdotNetSaveGames"), Boolean)
+            End Get
+            Set(value As Boolean)
+                Me("OpenRCTdotNetSaveGames") = value
             End Set
         End Property
     End Class

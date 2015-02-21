@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 Imports System.Text
-Imports HelperLibrary
+Imports HelperLibrary.Utils
 Imports Launcher.My
 Imports Launcher.My.Resources
 Imports Microsoft.Win32
@@ -47,7 +47,7 @@ Namespace Forms
         End Sub
 
         Private Sub CheckIfLoggedIn()
-            If Settings.UserID = Nothing Then
+            If Settings.OpenRCTdotNetUserID = Nothing Then
                 'If we ever want to do somthing if they are not logged in, here is the place!
             Else
                 cmdOpenRCTNetFeatures.Enabled = True

@@ -1,4 +1,4 @@
-﻿Imports HelperLibrary
+﻿Imports HelperLibrary.Utils
 
 'Stores the configuration of OpenRCT2
 Public Class OpenRCT2Config

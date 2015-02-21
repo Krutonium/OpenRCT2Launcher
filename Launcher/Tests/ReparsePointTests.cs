@@ -1,6 +1,5 @@
-﻿using System;
-using System.IO;
-using HelperLibrary;
+﻿using System.IO;
+using HelperLibrary.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests {

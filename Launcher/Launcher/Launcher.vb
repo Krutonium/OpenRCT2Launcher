@@ -4,6 +4,7 @@ Imports Launcher.My.Resources
 Imports Launcher.My
 Imports HelperLibrary.Classes
 Imports Launcher.Forms
+Imports Launcher.OpenRCTdotNet
 
 Public Class frmLauncher
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -32,7 +33,7 @@ Public Class frmLauncher
             End Try
         End If
 
-        If Settings.UserID <> Nothing Then
+        If Settings.OpenRCTdotNetUserID <> Nothing Then
             'Add code here for Stats etc.
         End If
     End Sub
@@ -87,7 +88,7 @@ Public Class frmLauncher
 
 
             'THIS NEEDS TO REMAIN LAST BECAUSE IT HANDLES WHETHER WE NEED TO CLOSE!
-            If Settings.UploadTime = True Then
+            If Settings.OpenRCTdotNetUploadTime = True Then
                 Visible = False
                 tmrUsedForUploadingTime.Enabled = True
             Else
@@ -108,7 +109,7 @@ Public Class frmLauncher
     End Sub
 
     Private Sub cmdOptions_Click(sender As Object, e As EventArgs) Handles cmdOptions.Click
-        frmOptions.ShowDialog()
+        FrmOptions.ShowDialog()
     End Sub
 
     Private Sub cmdExtras_Click(sender As Object, e As EventArgs) Handles cmdExtras.Click
@@ -171,23 +172,22 @@ Public Class frmLauncher
     End Function
 
     ' keep minutes played offline until game exits
-    Private minutesPlayed As Integer = 0
+    Private _minutesPlayed As Integer = 0
 
     Private Sub tmrUsedForUploadingTime_Tick(sender As Object, e As EventArgs) Handles tmrUsedForUploadingTime.Tick
-
-        'This code will run every 1 minutes if UploadTime is Enabled. It will add 1 minute, then if the game is closed,  upload and exit.
-        minutesPlayed += 1
+        If Not Settings.OpenRCTdotNetSaveGames Then
+            Return
+        End If
+        'This code will run every 1 minutes if OpenRCTdotNetUploadTime is Enabled. It will add 1 minute, then if the game is closed,  upload and exit.
+        _minutesPlayed += 1
 
         Dim isRunning = Process.GetProcessesByName("openrct2")
         If isRunning.Count > 0 Then
             ' Process is running
+            Return
         Else
             ' Process is not running
-            Const secret As String = "NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg"
-            Dim WS As New Net.WebClient
-            WS.DownloadString("https://openrct.net/api/?a=set_time_played&user=" & Settings.UserID & _
-                              "&minutes=" & minutesPlayed.ToString() & "&auth=" & Settings.UserKey & "&secret=" & secret)
-            'We aren't actually using the output for anything - in fact, all we are doing is informing the server that the player played for x minutes.
+            Task.Run(DirectCast(Async Sub() Await OpenRCTdotNetWebActions.SaveUploadTime(_minutesPlayed), Action))
             Close()
         End If
     End Sub

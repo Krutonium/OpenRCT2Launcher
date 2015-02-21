@@ -106,7 +106,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.vb" />
+    <Compile Include="OpenRCT2Config.vb" />
     <Compile Include="Forms\Extras.Designer.vb">
       <DependentUpon>Extras.vb</DependentUpon>
     </Compile>
@@ -154,6 +154,8 @@
     <Compile Include="Forms\Options.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="OpenRCTdotNet\OpenRCTdotNetUser.vb" />
+    <Compile Include="OpenRCTdotNet\OpenRCTdotNetWebActions.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\Extras.resx">

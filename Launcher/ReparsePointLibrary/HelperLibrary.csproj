@@ -30,7 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>HelperLibrary.ReparsePoint</StartupObject>
+    <StartupObject>HelperLibrary.Utils.ReparsePoint</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

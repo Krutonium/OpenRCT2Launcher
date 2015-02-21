@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 
-namespace HelperLibrary {
+namespace HelperLibrary.Utils {
     public class ReparsePoint {
         #region Program
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace HelperLibrary {
+namespace HelperLibrary.Utils {
     public class FileActions {
         /// <summary>
         /// Copies all contents of a directory to another directory
