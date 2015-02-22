@@ -17,7 +17,7 @@ Namespace OpenRCTdotNet
 
             Try
                 Dim user As OpenRCTdotNetUser = Await OpenRCTdotNetWebActions.Login(username, password, True)
-                MsgBox(user.Username)
+                MsgBox("Welcome, " & user.Username)
                 Close()
             Catch ex As Exception
                 If TypeOf ex Is OpenRCTdotNetWebActionException Then

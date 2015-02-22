@@ -15,10 +15,10 @@ Namespace OpenRCTdotNet
 
         Public Shared Async Function Login(username As String, password As String, saveLogin As Boolean) As Task(Of OpenRCTdotNetUser)
             Dim jsonResult As JObject
-            Dim downloadUri As New Uri(String.Format("{0}?a=auth&OpenRCTdotNetUsername={1}&password={2}&secret={3}", URLBase, username, password, Secret))
+            Dim downloadUri As New Uri(String.Format("{0}?a=auth&username={1}&password={2}&secret={3}", URLBase, username, password, Secret))
             Try
                 Dim serverResponse As String = Await (New WebClient).DownloadStringTaskAsync(downloadUri)
-                jsonResult = New JObject(serverResponse)
+                jsonResult = JObject.Parse(serverResponse)
             Catch ex As WebException
                 Return Nothing
             Catch ex As JsonSerializationException
