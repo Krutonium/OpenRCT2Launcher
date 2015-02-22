@@ -26,7 +26,7 @@ Public Class Main
         Return Nothing
     End Function
 
-    Shared Async Function Update(remoteVersion As String) As Task
+    Shared Sub Update(remoteVersion As String)
         Try
             Dim ws As New WebClient
 
@@ -36,12 +36,12 @@ Public Class Main
 
             Directory.CreateDirectory(Constants.OpenRCT2Bin)
 
-            Await ws.DownloadFileTaskAsync(New Uri(Constants.UpdateURL), Constants.OpenRCT2Bin + "\update.zip")
+            ws.DownloadFile(Constants.UpdateURL, Constants.OpenRCT2Bin + "\update.zip")
 
             ZipFile.ExtractToDirectory(Constants.OpenRCT2Bin + "\update.zip", Constants.OpenRCT2Bin)    'Extracts to said folder.
             File.Delete(Constants.OpenRCT2Bin + "\update.zip")
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-    End Function
+    End Sub
 End Class

@@ -159,7 +159,7 @@ Public Class frmLauncher
             End If
 
             If remoteVersion <> Settings.LocalVersion Or force Then
-                Await Main.Update(remoteVersion)
+                Main.Update(remoteVersion)
             End If
         Catch ex As Exception
         End Try
