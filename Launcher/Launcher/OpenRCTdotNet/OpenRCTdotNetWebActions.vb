@@ -40,7 +40,7 @@ Namespace OpenRCTdotNet
         End Function
 
         Public Shared Async Function SaveUploadTime(minutesPlayed As Integer) As Task
-            Dim downloadUri As New Uri(String.Format("{0}?a=set_time_played&user={1}&auth={2}&secret={3}&minutes={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUsername, Secret, minutesPlayed))
+            Dim downloadUri As New Uri(String.Format("{0}?a=set_time_played&user={1}&auth={2}&secret={3}&minutes={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, minutesPlayed))
             Try
                 Await (New WebClient).DownloadStringTaskAsync(downloadUri)
             Catch ex As Exception
