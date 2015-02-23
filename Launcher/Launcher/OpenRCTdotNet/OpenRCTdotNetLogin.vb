@@ -1,4 +1,5 @@
 ﻿Imports Launcher.My.Resources
+Imports Launcher.Forms
 
 Namespace OpenRCTdotNet
 
@@ -18,6 +19,7 @@ Namespace OpenRCTdotNet
             Try
                 Dim user As OpenRCTdotNetUser = Await OpenRCTdotNetWebActions.Login(username, password, True)
                 MsgBox("Welcome, " & user.Username)
+                Extras.cmdOpenRCTNetFeatures.Enabled = True
                 Close()
             Catch ex As Exception
                 If TypeOf ex Is OpenRCTdotNetWebActionException Then
