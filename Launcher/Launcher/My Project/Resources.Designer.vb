@@ -928,6 +928,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Logo() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Logo", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to You are logged in as .
         '''</summary>
         Friend ReadOnly Property OpenRCTdotNetConfigure_loggedInAs() As String
@@ -1006,16 +1016,6 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("OpenRCTIcon", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property rollercoaster_tycoon_2_001() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("rollercoaster_tycoon_2_001", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
     End Module

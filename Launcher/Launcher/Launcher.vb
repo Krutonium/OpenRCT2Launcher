@@ -14,8 +14,8 @@ Public Class frmLauncher
         CheckForIllegalCrossThreadCalls = False
 
         Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
-
-        PictureBox1.Image = rollercoaster_tycoon_2_001
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.Image = Logo
         Icon = OpenRCTIcon
 
         'If the OpenRCT2 folder doesn't exist, create it

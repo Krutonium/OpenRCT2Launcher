@@ -33,7 +33,8 @@ Namespace OpenRCTdotNet
         End Sub
 
         Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-            LogoPictureBox.Image = rollercoaster_tycoon_2_001
+            LogoPictureBox.SizeMode = PictureBoxSizeMode.Zoom
+            LogoPictureBox.Image = Logo
         End Sub
 
         Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
