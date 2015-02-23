@@ -16,7 +16,7 @@ Public Class frmLauncher
         Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
 
         PictureBox1.Image = rollercoaster_tycoon_2_001
-        Icon = cat_paw
+        Icon = OpenRCTIcon
 
         'If the OpenRCT2 folder doesn't exist, create it
         If Directory.Exists(Constants.OpenRCT2Folder) = False Then

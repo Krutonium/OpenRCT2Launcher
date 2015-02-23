@@ -5,7 +5,7 @@ Namespace OpenRCTdotNet
     Public Class OpenRCTdotNetConfigure
 
         Private Sub OpenRCTdotNetConfigure_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-            Icon = cat_paw
+            Icon = OpenRCTIcon
             If Settings.OpenRCTdotNetUploadTime = True Then
                 ChkUploadTime.Checked = True
             End If

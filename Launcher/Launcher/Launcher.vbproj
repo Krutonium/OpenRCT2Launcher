@@ -78,7 +78,7 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\cat_paw.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\OpenRCTIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -218,11 +218,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\cat_paw.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <None Include="Resources\OpenRCTIcon.ico" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ReparsePointLibrary\HelperLibrary.csproj">
       <Project>{e84d866b-4176-4444-a2ab-ce820001ae4a}</Project>

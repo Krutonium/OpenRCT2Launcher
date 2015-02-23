@@ -22,7 +22,7 @@ Namespace Forms
         ReadOnly _openRCT2Folder As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2"
 
         Private Sub Extras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-            Icon = cat_paw
+            Icon = OpenRCTIcon
             FormBorderStyle = FormBorderStyle.Fixed3D
             WindowState = FormWindowState.Normal
             MaximizeBox = False
