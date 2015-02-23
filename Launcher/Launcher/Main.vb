@@ -40,6 +40,9 @@ Public Class Main
 
             ZipFile.ExtractToDirectory(Constants.OpenRCT2Bin + "\update.zip", Constants.OpenRCT2Bin)    'Extracts to said folder.
             File.Delete(Constants.OpenRCT2Bin + "\update.zip")
+            Settings.LocalVersion = remoteVersion
+            Settings.HasChanged = True
+            Settings.Save()
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
