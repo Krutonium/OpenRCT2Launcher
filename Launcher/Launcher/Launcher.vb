@@ -5,13 +5,30 @@ Imports Launcher.My
 Imports HelperLibrary.Classes
 Imports Launcher.Forms
 Imports Launcher.OpenRCTdotNet
+Imports System.Net
 
 Public Class frmLauncher
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Main.Initialize() 'Initialize Main class
 
+        Const LauncherVer As Integer = 3 'Increment this and then we can release updates on Openrct.net
+
         'Check for updates
         CheckForIllegalCrossThreadCalls = False
+
+        Try
+            Dim WS As New WebClient
+            Dim RemoteLVer As Integer = WS.DownloadString("https://openrct.net/download_latest_launcher.php?a=version")
+            If RemoteLVer > LauncherVer Then
+                Dim result = MsgBox(LauncherUpdateAvail, MsgBoxStyle.YesNo)
+                If result = MsgBoxResult.Yes Then
+                    Process.Start("http://openrct.net")
+                    Close()
+                End If
+            End If
+        Catch ex As Exception
+
+        End Try
 
         Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
         PictureBox1.SizeMode = PictureBoxSizeMode.Zoom

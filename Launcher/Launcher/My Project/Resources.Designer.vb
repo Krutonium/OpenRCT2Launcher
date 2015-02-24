@@ -928,6 +928,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to There is an update to the launcher available. Update?.
+        '''</summary>
+        Friend ReadOnly Property LauncherUpdateAvail() As String
+            Get
+                Return ResourceManager.GetString("LauncherUpdateAvail", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property Logo() As System.Drawing.Bitmap
