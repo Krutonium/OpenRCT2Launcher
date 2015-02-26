@@ -1,36 +1,29 @@
-﻿Imports System.IO
-Imports Microsoft.Win32
-Imports Launcher.My.Resources
-Imports Launcher.My
-Imports HelperLibrary.Classes
+﻿Imports HelperLibrary.Classes
 Imports Launcher.Forms
+Imports Launcher.My
+Imports Launcher.My.Resources
 Imports Launcher.OpenRCTdotNet
+Imports Microsoft.Win32
+Imports System.IO
+Imports System.IO.Compression
 Imports System.Net
 
 Public Class frmLauncher
+    Const LauncherVer As Integer = 3 'Increment this and then we can release updates on Openrct.net
+
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Main.Initialize() 'Initialize Main class
-
-        Const LauncherVer As Integer = 3 'Increment this and then we can release updates on Openrct.net
-
         'Check for updates
         CheckForIllegalCrossThreadCalls = False
 
-        Try
-            Dim WS As New WebClient
-            Dim RemoteLVer As Integer = WS.DownloadString("https://openrct.net/download_latest_launcher.php?a=version")
-            If RemoteLVer > LauncherVer Then
-                Dim result = MsgBox(LauncherUpdateAvail, MsgBoxStyle.YesNo)
-                If result = MsgBoxResult.Yes Then
-                    Process.Start("http://openrct.net")
-                    Close()
-                End If
-            End If
-        Catch ex As Exception
+        OpenRCT2Config.Load(Constants.OpenRCT2ConfigFile)
 
-        End Try
+        Settings.HasChanged = False
 
+        Task.Run(DirectCast(Async Sub() Await LauncherUpdate(), Action))
         Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
+
+        cmdLaunchGame.Enabled = Directory.Exists(OpenRCT2Config.GamePath)
+
         PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
         PictureBox1.Image = Logo
         Icon = OpenRCTIcon
@@ -41,10 +34,10 @@ Public Class frmLauncher
         End If
 
         'If the programm couldn't find the path look for it in the registry
-        If Main.OpenRCT2Config.GamePath = Nothing Then
+        If String.IsNullOrEmpty(OpenRCT2Config.GamePath) Then
             Try
-                Main.OpenRCT2Config.GamePath = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup").GetValue("Path")
-                Main.OpenRCT2Config.HasChanged = True
+                OpenRCT2Config.GamePath = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup").GetValue("Path")
+                OpenRCT2Config.HasChanged = True
             Catch ex As Exception
                 MsgBox(frmLauncher_Load_neverRun)
             End Try
@@ -76,7 +69,7 @@ Public Class frmLauncher
             End If
 
             If Settings.Arguments <> "" Then
-                If launchProcess.Arguments <> "" Then 'Add space to arguments (is this necessary?)
+                If launchProcess.Arguments <> "" Then 'Add space to arguments
                     launchProcess.Arguments += " "
                 End If
 
@@ -89,9 +82,9 @@ Public Class frmLauncher
                 Settings.Save()
             End If
 
-            If Main.OpenRCT2Config.HasChanged Then
-                Await Main.OpenRCT2Config.SaveINI(Constants.OpenRCT2ConfigFile)
-                Main.OpenRCT2Config.HasChanged = False
+            If OpenRCT2Config.HasChanged Then
+                Await OpenRCT2Config.Save(Constants.OpenRCT2ConfigFile)
+                OpenRCT2Config.HasChanged = False
             End If
 
             Dim process As Process = process.Start(launchProcess)
@@ -127,6 +120,8 @@ Public Class frmLauncher
 
     Private Sub cmdOptions_Click(sender As Object, e As EventArgs) Handles cmdOptions.Click
         FrmOptions.ShowDialog()
+
+        cmdLaunchGame.Enabled = Directory.Exists(OpenRCT2Config.GamePath)
     End Sub
 
     Private Sub cmdExtras_Click(sender As Object, e As EventArgs) Handles cmdExtras.Click
@@ -136,11 +131,12 @@ Public Class frmLauncher
     Private Sub frmLauncher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         'Save changes
         If Settings.HasChanged Then
+            Settings.HasChanged = False
             Settings.Save()
         End If
 
-        If Main.OpenRCT2Config.HasChanged Then
-            Task.Run(DirectCast(Async Sub() Await Main.OpenRCT2Config.SaveINI(Constants.OpenRCT2ConfigFile), Action))
+        If OpenRCT2Config.HasChanged Then
+            Task.Run(DirectCast(Async Sub() Await OpenRCT2Config.Save(Constants.OpenRCT2ConfigFile), Action))
         End If
     End Sub
 
@@ -157,32 +153,53 @@ Public Class frmLauncher
         writer.Close()
     End Function
 
+    Private Async Function LauncherUpdate() As Task
+        Try
+            Dim WS As New WebClient
+            Dim RemoteLVer As Integer = Await WS.DownloadStringTaskAsync("https://openrct.net/download_latest_launcher.php?a=version")
+            If RemoteLVer > LauncherVer Then
+                Dim result = MsgBox(LauncherUpdateAvail, MsgBoxStyle.YesNo)
+                If result = MsgBoxResult.Yes Then
+                    Process.Start("http://openrct.net")
+                    Close()
+                End If
+            End If
+        Catch ex As Exception
+        End Try
+    End Function
+
     Private Async Function GameUpdate(force As Boolean) As Task
         RunWithInvoke(Sub(this)
                           this.cmdLaunchGame.Enabled = False
                           this.cmdUpdate.Enabled = False
                       End Sub) 'Thread safety requires an invoke
 
+        Dim WS As New WebClient
+
         Try
             'Get remote version from the webpage
-            Dim remoteVersion As String = Await Main.RemoteVersionGet()
-
-            If remoteVersion = Nothing Then 'Couldn't find the URL
-                RunWithInvoke(Sub(this)
-                                  this.cmdLaunchGame.Enabled = True
-                                  this.cmdUpdate.Enabled = True
-                              End Sub)
-                Return
-            End If
+            Dim remoteVersion As String = Await WS.DownloadStringTaskAsync(Constants.UpdateVersionURL)
 
             If remoteVersion <> Settings.LocalVersion Or force Then
-                Main.Update(remoteVersion)
+                If Directory.Exists(Constants.OpenRCT2Bin) Then
+                    Directory.Delete(Constants.OpenRCT2Bin, True)      'Delete old folder if it exists.
+                End If
+
+                Directory.CreateDirectory(Constants.OpenRCT2Bin)
+
+                WS.DownloadFile(Constants.UpdateURL, Constants.OpenRCT2Bin + "\update.zip")
+
+                ZipFile.ExtractToDirectory(Constants.OpenRCT2Bin + "\update.zip", Constants.OpenRCT2Bin)    'Extracts to said folder.
+                File.Delete(Constants.OpenRCT2Bin + "\update.zip")
+
+                Settings.LocalVersion = remoteVersion
+                Settings.HasChanged = True
             End If
         Catch ex As Exception
         End Try
 
         RunWithInvoke(Sub(this)
-                          this.cmdLaunchGame.Enabled = True
+                          this.cmdLaunchGame.Enabled = Directory.Exists(OpenRCT2Config.GamePath)
                           this.cmdUpdate.Enabled = True
                           this.cmdLaunchGame.Select()
                       End Sub)

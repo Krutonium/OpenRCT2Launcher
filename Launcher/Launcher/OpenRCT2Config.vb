@@ -3,22 +3,22 @@
 'Stores the configuration of OpenRCT2
 Public Class OpenRCT2Config
     Enum EnumScreenshotFormat
-        BMP
+        BMP = 0
         PNG
     End Enum
 
     Enum EnumMeasurementFormat
-        Imperial
+        Imperial = 0
         Metric
     End Enum
 
     Enum EnumTemperatureFormat
-        Celsius
+        Celsius = 0
         Fahrenheit
     End Enum
 
     Enum EnumCurrencyFormat
-        Pounds
+        Pounds = 0
         Dollars
         Franc
         Deutschmark
@@ -31,7 +31,7 @@ Public Class OpenRCT2Config
     End Enum
 
     Enum EnumFullscreenMode
-        Window
+        Window = 0
         Fullscreen
         BorderlessFullscreen
     End Enum
@@ -49,105 +49,119 @@ Public Class OpenRCT2Config
     End Enum
 
     Enum EnumTitleMusic
-        None
+        None = 0
         RCT1
         RCT2
     End Enum
 
     Enum EnumSoundQuality
-        Low
+        Low = 0
         Medium
         High
     End Enum
 
-    Public HasChanged As Boolean = False
+    Public Shared HasChanged As Boolean
 
-    Public PlayIntro As Boolean
-    Public ConfirmationPrompt As Boolean
-    Public ScreenshotFormat As EnumScreenshotFormat
-    Public GamePath As String
-    Public MeasurementFormat As EnumMeasurementFormat
-    Public TemperatureFormat As EnumTemperatureFormat
-    Public CurrencyFormat As EnumCurrencyFormat
-    Public EdgeScrolling As Boolean
-    Public AlwaysShowGridlines As Boolean
-    Public LandscapeSmoothing As Boolean
-    Public ShowHeightAsUnits As Boolean
-    Public SavePluginData As Boolean
-    Public FullscreenMode As EnumFullscreenMode
-    Public FullscreenWidth As Integer
-    Public FullscreenHeight As Integer
-    Public Language As EnumLanguage
-    Public TitleMusic As EnumTitleMusic
-    Public SoundQuality As EnumSoundQuality
-    Public ForcedSoftwareBuffering As Boolean
+    Public Shared ReadOnly DefPlayIntro = False
+    Public Shared ReadOnly DefConfirmationPrompt = False
+    Public Shared ReadOnly DefScreenshotFormat = EnumScreenshotFormat.PNG
+    Public Shared ReadOnly DefGamePath = ""
+    Public Shared ReadOnly DefMeasurementFormat = EnumMeasurementFormat.Imperial
+    Public Shared ReadOnly DefTemperatureFormat = EnumTemperatureFormat.Celsius
+    Public Shared ReadOnly DefCurrencyFormat = EnumCurrencyFormat.Pounds
+    Public Shared ReadOnly DefEdgeScrolling = True
+    Public Shared ReadOnly DefAlwaysShowGridlines = False
+    Public Shared ReadOnly DefLandscapeSmoothing = True
+    Public Shared ReadOnly DefShowHeightAsUnits = False
+    Public Shared ReadOnly DefSavePluginData = True
+    Public Shared ReadOnly DefFullscreenMode = EnumFullscreenMode.Window
+    Public Shared ReadOnly DefFullscreenWidth = -1
+    Public Shared ReadOnly DefFullscreenHeight = -1
+    Public Shared ReadOnly DefLanguage = EnumLanguage.EnglishUK
+    Public Shared ReadOnly DefTitleMusic = EnumTitleMusic.RCT2
+    Public Shared ReadOnly DefSoundQuality = EnumSoundQuality.Low
+    Public Shared ReadOnly DefForcedSoftwareBuffering = False
 
-    Dim INIConfig As New IniConfiguration
+    Public Shared PlayIntro As Boolean
+    Public Shared ConfirmationPrompt As Boolean
+    Public Shared ScreenshotFormat As EnumScreenshotFormat
+    Public Shared GamePath As String
+    Public Shared MeasurementFormat As EnumMeasurementFormat
+    Public Shared TemperatureFormat As EnumTemperatureFormat
+    Public Shared CurrencyFormat As EnumCurrencyFormat
+    Public Shared EdgeScrolling As Boolean
+    Public Shared AlwaysShowGridlines As Boolean
+    Public Shared LandscapeSmoothing As Boolean
+    Public Shared ShowHeightAsUnits As Boolean
+    Public Shared SavePluginData As Boolean
+    Public Shared FullscreenMode As EnumFullscreenMode
+    Public Shared FullscreenWidth As Integer
+    Public Shared FullscreenHeight As Integer
+    Public Shared Language As EnumLanguage
+    Public Shared TitleMusic As EnumTitleMusic
+    Public Shared SoundQuality As EnumSoundQuality
+    Public Shared ForcedSoftwareBuffering As Boolean
 
-    Public Sub LoadDefault()
-        PlayIntro = False
-        ConfirmationPrompt = False
-        ScreenshotFormat = EnumScreenshotFormat.PNG
-        GamePath = ""
-        MeasurementFormat = EnumMeasurementFormat.Imperial
-        TemperatureFormat = EnumTemperatureFormat.Celsius
-        CurrencyFormat = EnumCurrencyFormat.Pounds
-        EdgeScrolling = True
-        AlwaysShowGridlines = False
-        LandscapeSmoothing = True
-        ShowHeightAsUnits = False
-        SavePluginData = True
-        FullscreenMode = EnumFullscreenMode.Window
-        FullscreenWidth = -1
-        FullscreenHeight = -1
-        Language = EnumLanguage.EnglishUK
-        TitleMusic = EnumTitleMusic.RCT2
-        SoundQuality = EnumSoundQuality.Low
-        ForcedSoftwareBuffering = False
-    End Sub
+    Shared INIConfig As New IniConfiguration
 
-    Public Sub LoadINI(File As String)
-        Dim Value As String
+    Public Shared Sub Load(File As String)
         Dim Number As Integer
+
+        HasChanged = False
 
         Try
             INIConfig = New IniConfiguration(File)
         Catch ex As Exception
+            PlayIntro = DefPlayIntro
+            ConfirmationPrompt = DefConfirmationPrompt
+            ScreenshotFormat = DefScreenshotFormat
+            GamePath = DefGamePath
+            MeasurementFormat = DefMeasurementFormat
+            TemperatureFormat = DefTemperatureFormat
+            CurrencyFormat = DefCurrencyFormat
+            EdgeScrolling = DefEdgeScrolling
+            AlwaysShowGridlines = DefAlwaysShowGridlines
+            LandscapeSmoothing = DefLandscapeSmoothing
+            ShowHeightAsUnits = DefShowHeightAsUnits
+            SavePluginData = DefSavePluginData
+            FullscreenMode = DefFullscreenMode
+            FullscreenWidth = DefFullscreenWidth
+            FullscreenHeight = DefFullscreenHeight
+            Language = DefLanguage
+            TitleMusic = DefTitleMusic
+            SoundQuality = DefSoundQuality
+            ForcedSoftwareBuffering = DefForcedSoftwareBuffering
             Return
         End Try
 
-        PlayIntro = INIConfig.GetPropertyBoolean("general", "play_intro")
+        PlayIntro = INIConfig.GetPropertyBoolean("general", "play_intro", DefPlayIntro)
 
-        ConfirmationPrompt = INIConfig.GetPropertyInt32("general", "confirmation_prompt")
+        ConfirmationPrompt = INIConfig.GetPropertyInt32("general", "confirmation_prompt", DefConfirmationPrompt)
 
-        Select Case INIConfig.GetProperty("general", "screenshot_format", "PNG")
+        Select Case INIConfig.GetProperty("general", "screenshot_format", DefScreenshotFormat)
             Case "BMP"
                 ScreenshotFormat = EnumScreenshotFormat.BMP
             Case "PNG"
                 ScreenshotFormat = EnumScreenshotFormat.PNG
         End Select
 
-        Value = INIConfig.GetProperty("general", "game_path")
+        GamePath = INIConfig.GetProperty("general", "game_path", DefGamePath)
 
-        If Not String.IsNullOrEmpty(Value) Then
-            GamePath = Value
-        End If
-
-        Select Case INIConfig.GetProperty("general", "measurement_format")
+        Select Case INIConfig.GetProperty("general", "measurement_format", DefMeasurementFormat)
             Case "IMPERIAL"
                 MeasurementFormat = EnumMeasurementFormat.Imperial
             Case "METRIC"
                 MeasurementFormat = EnumMeasurementFormat.Metric
         End Select
 
-        Select Case INIConfig.GetProperty("general", "temperature_format")
+        Select Case INIConfig.GetProperty("general", "temperature_format", DefTemperatureFormat)
             Case "CELSIUS"
                 TemperatureFormat = EnumTemperatureFormat.Celsius
             Case "FAHRENHEIT"
                 TemperatureFormat = EnumTemperatureFormat.Fahrenheit
         End Select
 
-        Select Case INIConfig.GetProperty("general", "currency_format")
+        Select Case INIConfig.GetProperty("general", "currency_format", DefCurrencyFormat)
             Case "GBP"
                 CurrencyFormat = EnumCurrencyFormat.Pounds
             Case "USD"
@@ -180,27 +194,27 @@ Public Class OpenRCT2Config
                 CurrencyFormat = EnumCurrencyFormat.Euros
         End Select
 
-        EdgeScrolling = INIConfig.GetPropertyBoolean("general", "edge_scrolling", True)
+        EdgeScrolling = INIConfig.GetPropertyBoolean("general", "edge_scrolling", DefEdgeScrolling)
 
-        AlwaysShowGridlines = INIConfig.GetPropertyBoolean("general", "always_show_gridlines")
+        AlwaysShowGridlines = INIConfig.GetPropertyBoolean("general", "always_show_gridlines", DefAlwaysShowGridlines)
 
-        LandscapeSmoothing = INIConfig.GetPropertyBoolean("general", "landscape_smoothing", True)
+        LandscapeSmoothing = INIConfig.GetPropertyBoolean("general", "landscape_smoothing", DefLandscapeSmoothing)
 
-        ShowHeightAsUnits = INIConfig.GetPropertyBoolean("general", "show_height_as_units")
+        ShowHeightAsUnits = INIConfig.GetPropertyBoolean("general", "show_height_as_units", DefShowHeightAsUnits)
 
-        SavePluginData = INIConfig.GetPropertyBoolean("general", "save_plugin_data")
+        SavePluginData = INIConfig.GetPropertyBoolean("general", "save_plugin_data", DefSavePluginData)
 
-        Number = INIConfig.GetPropertyInt32("general", "fullscreen_mode")
+        Number = INIConfig.GetPropertyInt32("general", "fullscreen_mode", DefFullscreenMode)
 
         If Number >= 0 And Number <= 2 Then
             FullscreenMode = Number
         End If
 
-        FullscreenWidth = INIConfig.GetPropertyInt32("general", "fullscreen_width", -1)
+        FullscreenWidth = INIConfig.GetPropertyInt32("general", "fullscreen_width", DefFullscreenWidth)
 
-        FullscreenHeight = INIConfig.GetPropertyInt32("general", "fullscreen_height", -1)
+        FullscreenHeight = INIConfig.GetPropertyInt32("general", "fullscreen_height", DefFullscreenHeight)
 
-        Select Case INIConfig.GetProperty("general", "language")
+        Select Case INIConfig.GetProperty("general", "language", DefLanguage)
             Case "en-GB"
                 Language = EnumLanguage.EnglishUK
             Case "en-US"
@@ -221,22 +235,22 @@ Public Class OpenRCT2Config
                 Language = EnumLanguage.Swedish
         End Select
 
-        Number = INIConfig.GetPropertyInt32("sound", "title_music", 2)
+        Number = INIConfig.GetPropertyInt32("sound", "title_music", DefTitleMusic)
 
         If Number >= 0 And Number <= 2 Then
             TitleMusic = Number
         End If
 
-        Number = INIConfig.GetPropertyInt32("sound", "sound_quality", 2)
+        Number = INIConfig.GetPropertyInt32("sound", "sound_quality", DefSoundQuality)
 
         If Number >= 0 And Number <= 2 Then
             SoundQuality = Number
         End If
 
-        ForcedSoftwareBuffering = INIConfig.GetPropertyBoolean("sound", "forced_software_buffering")
+        ForcedSoftwareBuffering = INIConfig.GetPropertyBoolean("sound", "forced_software_buffering", DefForcedSoftwareBuffering)
     End Sub
 
-    Public Async Function SaveINI(File As String) As Task
+    Public Shared Async Function Save(File As String) As Task
         If PlayIntro Then
             INIConfig.SetProperty("general", "play_intro", "true")
         Else
@@ -361,6 +375,7 @@ Public Class OpenRCT2Config
         Try
             Await INIConfig.Save(File)
         Catch ex As Exception
+            MessageBox.Show("Error in OpenRCT2Config.Save:" + vbCrLf + ex.Message)
         End Try
     End Function
 End Class

@@ -4,7 +4,39 @@ Imports Launcher.My.Resources
 Namespace Forms
     Public Class FrmOptions
         Private Sub frmOptions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-            UpdateGUI()
+            chkPlayIntro.Checked = OpenRCT2Config.PlayIntro
+            chkConfirmationPrompt.Checked = OpenRCT2Config.ConfirmationPrompt
+            cbScreenshotFormat.SelectedIndex = OpenRCT2Config.ScreenshotFormat
+            tbGamePath.Text = OpenRCT2Config.GamePath
+            cbMeasurementFormat.SelectedIndex = OpenRCT2Config.MeasurementFormat
+            cbTemperatureFormat.SelectedIndex = OpenRCT2Config.TemperatureFormat
+            cbCurrency.SelectedIndex = OpenRCT2Config.CurrencyFormat
+            chkEdgeScrolling.Checked = OpenRCT2Config.EdgeScrolling
+            chkAlwaysShowGridlines.Checked = OpenRCT2Config.AlwaysShowGridlines
+            chkLandscapeSmoothing.Checked = OpenRCT2Config.LandscapeSmoothing
+
+            If OpenRCT2Config.ShowHeightAsUnits Then
+                cbShowHeightAsUnits.SelectedIndex = 0
+            Else
+                cbShowHeightAsUnits.SelectedIndex = 1
+            End If
+
+            chkSavePluginData.Checked = OpenRCT2Config.SavePluginData
+            cbFullscreenMode.SelectedIndex = OpenRCT2Config.FullscreenMode
+            numFullscreenWidth.Value = OpenRCT2Config.FullscreenWidth
+            numFullscreenHeight.Value = OpenRCT2Config.FullscreenHeight
+            cbLanguage.SelectedIndex = OpenRCT2Config.Language - 1
+            cbTitleMusic.SelectedIndex = OpenRCT2Config.TitleMusic
+            cbSoundQuality.SelectedIndex = OpenRCT2Config.SoundQuality
+            chkForcedSoftwareBuffering.Checked = OpenRCT2Config.ForcedSoftwareBuffering
+
+            chkVerbose.Checked = Settings.Verbose
+            tbArguments.Text = Settings.Arguments
+            chkSaveOutput.Checked = Settings.SaveOutput
+            tbOutputPath.Text = Settings.OutputPath
+
+            tbOutputPath.Enabled = chkSaveOutput.Checked
+            cmdOutputPath.Enabled = chkSaveOutput.Checked
         End Sub
 
         Private Sub cmdGamePath_Click(sender As Object, e As EventArgs) Handles cmdGamePath.Click
@@ -58,9 +90,39 @@ Namespace Forms
         End Sub
 
         Private Sub cmdReset_Click(sender As Object, e As EventArgs) Handles cmdReset.Click
-            Main.OpenRCT2Config.LoadDefault()
-            Settings.Reset()
-            UpdateGUI()
+            chkPlayIntro.Checked = OpenRCT2Config.DefPlayIntro
+            chkConfirmationPrompt.Checked = OpenRCT2Config.DefConfirmationPrompt
+            cbScreenshotFormat.SelectedIndex = OpenRCT2Config.DefScreenshotFormat
+            tbGamePath.Text = OpenRCT2Config.DefGamePath
+            cbMeasurementFormat.SelectedIndex = OpenRCT2Config.DefMeasurementFormat
+            cbTemperatureFormat.SelectedIndex = OpenRCT2Config.DefTemperatureFormat
+            cbCurrency.SelectedIndex = OpenRCT2Config.DefCurrencyFormat
+            chkEdgeScrolling.Checked = OpenRCT2Config.DefEdgeScrolling
+            chkAlwaysShowGridlines.Checked = OpenRCT2Config.DefAlwaysShowGridlines
+            chkLandscapeSmoothing.Checked = OpenRCT2Config.DefLandscapeSmoothing
+
+            If OpenRCT2Config.DefShowHeightAsUnits Then
+                cbShowHeightAsUnits.SelectedIndex = 0
+            Else
+                cbShowHeightAsUnits.SelectedIndex = 1
+            End If
+
+            chkSavePluginData.Checked = OpenRCT2Config.DefSavePluginData
+            cbFullscreenMode.SelectedIndex = OpenRCT2Config.DefFullscreenMode
+            numFullscreenWidth.Value = OpenRCT2Config.DefFullscreenWidth
+            numFullscreenHeight.Value = OpenRCT2Config.DefFullscreenHeight
+            cbLanguage.SelectedIndex = OpenRCT2Config.DefLanguage - 1
+            cbTitleMusic.SelectedIndex = OpenRCT2Config.DefTitleMusic
+            cbSoundQuality.SelectedIndex = OpenRCT2Config.DefSoundQuality
+            chkForcedSoftwareBuffering.Checked = OpenRCT2Config.DefForcedSoftwareBuffering
+
+            chkVerbose.Checked = My.Settings.PropertyValues("Verbose").Property.DefaultValue
+            tbArguments.Text = My.Settings.PropertyValues("Arguments").Property.DefaultValue
+            chkSaveOutput.Checked = My.Settings.PropertyValues("SaveOutput").Property.DefaultValue
+            tbOutputPath.Text = My.Settings.PropertyValues("OutputPath").Property.DefaultValue
+
+            tbOutputPath.Enabled = chkSaveOutput.Checked
+            cmdOutputPath.Enabled = chkSaveOutput.Checked
         End Sub
 
         Private Sub frmOptions_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -82,120 +144,82 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub UpdateGUI()
-            'Update all input fields with the current settings
-
-            chkPlayIntro.Checked = Main.OpenRCT2Config.PlayIntro
-            chkConfirmationPrompt.Checked = Main.OpenRCT2Config.ConfirmationPrompt
-            cbScreenshotFormat.SelectedIndex = Main.OpenRCT2Config.ScreenshotFormat
-            tbGamePath.Text = Main.OpenRCT2Config.GamePath
-            cbMeasurementFormat.SelectedIndex = Main.OpenRCT2Config.MeasurementFormat
-            cbTemperatureFormat.SelectedIndex = Main.OpenRCT2Config.TemperatureFormat
-            cbCurrency.SelectedIndex = Main.OpenRCT2Config.CurrencyFormat
-            chkEdgeScrolling.Checked = Main.OpenRCT2Config.EdgeScrolling
-            chkAlwaysShowGridlines.Checked = Main.OpenRCT2Config.AlwaysShowGridlines
-            chkLandscapeSmoothing.Checked = Main.OpenRCT2Config.LandscapeSmoothing
-
-            If Main.OpenRCT2Config.ShowHeightAsUnits Then
-                cbShowHeightAsUnits.SelectedIndex = 0
-            Else
-                cbShowHeightAsUnits.SelectedIndex = 1
-            End If
-
-            chkSavePluginData.Checked = Main.OpenRCT2Config.SavePluginData
-            cbFullscreenMode.SelectedIndex = Main.OpenRCT2Config.FullscreenMode
-            numFullscreenWidth.Value = Main.OpenRCT2Config.FullscreenWidth
-            numFullscreenHeight.Value = Main.OpenRCT2Config.FullscreenHeight
-            cbLanguage.SelectedIndex = Main.OpenRCT2Config.Language - 1
-            cbTitleMusic.SelectedIndex = Main.OpenRCT2Config.TitleMusic
-            cbSoundQuality.SelectedIndex = Main.OpenRCT2Config.SoundQuality
-            chkForcedSoftwareBuffering.Checked = Main.OpenRCT2Config.ForcedSoftwareBuffering
-
-            chkVerbose.Checked = Settings.Verbose
-            tbArguments.Text = Settings.Arguments
-            chkSaveOutput.Checked = Settings.SaveOutput
-            tbOutputPath.Text = Settings.OutputPath
-
-            tbOutputPath.Enabled = chkSaveOutput.Checked
-            cmdOutputPath.Enabled = chkSaveOutput.Checked
-        End Sub
-
         Private Function ConfigHasChangedOpenRCT2() As Boolean
             'Compare all fields with the current configuration to detect if any changes where made
 
-            If chkPlayIntro.Checked <> Main.OpenRCT2Config.PlayIntro Then
+            If chkPlayIntro.Checked <> OpenRCT2Config.PlayIntro Then
                 Return True
             End If
 
-            If chkConfirmationPrompt.Checked <> Main.OpenRCT2Config.ConfirmationPrompt Then
+            If chkConfirmationPrompt.Checked <> OpenRCT2Config.ConfirmationPrompt Then
                 Return True
             End If
 
-            If cbScreenshotFormat.SelectedIndex <> Main.OpenRCT2Config.ScreenshotFormat Then
+            If cbScreenshotFormat.SelectedIndex <> OpenRCT2Config.ScreenshotFormat Then
                 Return True
             End If
 
-            If tbGamePath.Text <> Main.OpenRCT2Config.GamePath Then
+            If tbGamePath.Text <> OpenRCT2Config.GamePath Then
                 Return True
             End If
 
-            If cbMeasurementFormat.SelectedIndex <> Main.OpenRCT2Config.MeasurementFormat Then
+            If cbMeasurementFormat.SelectedIndex <> OpenRCT2Config.MeasurementFormat Then
                 Return True
             End If
 
-            If cbTemperatureFormat.SelectedIndex <> Main.OpenRCT2Config.TemperatureFormat Then
+            If cbTemperatureFormat.SelectedIndex <> OpenRCT2Config.TemperatureFormat Then
                 Return True
             End If
 
-            If cbCurrency.SelectedIndex <> Main.OpenRCT2Config.CurrencyFormat Then
+            If cbCurrency.SelectedIndex <> OpenRCT2Config.CurrencyFormat Then
                 Return True
             End If
 
-            If chkEdgeScrolling.Checked <> Main.OpenRCT2Config.EdgeScrolling Then
+            If chkEdgeScrolling.Checked <> OpenRCT2Config.EdgeScrolling Then
                 Return True
             End If
 
-            If chkAlwaysShowGridlines.Checked <> Main.OpenRCT2Config.AlwaysShowGridlines Then
+            If chkAlwaysShowGridlines.Checked <> OpenRCT2Config.AlwaysShowGridlines Then
                 Return True
             End If
 
-            If chkLandscapeSmoothing.Checked <> Main.OpenRCT2Config.LandscapeSmoothing Then
+            If chkLandscapeSmoothing.Checked <> OpenRCT2Config.LandscapeSmoothing Then
                 Return True
             End If
 
-            If cbShowHeightAsUnits.SelectedIndex <> 1 - Main.OpenRCT2Config.ShowHeightAsUnits Then
+            If cbShowHeightAsUnits.SelectedIndex <> 1 - OpenRCT2Config.ShowHeightAsUnits Then
                 Return True
             End If
 
-            If chkSavePluginData.Checked <> Main.OpenRCT2Config.SavePluginData Then
+            If chkSavePluginData.Checked <> OpenRCT2Config.SavePluginData Then
                 Return True
             End If
 
-            If cbFullscreenMode.SelectedIndex <> Main.OpenRCT2Config.FullscreenMode Then
+            If cbFullscreenMode.SelectedIndex <> OpenRCT2Config.FullscreenMode Then
                 Return True
             End If
 
-            If numFullscreenWidth.Value <> Main.OpenRCT2Config.FullscreenWidth Then
+            If numFullscreenWidth.Value <> OpenRCT2Config.FullscreenWidth Then
                 Return True
             End If
 
-            If numFullscreenHeight.Value <> Main.OpenRCT2Config.FullscreenHeight Then
+            If numFullscreenHeight.Value <> OpenRCT2Config.FullscreenHeight Then
                 Return True
             End If
 
-            If cbLanguage.SelectedIndex <> Main.OpenRCT2Config.Language - 1 Then
+            If cbLanguage.SelectedIndex <> OpenRCT2Config.Language - 1 Then
                 Return True
             End If
 
-            If cbTitleMusic.SelectedIndex <> Main.OpenRCT2Config.TitleMusic Then
+            If cbTitleMusic.SelectedIndex <> OpenRCT2Config.TitleMusic Then
                 Return True
             End If
 
-            If cbSoundQuality.SelectedIndex <> Main.OpenRCT2Config.SoundQuality Then
+            If cbSoundQuality.SelectedIndex <> OpenRCT2Config.SoundQuality Then
                 Return True
             End If
 
-            If chkForcedSoftwareBuffering.Checked <> Main.OpenRCT2Config.ForcedSoftwareBuffering Then
+            If chkForcedSoftwareBuffering.Checked <> OpenRCT2Config.ForcedSoftwareBuffering Then
                 Return True
             End If
 
@@ -225,27 +249,27 @@ Namespace Forms
         End Function
 
         Private Sub ConfigSaveOpenRCT2()
-            Main.OpenRCT2Config.PlayIntro = chkPlayIntro.Checked
-            Main.OpenRCT2Config.ConfirmationPrompt = chkConfirmationPrompt.Checked
-            Main.OpenRCT2Config.ScreenshotFormat = cbScreenshotFormat.SelectedIndex
-            Main.OpenRCT2Config.GamePath = tbGamePath.Text
-            Main.OpenRCT2Config.MeasurementFormat = cbMeasurementFormat.SelectedIndex
-            Main.OpenRCT2Config.TemperatureFormat = cbTemperatureFormat.SelectedIndex
-            Main.OpenRCT2Config.CurrencyFormat = cbCurrency.SelectedIndex
-            Main.OpenRCT2Config.EdgeScrolling = chkEdgeScrolling.Checked
-            Main.OpenRCT2Config.AlwaysShowGridlines = chkAlwaysShowGridlines.Checked
-            Main.OpenRCT2Config.LandscapeSmoothing = chkLandscapeSmoothing.Checked
-            Main.OpenRCT2Config.ShowHeightAsUnits = 1 - cbShowHeightAsUnits.SelectedIndex
-            Main.OpenRCT2Config.SavePluginData = chkSavePluginData.Checked
-            Main.OpenRCT2Config.FullscreenMode = cbFullscreenMode.SelectedIndex
-            Main.OpenRCT2Config.FullscreenWidth = numFullscreenWidth.Value
-            Main.OpenRCT2Config.FullscreenHeight = numFullscreenHeight.Value
-            Main.OpenRCT2Config.Language = cbLanguage.SelectedIndex + 1
-            Main.OpenRCT2Config.TitleMusic = cbTitleMusic.SelectedIndex
-            Main.OpenRCT2Config.SoundQuality = cbSoundQuality.SelectedIndex
-            Main.OpenRCT2Config.ForcedSoftwareBuffering = chkForcedSoftwareBuffering.Checked
+            OpenRCT2Config.PlayIntro = chkPlayIntro.Checked
+            OpenRCT2Config.ConfirmationPrompt = chkConfirmationPrompt.Checked
+            OpenRCT2Config.ScreenshotFormat = cbScreenshotFormat.SelectedIndex
+            OpenRCT2Config.GamePath = tbGamePath.Text
+            OpenRCT2Config.MeasurementFormat = cbMeasurementFormat.SelectedIndex
+            OpenRCT2Config.TemperatureFormat = cbTemperatureFormat.SelectedIndex
+            OpenRCT2Config.CurrencyFormat = cbCurrency.SelectedIndex
+            OpenRCT2Config.EdgeScrolling = chkEdgeScrolling.Checked
+            OpenRCT2Config.AlwaysShowGridlines = chkAlwaysShowGridlines.Checked
+            OpenRCT2Config.LandscapeSmoothing = chkLandscapeSmoothing.Checked
+            OpenRCT2Config.ShowHeightAsUnits = 1 - cbShowHeightAsUnits.SelectedIndex
+            OpenRCT2Config.SavePluginData = chkSavePluginData.Checked
+            OpenRCT2Config.FullscreenMode = cbFullscreenMode.SelectedIndex
+            OpenRCT2Config.FullscreenWidth = numFullscreenWidth.Value
+            OpenRCT2Config.FullscreenHeight = numFullscreenHeight.Value
+            OpenRCT2Config.Language = cbLanguage.SelectedIndex + 1
+            OpenRCT2Config.TitleMusic = cbTitleMusic.SelectedIndex
+            OpenRCT2Config.SoundQuality = cbSoundQuality.SelectedIndex
+            OpenRCT2Config.ForcedSoftwareBuffering = chkForcedSoftwareBuffering.Checked
 
-            Main.OpenRCT2Config.HasChanged = True 'If this wouldn't be set the application would just ignore the changes and won't save them
+            OpenRCT2Config.HasChanged = True 'If this wouldn't be set the application would just ignore the changes and won't save them
         End Sub
 
         Private Sub ConfigSaveLauncher()
@@ -254,7 +278,7 @@ Namespace Forms
             Settings.SaveOutput = chkSaveOutput.Checked
             Settings.OutputPath = tbOutputPath.Text
 
-            Settings.HasChanged = True  'If this wouldn't be set the application would just ignore the changes and won't save them
+            Settings.HasChanged = True
         End Sub
     End Class
 End Namespace
