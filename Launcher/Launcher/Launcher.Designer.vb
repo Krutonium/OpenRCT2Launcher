@@ -89,7 +89,7 @@ Partial Class frmLauncher
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(482, 207)
+        Me.ClientSize = New System.Drawing.Size(482, 203)
         Me.Controls.Add(Me.cmdExtras)
         Me.Controls.Add(Me.cmdOptions)
         Me.Controls.Add(Me.PictureBox1)
