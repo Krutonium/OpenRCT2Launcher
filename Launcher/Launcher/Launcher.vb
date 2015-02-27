@@ -9,7 +9,7 @@ Imports System.IO.Compression
 Imports System.Net
 
 Public Class frmLauncher
-    Const LauncherVer As Integer = 3 'Increment this and then we can release updates on Openrct.net
+    Const LauncherVer As Integer = 4 'Increment this and then we can release updates on Openrct.net
 
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Check for updates
