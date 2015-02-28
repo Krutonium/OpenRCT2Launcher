@@ -42,6 +42,11 @@ Public Class frmLauncher
                 MsgBox(frmLauncher_Load_neverRun)
             End Try
         End If
+        
+        If My.Computer.Keyboard.AltKeyDown Then
+            Me.Text = Settings.LocalVersion 'Hold Alt, and the title of the launcher shows the current version :)
+        End If
+
 
         If Settings.OpenRCTdotNetUserID <> Nothing Then
             'Add code here for Stats etc.
