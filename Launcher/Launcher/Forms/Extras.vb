@@ -38,8 +38,12 @@ Namespace Forms
                 Key2 = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
                 RCT2CD = Key2.GetValue("SetupPath")   'Where RCT2 sees the CD as located
                 RCT2 = Key2.GetValue("Path")
+                Settings.OptionsDialogRCT1 = True
             Catch ex As Exception
-                MsgBox(extras_setupReg_noRegisterKeys)
+                If Settings.OptionsDialogRCT1 = False Then
+                    Settings.OptionsDialogRCT1 = True
+                    MsgBox(extras_setupReg_noRegisterKeys)
+                End If
                 cmdCSS17.Enabled = False
                 cmdCSS17File.Enabled = True
                 cmdDebug.Enabled = True
