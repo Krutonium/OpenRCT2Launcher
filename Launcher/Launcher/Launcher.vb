@@ -70,14 +70,10 @@ Public Class frmLauncher
             launchProcess.FileName = Constants.OpenRCT2Exe                  'The EXE of course.
 
             If Settings.Verbose Then
-                launchProcess.Arguments += "--verbose"
+                launchProcess.Arguments += "--verbose "
             End If
 
             If Settings.Arguments <> "" Then
-                If launchProcess.Arguments <> "" Then 'Add space to arguments
-                    launchProcess.Arguments += " "
-                End If
-
                 launchProcess.Arguments += Settings.Arguments
             End If
 

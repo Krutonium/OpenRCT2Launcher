@@ -60,47 +60,70 @@ Public Class OpenRCT2Config
         High
     End Enum
 
+    Enum EnumAutosave
+        EveryWeek = 0
+        Every2Weeks
+        EveryMonth
+        Every4Months
+        EveryYear
+        Never
+    End Enum
+
     Public Shared HasChanged As Boolean
 
-    Public Shared ReadOnly DefPlayIntro = False
-    Public Shared ReadOnly DefConfirmationPrompt = False
-    Public Shared ReadOnly DefScreenshotFormat = EnumScreenshotFormat.PNG
-    Public Shared ReadOnly DefGamePath = ""
-    Public Shared ReadOnly DefMeasurementFormat = EnumMeasurementFormat.Imperial
-    Public Shared ReadOnly DefTemperatureFormat = EnumTemperatureFormat.Celsius
-    Public Shared ReadOnly DefCurrencyFormat = EnumCurrencyFormat.Pounds
-    Public Shared ReadOnly DefEdgeScrolling = True
-    Public Shared ReadOnly DefAlwaysShowGridlines = False
-    Public Shared ReadOnly DefLandscapeSmoothing = True
-    Public Shared ReadOnly DefShowHeightAsUnits = False
-    Public Shared ReadOnly DefSavePluginData = True
-    Public Shared ReadOnly DefFullscreenMode = EnumFullscreenMode.Window
-    Public Shared ReadOnly DefFullscreenWidth = -1
-    Public Shared ReadOnly DefFullscreenHeight = -1
-    Public Shared ReadOnly DefLanguage = EnumLanguage.EnglishUK
-    Public Shared ReadOnly DefTitleMusic = EnumTitleMusic.RCT2
-    Public Shared ReadOnly DefSoundQuality = EnumSoundQuality.Low
-    Public Shared ReadOnly DefForcedSoftwareBuffering = False
+    Public Shared ReadOnly DefPlayIntro                = False
+    Public Shared ReadOnly DefConfirmationPrompt       = False
+    Public Shared ReadOnly DefScreenshotFormat         = EnumScreenshotFormat.PNG
+    Public Shared ReadOnly DefGamePath                 = ""
+    Public Shared ReadOnly DefMeasurementFormat        = EnumMeasurementFormat.Metric
+    Public Shared ReadOnly DefTemperatureFormat        = EnumTemperatureFormat.Celsius
+    Public Shared ReadOnly DefCurrencyFormat           = EnumCurrencyFormat.Pounds
+    Public Shared ReadOnly DefEdgeScrolling            = True
+    Public Shared ReadOnly DefAlwaysShowGridlines      = False
+    Public Shared ReadOnly DefLandscapeSmoothing       = True
+    Public Shared ReadOnly DefShowHeightAsUnits        = False
+    Public Shared ReadOnly DefSavePluginData           = False
+    Public Shared ReadOnly DefFullscreenMode           = EnumFullscreenMode.Window
+    Public Shared ReadOnly DefFullscreenWidth          = -1
+    Public Shared ReadOnly DefFullscreenHeight         = -1
+    Public Shared ReadOnly DefLanguage                 = EnumLanguage.EnglishUK
+    Public Shared ReadOnly DefTitleMusic               = EnumTitleMusic.RCT2
+    Public Shared ReadOnly DefSoundQuality             = EnumSoundQuality.Low
+    Public Shared ReadOnly DefForcedSoftwareBuffering  = False
+    Public Shared ReadOnly DefAutosave                 = EnumAutosave.EveryMonth
+    Public Shared ReadOnly DefConstructionMarkerColour = 0
+    Public Shared ReadOnly DefWindowWidth              = -1
+    Public Shared ReadOnly DefWindowHeight             = -1
+    Public Shared ReadOnly DefWindowSnapProximity      = 5
+    Public Shared ReadOnly DefSound                    = True
+    Public Shared ReadOnly DefRideMusic                = True
 
-    Public Shared PlayIntro As Boolean
-    Public Shared ConfirmationPrompt As Boolean
-    Public Shared ScreenshotFormat As EnumScreenshotFormat
-    Public Shared GamePath As String
-    Public Shared MeasurementFormat As EnumMeasurementFormat
-    Public Shared TemperatureFormat As EnumTemperatureFormat
-    Public Shared CurrencyFormat As EnumCurrencyFormat
-    Public Shared EdgeScrolling As Boolean
-    Public Shared AlwaysShowGridlines As Boolean
-    Public Shared LandscapeSmoothing As Boolean
-    Public Shared ShowHeightAsUnits As Boolean
-    Public Shared SavePluginData As Boolean
-    Public Shared FullscreenMode As EnumFullscreenMode
-    Public Shared FullscreenWidth As Integer
-    Public Shared FullscreenHeight As Integer
-    Public Shared Language As EnumLanguage
-    Public Shared TitleMusic As EnumTitleMusic
-    Public Shared SoundQuality As EnumSoundQuality
-    Public Shared ForcedSoftwareBuffering As Boolean
+    Public Shared PlayIntro                As Boolean
+    Public Shared ConfirmationPrompt       As Boolean
+    Public Shared ScreenshotFormat         As EnumScreenshotFormat
+    Public Shared GamePath                 As String
+    Public Shared MeasurementFormat        As EnumMeasurementFormat
+    Public Shared TemperatureFormat        As EnumTemperatureFormat
+    Public Shared CurrencyFormat           As EnumCurrencyFormat
+    Public Shared EdgeScrolling            As Boolean
+    Public Shared AlwaysShowGridlines      As Boolean
+    Public Shared LandscapeSmoothing       As Boolean
+    Public Shared ShowHeightAsUnits        As Boolean
+    Public Shared SavePluginData           As Boolean
+    Public Shared FullscreenMode           As EnumFullscreenMode
+    Public Shared FullscreenWidth          As Integer
+    Public Shared FullscreenHeight         As Integer
+    Public Shared Language                 As EnumLanguage
+    Public Shared TitleMusic               As EnumTitleMusic
+    Public Shared SoundQuality             As EnumSoundQuality
+    Public Shared ForcedSoftwareBuffering  As Boolean
+    Public Shared Autosave                 As EnumAutosave
+    Public Shared ConstructionMarkerColour As Integer
+    Public Shared WindowWidth              As Integer
+    Public Shared WindowHeight             As Integer
+    Public Shared WindowSnapProximity      As Integer
+    Public Shared Sound                    As Boolean
+    Public Shared RideMusic                As Boolean
 
     Shared INIConfig As New IniConfiguration
 
@@ -112,30 +135,36 @@ Public Class OpenRCT2Config
         Try
             INIConfig = New IniConfiguration(File)
         Catch ex As Exception
-            PlayIntro = DefPlayIntro
-            ConfirmationPrompt = DefConfirmationPrompt
-            ScreenshotFormat = DefScreenshotFormat
-            GamePath = DefGamePath
-            MeasurementFormat = DefMeasurementFormat
-            TemperatureFormat = DefTemperatureFormat
-            CurrencyFormat = DefCurrencyFormat
-            EdgeScrolling = DefEdgeScrolling
-            AlwaysShowGridlines = DefAlwaysShowGridlines
-            LandscapeSmoothing = DefLandscapeSmoothing
-            ShowHeightAsUnits = DefShowHeightAsUnits
-            SavePluginData = DefSavePluginData
-            FullscreenMode = DefFullscreenMode
-            FullscreenWidth = DefFullscreenWidth
-            FullscreenHeight = DefFullscreenHeight
-            Language = DefLanguage
-            TitleMusic = DefTitleMusic
-            SoundQuality = DefSoundQuality
-            ForcedSoftwareBuffering = DefForcedSoftwareBuffering
+            PlayIntro                = DefPlayIntro
+            ConfirmationPrompt       = DefConfirmationPrompt
+            ScreenshotFormat         = DefScreenshotFormat
+            GamePath                 = DefGamePath
+            MeasurementFormat        = DefMeasurementFormat
+            TemperatureFormat        = DefTemperatureFormat
+            CurrencyFormat           = DefCurrencyFormat
+            EdgeScrolling            = DefEdgeScrolling
+            AlwaysShowGridlines      = DefAlwaysShowGridlines
+            LandscapeSmoothing       = DefLandscapeSmoothing
+            ShowHeightAsUnits        = DefShowHeightAsUnits
+            SavePluginData           = DefSavePluginData
+            FullscreenMode           = DefFullscreenMode
+            FullscreenWidth          = DefFullscreenWidth
+            FullscreenHeight         = DefFullscreenHeight
+            Language                 = DefLanguage
+            TitleMusic               = DefTitleMusic
+            SoundQuality             = DefSoundQuality
+            ForcedSoftwareBuffering  = DefForcedSoftwareBuffering
+            Autosave                 = DefAutosave
+            ConstructionMarkerColour = DefConstructionMarkerColour
+            WindowWidth              = DefWindowWidth
+            WindowHeight             = DefWindowHeight
+            WindowSnapProximity      = DefWindowSnapProximity
+            Sound                    = DefSound
+            RideMusic                = DefRideMusic
             Return
         End Try
 
-        PlayIntro = INIConfig.GetPropertyBoolean("general", "play_intro", DefPlayIntro)
-
+        PlayIntro          = INIConfig.GetPropertyBoolean("general", "play_intro", DefPlayIntro)
         ConfirmationPrompt = INIConfig.GetPropertyInt32("general", "confirmation_prompt", DefConfirmationPrompt)
 
         Select Case INIConfig.GetProperty("general", "screenshot_format", DefScreenshotFormat)
@@ -143,6 +172,8 @@ Public Class OpenRCT2Config
                 ScreenshotFormat = EnumScreenshotFormat.BMP
             Case "PNG"
                 ScreenshotFormat = EnumScreenshotFormat.PNG
+            Case Else
+                ScreenshotFormat = DefScreenshotFormat
         End Select
 
         GamePath = INIConfig.GetProperty("general", "game_path", DefGamePath)
@@ -152,6 +183,8 @@ Public Class OpenRCT2Config
                 MeasurementFormat = EnumMeasurementFormat.Imperial
             Case "METRIC"
                 MeasurementFormat = EnumMeasurementFormat.Metric
+            Case Else
+                MeasurementFormat = DefMeasurementFormat
         End Select
 
         Select Case INIConfig.GetProperty("general", "temperature_format", DefTemperatureFormat)
@@ -159,6 +192,8 @@ Public Class OpenRCT2Config
                 TemperatureFormat = EnumTemperatureFormat.Celsius
             Case "FAHRENHEIT"
                 TemperatureFormat = EnumTemperatureFormat.Fahrenheit
+            Case Else
+                TemperatureFormat = DefTemperatureFormat
         End Select
 
         Select Case INIConfig.GetProperty("general", "currency_format", DefCurrencyFormat)
@@ -192,26 +227,25 @@ Public Class OpenRCT2Config
                 CurrencyFormat = EnumCurrencyFormat.Yen
             Case Chr(181)
                 CurrencyFormat = EnumCurrencyFormat.Euros
+            Case Else
+                CurrencyFormat = DefCurrencyFormat
         End Select
 
-        EdgeScrolling = INIConfig.GetPropertyBoolean("general", "edge_scrolling", DefEdgeScrolling)
-
+        EdgeScrolling       = INIConfig.GetPropertyBoolean("general", "edge_scrolling", DefEdgeScrolling)
         AlwaysShowGridlines = INIConfig.GetPropertyBoolean("general", "always_show_gridlines", DefAlwaysShowGridlines)
-
-        LandscapeSmoothing = INIConfig.GetPropertyBoolean("general", "landscape_smoothing", DefLandscapeSmoothing)
-
-        ShowHeightAsUnits = INIConfig.GetPropertyBoolean("general", "show_height_as_units", DefShowHeightAsUnits)
-
-        SavePluginData = INIConfig.GetPropertyBoolean("general", "save_plugin_data", DefSavePluginData)
+        LandscapeSmoothing  = INIConfig.GetPropertyBoolean("general", "landscape_smoothing", DefLandscapeSmoothing)
+        ShowHeightAsUnits   = INIConfig.GetPropertyBoolean("general", "show_height_as_units", DefShowHeightAsUnits)
+        SavePluginData      = INIConfig.GetPropertyBoolean("general", "save_plugin_data", DefSavePluginData)
 
         Number = INIConfig.GetPropertyInt32("general", "fullscreen_mode", DefFullscreenMode)
 
         If Number >= 0 And Number <= 2 Then
             FullscreenMode = Number
+        Else
+            FullscreenMode = DefFullscreenMode
         End If
 
-        FullscreenWidth = INIConfig.GetPropertyInt32("general", "fullscreen_width", DefFullscreenWidth)
-
+        FullscreenWidth  = INIConfig.GetPropertyInt32("general", "fullscreen_width", DefFullscreenWidth)
         FullscreenHeight = INIConfig.GetPropertyInt32("general", "fullscreen_height", DefFullscreenHeight)
 
         Select Case INIConfig.GetProperty("general", "language", DefLanguage)
@@ -233,21 +267,49 @@ Public Class OpenRCT2Config
                 Language = EnumLanguage.Spanish
             Case "sv-SE"
                 Language = EnumLanguage.Swedish
+            Case Else
+                Language = DefLanguage
         End Select
 
         Number = INIConfig.GetPropertyInt32("sound", "title_music", DefTitleMusic)
 
         If Number >= 0 And Number <= 2 Then
             TitleMusic = Number
+        Else
+            TitleMusic = DefTitleMusic
         End If
 
         Number = INIConfig.GetPropertyInt32("sound", "sound_quality", DefSoundQuality)
 
         If Number >= 0 And Number <= 2 Then
             SoundQuality = Number
+        Else
+            SoundQuality = DefSoundQuality
         End If
 
         ForcedSoftwareBuffering = INIConfig.GetPropertyBoolean("sound", "forced_software_buffering", DefForcedSoftwareBuffering)
+
+        Number = INIConfig.GetPropertyInt32("general", "autosave", DefSoundQuality)
+
+        If Number >= 0 And Number <= 5 Then
+            Autosave = Number
+        Else
+            Autosave = DefAutosave
+        End If
+
+        Number = INIConfig.GetPropertyInt32("general", "construction_marker_colour", DefSoundQuality)
+
+        If Number >= 0 And Number <= 1 Then
+            ConstructionMarkerColour = Number
+        Else
+            ConstructionMarkerColour = DefConstructionMarkerColour
+        End If
+
+        WindowWidth         = INIConfig.GetPropertyInt32("general", "window_width", DefWindowWidth)
+        WindowHeight        = INIConfig.GetPropertyInt32("general", "window_height", DefWindowHeight)
+        WindowSnapProximity = INIConfig.GetPropertyInt32("general", "window_snap_proximity", DefWindowSnapProximity)
+        Sound               = INIConfig.GetPropertyBoolean("sound", "sound", DefSound)
+        RideMusic           = INIConfig.GetPropertyBoolean("sound", "ride_music", DefRideMusic)
     End Sub
 
     Public Shared Async Function Save(File As String) As Task
@@ -336,9 +398,7 @@ Public Class OpenRCT2Config
         End If
 
         INIConfig.SetProperty("general", "fullscreen_mode", FullscreenMode)
-
         INIConfig.SetProperty("general", "fullscreen_width", FullscreenWidth.ToString())
-
         INIConfig.SetProperty("general", "fullscreen_height", FullscreenHeight.ToString())
 
         Select Case Language
@@ -363,13 +423,30 @@ Public Class OpenRCT2Config
         End Select
 
         INIConfig.SetProperty("sound", "title_music", TitleMusic)
-
         INIConfig.SetProperty("sound", "sound_quality", SoundQuality)
 
         If ForcedSoftwareBuffering Then
             INIConfig.SetProperty("sound", "forced_software_buffering", "true")
         Else
             INIConfig.SetProperty("sound", "forced_software_buffering", "false")
+        End If
+
+        INIConfig.SetProperty("general", "autosave", Autosave.ToString())
+        INIConfig.SetProperty("general", "construction_marker_colour", ConstructionMarkerColour.ToString())
+        INIConfig.SetProperty("general", "window_width", WindowWidth.ToString())
+        INIConfig.SetProperty("general", "window_height", WindowHeight.ToString())
+        INIConfig.SetProperty("general", "window_snap_proximity", WindowSnapProximity.ToString())
+
+        If Sound Then
+            INIConfig.SetProperty("sound", "sound", "true")
+        Else
+            INIConfig.SetProperty("sound", "sound", "false")
+        End If
+
+        If RideMusic Then
+            INIConfig.SetProperty("sound", "ride_music", "true")
+        Else
+            INIConfig.SetProperty("sound", "ride_music", "false")
         End If
 
         Try
