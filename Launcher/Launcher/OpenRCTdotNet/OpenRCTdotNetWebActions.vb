@@ -126,7 +126,7 @@ Namespace OpenRCTdotNet
             For Each fri In fiArr
                 If fri.FullName.ToLower.EndsWith(".sv6") Then
                     If UpdateSyncForm = True Then
-                        OpenRCTdotNetSyncSaves.lblStatus.Text = OpenRCTdotNetSaveSyncStatusUpload & fri.ToString
+                        OpenRCTdotNetSyncSaves.lblStatus.Text = OpenRCTdotNetSaveSyncStatusUpload & " " & fri.ToString()
                     End If
                     System.Windows.Forms.Application.DoEvents()
                     Dim uploadFileUri As New Uri(String.Format("{0}?a=get_savegame&user={1}&auth={2}&secret={3}&file={4}&info=true", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, fri.Name))

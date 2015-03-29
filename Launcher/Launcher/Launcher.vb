@@ -224,10 +224,10 @@ Public Class frmLauncher
             Return
         Else
 
-            MsgBox("game is closed")
+            'MsgBox("game is closed") 'We don't need this...
             ' Process is not running, game is closed
             If Settings.OpenRCTdotNetSaveGames Then
-                ' i'm using Call here instead of SyncSaves() since, for some reason,t hat doesn't work here (probably because we do Close a few lines later)
+                ' i'm using Call here instead of SyncSaves() since, for some reason, that doesn't work here (probably because we do Close a few lines later)
                 ' but that doesn't seem to be a problem since the app is invisible to the user and up and downloading shouldn't take THAT long
                 Call OpenRCTdotNetWebActions.UploadSaves(False)
                 Call OpenRCTdotNetWebActions.DownloadSaves(False)
