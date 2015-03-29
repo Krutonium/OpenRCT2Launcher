@@ -442,4 +442,18 @@ Exact Error:
   <data name="LauncherUpdateAvail" xml:space="preserve">
     <value>There is an update to the launcher available. Update?</value>
   </data>
+  <data name="OpenRCTdotNetConfigureSlowDownWarn" xml:space="preserve">
+    <value>Are you sure you want to enable this? This will slow 
+down the launcher when opening, since it needs to 
+make sure your saves are syncronized. Continue?</value>
+  </data>
+  <data name="OpenRCTdotNetSaveSyncIdle" xml:space="preserve">
+    <value>Idle</value>
+  </data>
+  <data name="OpenRCTdotNetSaveSyncStatusDown" xml:space="preserve">
+    <value>Currently Downloading</value>
+  </data>
+  <data name="OpenRCTdotNetSaveSyncStatusUpload" xml:space="preserve">
+    <value>Currently Uploading</value>
+  </data>
 </root>

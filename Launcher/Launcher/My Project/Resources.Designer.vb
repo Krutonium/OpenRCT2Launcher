@@ -983,6 +983,17 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Are you sure you want to enable this? This will slow 
+        '''down the launcher when opening, since it needs to 
+        '''make sure your saves are syncronized. Continue?.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetConfigureSlowDownWarn() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetConfigureSlowDownWarn", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Get your account at OpenRCT.net.
         '''</summary>
         Friend ReadOnly Property OpenRCTdotNetLogin_getAccountText() As String
@@ -1015,6 +1026,33 @@ Namespace My.Resources
         Friend ReadOnly Property OpenRCTdotNetLogin_usernameLabel() As String
             Get
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_usernameLabel", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Idle.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetSaveSyncIdle() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetSaveSyncIdle", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Currently Downloading.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetSaveSyncStatusDown() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetSaveSyncStatusDown", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Currently Uploading.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetSaveSyncStatusUpload() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetSaveSyncStatusUpload", resourceCulture)
             End Get
         End Property
         

@@ -35,6 +35,9 @@ Namespace Forms
             Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
             Me.cmdLoginOpenRCTnet = New System.Windows.Forms.Button()
             Me.cmdOpenRCTNetFeatures = New System.Windows.Forms.Button()
+            Me.cmdSyncSaves = New System.Windows.Forms.Button()
+            Me.gboOpenRCTnet = New System.Windows.Forms.GroupBox()
+            Me.gboOpenRCTnet.SuspendLayout()
             Me.SuspendLayout()
             '
             'cmdCSS17
@@ -57,7 +60,7 @@ Namespace Forms
             '
             'cmdDebug
             '
-            Me.cmdDebug.Location = New System.Drawing.Point(12, 176)
+            Me.cmdDebug.Location = New System.Drawing.Point(12, 159)
             Me.cmdDebug.Name = "cmdDebug"
             Me.cmdDebug.Size = New System.Drawing.Size(165, 23)
             Me.cmdDebug.TabIndex = 2
@@ -84,9 +87,9 @@ Namespace Forms
             '
             'cmdLoginOpenRCTnet
             '
-            Me.cmdLoginOpenRCTnet.Location = New System.Drawing.Point(12, 70)
+            Me.cmdLoginOpenRCTnet.Location = New System.Drawing.Point(6, 19)
             Me.cmdLoginOpenRCTnet.Name = "cmdLoginOpenRCTnet"
-            Me.cmdLoginOpenRCTnet.Size = New System.Drawing.Size(165, 23)
+            Me.cmdLoginOpenRCTnet.Size = New System.Drawing.Size(324, 23)
             Me.cmdLoginOpenRCTnet.TabIndex = 5
             Me.cmdLoginOpenRCTnet.Text = "Sign into OpenRCT.net" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
             Me.cmdLoginOpenRCTnet.UseVisualStyleBackColor = True
@@ -94,20 +97,40 @@ Namespace Forms
             'cmdOpenRCTNetFeatures
             '
             Me.cmdOpenRCTNetFeatures.Enabled = False
-            Me.cmdOpenRCTNetFeatures.Location = New System.Drawing.Point(183, 70)
+            Me.cmdOpenRCTNetFeatures.Location = New System.Drawing.Point(6, 48)
             Me.cmdOpenRCTNetFeatures.Name = "cmdOpenRCTNetFeatures"
-            Me.cmdOpenRCTNetFeatures.Size = New System.Drawing.Size(165, 23)
+            Me.cmdOpenRCTNetFeatures.Size = New System.Drawing.Size(159, 23)
             Me.cmdOpenRCTNetFeatures.TabIndex = 7
             Me.cmdOpenRCTNetFeatures.Text = "Configure OpenRCT.net Features"
             Me.cmdOpenRCTNetFeatures.UseVisualStyleBackColor = True
+            '
+            'cmdSyncSaves
+            '
+            Me.cmdSyncSaves.Location = New System.Drawing.Point(171, 48)
+            Me.cmdSyncSaves.Name = "cmdSyncSaves"
+            Me.cmdSyncSaves.Size = New System.Drawing.Size(159, 23)
+            Me.cmdSyncSaves.TabIndex = 8
+            Me.cmdSyncSaves.Text = "Sync Saves"
+            Me.cmdSyncSaves.UseVisualStyleBackColor = True
+            '
+            'gboOpenRCTnet
+            '
+            Me.gboOpenRCTnet.Controls.Add(Me.cmdLoginOpenRCTnet)
+            Me.gboOpenRCTnet.Controls.Add(Me.cmdSyncSaves)
+            Me.gboOpenRCTnet.Controls.Add(Me.cmdOpenRCTNetFeatures)
+            Me.gboOpenRCTnet.Location = New System.Drawing.Point(12, 70)
+            Me.gboOpenRCTnet.Name = "gboOpenRCTnet"
+            Me.gboOpenRCTnet.Size = New System.Drawing.Size(336, 80)
+            Me.gboOpenRCTnet.TabIndex = 9
+            Me.gboOpenRCTnet.TabStop = False
+            Me.gboOpenRCTnet.Text = "OpenRCT.net Integration"
             '
             'Extras
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-            Me.ClientSize = New System.Drawing.Size(362, 211)
-            Me.Controls.Add(Me.cmdOpenRCTNetFeatures)
-            Me.Controls.Add(Me.cmdLoginOpenRCTnet)
+            Me.ClientSize = New System.Drawing.Size(362, 194)
+            Me.Controls.Add(Me.gboOpenRCTnet)
             Me.Controls.Add(Me.cmdSyncAnyFolder)
             Me.Controls.Add(Me.cmdDropboxSync)
             Me.Controls.Add(Me.cmdDebug)
@@ -115,6 +138,7 @@ Namespace Forms
             Me.Controls.Add(Me.cmdCSS17)
             Me.Name = "Extras"
             Me.Text = "Extras"
+            Me.gboOpenRCTnet.ResumeLayout(False)
             Me.ResumeLayout(False)
 
         End Sub
@@ -127,5 +151,7 @@ Namespace Forms
         Friend WithEvents FBD As System.Windows.Forms.FolderBrowserDialog
         Friend WithEvents cmdLoginOpenRCTnet As System.Windows.Forms.Button
         Friend WithEvents cmdOpenRCTNetFeatures As System.Windows.Forms.Button
+        Friend WithEvents cmdSyncSaves As System.Windows.Forms.Button
+        Friend WithEvents gboOpenRCTnet As System.Windows.Forms.GroupBox
     End Class
 End Namespace
