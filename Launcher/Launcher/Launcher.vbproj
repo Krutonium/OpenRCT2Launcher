@@ -153,6 +153,12 @@
     <Compile Include="Forms\Options.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="OpenRCTdotNet\OpenRCTdotNetSyncSaves.Designer.vb">
+      <DependentUpon>OpenRCTdotNetSyncSaves.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OpenRCTdotNet\OpenRCTdotNetSyncSaves.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="OpenRCTdotNet\OpenRCTdotNetUser.vb" />
     <Compile Include="OpenRCTdotNet\OpenRCTdotNetWebActions.vb" />
   </ItemGroup>
@@ -175,6 +181,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenRCTdotNet\OpenRCTdotNetSyncSaves.resx">
+      <DependentUpon>OpenRCTdotNetSyncSaves.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
