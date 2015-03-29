@@ -166,5 +166,9 @@ Namespace Forms
         Private Sub cmdOpenRCTNetFeatures_Click(sender As Object, e As EventArgs) Handles cmdOpenRCTNetFeatures.Click
             OpenRCTdotNetConfigure.Visible = True
         End Sub
+
+        Private Sub cmdSyncSaves_Click(sender As Object, e As EventArgs) Handles cmdSyncSaves.Click
+            OpenRCTdotNetSyncSaves.Visible = True
+        End Sub
     End Class
 End Namespace

@@ -29,6 +29,7 @@ Namespace OpenRCTdotNet
             Me.ChkUploadTime = New System.Windows.Forms.CheckBox()
             Me.chkUploadSaves = New System.Windows.Forms.CheckBox()
             Me.lblUsername = New System.Windows.Forms.Label()
+            Me.lblWarning = New System.Windows.Forms.Label()
             Me.SuspendLayout()
             '
             'ChkUploadTime
@@ -44,7 +45,8 @@ Namespace OpenRCTdotNet
             'chkUploadSaves
             '
             Me.chkUploadSaves.AutoSize = True
-            Me.chkUploadSaves.Enabled = False
+            Me.chkUploadSaves.Checked = True
+            Me.chkUploadSaves.CheckState = System.Windows.Forms.CheckState.Checked
             Me.chkUploadSaves.Location = New System.Drawing.Point(12, 55)
             Me.chkUploadSaves.Name = "chkUploadSaves"
             Me.chkUploadSaves.Size = New System.Drawing.Size(139, 17)
@@ -60,11 +62,20 @@ Namespace OpenRCTdotNet
             Me.lblUsername.Size = New System.Drawing.Size(0, 13)
             Me.lblUsername.TabIndex = 2
             '
+            'lblWarning
+            '
+            Me.lblWarning.AutoSize = True
+            Me.lblWarning.Location = New System.Drawing.Point(16, 79)
+            Me.lblWarning.Name = "lblWarning"
+            Me.lblWarning.Size = New System.Drawing.Size(0, 13)
+            Me.lblWarning.TabIndex = 3
+            '
             'OpenRCTdotNetConfigure
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.ClientSize = New System.Drawing.Size(371, 226)
+            Me.Controls.Add(Me.lblWarning)
             Me.Controls.Add(Me.lblUsername)
             Me.Controls.Add(Me.chkUploadSaves)
             Me.Controls.Add(Me.ChkUploadTime)
@@ -78,5 +89,6 @@ Namespace OpenRCTdotNet
         Friend WithEvents ChkUploadTime As System.Windows.Forms.CheckBox
         Friend WithEvents chkUploadSaves As System.Windows.Forms.CheckBox
         Friend WithEvents lblUsername As System.Windows.Forms.Label
+        Friend WithEvents lblWarning As System.Windows.Forms.Label
     End Class
 End Namespace

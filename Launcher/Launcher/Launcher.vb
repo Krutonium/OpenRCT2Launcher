@@ -48,8 +48,8 @@ Public Class frmLauncher
         End If
 
 
-        If Settings.OpenRCTdotNetUserID <> Nothing Then
-            'Add code here for Stats etc.
+        If Settings.OpenRCTdotNetSaveGames Then
+            SyncSaves()
         End If
     End Sub
 
@@ -206,13 +206,15 @@ Public Class frmLauncher
                       End Sub)
     End Function
 
+    Private Sub SyncSaves()
+        Task.Run(DirectCast(Async Sub() Await OpenRCTdotNetWebActions.UploadSaves(False), Action))
+        Task.Run(DirectCast(Async Sub() Await OpenRCTdotNetWebActions.DownloadSaves(False), Action))
+    End Sub
+
     ' keep minutes played offline until game exits
     Private _minutesPlayed As Integer = 0
 
     Private Sub tmrUsedForUploadingTime_Tick(sender As Object, e As EventArgs) Handles tmrUsedForUploadingTime.Tick
-        If Not Settings.OpenRCTdotNetSaveGames Then
-            Return
-        End If
         'This code will run every 1 minutes if OpenRCTdotNetUploadTime is Enabled. It will add 1 minute, then if the game is closed,  upload and exit.
         _minutesPlayed += 1
 
@@ -221,8 +223,19 @@ Public Class frmLauncher
             ' Process is running
             Return
         Else
-            ' Process is not running
-            Task.Run(DirectCast(Async Sub() Await OpenRCTdotNetWebActions.SaveUploadTime(_minutesPlayed), Action))
+
+            MsgBox("game is closed")
+            ' Process is not running, game is closed
+            If Settings.OpenRCTdotNetSaveGames Then
+                ' i'm using Call here instead of SyncSaves() since, for some reason,t hat doesn't work here (probably because we do Close a few lines later)
+                ' but that doesn't seem to be a problem since the app is invisible to the user and up and downloading shouldn't take THAT long
+                Call OpenRCTdotNetWebActions.UploadSaves(False)
+                Call OpenRCTdotNetWebActions.DownloadSaves(False)
+            End If
+
+            If Settings.OpenRCTdotNetUploadTime Then
+                Call OpenRCTdotNetWebActions.SaveUploadTime(_minutesPlayed)
+            End If
             Close()
         End If
     End Sub
