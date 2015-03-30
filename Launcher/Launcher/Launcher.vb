@@ -11,6 +11,12 @@ Imports System.Net
 Public Class frmLauncher
     Const LauncherVer As Integer = 4 'Increment this and then we can release updates on Openrct.net
 
+    Private Sub frmLauncher_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If My.Computer.Keyboard.AltKeyDown Then
+            Me.Text = "Current Version: " + Settings.LocalVersion 'Hold Alt, and the title of the launcher shows the current version :)
+        End If
+    End Sub
+
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Check for updates
         CheckForIllegalCrossThreadCalls = False
@@ -19,8 +25,13 @@ Public Class frmLauncher
 
         Settings.HasChanged = False
 
-        Task.Run(DirectCast(Async Sub() Await LauncherUpdate(), Action))
-        Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
+        If Settings.CheckUpdates
+            Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
+        End If
+
+        If Settings.CheckLauncher
+            Task.Run(DirectCast(Async Sub() Await LauncherUpdate(), Action))
+        End If
 
         cmdLaunchGame.Enabled = Directory.Exists(OpenRCT2Config.GamePath)
 
@@ -42,11 +53,6 @@ Public Class frmLauncher
                 MsgBox(frmLauncher_Load_neverRun)
             End Try
         End If
-        
-        If My.Computer.Keyboard.AltKeyDown Then
-            Me.Text = Settings.LocalVersion 'Hold Alt, and the title of the launcher shows the current version :)
-        End If
-
 
         If Settings.OpenRCTdotNetSaveGames Then
             SyncSaves()
@@ -55,45 +61,40 @@ Public Class frmLauncher
 
     Private Async Sub cmdLaunchGame_Click(sender As Object, e As EventArgs) Handles cmdLaunchGame.Click
         If File.Exists(Constants.OpenRCT2Exe) And File.Exists(Constants.OpenRCT2Dll) Then
-            Dim launchProcess As New ProcessStartInfo
+            Dim Process As New Process
 
             'Redirect output if needed
             If Settings.SaveOutput Then
                 If Directory.Exists(Path.GetDirectoryName(Settings.OutputPath)) Then
-                    launchProcess.RedirectStandardOutput = True
-                    launchProcess.RedirectStandardError = True
-                    launchProcess.UseShellExecute = False
+                    Process.StartInfo.RedirectStandardOutput = True
+                    Process.StartInfo.RedirectStandardError  = True
+                    Process.StartInfo.UseShellExecute        = False
                 End If
             End If
 
-            launchProcess.WorkingDirectory = Constants.OpenRCT2Bin     'OpenRCT2's Executibles will be stored here, so we make this the working dir.
-            launchProcess.FileName = Constants.OpenRCT2Exe                  'The EXE of course.
+            Process.StartInfo.WorkingDirectory = Constants.OpenRCT2Bin 'OpenRCT2's Executibles will be stored here, so we make this the working dir.
+            Process.StartInfo.FileName         = Constants.OpenRCT2Exe 'The EXE of course.
 
             If Settings.Verbose Then
-                launchProcess.Arguments += "--verbose "
+                Process.StartInfo.Arguments += "--verbose "
             End If
 
             If Settings.Arguments <> "" Then
-                launchProcess.Arguments += Settings.Arguments
+                Process.StartInfo.Arguments += Settings.Arguments
             End If
 
             'Save before starting the *.exe to prevent it from failing to load
-            If Settings.HasChanged Then
-                Settings.HasChanged = False
-                Settings.Save()
-            End If
-
             If OpenRCT2Config.HasChanged Then
                 Await OpenRCT2Config.Save(Constants.OpenRCT2ConfigFile)
                 OpenRCT2Config.HasChanged = False
             End If
 
-            Dim process As Process = process.Start(launchProcess)
+            Process.Start()
 
             'Start new thread for saving the output of the *.exe
             If Settings.SaveOutput Then
                 If Directory.Exists(Path.GetDirectoryName(Settings.OutputPath)) Then
-                    Await WriteOutput(process)
+                    Await WriteOutput(Process)
                 End If
             End If
 
@@ -105,8 +106,6 @@ Public Class frmLauncher
             Else
                 Close()
             End If
-
-
         Else
             MsgBox(frmLauncher_launchGame_RCT2NotFound)
 
@@ -180,6 +179,12 @@ Public Class frmLauncher
         Try
             'Get remote version from the webpage
             Dim remoteVersion As String = Await WS.DownloadStringTaskAsync(Constants.UpdateVersionURL)
+
+            If (remoteVersion <> Settings.LocalVersion And Not Settings.InstallUpdates) And Not force
+                If MessageBox.Show("There is a new version of OpenRCT2 available. Do you want to download it?", "OpenRCT2 Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> Windows.Forms.DialogResult.Yes
+                    Exit Try
+                End If
+            End If
 
             If remoteVersion <> Settings.LocalVersion Or force Then
                 If Directory.Exists(Constants.OpenRCT2Bin) Then
