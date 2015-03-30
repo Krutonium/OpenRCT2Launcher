@@ -88,6 +88,10 @@ Namespace Forms
         Me.chkSaveOutput = New System.Windows.Forms.CheckBox()
         Me.chkVerbose = New System.Windows.Forms.CheckBox()
         Me.SFD = New System.Windows.Forms.SaveFileDialog()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.chkInstallUpdates = New System.Windows.Forms.CheckBox()
+        Me.chkCheckUpdates = New System.Windows.Forms.CheckBox()
+        Me.chkCheckLauncher = New System.Windows.Forms.CheckBox()
         CType(Me.numFullscreenWidth,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.numFullscreenHeight,System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox1.SuspendLayout
@@ -98,6 +102,7 @@ Namespace Forms
         Me.GroupBox4.SuspendLayout
         CType(Me.numWindowSnapProximity,System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox5.SuspendLayout
+        Me.GroupBox6.SuspendLayout
         Me.SuspendLayout
         '
         'tbGamePath
@@ -407,6 +412,7 @@ Namespace Forms
         Me.GroupBox1.Size = New System.Drawing.Size(522, 121)
         Me.GroupBox1.TabIndex = 32
         Me.GroupBox1.TabStop = false
+        Me.GroupBox1.Text = "Graphics"
         '
         'cbConstructionMarkerColour
         '
@@ -482,6 +488,7 @@ Namespace Forms
         Me.GroupBox2.Size = New System.Drawing.Size(522, 99)
         Me.GroupBox2.TabIndex = 33
         Me.GroupBox2.TabStop = false
+        Me.GroupBox2.Text = "Localisation"
         '
         'cbShowHeightAsUnits
         '
@@ -516,6 +523,7 @@ Namespace Forms
         Me.GroupBox3.Size = New System.Drawing.Size(522, 105)
         Me.GroupBox3.TabIndex = 34
         Me.GroupBox3.TabStop = false
+        Me.GroupBox3.Text = "Sound"
         '
         'chkRideMusic
         '
@@ -557,6 +565,7 @@ Namespace Forms
         Me.GroupBox4.Size = New System.Drawing.Size(522, 144)
         Me.GroupBox4.TabIndex = 35
         Me.GroupBox4.TabStop = false
+        Me.GroupBox4.Text = "General"
         '
         'numWindowSnapProximity
         '
@@ -597,7 +606,7 @@ Namespace Forms
         '
         'cmdOk
         '
-        Me.cmdOk.Location = New System.Drawing.Point(12, 592)
+        Me.cmdOk.Location = New System.Drawing.Point(12, 663)
         Me.cmdOk.Name = "cmdOk"
         Me.cmdOk.Size = New System.Drawing.Size(126, 23)
         Me.cmdOk.TabIndex = 36
@@ -606,7 +615,7 @@ Namespace Forms
         '
         'cmdCancel
         '
-        Me.cmdCancel.Location = New System.Drawing.Point(144, 592)
+        Me.cmdCancel.Location = New System.Drawing.Point(144, 663)
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(126, 23)
         Me.cmdCancel.TabIndex = 37
@@ -615,7 +624,7 @@ Namespace Forms
         '
         'cmdApply
         '
-        Me.cmdApply.Location = New System.Drawing.Point(276, 592)
+        Me.cmdApply.Location = New System.Drawing.Point(276, 663)
         Me.cmdApply.Name = "cmdApply"
         Me.cmdApply.Size = New System.Drawing.Size(126, 23)
         Me.cmdApply.TabIndex = 38
@@ -624,7 +633,7 @@ Namespace Forms
         '
         'cmdReset
         '
-        Me.cmdReset.Location = New System.Drawing.Point(408, 592)
+        Me.cmdReset.Location = New System.Drawing.Point(408, 663)
         Me.cmdReset.Name = "cmdReset"
         Me.cmdReset.Size = New System.Drawing.Size(126, 23)
         Me.cmdReset.TabIndex = 40
@@ -640,11 +649,12 @@ Namespace Forms
         Me.GroupBox5.Controls.Add(Me.Label13)
         Me.GroupBox5.Controls.Add(Me.chkSaveOutput)
         Me.GroupBox5.Controls.Add(Me.chkVerbose)
-        Me.GroupBox5.Location = New System.Drawing.Point(12, 505)
+        Me.GroupBox5.Location = New System.Drawing.Point(12, 576)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(522, 81)
         Me.GroupBox5.TabIndex = 41
         Me.GroupBox5.TabStop = false
+        Me.GroupBox5.Text = "Debugging"
         '
         'Label14
         '
@@ -707,11 +717,54 @@ Namespace Forms
         Me.chkVerbose.Text = Global.Launcher.My.Resources.Resources.frmLauncher_verboseOutputButton_text
         Me.chkVerbose.UseVisualStyleBackColor = true
         '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.chkCheckLauncher)
+        Me.GroupBox6.Controls.Add(Me.chkInstallUpdates)
+        Me.GroupBox6.Controls.Add(Me.chkCheckUpdates)
+        Me.GroupBox6.Location = New System.Drawing.Point(12, 505)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(522, 65)
+        Me.GroupBox6.TabIndex = 42
+        Me.GroupBox6.TabStop = false
+        Me.GroupBox6.Text = "Updates"
+        '
+        'chkInstallUpdates
+        '
+        Me.chkInstallUpdates.AutoSize = true
+        Me.chkInstallUpdates.Location = New System.Drawing.Point(270, 19)
+        Me.chkInstallUpdates.Name = "chkInstallUpdates"
+        Me.chkInstallUpdates.Size = New System.Drawing.Size(158, 17)
+        Me.chkInstallUpdates.TabIndex = 1
+        Me.chkInstallUpdates.Text = "Install updates automatically"
+        Me.chkInstallUpdates.UseVisualStyleBackColor = true
+        '
+        'chkCheckUpdates
+        '
+        Me.chkCheckUpdates.AutoSize = true
+        Me.chkCheckUpdates.Location = New System.Drawing.Point(6, 19)
+        Me.chkCheckUpdates.Name = "chkCheckUpdates"
+        Me.chkCheckUpdates.Size = New System.Drawing.Size(177, 17)
+        Me.chkCheckUpdates.TabIndex = 0
+        Me.chkCheckUpdates.Text = "Check for updates automatically"
+        Me.chkCheckUpdates.UseVisualStyleBackColor = true
+        '
+        'chkCheckLauncher
+        '
+        Me.chkCheckLauncher.AutoSize = true
+        Me.chkCheckLauncher.Location = New System.Drawing.Point(6, 42)
+        Me.chkCheckLauncher.Name = "chkCheckLauncher"
+        Me.chkCheckLauncher.Size = New System.Drawing.Size(225, 17)
+        Me.chkCheckLauncher.TabIndex = 2
+        Me.chkCheckLauncher.Text = "Check for Launcher updates automatically"
+        Me.chkCheckLauncher.UseVisualStyleBackColor = true
+        '
         'FrmOptions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(546, 627)
+        Me.ClientSize = New System.Drawing.Size(546, 698)
+        Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.cmdReset)
         Me.Controls.Add(Me.cmdApply)
@@ -743,6 +796,8 @@ Namespace Forms
         CType(Me.numWindowSnapProximity,System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupBox5.ResumeLayout(false)
         Me.GroupBox5.PerformLayout
+        Me.GroupBox6.ResumeLayout(false)
+        Me.GroupBox6.PerformLayout
         Me.ResumeLayout(false)
 
 End Sub
@@ -808,5 +863,9 @@ End Sub
         Friend WithEvents Label19 As System.Windows.Forms.Label
         Friend WithEvents chkRideMusic As System.Windows.Forms.CheckBox
         Friend WithEvents chkSound As System.Windows.Forms.CheckBox
+        Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
+        Friend WithEvents chkInstallUpdates As System.Windows.Forms.CheckBox
+        Friend WithEvents chkCheckUpdates As System.Windows.Forms.CheckBox
+        Friend WithEvents chkCheckLauncher As System.Windows.Forms.CheckBox
     End Class
 End Namespace

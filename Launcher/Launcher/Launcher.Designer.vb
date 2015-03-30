@@ -31,28 +31,27 @@ Partial Class frmLauncher
         Me.cmdOptions = New System.Windows.Forms.Button()
         Me.cmdExtras = New System.Windows.Forms.Button()
         Me.tmrUsedForUploadingTime = New System.Windows.Forms.Timer(Me.components)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'cmdLaunchGame
         '
-        Me.cmdLaunchGame.Enabled = False
+        Me.cmdLaunchGame.Enabled = false
         Me.cmdLaunchGame.Location = New System.Drawing.Point(12, 158)
         Me.cmdLaunchGame.Name = "cmdLaunchGame"
         Me.cmdLaunchGame.Size = New System.Drawing.Size(179, 37)
         Me.cmdLaunchGame.TabIndex = 0
         Me.cmdLaunchGame.Text = Global.Launcher.My.Resources.Resources.frmLauncher_launchGameButton_text
-        Me.cmdLaunchGame.UseVisualStyleBackColor = True
+        Me.cmdLaunchGame.UseVisualStyleBackColor = true
         '
         'cmdUpdate
         '
-        Me.cmdUpdate.Enabled = False
         Me.cmdUpdate.Location = New System.Drawing.Point(197, 158)
         Me.cmdUpdate.Name = "cmdUpdate"
         Me.cmdUpdate.Size = New System.Drawing.Size(87, 37)
         Me.cmdUpdate.TabIndex = 1
         Me.cmdUpdate.Text = Global.Launcher.My.Resources.Resources.frmLauncher_updateButton_text
-        Me.cmdUpdate.UseVisualStyleBackColor = True
+        Me.cmdUpdate.UseVisualStyleBackColor = true
         '
         'PictureBox1
         '
@@ -61,7 +60,7 @@ Partial Class frmLauncher
         Me.PictureBox1.Size = New System.Drawing.Size(458, 140)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox1.TabIndex = 3
-        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.TabStop = false
         '
         'cmdOptions
         '
@@ -70,7 +69,7 @@ Partial Class frmLauncher
         Me.cmdOptions.Size = New System.Drawing.Size(87, 37)
         Me.cmdOptions.TabIndex = 2
         Me.cmdOptions.Text = Global.Launcher.My.Resources.Resources.frmLauncher_optionsButton_title
-        Me.cmdOptions.UseVisualStyleBackColor = True
+        Me.cmdOptions.UseVisualStyleBackColor = true
         '
         'cmdExtras
         '
@@ -79,7 +78,7 @@ Partial Class frmLauncher
         Me.cmdExtras.Size = New System.Drawing.Size(87, 37)
         Me.cmdExtras.TabIndex = 3
         Me.cmdExtras.Text = Global.Launcher.My.Resources.Resources.frmLauncher_extrasButton_text
-        Me.cmdExtras.UseVisualStyleBackColor = True
+        Me.cmdExtras.UseVisualStyleBackColor = true
         '
         'tmrUsedForUploadingTime
         '
@@ -87,7 +86,7 @@ Partial Class frmLauncher
         '
         'frmLauncher
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(482, 203)
         Me.Controls.Add(Me.cmdExtras)
@@ -96,13 +95,14 @@ Partial Class frmLauncher
         Me.Controls.Add(Me.cmdUpdate)
         Me.Controls.Add(Me.cmdLaunchGame)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.MaximizeBox = False
+        Me.KeyPreview = true
+        Me.MaximizeBox = false
         Me.Name = "frmLauncher"
-        Me.Text = frmLauncher_title
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
+        Me.Text = "OpenRCT2 Launcher"
+        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
 
-    End Sub
+End Sub
     Friend WithEvents cmdLaunchGame As System.Windows.Forms.Button
     Friend WithEvents cmdUpdate As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox

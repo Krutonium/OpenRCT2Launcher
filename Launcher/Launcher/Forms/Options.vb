@@ -45,6 +45,12 @@ Namespace Forms
             numWindowSnapProximity.Value             = OpenRCT2Config.WindowSnapProximity
             chkSound.Checked                         = OpenRCT2Config.Sound
             chkRideMusic.Checked                     = OpenRCT2Config.RideMusic
+
+            chkCheckUpdates.Checked   = Settings.CheckUpdates
+            chkInstallUpdates.Checked = Settings.InstallUpdates
+            chkCheckLauncher.Checked  = Settings.CheckLauncher
+
+            chkInstallUpdates.Enabled = chkCheckUpdates.Checked
         End Sub
 
         Private Sub cmdGamePath_Click(sender As Object, e As EventArgs) Handles cmdGamePath.Click
@@ -57,7 +63,7 @@ Namespace Forms
 
         Private Sub chkSaveOutput_CheckedChanged(sender As Object, e As EventArgs) Handles chkSaveOutput.CheckedChanged
             'Enable and disable the Output Path field if needed
-            tbOutputPath.Enabled = chkSaveOutput.Checked
+            tbOutputPath.Enabled  = chkSaveOutput.Checked
             cmdOutputPath.Enabled = chkSaveOutput.Checked
         End Sub
 
@@ -67,6 +73,10 @@ Namespace Forms
             If SFD.ShowDialog() = Windows.Forms.DialogResult.OK Then
                 tbOutputPath.Text = SFD.FileName
             End If
+        End Sub
+
+        Private Sub chkCheckUpdates_CheckedChanged(sender As Object,  e As EventArgs) Handles chkCheckUpdates.CheckedChanged
+            chkInstallUpdates.Enabled = chkCheckUpdates.Checked
         End Sub
 
         Private Sub cmdOk_Click(sender As Object, e As EventArgs) Handles cmdOk.Click
@@ -139,6 +149,12 @@ Namespace Forms
             numWindowSnapProximity.Value             = OpenRCT2Config.DefWindowSnapProximity
             chkSound.Checked                         = OpenRCT2Config.DefSound
             chkRideMusic.Checked                     = OpenRCT2Config.DefRideMusic
+
+            chkCheckUpdates.Checked   = My.Settings.PropertyValues("CheckUpdates").Property.DefaultValue
+            chkInstallUpdates.Checked = My.Settings.PropertyValues("InstallUpdates").Property.DefaultValue
+            chkCheckLauncher.Checked  = My.Settings.PropertyValues("CheckLauncher").Property.DefaultValue
+
+            chkInstallUpdates.Enabled = chkCheckUpdates.Checked
         End Sub
 
         Private Sub frmOptions_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -289,6 +305,18 @@ Namespace Forms
                 Return True
             End If
 
+            If chkCheckUpdates.Checked <> Settings.CheckUpdates Then
+                Return True
+            End If
+
+            If chkInstallUpdates.Checked <> Settings.InstallUpdates Then
+                Return True
+            End If
+
+            If chkCheckLauncher.Checked <> Settings.CheckLauncher Then
+                Return True
+            End If
+
             Return False
         End Function
 
@@ -324,10 +352,13 @@ Namespace Forms
         End Sub
 
         Private Sub ConfigSaveLauncher()
-            Settings.Verbose    = chkVerbose.Checked
-            Settings.Arguments  = tbArguments.Text
-            Settings.SaveOutput = chkSaveOutput.Checked
-            Settings.OutputPath = tbOutputPath.Text
+            Settings.Verbose        = chkVerbose.Checked
+            Settings.Arguments      = tbArguments.Text
+            Settings.SaveOutput     = chkSaveOutput.Checked
+            Settings.OutputPath     = tbOutputPath.Text
+            Settings.CheckUpdates   = chkCheckUpdates.Checked
+            Settings.InstallUpdates = chkInstallUpdates.Checked
+            Settings.CheckLauncher  = chkCheckLauncher.Checked
 
             Settings.HasChanged = True
         End Sub
