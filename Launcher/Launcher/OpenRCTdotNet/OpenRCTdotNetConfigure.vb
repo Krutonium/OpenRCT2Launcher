@@ -6,11 +6,9 @@ Namespace OpenRCTdotNet
 
         Private Sub OpenRCTdotNetConfigure_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             Icon = OpenRCTIcon
-            If Settings.OpenRCTdotNetUploadTime = True Then
-                ChkUploadTime.Checked = True
-            End If
-            If Settings.OpenRCTdotNetSaveGames = True Then
-                chkUploadSaves.Checked = True
+            ChkUploadTime.Checked = Settings.OpenRCTdotNetUploadTime
+            chkUploadSaves.Checked = Settings.OpenRCTdotNetSaveGames
+            If chkUploadSaves.Checked = True Then
                 lblWarning.Text = "Warning" + vbNewLine + OpenRCTdotNetConfigureSlowDownWarn
             End If
 
@@ -20,12 +18,13 @@ Namespace OpenRCTdotNet
         Private Sub ChkUploadTime_CheckedChanged(sender As Object, e As EventArgs) Handles ChkUploadTime.CheckedChanged
             Settings.OpenRCTdotNetUploadTime = ChkUploadTime.Checked
             Settings.HasChanged = True
+            Settings.Save()
         End Sub
 
         Private Sub chkUploadSaves_CheckedChanged(sender As Object, e As EventArgs) Handles chkUploadSaves.CheckedChanged
-            Settings.OpenRCTdotNetUploadTime = chkUploadSaves.Checked
+            Settings.OpenRCTdotNetSaveGames = chkUploadSaves.Checked
             Settings.HasChanged = True
-
+            Settings.Save()
             If chkUploadSaves.Checked Then
                 lblWarning.Text = "Warning" + vbNewLine + OpenRCTdotNetConfigureSlowDownWarn
             Else

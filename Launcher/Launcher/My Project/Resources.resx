@@ -445,7 +445,7 @@ Exact Error:
   <data name="OpenRCTdotNetConfigureSlowDownWarn" xml:space="preserve">
     <value>Are you sure you want to enable this? This will slow 
 down the launcher when opening, since it needs to 
-make sure your saves are syncronized. Continue?</value>
+make sure your saves are syncronized.</value>
   </data>
   <data name="OpenRCTdotNetSaveSyncIdle" xml:space="preserve">
     <value>Idle</value>

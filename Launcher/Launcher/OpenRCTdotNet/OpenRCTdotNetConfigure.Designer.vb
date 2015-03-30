@@ -45,8 +45,6 @@ Namespace OpenRCTdotNet
             'chkUploadSaves
             '
             Me.chkUploadSaves.AutoSize = True
-            Me.chkUploadSaves.Checked = True
-            Me.chkUploadSaves.CheckState = System.Windows.Forms.CheckState.Checked
             Me.chkUploadSaves.Location = New System.Drawing.Point(12, 55)
             Me.chkUploadSaves.Name = "chkUploadSaves"
             Me.chkUploadSaves.Size = New System.Drawing.Size(139, 17)

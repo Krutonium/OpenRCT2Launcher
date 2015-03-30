@@ -193,7 +193,7 @@ Namespace Forms
         '
         Me.cbCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbCurrency.FormattingEnabled = true
-        Me.cbCurrency.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_currency_pound, Global.Launcher.My.Resources.Resources.frmOptions_currency_dollar, Global.Launcher.My.Resources.Resources.frmOptions_currency_franc, Global.Launcher.My.Resources.Resources.frmOptions_currency_deutchmark, Global.Launcher.My.Resources.Resources.frmOptions_currency_yen, Global.Launcher.My.Resources.Resources.frmOptions_currency_peseta, Global.Launcher.My.Resources.Resources.frmOptions_currency_lira, Global.Launcher.My.Resources.Resources.frmOptions_currency_guilder, Global.Launcher.My.Resources.Resources.frmOptions_currency_krona, Global.Launcher.My.Resources.Resources.frmOptions_currency_euro})
+            Me.cbCurrency.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_currency_pound, Global.Launcher.My.Resources.Resources.frmOptions_currency_dollar, Global.Launcher.My.Resources.Resources.frmOptions_currency_franc, Global.Launcher.My.Resources.Resources.frmOptions_currency_deutchmark, Global.Launcher.My.Resources.Resources.frmOptions_currency_yen, Global.Launcher.My.Resources.Resources.frmOptions_currency_peseta, Global.Launcher.My.Resources.Resources.frmOptions_currency_lira, Global.Launcher.My.Resources.Resources.frmOptions_currency_guilder, Global.Launcher.My.Resources.Resources.frmOptions_currency_krona, Global.Launcher.My.Resources.Resources.frmOptions_currency_euro})
         Me.cbCurrency.Location = New System.Drawing.Point(131, 32)
         Me.cbCurrency.Name = "cbCurrency"
         Me.cbCurrency.Size = New System.Drawing.Size(121, 21)

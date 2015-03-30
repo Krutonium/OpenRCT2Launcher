@@ -985,7 +985,7 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized string similar to Are you sure you want to enable this? This will slow 
         '''down the launcher when opening, since it needs to 
-        '''make sure your saves are syncronized. Continue?.
+        '''make sure your saves are syncronized..
         '''</summary>
         Friend ReadOnly Property OpenRCTdotNetConfigureSlowDownWarn() As String
             Get
