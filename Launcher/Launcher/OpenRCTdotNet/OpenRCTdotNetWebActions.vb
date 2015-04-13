@@ -123,37 +123,42 @@ Namespace OpenRCTdotNet
             Dim fiArr As FileInfo() = di.GetFiles()
             ' Display the names of the files.
             Dim fri As FileInfo
-            For Each fri In fiArr
-                If fri.FullName.ToLower.EndsWith(".sv6") Then
-                    If UpdateSyncForm = True Then
-                        OpenRCTdotNetSyncSaves.lblStatus.Text = OpenRCTdotNetSaveSyncStatusUpload & " " & fri.ToString()
-                    End If
-                    System.Windows.Forms.Application.DoEvents()
-                    Dim uploadFileUri As New Uri(String.Format("{0}?a=get_savegame&user={1}&auth={2}&secret={3}&file={4}&info=true", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, fri.Name))
-                    Dim serverResponse As String = (New WebClient).DownloadString(uploadFileUri)
-
-                    jsonResult = JObject.Parse(serverResponse)
-
-                    If jsonResult.SelectToken("error") Is Nothing Then
-                        If DateTime.Compare(DateTime.Parse(ConvertTimestamp(jsonResult.SelectToken("savedateUNIX").ToString())), fri.LastWriteTime.ToUniversalTime) < 0 Then
-                            Dim savedTime = ConvertDateTime(fri.LastWriteTime)
-                            Dim doUploadFileUri As New Uri(String.Format("{0}?a=add_savegame&user={1}&auth={2}&savedtime={3}&secret={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, savedTime, Secret))
-                            Call (New WebClient).UploadFile(doUploadFileUri, fri.FullName)
+            Try
+                For Each fri In fiArr
+                    If fri.FullName.ToLower.EndsWith(".sv6") Then
+                        If UpdateSyncForm = True Then
+                            OpenRCTdotNetSyncSaves.lblStatus.Text = OpenRCTdotNetSaveSyncStatusUpload & " " & fri.ToString()
                         End If
-                    Else
-                        If jsonResult.SelectToken("error") = "Savegame not found" Then
-                            ' the game isn't found on the server, so I don't even have to check if I want to upload
-                            Dim savedTime = ConvertDateTime(fri.LastWriteTime)
-                            Dim doUploadFileUri As New Uri(String.Format("{0}?a=add_savegame&user={1}&auth={2}&savedtime={3}&secret={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, savedTime, Secret))
-                            Call (New WebClient).UploadFile(doUploadFileUri, fri.FullName)
+                        System.Windows.Forms.Application.DoEvents()
+                        Dim uploadFileUri As New Uri(String.Format("{0}?a=get_savegame&user={1}&auth={2}&secret={3}&file={4}&info=true", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, fri.Name))
+                        Dim serverResponse As String = (New WebClient).DownloadString(uploadFileUri)
+
+                        jsonResult = JObject.Parse(serverResponse)
+
+                        If jsonResult.SelectToken("error") Is Nothing Then
+                            If DateTime.Compare(DateTime.Parse(ConvertTimestamp(jsonResult.SelectToken("savedateUNIX").ToString())), fri.LastWriteTime.ToUniversalTime) < 0 Then
+                                Dim savedTime = ConvertDateTime(fri.LastWriteTime)
+                                Dim doUploadFileUri As New Uri(String.Format("{0}?a=add_savegame&user={1}&auth={2}&savedtime={3}&secret={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, savedTime, Secret))
+                                'OpenRCTdotNetSyncSaves.Text = fri.ToString
+                                Call (New WebClient).UploadFile(doUploadFileUri, fri.FullName)
+                            End If
                         Else
-                            MsgBox(jsonResult.SelectToken("error"))
+                            If jsonResult.SelectToken("error") = "Savegame not found" Then
+                                ' the game isn't found on the server, so I don't even have to check if I want to upload
+                                Dim savedTime = ConvertDateTime(fri.LastWriteTime)
+                                Dim doUploadFileUri As New Uri(String.Format("{0}?a=add_savegame&user={1}&auth={2}&savedtime={3}&secret={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, savedTime, Secret))
+                                'OpenRCTdotNetSyncSaves.Text = fri.ToString
+                                Call (New WebClient).UploadFile(doUploadFileUri, fri.FullName)
+                            Else
+                                MsgBox(jsonResult.SelectToken("error"))
+                            End If
                         End If
                     End If
-                End If
-            Next fri
+                Next fri
+            Catch ex As Exception
+                OpenRCTdotNetSyncSaves.lblStatus.Text = ("An Error Occured - Please try again.")
+            End Try
         End Function
-
     End Class
 
     Public Class OpenRCTdotNetWebActionException
