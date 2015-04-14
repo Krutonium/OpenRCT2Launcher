@@ -5,6 +5,9 @@ Imports Newtonsoft.Json.Linq
 Imports Launcher.My
 Imports Launcher.OpenRCTdotNet
 Imports Launcher.My.Resources
+Imports System.Security
+Imports System.Security.Cryptography
+Imports System.Text
 
 Namespace OpenRCTdotNet
     Public Class OpenRCTdotNetWebActions
@@ -132,15 +135,26 @@ Namespace OpenRCTdotNet
                         System.Windows.Forms.Application.DoEvents()
                         Dim uploadFileUri As New Uri(String.Format("{0}?a=get_savegame&user={1}&auth={2}&secret={3}&file={4}&info=true", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, fri.Name))
                         Dim serverResponse As String = (New WebClient).DownloadString(uploadFileUri)
-
+                        'MsgBox(serverResponse)
                         jsonResult = JObject.Parse(serverResponse)
-
                         If jsonResult.SelectToken("error") Is Nothing Then
-                            If DateTime.Compare(DateTime.Parse(ConvertTimestamp(jsonResult.SelectToken("savedateUNIX").ToString())), fri.LastWriteTime.ToUniversalTime) < 0 Then
-                                Dim savedTime = ConvertDateTime(fri.LastWriteTime)
-                                Dim doUploadFileUri As New Uri(String.Format("{0}?a=add_savegame&user={1}&auth={2}&savedtime={3}&secret={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, savedTime, Secret))
-                                'OpenRCTdotNetSyncSaves.Text = fri.ToString
-                                Call (New WebClient).UploadFile(doUploadFileUri, fri.FullName)
+                            Dim tmpSource() As Byte
+                            Dim tmpHash() As Byte
+                            tmpSource = File.ReadAllBytes(fri.FullName)
+                            tmpHash = New MD5CryptoServiceProvider().ComputeHash(tmpSource)
+                            Dim i As Integer
+                            Dim HashB As New StringBuilder(tmpHash.Length)
+                            For i = 0 To tmpHash.Length - 1
+                                HashB.Append(tmpHash(i).ToString("X2"))     'Calculating MD5 for comparison.
+                            Next
+                            Dim Hash As String = HashB.ToString
+                            If Hash = jsonResult.SelectToken("MD5").ToString.ToUpper = False Then
+                                If DateTime.Compare(DateTime.Parse(ConvertTimestamp(jsonResult.SelectToken("savedateUNIX").ToString())), fri.LastWriteTime.ToUniversalTime) < 0 Then
+                                    Dim savedTime = ConvertDateTime(fri.LastWriteTime)
+                                    Dim doUploadFileUri As New Uri(String.Format("{0}?a=add_savegame&user={1}&auth={2}&savedtime={3}&secret={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, savedTime, Secret))
+                                    'OpenRCTdotNetSyncSaves.Text = fri.ToString
+                                    Call (New WebClient).UploadFile(doUploadFileUri, fri.FullName)
+                                End If
                             End If
                         Else
                             If jsonResult.SelectToken("error") = "Savegame not found" Then
@@ -157,6 +171,7 @@ Namespace OpenRCTdotNet
                 Next fri
             Catch ex As Exception
                 OpenRCTdotNetSyncSaves.lblStatus.Text = ("An Error Occured - Please try again.")
+                MsgBox(ex.ToString)
             End Try
         End Function
     End Class
