@@ -51,7 +51,7 @@ Namespace OpenRCTdotNet
             Me.UsernameLabel.Name = "UsernameLabel"
             Me.UsernameLabel.Size = New System.Drawing.Size(220, 23)
             Me.UsernameLabel.TabIndex = 0
-            Me.UsernameLabel.Text = OpenRCTdotNetLogin_usernameLabel
+            Me.UsernameLabel.Text = "User name"
             Me.UsernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'PasswordLabel
@@ -60,7 +60,7 @@ Namespace OpenRCTdotNet
             Me.PasswordLabel.Name = "PasswordLabel"
             Me.PasswordLabel.Size = New System.Drawing.Size(220, 23)
             Me.PasswordLabel.TabIndex = 2
-            Me.PasswordLabel.Text = OpenRCTdotNetLogin_passwordLabel
+            Me.PasswordLabel.Text = "Password"
             Me.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'UsernameTextBox
@@ -84,7 +84,7 @@ Namespace OpenRCTdotNet
             Me.OK.Name = "OK"
             Me.OK.Size = New System.Drawing.Size(94, 23)
             Me.OK.TabIndex = 4
-            Me.OK.Text = coomon_login
+            Me.OK.Text = Global.Launcher.My.Resources.Resources.coomon_login
             '
             'Cancel
             '
@@ -103,7 +103,7 @@ Namespace OpenRCTdotNet
             Me.LinkLabel1.Size = New System.Drawing.Size(170, 13)
             Me.LinkLabel1.TabIndex = 6
             Me.LinkLabel1.TabStop = True
-            Me.LinkLabel1.Text = OpenRCTdotNetLogin_getAccountText
+            Me.LinkLabel1.Text = "Get your account at OpenRCT.net"
             '
             'LogoPictureBox
             '
@@ -135,7 +135,7 @@ Namespace OpenRCTdotNet
             Me.Name = "OpenRCTdotNetLogin"
             Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-            Me.Text = OpenRCTdotNetLogin_title
+            Me.Text = "Login to OpenRCT.NET"
             CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
             Me.PerformLayout()

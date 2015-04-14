@@ -52,9 +52,12 @@ Namespace Forms
 
         Private Sub CheckIfLoggedIn()
             If Settings.OpenRCTdotNetUserID = Nothing Then
-                'If we ever want to do somthing if they are not logged in, here is the place!
+                'If we ever want to do somthing if they are not logged in, here is the place!\
+                cmdSyncSaves.Enabled = False
+                cmdOpenRCTNetFeatures.Enabled = False
             Else
                 cmdOpenRCTNetFeatures.Enabled = True
+                cmdSyncSaves.Enabled = True
             End If
         End Sub
 

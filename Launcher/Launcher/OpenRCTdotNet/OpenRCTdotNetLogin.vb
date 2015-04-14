@@ -1,5 +1,6 @@
 ﻿Imports Launcher.My.Resources
 Imports Launcher.Forms
+Imports Launcher.My
 
 Namespace OpenRCTdotNet
 
@@ -20,6 +21,7 @@ Namespace OpenRCTdotNet
                 Dim user As OpenRCTdotNetUser = Await OpenRCTdotNetWebActions.Login(username, password, True)
                 MsgBox("Welcome, " & user.Username)
                 Extras.cmdOpenRCTNetFeatures.Enabled = True
+                Extras.cmdSyncSaves.Enabled = True
                 Close()
             Catch ex As Exception
                 If TypeOf ex Is OpenRCTdotNetWebActionException Then
@@ -39,6 +41,17 @@ Namespace OpenRCTdotNet
 
         Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
             Process.Start("http://openrct.net/")
+        End Sub
+
+        Private Sub LogoPictureBox_Click(sender As Object, e As EventArgs) Handles LogoPictureBox.Click
+            Dim clear As Boolean = False
+            If clear = True Then
+                My.Settings.OpenRCTdotNetUserAuthCode = Nothing
+                My.Settings.OpenRCTdotNetUserID = Nothing
+                My.Settings.OpenRCTdotNetUsername = Nothing
+                My.Settings.HasChanged = True
+                My.Settings.Save()
+            End If
         End Sub
     End Class
 End Namespace
