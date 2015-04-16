@@ -9,7 +9,7 @@ Imports System.IO.Compression
 Imports System.Net
 
 Public Class frmLauncher
-    Const LauncherVer As Integer = 4 'Increment this and then we can release updates on Openrct.net
+    Const LauncherVer As Integer = 5 'Increment this and then we can release updates on Openrct.net
 
     Private Sub frmLauncher_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If My.Computer.Keyboard.AltKeyDown Then
