@@ -24,25 +24,23 @@ Partial Class frmLauncher
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.cmdLaunchGame = New System.Windows.Forms.Button()
         Me.cmdUpdate = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cmdOptions = New System.Windows.Forms.Button()
         Me.cmdExtras = New System.Windows.Forms.Button()
-        Me.tmrUsedForUploadingTime = New System.Windows.Forms.Timer(Me.components)
-        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'cmdLaunchGame
         '
-        Me.cmdLaunchGame.Enabled = false
+        Me.cmdLaunchGame.Enabled = False
         Me.cmdLaunchGame.Location = New System.Drawing.Point(12, 158)
         Me.cmdLaunchGame.Name = "cmdLaunchGame"
         Me.cmdLaunchGame.Size = New System.Drawing.Size(179, 37)
         Me.cmdLaunchGame.TabIndex = 0
         Me.cmdLaunchGame.Text = Global.Launcher.My.Resources.Resources.frmLauncher_launchGameButton_text
-        Me.cmdLaunchGame.UseVisualStyleBackColor = true
+        Me.cmdLaunchGame.UseVisualStyleBackColor = True
         '
         'cmdUpdate
         '
@@ -51,7 +49,7 @@ Partial Class frmLauncher
         Me.cmdUpdate.Size = New System.Drawing.Size(87, 37)
         Me.cmdUpdate.TabIndex = 1
         Me.cmdUpdate.Text = Global.Launcher.My.Resources.Resources.frmLauncher_updateButton_text
-        Me.cmdUpdate.UseVisualStyleBackColor = true
+        Me.cmdUpdate.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
@@ -60,7 +58,7 @@ Partial Class frmLauncher
         Me.PictureBox1.Size = New System.Drawing.Size(458, 140)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox1.TabIndex = 3
-        Me.PictureBox1.TabStop = false
+        Me.PictureBox1.TabStop = False
         '
         'cmdOptions
         '
@@ -69,7 +67,7 @@ Partial Class frmLauncher
         Me.cmdOptions.Size = New System.Drawing.Size(87, 37)
         Me.cmdOptions.TabIndex = 2
         Me.cmdOptions.Text = Global.Launcher.My.Resources.Resources.frmLauncher_optionsButton_title
-        Me.cmdOptions.UseVisualStyleBackColor = true
+        Me.cmdOptions.UseVisualStyleBackColor = True
         '
         'cmdExtras
         '
@@ -78,11 +76,7 @@ Partial Class frmLauncher
         Me.cmdExtras.Size = New System.Drawing.Size(87, 37)
         Me.cmdExtras.TabIndex = 3
         Me.cmdExtras.Text = Global.Launcher.My.Resources.Resources.frmLauncher_extrasButton_text
-        Me.cmdExtras.UseVisualStyleBackColor = true
-        '
-        'tmrUsedForUploadingTime
-        '
-        Me.tmrUsedForUploadingTime.Interval = 60000
+        Me.cmdExtras.UseVisualStyleBackColor = True
         '
         'frmLauncher
         '
@@ -108,6 +102,5 @@ End Sub
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents cmdOptions As System.Windows.Forms.Button
     Friend WithEvents cmdExtras As System.Windows.Forms.Button
-    Friend WithEvents tmrUsedForUploadingTime As System.Windows.Forms.Timer
 
 End Class

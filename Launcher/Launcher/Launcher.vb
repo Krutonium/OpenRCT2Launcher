@@ -100,9 +100,32 @@ Public Class frmLauncher
 
 
             'THIS NEEDS TO REMAIN LAST BECAUSE IT HANDLES WHETHER WE NEED TO CLOSE!
-            If Settings.OpenRCTdotNetUploadTime = True Then
+            If Settings.OpenRCTdotNetUploadTime = True Or Settings.OpenRCTdotNetSaveGames = True Then
+                Dim uTime As Int64 ' Int64 instead of Integer so we can count past 2038
+                uTime = (DateTime.UtcNow - New DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds
+
                 Visible = False
-                tmrUsedForUploadingTime.Enabled = True
+
+                Process.WaitForExit()
+
+                'MsgBox("game is closed") 'We don't need this...
+                ' Process is not running, game is closed
+                If Settings.OpenRCTdotNetSaveGames Then
+                    ' i'm using Call here instead of SyncSaves() since, for some reason, that doesn't work here (probably because we do Close a few lines later)
+                    ' but that doesn't seem to be a problem since the app is invisible to the user and up and downloading shouldn't take THAT long
+                    Call OpenRCTdotNetWebActions.UploadSaves(False)
+                    Call OpenRCTdotNetWebActions.DownloadSaves(False)
+                End If
+
+                If Settings.OpenRCTdotNetUploadTime Then
+                    Dim diff As Int64
+                    diff = (DateTime.UtcNow - New DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds - uTime
+                    diff = Math.Round(diff / 60)
+                    Call OpenRCTdotNetWebActions.SaveUploadTime(diff)
+                End If
+
+                Close()
+
             Else
                 Close()
             End If
@@ -216,32 +239,4 @@ Public Class frmLauncher
         Task.Run(DirectCast(Async Sub() Await OpenRCTdotNetWebActions.DownloadSaves(False), Action))
     End Sub
 
-    ' keep minutes played offline until game exits
-    Private _minutesPlayed As Integer = 0
-
-    Private Sub tmrUsedForUploadingTime_Tick(sender As Object, e As EventArgs) Handles tmrUsedForUploadingTime.Tick
-        'This code will run every 1 minutes if OpenRCTdotNetUploadTime is Enabled. It will add 1 minute, then if the game is closed,  upload and exit.
-        _minutesPlayed += 1
-
-        Dim isRunning = Process.GetProcessesByName("openrct2")
-        If isRunning.Count > 0 Then
-            ' Process is running
-            Return
-        Else
-
-            'MsgBox("game is closed") 'We don't need this...
-            ' Process is not running, game is closed
-            If Settings.OpenRCTdotNetSaveGames Then
-                ' i'm using Call here instead of SyncSaves() since, for some reason, that doesn't work here (probably because we do Close a few lines later)
-                ' but that doesn't seem to be a problem since the app is invisible to the user and up and downloading shouldn't take THAT long
-                Call OpenRCTdotNetWebActions.UploadSaves(False)
-                Call OpenRCTdotNetWebActions.DownloadSaves(False)
-            End If
-
-            If Settings.OpenRCTdotNetUploadTime Then
-                Call OpenRCTdotNetWebActions.SaveUploadTime(_minutesPlayed)
-            End If
-            Close()
-        End If
-    End Sub
 End Class
