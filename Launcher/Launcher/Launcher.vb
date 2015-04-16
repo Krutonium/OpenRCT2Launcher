@@ -119,12 +119,8 @@ Public Class frmLauncher
 
                 If Settings.OpenRCTdotNetUploadTime Then
                     Dim diff As Int64
-                    diff = uTime - (DateTime.UtcNow - New DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds
-                    diff = diff / 60
-                    If diff = 0 Then
-                        diff += 1
-                    End If
-                    MsgBox(diff)
+                    diff = (DateTime.UtcNow - New DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds - uTime
+                    diff = Math.Round(diff / 60)
                     Call OpenRCTdotNetWebActions.SaveUploadTime(diff)
                 End If
 
