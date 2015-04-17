@@ -9,7 +9,7 @@ Imports System.IO.Compression
 Imports System.Net
 
 Public Class frmLauncher
-    Const LauncherVer As Integer = 5 'Increment this and then we can release updates on Openrct.net
+    Const LauncherVer As Integer = 6 'Increment this and then we can release updates on Openrct.net
 
     Private Sub frmLauncher_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If My.Computer.Keyboard.AltKeyDown Then
@@ -202,6 +202,10 @@ Public Class frmLauncher
         Try
             'Get remote version from the webpage
             Dim remoteVersion As String = Await WS.DownloadStringTaskAsync(Constants.UpdateVersionURL)
+
+            If remoteVersion = Nothing Then
+                Exit Try
+            End If
 
             If (remoteVersion <> Settings.LocalVersion And Not Settings.InstallUpdates) And Not force
                 If MessageBox.Show("There is a new version of OpenRCT2 available. Do you want to download it?", "OpenRCT2 Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> Windows.Forms.DialogResult.Yes
