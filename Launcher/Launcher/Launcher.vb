@@ -9,7 +9,6 @@ Imports System.IO.Compression
 Imports System.Net
 
 Public Class frmLauncher
-    Const LauncherVer As Integer = 6 'Increment this and then we can release updates on Openrct.net
 
     Private Sub frmLauncher_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If My.Computer.Keyboard.AltKeyDown Then
@@ -25,12 +24,8 @@ Public Class frmLauncher
 
         Settings.HasChanged = False
 
-        If Settings.CheckUpdates
+        If Settings.CheckUpdates Then
             Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
-        End If
-
-        If Settings.CheckLauncher
-            Task.Run(DirectCast(Async Sub() Await LauncherUpdate(), Action))
         End If
 
         cmdLaunchGame.Enabled = Directory.Exists(OpenRCT2Config.GamePath)
@@ -53,6 +48,22 @@ Public Class frmLauncher
                 MsgBox(frmLauncher_Load_neverRun)
             End Try
         End If
+
+        Try
+            If Settings.Donator = True = False Then
+                Dim WS As New WebClient
+                If WS.DownloadString("https://openrct.net/launcher/Launcher/ShouldDonate.txt") = "1" Then
+                    If Settings.ShowDonateUser = True Then
+                        pbDonate.Visible = True
+                    End If
+                Else
+                    pbDonate.Visible = False
+                End If
+            End If
+
+        Catch ex As Exception
+
+        End Try
 
         If Settings.OpenRCTdotNetSaveGames Then
             SyncSaves()
@@ -176,21 +187,6 @@ Public Class frmLauncher
         writer.Close()
     End Function
 
-    Private Async Function LauncherUpdate() As Task
-        Try
-            Dim WS As New WebClient
-            Dim RemoteLVer As Integer = Await WS.DownloadStringTaskAsync("https://openrct.net/download_latest_launcher.php?a=version")
-            If RemoteLVer > LauncherVer Then
-                Dim result = MsgBox(LauncherUpdateAvail, MsgBoxStyle.YesNo)
-                If result = MsgBoxResult.Yes Then
-                    Process.Start("http://openrct.net")
-                    Close()
-                End If
-            End If
-        Catch ex As Exception
-        End Try
-    End Function
-
     Private Async Function GameUpdate(force As Boolean) As Task
         RunWithInvoke(Sub(this)
                           this.cmdLaunchGame.Enabled = False
@@ -243,4 +239,11 @@ Public Class frmLauncher
         Task.Run(DirectCast(Async Sub() Await OpenRCTdotNetWebActions.DownloadSaves(False), Action))
     End Sub
 
+    Private Sub pbDonate_Click(sender As Object, e As EventArgs) Handles pbDonate.Click
+        Settings.ShowDonateUser = False
+        Settings.HasChanged = True
+        Settings.Save()
+        Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8N95FU9CJKAY6")
+        pbDonate.Visible = False
+    End Sub
 End Class

@@ -24,12 +24,15 @@ Partial Class frmLauncher
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLauncher))
         Me.cmdLaunchGame = New System.Windows.Forms.Button()
         Me.cmdUpdate = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cmdOptions = New System.Windows.Forms.Button()
         Me.cmdExtras = New System.Windows.Forms.Button()
+        Me.pbDonate = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbDonate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmdLaunchGame
@@ -53,6 +56,7 @@ Partial Class frmLauncher
         '
         'PictureBox1
         '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(458, 140)
@@ -78,29 +82,44 @@ Partial Class frmLauncher
         Me.cmdExtras.Text = Global.Launcher.My.Resources.Resources.frmLauncher_extrasButton_text
         Me.cmdExtras.UseVisualStyleBackColor = True
         '
+        'pbDonate
+        '
+        Me.pbDonate.Image = CType(resources.GetObject("pbDonate.Image"), System.Drawing.Image)
+        Me.pbDonate.Location = New System.Drawing.Point(0, 0)
+        Me.pbDonate.Name = "pbDonate"
+        Me.pbDonate.Size = New System.Drawing.Size(92, 26)
+        Me.pbDonate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.pbDonate.TabIndex = 4
+        Me.pbDonate.TabStop = False
+        Me.pbDonate.Visible = False
+        '
         'frmLauncher
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(482, 203)
+        Me.Controls.Add(Me.pbDonate)
         Me.Controls.Add(Me.cmdExtras)
         Me.Controls.Add(Me.cmdOptions)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.cmdUpdate)
         Me.Controls.Add(Me.cmdLaunchGame)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.KeyPreview = true
-        Me.MaximizeBox = false
+        Me.KeyPreview = True
+        Me.MaximizeBox = False
         Me.Name = "frmLauncher"
         Me.Text = "OpenRCT2 Launcher"
-        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).EndInit
-        Me.ResumeLayout(false)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbDonate, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents cmdLaunchGame As System.Windows.Forms.Button
     Friend WithEvents cmdUpdate As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents cmdOptions As System.Windows.Forms.Button
     Friend WithEvents cmdExtras As System.Windows.Forms.Button
+    Friend WithEvents pbDonate As System.Windows.Forms.PictureBox
 
 End Class

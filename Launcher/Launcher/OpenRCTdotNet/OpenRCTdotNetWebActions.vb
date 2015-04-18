@@ -39,6 +39,9 @@ Namespace OpenRCTdotNet
                 Settings.OpenRCTdotNetUserAuthCode = jsonResult.SelectToken(LoginAuthCodeKey)
                 Settings.OpenRCTdotNetUserID = jsonResult.SelectToken(LoginUserIdKey)
                 Settings.OpenRCTdotNetUsername = jsonResult.SelectToken(LoginUsernameKey)
+                If jsonResult.SelectToken("user_rank") = "2" Then
+                    Settings.Donator = True
+                End If
                 Settings.HasChanged = True
             End If
 
