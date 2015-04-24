@@ -111,7 +111,7 @@ Namespace OpenRCTdotNet
                 End If
             Catch ex As WebException
                 'TODO: Add eror handling
-                MsgBox(ex.ToString)
+                'MsgBox(ex.ToString)
             Catch ex As JsonSerializationException
                 'TODO: Add eror handling
                 MsgBox(ex.ToString)
@@ -174,7 +174,7 @@ Namespace OpenRCTdotNet
                 Next fri
             Catch ex As Exception
                 OpenRCTdotNetSyncSaves.lblStatus.Text = ("An Error Occured - Please try again.")
-                MsgBox(ex.ToString)
+                'MsgBox(ex.ToString)
             End Try
         End Function
     End Class
