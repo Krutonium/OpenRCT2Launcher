@@ -18,6 +18,9 @@ Public Class frmLauncher
 
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Check for updates
+
+        My.Settings.Upgrade()
+
         CheckForIllegalCrossThreadCalls = False
 
         OpenRCT2Config.Load(Constants.OpenRCT2ConfigFile)
