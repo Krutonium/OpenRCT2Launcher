@@ -41,7 +41,7 @@ Public Class OpenRCTdotNetStoreBrowser
             WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Scenarios/" & Path.GetFileName(URL))
         ElseIf URL.ToUpper.EndsWith(".DAT") Then
             MsgBox("Installing Object...")
-            WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Data/" & Path.GetFileName(URL))
+            WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/ObjData/" & Path.GetFileName(URL))
         ElseIf URL.ToUpper.EndsWith(".ZIP") Then
             MsgBox("Installing Pack...")
             WS.DownloadFile(New Uri(URL), TempF & "\" & Path.GetFileName(URL))
@@ -52,7 +52,7 @@ Public Class OpenRCTdotNetStoreBrowser
             ZipFile.ExtractToDirectory(TempF & "\" & Path.GetFileName(URL), TempF & "/Extracted")
             For Each Filee In Directory.GetFiles(TempF & "/Extracted", ".", SearchOption.AllDirectories)
                 If Filee.ToUpper.EndsWith(".DAT") Then
-                    File.Copy(Filee, RCT2Loc & "/Data/" & Path.GetFileName(Filee), True)
+                    File.Copy(Filee, RCT2Loc & "/ObjData/" & Path.GetFileName(Filee), True)
                 End If
                 If Filee.ToUpper.EndsWith(".SC6") Then
                     File.Copy(Filee, RCT2Loc & "/Scenarios/" & Path.GetFileName(Filee), True)
