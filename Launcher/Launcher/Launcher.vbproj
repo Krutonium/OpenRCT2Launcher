@@ -27,7 +27,7 @@
     <InstallUrl>https://openrct.net/launcher/Launcher/ClickOnce/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -160,6 +160,12 @@
     <Compile Include="Forms\Options.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="OpenRCTdotNet\OpenRCTdotNetStoreBrowser.Designer.vb">
+      <DependentUpon>OpenRCTdotNetStoreBrowser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OpenRCTdotNet\OpenRCTdotNetStoreBrowser.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="OpenRCTdotNet\OpenRCTdotNetSyncSaves.Designer.vb">
       <DependentUpon>OpenRCTdotNetSyncSaves.vb</DependentUpon>
     </Compile>
@@ -188,6 +194,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenRCTdotNet\OpenRCTdotNetStoreBrowser.resx">
+      <DependentUpon>OpenRCTdotNetStoreBrowser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OpenRCTdotNet\OpenRCTdotNetSyncSaves.resx">
       <DependentUpon>OpenRCTdotNetSyncSaves.vb</DependentUpon>

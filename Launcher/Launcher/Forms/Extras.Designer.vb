@@ -37,6 +37,7 @@ Namespace Forms
             Me.cmdOpenRCTNetFeatures = New System.Windows.Forms.Button()
             Me.cmdSyncSaves = New System.Windows.Forms.Button()
             Me.gboOpenRCTnet = New System.Windows.Forms.GroupBox()
+            Me.cmdWebStore = New System.Windows.Forms.Button()
             Me.gboOpenRCTnet.SuspendLayout()
             Me.SuspendLayout()
             '
@@ -60,7 +61,7 @@ Namespace Forms
             '
             'cmdDebug
             '
-            Me.cmdDebug.Location = New System.Drawing.Point(12, 159)
+            Me.cmdDebug.Location = New System.Drawing.Point(12, 194)
             Me.cmdDebug.Name = "cmdDebug"
             Me.cmdDebug.Size = New System.Drawing.Size(165, 23)
             Me.cmdDebug.TabIndex = 2
@@ -115,21 +116,31 @@ Namespace Forms
             '
             'gboOpenRCTnet
             '
+            Me.gboOpenRCTnet.Controls.Add(Me.cmdWebStore)
             Me.gboOpenRCTnet.Controls.Add(Me.cmdLoginOpenRCTnet)
             Me.gboOpenRCTnet.Controls.Add(Me.cmdSyncSaves)
             Me.gboOpenRCTnet.Controls.Add(Me.cmdOpenRCTNetFeatures)
             Me.gboOpenRCTnet.Location = New System.Drawing.Point(12, 70)
             Me.gboOpenRCTnet.Name = "gboOpenRCTnet"
-            Me.gboOpenRCTnet.Size = New System.Drawing.Size(336, 80)
+            Me.gboOpenRCTnet.Size = New System.Drawing.Size(336, 108)
             Me.gboOpenRCTnet.TabIndex = 9
             Me.gboOpenRCTnet.TabStop = False
             Me.gboOpenRCTnet.Text = "OpenRCT.net Integration"
+            '
+            'cmdWebStore
+            '
+            Me.cmdWebStore.Location = New System.Drawing.Point(6, 77)
+            Me.cmdWebStore.Name = "cmdWebStore"
+            Me.cmdWebStore.Size = New System.Drawing.Size(324, 23)
+            Me.cmdWebStore.TabIndex = 9
+            Me.cmdWebStore.Text = "Open OpenRCT.net Store (Free)"
+            Me.cmdWebStore.UseVisualStyleBackColor = True
             '
             'Extras
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-            Me.ClientSize = New System.Drawing.Size(362, 194)
+            Me.ClientSize = New System.Drawing.Size(362, 217)
             Me.Controls.Add(Me.gboOpenRCTnet)
             Me.Controls.Add(Me.cmdSyncAnyFolder)
             Me.Controls.Add(Me.cmdDropboxSync)
@@ -153,5 +164,6 @@ Namespace Forms
         Friend WithEvents cmdOpenRCTNetFeatures As System.Windows.Forms.Button
         Friend WithEvents cmdSyncSaves As System.Windows.Forms.Button
         Friend WithEvents gboOpenRCTnet As System.Windows.Forms.GroupBox
+        Friend WithEvents cmdWebStore As System.Windows.Forms.Button
     End Class
 End Namespace

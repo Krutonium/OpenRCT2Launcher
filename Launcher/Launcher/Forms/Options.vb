@@ -362,5 +362,6 @@ Namespace Forms
 
             Settings.HasChanged = True
         End Sub
+
     End Class
 End Namespace

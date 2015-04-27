@@ -173,5 +173,9 @@ Namespace Forms
         Private Sub cmdSyncSaves_Click(sender As Object, e As EventArgs) Handles cmdSyncSaves.Click
             OpenRCTdotNetSyncSaves.Visible = True
         End Sub
+
+        Private Sub cmdWebStore_Click(sender As Object, e As EventArgs) Handles cmdWebStore.Click
+            OpenRCTdotNetStoreBrowser.Visible = True
+        End Sub
     End Class
 End Namespace
