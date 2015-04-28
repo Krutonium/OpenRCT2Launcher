@@ -244,27 +244,39 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")> _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property ShowDonateUser() As Boolean
             Get
-                Return CType(Me("ShowDonateUser"), Boolean)
+                Return CType(Me("ShowDonateUser"),Boolean)
             End Get
-            Set(value As Boolean)
+            Set
                 Me("ShowDonateUser") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")> _
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property Donator() As Boolean
             Get
-                Return CType(Me("Donator"), Boolean)
+                Return CType(Me("Donator"),Boolean)
             End Get
-            Set(value As Boolean)
+            Set
                 Me("Donator") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property OpenRCTdotNetPlaytimeCache() As Integer
+            Get
+                Return CType(Me("OpenRCTdotNetPlaytimeCache"),Integer)
+            End Get
+            Set
+                Me("OpenRCTdotNetPlaytimeCache") = value
             End Set
         End Property
     End Class

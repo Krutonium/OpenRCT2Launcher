@@ -31,6 +31,10 @@ Public Class frmLauncher
             Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
         End If
 
+        If Settings.OpenRCTdotNetPlaytimeCache > 0 Then
+            Task.Run(DirectCast(Async Sub() Await OpenRCTdotNetWebActions.SaveUploadTime(0), Action))
+        End If
+
         cmdLaunchGame.Enabled = Directory.Exists(OpenRCT2Config.GamePath)
 
         PictureBox1.SizeMode = PictureBoxSizeMode.Zoom

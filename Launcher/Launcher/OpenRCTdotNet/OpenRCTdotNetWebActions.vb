@@ -49,9 +49,16 @@ Namespace OpenRCTdotNet
         End Function
 
         Public Shared Async Function SaveUploadTime(minutesPlayed As Integer) As Task
+            minutesPlayed += Settings.OpenRCTdotNetPlaytimeCache
             Dim downloadUri As New Uri(String.Format("{0}?a=set_time_played&user={1}&auth={2}&secret={3}&minutes={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, minutesPlayed))
             Try
                 Await (New WebClient).DownloadStringTaskAsync(downloadUri)
+                Settings.OpenRCTdotNetPlaytimeCache = 0
+                Settings.HasChanged = True
+            Catch ex As WebException
+                'No internet available or server down: retry next time
+                Settings.OpenRCTdotNetPlaytimeCache += minutesPlayed
+                Settings.HasChanged = True
             Catch ex As Exception
                 'TODO: Add eror handling
             End Try
