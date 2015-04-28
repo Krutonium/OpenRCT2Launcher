@@ -85,7 +85,7 @@ Partial Class frmLauncher
         'pbDonate
         '
         Me.pbDonate.Image = CType(resources.GetObject("pbDonate.Image"), System.Drawing.Image)
-        Me.pbDonate.Location = New System.Drawing.Point(0, 0)
+        Me.pbDonate.Location = New System.Drawing.Point(378, 12)
         Me.pbDonate.Name = "pbDonate"
         Me.pbDonate.Size = New System.Drawing.Size(92, 26)
         Me.pbDonate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
