@@ -17,6 +17,7 @@ Well, it can do a couple things right now, but this list will likely keep expand
 * Copy the theme music from Roller Coaster Tycoon 1 into Roller Coaster Tycoon 2 for use in OpenRCT2
 * Enable seamless syncing of your saves and progress between multiple computers via Dropbox (Requires Admin to setup, computer with most progress should be added last)
 * Use the [OpenRCT.net](http://openrct.net) CoasterCloud features
+* Install Mods from (http://openrct.net) into your game automatically
 * Launch OpenRCT2 :)
 
 If you find any bugs/want features added, please feel free to file an issue or make a pull request and add it yourself - Just make sure you send back the changes. :)
