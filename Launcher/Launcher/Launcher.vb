@@ -19,7 +19,7 @@ Public Class frmLauncher
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Check for updates
 
-        'My.Settings.Upgrade()
+        My.Settings.Upgrade()
 
         CheckForIllegalCrossThreadCalls = False
 
@@ -37,8 +37,8 @@ Public Class frmLauncher
 
         cmdLaunchGame.Enabled = Directory.Exists(OpenRCT2Config.GamePath)
 
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.Image = Logo
+        'PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        'PictureBox1.Image = Logo
         Icon = OpenRCTIcon
 
         'If the OpenRCT2 folder doesn't exist, create it
@@ -56,21 +56,22 @@ Public Class frmLauncher
             End Try
         End If
 
-        Try
-            If Settings.Donator = True = False Then
-                Dim WS As New WebClient
-                If WS.DownloadString("https://openrct.net/launcher/Launcher/ShouldDonate.txt") = "1" Then
-                    If Settings.ShowDonateUser = True Then
-                        pbDonate.Visible = True
-                    End If
-                Else
-                    pbDonate.Visible = False
-                End If
-            End If
 
-        Catch ex As Exception
-
-        End Try
+        ' Try
+        'If Settings.Donator = True = False Then
+        'Dim WS As New WebClient
+        'If WS.DownloadString("https://openrct.net/launcher/Launcher/ShouldDonate.txt") = "1" Then
+        'If Settings.ShowDonateUser = True Then
+        'pbDonate.Visible = True
+        'End If
+        'Else
+        'pbDonate.Visible = False
+        'End If
+        'End If
+        '
+        'Catch ex As Exception
+        '
+        'End Try
 
         If Settings.OpenRCTdotNetSaveGames Then
             SyncSaves()
@@ -246,11 +247,40 @@ Public Class frmLauncher
         Task.Run(DirectCast(Async Sub() Await OpenRCTdotNetWebActions.DownloadSaves(False), Action))
     End Sub
 
-    Private Sub pbDonate_Click(sender As Object, e As EventArgs) Handles pbDonate.Click
+    Private Sub pbDonate_Click(sender As Object, e As EventArgs)
         Settings.ShowDonateUser = False
         Settings.HasChanged = True
         Settings.Save()
         Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8N95FU9CJKAY6")
-        pbDonate.Visible = False
+        'pbDonate.Visible = False
     End Sub
+
+    Function HasInternet() As Boolean
+        Try
+            Return My.Computer.Network.Ping("8.8.8.8") 'ping Google :')
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
+    Private Sub wbSlideshow_Navigating(sender As Object, e As WebBrowserNavigatingEventArgs) Handles wbSlideshow.Navigating
+        If HasInternet() Then
+            wbSlideshow.Visible = True
+            PictureBox1.Visible = False
+
+            If e.Url.ToString = "https://openrct.net/inLauncher/open_store" Then
+                OpenRCTdotNetStoreBrowser.Visible = True
+                e.Cancel = True
+            ElseIf e.Url.ToString <> "https://openrct.net/inLauncher/launcher.html" Then
+                Process.Start(e.Url.ToString)
+                e.Cancel = True
+            End If
+        Else
+            e.Cancel = True
+            wbSlideshow.Visible = False
+            PictureBox1.Visible = True
+        End If
+
+    End Sub
+
 End Class
