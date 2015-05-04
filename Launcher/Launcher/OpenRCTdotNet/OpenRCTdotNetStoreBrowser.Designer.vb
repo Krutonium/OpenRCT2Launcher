@@ -31,15 +31,15 @@ Partial Class OpenRCTdotNetStoreBrowser
         Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(1000, 600)
+        Me.WebBrowser1.Size = New System.Drawing.Size(1009, 559)
         Me.WebBrowser1.TabIndex = 0
-        Me.WebBrowser1.Url = New System.Uri("https://openrct.net/store?api", System.UriKind.Absolute)
+        Me.WebBrowser1.Url = New System.Uri("https://openrct.net/store.php", System.UriKind.Absolute)
         '
         'OpenRCTdotNetStoreBrowser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(679, 452)
+        Me.ClientSize = New System.Drawing.Size(1009, 559)
         Me.Controls.Add(Me.WebBrowser1)
         Me.Name = "OpenRCTdotNetStoreBrowser"
         Me.Text = "OpenRCTdotNetStoreBrowser"

@@ -10,13 +10,21 @@ Public Class OpenRCTdotNetStoreBrowser
         Me.Icon = OpenRCTIcon
         Me.Text = "OpenRCT.net Store"
 
+        If Settings.OpenRCTdotNetUserID <> Nothing Then
+
+            ' dont show ads if you're logged in: no need for an auth key, just add ?loggedin
+            WebBrowser1.Url = New System.Uri("https://openrct.net/store.php?loggedin")
+
+        End If
+
+
     End Sub
     Private Sub WebBrowser_Navigating(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserNavigatingEventArgs) Handles WebBrowser1.Navigating
         'If Not e.Url.IsFile Then
         'MsgBox(e.Url.ToString)
         'End If
         Dim uu As String = e.Url.ToString.ToUpper
-        If uu.EndsWith(".ZIP") Or uu.EndsWith(".SV6") Or uu.EndsWith(".SC6") Or uu.EndsWith(".ZIP") = True Then
+        If uu.EndsWith(".ZIP") Or uu.EndsWith(".RCT2MOD") Or uu.EndsWith(".SV6") Or uu.EndsWith(".SC6") Or uu.EndsWith(".ZIP") = True Then
             'MsgBox("Canceling Nav")
             e.Cancel = True
         End If
@@ -62,6 +70,29 @@ Public Class OpenRCTdotNetStoreBrowser
                 End If
             Next
             MsgBox("Pack Installed.")
+        ElseIf URL.ToUpper.EndsWith(".RCT2MOD") Then
+            MsgBox("Installing modpack...")
+            WS.DownloadFile(New Uri(URL), TempF & "\" & Path.GetFileName(URL))
+            'WS.DownloadFile(New Uri(URL), RCT2Loc & "/ZIP/" & Path.GetFileName(URL))
+            If Directory.Exists(TempF & "/Extracted") Then
+                Directory.Delete(TempF & "/Extracted", True)
+            End If
+            ZipFile.ExtractToDirectory(TempF & "\" & Path.GetFileName(URL), TempF & "/Extracted")
+            For Each Filee In Directory.GetFiles(TempF & "/Extracted/Data", ".", SearchOption.AllDirectories)
+                File.Copy(Filee, RCT2Loc & "/Data/" & Path.GetFileName(Filee), True)
+            Next
+            For Each Filee In Directory.GetFiles(TempF & "/Extracted/ObjData", ".", SearchOption.AllDirectories)
+                File.Copy(Filee, RCT2Loc & "/ObjData/" & Path.GetFileName(Filee), True)
+            Next
+            For Each Filee In Directory.GetFiles(TempF & "/Extracted/Scenarios", ".", SearchOption.AllDirectories)
+                File.Copy(Filee, RCT2Loc & "/Scenarios/" & Path.GetFileName(Filee), True)
+            Next
+            For Each Filee In Directory.GetFiles(TempF & "/Extracted/Saved Games", ".", SearchOption.AllDirectories)
+                File.Copy(Filee, RCT2Loc & "/Saved Games/" & Path.GetFileName(Filee), True)
+            Next
+            Directory.Delete(TempF & "/Extracted", True)
+            File.Delete(TempF & "\" & Path.GetFileName(URL))
+            MsgBox("Modpack Installed.")
         End If
     End Sub
 End Class

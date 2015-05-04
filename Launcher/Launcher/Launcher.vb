@@ -126,20 +126,20 @@ Public Class frmLauncher
 
                 Process.WaitForExit()
 
-                'MsgBox("game is closed") 'We don't need this...
-                ' Process is not running, game is closed
-                If Settings.OpenRCTdotNetSaveGames Then
-                    ' i'm using Call here instead of SyncSaves() since, for some reason, that doesn't work here (probably because we do Close a few lines later)
-                    ' but that doesn't seem to be a problem since the app is invisible to the user and up and downloading shouldn't take THAT long
-                    Call OpenRCTdotNetWebActions.UploadSaves(False)
-                    Call OpenRCTdotNetWebActions.DownloadSaves(False)
-                End If
 
                 If Settings.OpenRCTdotNetUploadTime Then
                     Dim diff As Int64
                     diff = (DateTime.UtcNow - New DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds - uTime
                     diff = Math.Round(diff / 60)
                     Call OpenRCTdotNetWebActions.SaveUploadTime(diff)
+                End If
+
+
+                If Settings.OpenRCTdotNetSaveGames Then
+                    ' i'm using Call here instead of SyncSaves() since, for some reason, that doesn't work here (probably because we do Close a few lines later)
+                    ' but that doesn't seem to be a problem since the app is invisible to the user and up and downloading shouldn't take THAT long
+                    Call OpenRCTdotNetWebActions.UploadSaves(False)
+                    Call OpenRCTdotNetWebActions.DownloadSaves(False)
                 End If
 
                 Close()
