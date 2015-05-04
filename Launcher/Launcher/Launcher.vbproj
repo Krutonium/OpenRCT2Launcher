@@ -259,6 +259,9 @@
   <ItemGroup>
     <None Include="Resources\btn_donate_LG.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\offline.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
     <PostBuildEvent>
