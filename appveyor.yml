@@ -1,4 +1,7 @@
 version: 1.0.{build}
+build:
+  project: Launcher\Launcher.sln
+  
 configuration:
   - Release
 
