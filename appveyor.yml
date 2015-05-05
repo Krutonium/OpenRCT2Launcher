@@ -1,13 +1,11 @@
 version: 1.0.{build}
 build:
   project: Launcher\Launcher.sln
+  verbosity: normal
   
 configuration:
   - Release
-
-build:
-  verbosity: normal
-
+  
 after_test:
   - md LauncherRelease
   - xcopy "%CD%\Launcher\Launcher\bin\Release\*.exe" "%CD%\LauncherRelease" /y
