@@ -4,6 +4,7 @@ Imports Launcher.OpenRCTdotNet
 Imports System.Net
 Imports System.IO
 Imports System.IO.Compression
+Imports ORCT2ModPacker
 Public Class OpenRCTdotNetStoreBrowser
 
     Private Sub OpenRCTdotNetStoreBrowser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -71,28 +72,17 @@ Public Class OpenRCTdotNetStoreBrowser
             Next
             MsgBox("Pack Installed.")
         ElseIf URL.ToUpper.EndsWith(".RCT2MOD") Then
-            MsgBox("Installing modpack...")
             WS.DownloadFile(New Uri(URL), TempF & "\" & Path.GetFileName(URL))
-            'WS.DownloadFile(New Uri(URL), RCT2Loc & "/ZIP/" & Path.GetFileName(URL))
-            If Directory.Exists(TempF & "/Extracted") Then
-                Directory.Delete(TempF & "/Extracted", True)
+            Dim Snoo As New UnPackMod
+            Snoo.GetInfoFromMod(TempF & "\" & Path.GetFileName(URL))
+            Dim install = MsgBox("Install " & Snoo.ModName & " from " & Snoo.Author & "?", vbYesNo)
+            If install = MsgBoxResult.Yes Then
+                Snoo.UnPackMod(TempF & "\" & Path.GetFileName(URL), RCT2Loc)
+                MsgBox("Install Complete.")
+            Else
+                MsgBox("Install Aborted.")
             End If
-            ZipFile.ExtractToDirectory(TempF & "\" & Path.GetFileName(URL), TempF & "/Extracted")
-            For Each Filee In Directory.GetFiles(TempF & "/Extracted/Data", ".", SearchOption.AllDirectories)
-                File.Copy(Filee, RCT2Loc & "/Data/" & Path.GetFileName(Filee), True)
-            Next
-            For Each Filee In Directory.GetFiles(TempF & "/Extracted/ObjData", ".", SearchOption.AllDirectories)
-                File.Copy(Filee, RCT2Loc & "/ObjData/" & Path.GetFileName(Filee), True)
-            Next
-            For Each Filee In Directory.GetFiles(TempF & "/Extracted/Scenarios", ".", SearchOption.AllDirectories)
-                File.Copy(Filee, RCT2Loc & "/Scenarios/" & Path.GetFileName(Filee), True)
-            Next
-            For Each Filee In Directory.GetFiles(TempF & "/Extracted/Saved Games", ".", SearchOption.AllDirectories)
-                File.Copy(Filee, RCT2Loc & "/Saved Games/" & Path.GetFileName(Filee), True)
-            Next
-            Directory.Delete(TempF & "/Extracted", True)
-            File.Delete(TempF & "\" & Path.GetFileName(URL))
-            MsgBox("Modpack Installed.")
+
         End If
     End Sub
 End Class

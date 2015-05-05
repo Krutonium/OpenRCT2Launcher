@@ -42,7 +42,7 @@ Namespace Forms
             Catch ex As Exception
                 If Settings.OptionsDialogRCT1 = False Then
                     Settings.OptionsDialogRCT1 = True
-                    MsgBox(extras_setupReg_noRegisterKeys)
+                    'MsgBox(extras_setupReg_noRegisterKeys)
                 End If
                 cmdCSS17.Enabled = False
                 cmdCSS17File.Enabled = True

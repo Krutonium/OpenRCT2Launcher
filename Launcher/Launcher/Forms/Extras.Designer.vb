@@ -140,7 +140,7 @@ Namespace Forms
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-            Me.ClientSize = New System.Drawing.Size(362, 217)
+            Me.ClientSize = New System.Drawing.Size(362, 187)
             Me.Controls.Add(Me.gboOpenRCTnet)
             Me.Controls.Add(Me.cmdSyncAnyFolder)
             Me.Controls.Add(Me.cmdDropboxSync)

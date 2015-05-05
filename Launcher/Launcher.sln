@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
+# Visual Studio Express 2013 for Windows Desktop
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Launcher", "Launcher\Launcher.vbproj", "{7647631A-C900-4106-B132-189D087A166D}"
@@ -8,6 +8,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperLibrary", "ReparsePointLibrary\HelperLibrary.csproj", "{E84D866B-4176-4444-A2AB-CE820001AE4A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{E1725E87-E4A6-4DDD-B832-B8F103395138}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ORCT2ModPacker", "ORCT2ModPacker\ORCT2ModPacker\ORCT2ModPacker.vbproj", "{720C4B60-DFF5-4B08-BAD1-3A88D4D0E04E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E1725E87-E4A6-4DDD-B832-B8F103395138}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1725E87-E4A6-4DDD-B832-B8F103395138}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1725E87-E4A6-4DDD-B832-B8F103395138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{720C4B60-DFF5-4B08-BAD1-3A88D4D0E04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720C4B60-DFF5-4B08-BAD1-3A88D4D0E04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720C4B60-DFF5-4B08-BAD1-3A88D4D0E04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720C4B60-DFF5-4B08-BAD1-3A88D4D0E04E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

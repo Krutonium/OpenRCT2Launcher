@@ -245,6 +245,10 @@
     <None Include="Resources\OpenRCTIcon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ORCT2ModPacker\ORCT2ModPacker\ORCT2ModPacker.vbproj">
+      <Project>{720c4b60-dff5-4b08-bad1-3a88d4d0e04e}</Project>
+      <Name>ORCT2ModPacker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReparsePointLibrary\HelperLibrary.csproj">
       <Project>{e84d866b-4176-4444-a2ab-ce820001ae4a}</Project>
       <Name>HelperLibrary</Name>
