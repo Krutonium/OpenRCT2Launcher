@@ -82,7 +82,7 @@ Partial Class frmLauncher
         Me.wbSlideshow.Size = New System.Drawing.Size(458, 240)
         Me.wbSlideshow.TabIndex = 5
         Me.wbSlideshow.TabStop = False
-        Me.wbSlideshow.Url = New System.Uri("https://openrct.net/inLauncher/launcher.html", System.UriKind.Absolute)
+        Me.wbSlideshow.Url = New System.Uri("https://openrct.net/inLauncher/launcher.php", System.UriKind.Absolute)
         Me.wbSlideshow.WebBrowserShortcutsEnabled = False
         '
         'PictureBox1

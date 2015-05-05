@@ -271,7 +271,7 @@ Public Class frmLauncher
             If e.Url.ToString = "https://openrct.net/inLauncher/open_store" Then
                 OpenRCTdotNetStoreBrowser.Visible = True
                 e.Cancel = True
-            ElseIf e.Url.ToString <> "https://openrct.net/inLauncher/launcher.html" Then
+            ElseIf Not e.Url.ToString.StartsWith("https://openrct.net/inLauncher") Then
                 Process.Start(e.Url.ToString)
                 e.Cancel = True
             End If
@@ -282,5 +282,6 @@ Public Class frmLauncher
         End If
 
     End Sub
+
 
 End Class
