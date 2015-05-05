@@ -24,7 +24,7 @@ Public Class OpenRCTdotNetStoreBrowser
         'MsgBox(e.Url.ToString)
         'End If
         Dim uu As String = e.Url.ToString.ToUpper
-        If uu.EndsWith(".ZIP") Or uu.EndsWith(".RCT2MOD") Or uu.EndsWith(".SV6") Or uu.EndsWith(".SC6") Or uu.EndsWith(".ZIP") = True Then
+        If uu.EndsWith(".ZIP") Or uu.EndsWith(".RCT2MOD") Or uu.EndsWith(".TD6") Or uu.EndsWith(".SV6") Or uu.EndsWith(".SC6") Or uu.EndsWith(".ZIP") = True Then
             'MsgBox("Canceling Nav")
             e.Cancel = True
         End If
@@ -42,16 +42,23 @@ Public Class OpenRCTdotNetStoreBrowser
         Dim RCT2Loc = RCT2LocReg.GetValue("Path")
 
         If URL.ToUpper.EndsWith(".SV6") Then
-            MsgBox("Installing Save...")
+            tsslState.Text = "Installing save... Please wait"
             WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Saved Games/" & Path.GetFileName(URL))
+            tsslState.Text = "Save installed..."
         ElseIf URL.ToUpper.EndsWith(".SC6") Then
-            MsgBox("Installing Scenario...")
+            tsslState.Text = "Installing scenario... Please wait"
             WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Scenarios/" & Path.GetFileName(URL))
+            tsslState.Text = "Scenario installed..."
+        ElseIf URL.ToUpper.EndsWith(".TD6") Then
+            tsslState.Text = "Installing track... Please wait"
+            WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Tracks/" & Path.GetFileName(URL))
+            tsslState.Text = "Track installed..."
         ElseIf URL.ToUpper.EndsWith(".DAT") Then
-            MsgBox("Installing Object...")
+            tsslState.Text = "Installing object... Please wait"
             WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/ObjData/" & Path.GetFileName(URL))
+            tsslState.Text = "Object installed..."
         ElseIf URL.ToUpper.EndsWith(".ZIP") Then
-            MsgBox("Installing Pack...")
+            tsslState.Text = "Installing legacy pack... Please wait"
             WS.DownloadFile(New Uri(URL), TempF & "\" & Path.GetFileName(URL))
             'WS.DownloadFile(New Uri(URL), RCT2Loc & "/ZIP/" & Path.GetFileName(URL))
             If Directory.Exists(TempF & "/Extracted") Then
@@ -61,17 +68,17 @@ Public Class OpenRCTdotNetStoreBrowser
             For Each Filee In Directory.GetFiles(TempF & "/Extracted", ".", SearchOption.AllDirectories)
                 If Filee.ToUpper.EndsWith(".DAT") Then
                     File.Copy(Filee, RCT2Loc & "/ObjData/" & Path.GetFileName(Filee), True)
-                End If
-                If Filee.ToUpper.EndsWith(".SC6") Then
+                ElseIf Filee.ToUpper.EndsWith(".SC6") Then
                     File.Copy(Filee, RCT2Loc & "/Scenarios/" & Path.GetFileName(Filee), True)
-                End If
-                If Filee.ToUpper.EndsWith(".SV6") Then
+                ElseIf Filee.ToUpper.EndsWith(".SV6") Then
                     File.Copy(Filee, RCT2Loc & "/Saved Games/" & Path.GetFileName(Filee), True)
+                ElseIf Filee.ToUpper.EndsWith(".TD6") Then
+                    File.Copy(Filee, RCT2Loc & "/Tracks/" & Path.GetFileName(Filee), True)
                 End If
             Next
-            MsgBox("Pack Installed.")
+            tsslState.Text = "Legacy pack installed..."
         ElseIf URL.ToUpper.EndsWith(".RCT2MOD") Then
-            MsgBox("Installing modpack...")
+            tsslState.Text = "Installing modpack... Please wait"
             WS.DownloadFile(New Uri(URL), TempF & "\" & Path.GetFileName(URL))
             'WS.DownloadFile(New Uri(URL), RCT2Loc & "/ZIP/" & Path.GetFileName(URL))
             If Directory.Exists(TempF & "/Extracted") Then
@@ -90,9 +97,13 @@ Public Class OpenRCTdotNetStoreBrowser
             For Each Filee In Directory.GetFiles(TempF & "/Extracted/Saved Games", ".", SearchOption.AllDirectories)
                 File.Copy(Filee, RCT2Loc & "/Saved Games/" & Path.GetFileName(Filee), True)
             Next
+            For Each Filee In Directory.GetFiles(TempF & "/Extracted/Tracks", ".", SearchOption.AllDirectories)
+                File.Copy(Filee, RCT2Loc & "/Tracks/" & Path.GetFileName(Filee), True)
+            Next
             Directory.Delete(TempF & "/Extracted", True)
             File.Delete(TempF & "\" & Path.GetFileName(URL))
-            MsgBox("Modpack Installed.")
+
+            tsslState.Text = "Modpack installed."
         End If
     End Sub
 End Class
