@@ -38,7 +38,9 @@ Namespace Forms
             Me.cmdSyncSaves = New System.Windows.Forms.Button()
             Me.gboOpenRCTnet = New System.Windows.Forms.GroupBox()
             Me.cmdWebStore = New System.Windows.Forms.Button()
+            Me.GroupBox1 = New System.Windows.Forms.GroupBox()
             Me.gboOpenRCTnet.SuspendLayout()
+            Me.GroupBox1.SuspendLayout()
             Me.SuspendLayout()
             '
             'cmdCSS17
@@ -61,11 +63,11 @@ Namespace Forms
             '
             'cmdDebug
             '
-            Me.cmdDebug.Location = New System.Drawing.Point(12, 194)
+            Me.cmdDebug.Location = New System.Drawing.Point(6, 19)
             Me.cmdDebug.Name = "cmdDebug"
             Me.cmdDebug.Size = New System.Drawing.Size(165, 23)
             Me.cmdDebug.TabIndex = 2
-            Me.cmdDebug.Text = Global.Launcher.My.Resources.Resources.extras_fileLocationsButton_text
+            Me.cmdDebug.Text = "Show File Locations"
             Me.cmdDebug.UseVisualStyleBackColor = True
             '
             'cmdDropboxSync
@@ -120,9 +122,9 @@ Namespace Forms
             Me.gboOpenRCTnet.Controls.Add(Me.cmdLoginOpenRCTnet)
             Me.gboOpenRCTnet.Controls.Add(Me.cmdSyncSaves)
             Me.gboOpenRCTnet.Controls.Add(Me.cmdOpenRCTNetFeatures)
-            Me.gboOpenRCTnet.Location = New System.Drawing.Point(12, 70)
+            Me.gboOpenRCTnet.Location = New System.Drawing.Point(12, 71)
             Me.gboOpenRCTnet.Name = "gboOpenRCTnet"
-            Me.gboOpenRCTnet.Size = New System.Drawing.Size(336, 108)
+            Me.gboOpenRCTnet.Size = New System.Drawing.Size(338, 108)
             Me.gboOpenRCTnet.TabIndex = 9
             Me.gboOpenRCTnet.TabStop = False
             Me.gboOpenRCTnet.Text = "OpenRCT.net Integration"
@@ -136,20 +138,32 @@ Namespace Forms
             Me.cmdWebStore.Text = "Open OpenRCT.net Store (Free)"
             Me.cmdWebStore.UseVisualStyleBackColor = True
             '
+            'GroupBox1
+            '
+            Me.GroupBox1.Controls.Add(Me.cmdDebug)
+            Me.GroupBox1.Location = New System.Drawing.Point(12, 185)
+            Me.GroupBox1.Name = "GroupBox1"
+            Me.GroupBox1.Size = New System.Drawing.Size(338, 53)
+            Me.GroupBox1.TabIndex = 10
+            Me.GroupBox1.TabStop = False
+            Me.GroupBox1.Text = "Debug"
+            '
             'Extras
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-            Me.ClientSize = New System.Drawing.Size(362, 217)
+            Me.ClientSize = New System.Drawing.Size(362, 250)
+            Me.Controls.Add(Me.GroupBox1)
             Me.Controls.Add(Me.gboOpenRCTnet)
             Me.Controls.Add(Me.cmdSyncAnyFolder)
             Me.Controls.Add(Me.cmdDropboxSync)
-            Me.Controls.Add(Me.cmdDebug)
             Me.Controls.Add(Me.cmdCSS17File)
             Me.Controls.Add(Me.cmdCSS17)
             Me.Name = "Extras"
+            Me.ShowInTaskbar = False
             Me.Text = "Extras"
             Me.gboOpenRCTnet.ResumeLayout(False)
+            Me.GroupBox1.ResumeLayout(False)
             Me.ResumeLayout(False)
 
         End Sub
@@ -165,5 +179,6 @@ Namespace Forms
         Friend WithEvents cmdSyncSaves As System.Windows.Forms.Button
         Friend WithEvents gboOpenRCTnet As System.Windows.Forms.GroupBox
         Friend WithEvents cmdWebStore As System.Windows.Forms.Button
+        Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     End Class
 End Namespace

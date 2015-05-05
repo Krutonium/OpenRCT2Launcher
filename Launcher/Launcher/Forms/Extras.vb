@@ -163,15 +163,15 @@ Namespace Forms
         End Function
 
         Private Sub cmdLoginOpenRCTnet_Click(sender As Object, e As EventArgs) Handles cmdLoginOpenRCTnet.Click
-            OpenRCTdotNetLogin.Show()
+            OpenRCTdotNetLogin.ShowDialog()
         End Sub
 
         Private Sub cmdOpenRCTNetFeatures_Click(sender As Object, e As EventArgs) Handles cmdOpenRCTNetFeatures.Click
-            OpenRCTdotNetConfigure.Visible = True
+            OpenRCTdotNetConfigure.ShowDialog()
         End Sub
 
         Private Sub cmdSyncSaves_Click(sender As Object, e As EventArgs) Handles cmdSyncSaves.Click
-            OpenRCTdotNetSyncSaves.Visible = True
+            OpenRCTdotNetSyncSaves.ShowDialog()
         End Sub
 
         Private Sub cmdWebStore_Click(sender As Object, e As EventArgs) Handles cmdWebStore.Click

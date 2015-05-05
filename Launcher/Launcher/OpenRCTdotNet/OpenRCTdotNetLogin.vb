@@ -35,8 +35,12 @@ Namespace OpenRCTdotNet
         End Sub
 
         Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            Icon = OpenRCTIcon
+            FormBorderStyle = FormBorderStyle.Fixed3D
+            WindowState = FormWindowState.Normal
+            MaximizeBox = False
             LogoPictureBox.SizeMode = PictureBoxSizeMode.Zoom
-            LogoPictureBox.Image = Logo
+            LogoPictureBox.Image = login_screen
         End Sub
 
         Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
