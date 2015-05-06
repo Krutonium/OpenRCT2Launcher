@@ -51,6 +51,9 @@ Public Class OpenRCTdotNetStoreBrowser
             tsslStatus.Text = "Installing Object..."
             WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/ObjData/" & Path.GetFileName(URL))
             tsslStatus.Text = "Object installed..."
+        ElseIf URL.ToUpper.EndsWith(".TD6") Then
+            tsslStatus.Text = "Installing a Track..."
+            WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Tracks/" & Path.GetFileName(URL))
         ElseIf URL.ToUpper.EndsWith(".ZIP") Then
             tsslStatus.Text = "Installing Pack..."
             WS.DownloadFile(New Uri(URL), TempF & "\" & Path.GetFileName(URL))
