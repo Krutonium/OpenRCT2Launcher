@@ -30,12 +30,14 @@ Namespace OpenRCTdotNet
             Me.chkUploadSaves = New System.Windows.Forms.CheckBox()
             Me.lblUsername = New System.Windows.Forms.Label()
             Me.lblWarning = New System.Windows.Forms.Label()
+            Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
+            CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
             'ChkUploadTime
             '
             Me.ChkUploadTime.AutoSize = True
-            Me.ChkUploadTime.Location = New System.Drawing.Point(12, 32)
+            Me.ChkUploadTime.Location = New System.Drawing.Point(155, 36)
             Me.ChkUploadTime.Name = "ChkUploadTime"
             Me.ChkUploadTime.Size = New System.Drawing.Size(150, 17)
             Me.ChkUploadTime.TabIndex = 0
@@ -45,7 +47,7 @@ Namespace OpenRCTdotNet
             'chkUploadSaves
             '
             Me.chkUploadSaves.AutoSize = True
-            Me.chkUploadSaves.Location = New System.Drawing.Point(12, 55)
+            Me.chkUploadSaves.Location = New System.Drawing.Point(155, 59)
             Me.chkUploadSaves.Name = "chkUploadSaves"
             Me.chkUploadSaves.Size = New System.Drawing.Size(139, 17)
             Me.chkUploadSaves.TabIndex = 1
@@ -55,7 +57,7 @@ Namespace OpenRCTdotNet
             'lblUsername
             '
             Me.lblUsername.AutoSize = True
-            Me.lblUsername.Location = New System.Drawing.Point(13, 13)
+            Me.lblUsername.Location = New System.Drawing.Point(155, 17)
             Me.lblUsername.Name = "lblUsername"
             Me.lblUsername.Size = New System.Drawing.Size(0, 13)
             Me.lblUsername.TabIndex = 2
@@ -63,23 +65,35 @@ Namespace OpenRCTdotNet
             'lblWarning
             '
             Me.lblWarning.AutoSize = True
-            Me.lblWarning.Location = New System.Drawing.Point(16, 79)
+            Me.lblWarning.Location = New System.Drawing.Point(155, 79)
             Me.lblWarning.Name = "lblWarning"
             Me.lblWarning.Size = New System.Drawing.Size(0, 13)
             Me.lblWarning.TabIndex = 3
+            '
+            'LogoPictureBox
+            '
+            Me.LogoPictureBox.Image = Global.Launcher.My.Resources.Resources.logo_icon
+            Me.LogoPictureBox.Location = New System.Drawing.Point(12, 12)
+            Me.LogoPictureBox.Name = "LogoPictureBox"
+            Me.LogoPictureBox.Size = New System.Drawing.Size(128, 128)
+            Me.LogoPictureBox.TabIndex = 4
+            Me.LogoPictureBox.TabStop = False
             '
             'OpenRCTdotNetConfigure
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-            Me.ClientSize = New System.Drawing.Size(371, 226)
+            Me.ClientSize = New System.Drawing.Size(438, 154)
+            Me.Controls.Add(Me.LogoPictureBox)
             Me.Controls.Add(Me.lblWarning)
             Me.Controls.Add(Me.lblUsername)
             Me.Controls.Add(Me.chkUploadSaves)
             Me.Controls.Add(Me.ChkUploadTime)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
             Me.Name = "OpenRCTdotNetConfigure"
+            Me.ShowInTaskbar = False
             Me.Text = "OpenRCT.net Configuration"
+            CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
@@ -88,5 +102,6 @@ Namespace OpenRCTdotNet
         Friend WithEvents chkUploadSaves As System.Windows.Forms.CheckBox
         Friend WithEvents lblUsername As System.Windows.Forms.Label
         Friend WithEvents lblWarning As System.Windows.Forms.Label
+        Friend WithEvents LogoPictureBox As System.Windows.Forms.PictureBox
     End Class
 End Namespace

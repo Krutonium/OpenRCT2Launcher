@@ -12,12 +12,9 @@ Public Class OpenRCTdotNetStoreBrowser
         Me.Text = "OpenRCT.net Store"
 
         If Settings.OpenRCTdotNetUserID <> Nothing Then
-
             ' dont show ads if you're logged in: no need for an auth key, just add ?loggedin
             WebBrowser1.Url = New System.Uri("https://openrct.net/store.php?loggedin")
-
         End If
-
 
     End Sub
     Private Sub WebBrowser_Navigating(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserNavigatingEventArgs) Handles WebBrowser1.Navigating
@@ -43,16 +40,19 @@ Public Class OpenRCTdotNetStoreBrowser
         Dim RCT2Loc = RCT2LocReg.GetValue("Path")
 
         If URL.ToUpper.EndsWith(".SV6") Then
-            MsgBox("Installing Save...")
+            tsslStatus.Text = "Installing Save..."
             WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Saved Games/" & Path.GetFileName(URL))
+            tsslStatus.Text = "Saved installed..."
         ElseIf URL.ToUpper.EndsWith(".SC6") Then
-            MsgBox("Installing Scenario...")
+            tsslStatus.Text = "Installing scenario..."
             WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Scenarios/" & Path.GetFileName(URL))
+            tsslStatus.Text = "Scenario installed..."
         ElseIf URL.ToUpper.EndsWith(".DAT") Then
-            MsgBox("Installing Object...")
+            tsslStatus.Text = "Installing Object..."
             WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/ObjData/" & Path.GetFileName(URL))
+            tsslStatus.Text = "Object installed..."
         ElseIf URL.ToUpper.EndsWith(".ZIP") Then
-            MsgBox("Installing Pack...")
+            tsslStatus.Text = "Installing Pack..."
             WS.DownloadFile(New Uri(URL), TempF & "\" & Path.GetFileName(URL))
             'WS.DownloadFile(New Uri(URL), RCT2Loc & "/ZIP/" & Path.GetFileName(URL))
             If Directory.Exists(TempF & "/Extracted") Then
@@ -70,17 +70,18 @@ Public Class OpenRCTdotNetStoreBrowser
                     File.Copy(Filee, RCT2Loc & "/Saved Games/" & Path.GetFileName(Filee), True)
                 End If
             Next
-            MsgBox("Pack Installed.")
+            tsslStatus.Text = "Pack installed..."
         ElseIf URL.ToUpper.EndsWith(".RCT2MOD") Then
+            tsslStatus.Text = "Installing Modpack..."
             WS.DownloadFile(New Uri(URL), TempF & "\" & Path.GetFileName(URL))
             Dim Snoo As New UnPackMod
             Snoo.GetInfoFromMod(TempF & "\" & Path.GetFileName(URL))
             Dim install = MsgBox("Install " & Snoo.ModName & " from " & Snoo.Author & "?", vbYesNo)
             If install = MsgBoxResult.Yes Then
                 Snoo.UnPackMod(TempF & "\" & Path.GetFileName(URL), RCT2Loc)
-                MsgBox("Install Complete.")
+                tsslStatus.Text = "Modpack installed..."
             Else
-                MsgBox("Install Aborted.")
+                tsslStatus.Text = "Modpack install aborted..."
             End If
 
         End If

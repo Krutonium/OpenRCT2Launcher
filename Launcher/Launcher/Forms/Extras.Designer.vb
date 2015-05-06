@@ -148,6 +148,7 @@ Namespace Forms
             Me.Controls.Add(Me.cmdCSS17File)
             Me.Controls.Add(Me.cmdCSS17)
             Me.Name = "Extras"
+            Me.ShowInTaskbar = False
             Me.Text = "Extras"
             Me.gboOpenRCTnet.ResumeLayout(False)
             Me.ResumeLayout(False)

@@ -6,6 +6,9 @@ Namespace OpenRCTdotNet
 
         Private Sub OpenRCTdotNetConfigure_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             Icon = OpenRCTIcon
+            FormBorderStyle = FormBorderStyle.Fixed3D
+            WindowState = FormWindowState.Normal
+            MaximizeBox = False
             ChkUploadTime.Checked = Settings.OpenRCTdotNetUploadTime
             chkUploadSaves.Checked = Settings.OpenRCTdotNetSaveGames
             If chkUploadSaves.Checked = True Then

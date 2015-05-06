@@ -24,13 +24,15 @@ Partial Class OpenRCTdotNetSyncSaves
     Private Sub InitializeComponent()
         Me.cmdSync = New System.Windows.Forms.Button()
         Me.lblStatus = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmdSync
         '
-        Me.cmdSync.Location = New System.Drawing.Point(111, 124)
+        Me.cmdSync.Location = New System.Drawing.Point(94, 44)
         Me.cmdSync.Name = "cmdSync"
-        Me.cmdSync.Size = New System.Drawing.Size(165, 27)
+        Me.cmdSync.Size = New System.Drawing.Size(292, 27)
         Me.cmdSync.TabIndex = 0
         Me.cmdSync.Text = "Sync"
         Me.cmdSync.UseVisualStyleBackColor = True
@@ -38,25 +40,39 @@ Partial Class OpenRCTdotNetSyncSaves
         'lblStatus
         '
         Me.lblStatus.AutoSize = True
-        Me.lblStatus.Location = New System.Drawing.Point(12, 9)
+        Me.lblStatus.Location = New System.Drawing.Point(91, 9)
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(39, 13)
         Me.lblStatus.TabIndex = 1
         Me.lblStatus.Text = "Label1"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.Launcher.My.Resources.Resources.logo_icon
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(13, 9)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(62, 62)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
+        '
         'OpenRCTdotNetSyncSaves
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(398, 163)
+        Me.ClientSize = New System.Drawing.Size(398, 83)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lblStatus)
         Me.Controls.Add(Me.cmdSync)
         Me.Name = "OpenRCTdotNetSyncSaves"
+        Me.ShowInTaskbar = False
         Me.Text = "Save Sync"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents cmdSync As System.Windows.Forms.Button
     Friend WithEvents lblStatus As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class
