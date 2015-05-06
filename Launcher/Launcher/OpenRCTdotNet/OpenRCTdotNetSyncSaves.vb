@@ -6,6 +6,9 @@ Public Class OpenRCTdotNetSyncSaves
 
     Private Sub OpenRCTdotNetSyncSaves_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = OpenRCTIcon
+        FormBorderStyle = FormBorderStyle.Fixed3D
+        WindowState = FormWindowState.Normal
+        MaximizeBox = False
         lblStatus.Text = OpenRCTdotNetSaveSyncIdle
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.Fixed3D
     End Sub

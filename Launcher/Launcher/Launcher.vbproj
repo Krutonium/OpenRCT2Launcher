@@ -266,6 +266,12 @@
   <ItemGroup>
     <None Include="Resources\offline.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index_openrct2_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_screen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
     <PostBuildEvent>

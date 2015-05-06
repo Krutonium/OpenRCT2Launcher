@@ -33,7 +33,6 @@ Namespace OpenRCTdotNet
         'Do not modify it using the code editor.
         <System.Diagnostics.DebuggerStepThrough()> _
         Private Sub InitializeComponent()
-            Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OpenRCTdotNetLogin))
             Me.UsernameLabel = New System.Windows.Forms.Label()
             Me.PasswordLabel = New System.Windows.Forms.Label()
             Me.UsernameTextBox = New System.Windows.Forms.TextBox()
@@ -65,14 +64,14 @@ Namespace OpenRCTdotNet
             '
             'UsernameTextBox
             '
-            Me.UsernameTextBox.Location = New System.Drawing.Point(169, 44)
+            Me.UsernameTextBox.Location = New System.Drawing.Point(164, 44)
             Me.UsernameTextBox.Name = "UsernameTextBox"
             Me.UsernameTextBox.Size = New System.Drawing.Size(220, 20)
             Me.UsernameTextBox.TabIndex = 1
             '
             'PasswordTextBox
             '
-            Me.PasswordTextBox.Location = New System.Drawing.Point(169, 93)
+            Me.PasswordTextBox.Location = New System.Drawing.Point(164, 93)
             Me.PasswordTextBox.Name = "PasswordTextBox"
             Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
             Me.PasswordTextBox.Size = New System.Drawing.Size(220, 20)
@@ -80,25 +79,25 @@ Namespace OpenRCTdotNet
             '
             'OK
             '
-            Me.OK.Location = New System.Drawing.Point(197, 161)
+            Me.OK.Location = New System.Drawing.Point(164, 164)
             Me.OK.Name = "OK"
-            Me.OK.Size = New System.Drawing.Size(94, 23)
+            Me.OK.Size = New System.Drawing.Size(140, 23)
             Me.OK.TabIndex = 4
             Me.OK.Text = Global.Launcher.My.Resources.Resources.coomon_login
             '
             'Cancel
             '
             Me.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-            Me.Cancel.Location = New System.Drawing.Point(300, 161)
+            Me.Cancel.Location = New System.Drawing.Point(310, 164)
             Me.Cancel.Name = "Cancel"
-            Me.Cancel.Size = New System.Drawing.Size(94, 23)
+            Me.Cancel.Size = New System.Drawing.Size(79, 23)
             Me.Cancel.TabIndex = 5
             Me.Cancel.Text = Global.Launcher.My.Resources.Resources.common_cancel
             '
             'LinkLabel1
             '
             Me.LinkLabel1.AutoSize = True
-            Me.LinkLabel1.Location = New System.Drawing.Point(194, 129)
+            Me.LinkLabel1.Location = New System.Drawing.Point(189, 129)
             Me.LinkLabel1.Name = "LinkLabel1"
             Me.LinkLabel1.Size = New System.Drawing.Size(170, 13)
             Me.LinkLabel1.TabIndex = 6
@@ -107,10 +106,10 @@ Namespace OpenRCTdotNet
             '
             'LogoPictureBox
             '
-            Me.LogoPictureBox.Image = CType(resources.GetObject("LogoPictureBox.Image"), System.Drawing.Image)
+            Me.LogoPictureBox.Image = Global.Launcher.My.Resources.Resources.login_screen
             Me.LogoPictureBox.Location = New System.Drawing.Point(0, 0)
             Me.LogoPictureBox.Name = "LogoPictureBox"
-            Me.LogoPictureBox.Size = New System.Drawing.Size(165, 193)
+            Me.LogoPictureBox.Size = New System.Drawing.Size(150, 200)
             Me.LogoPictureBox.TabIndex = 0
             Me.LogoPictureBox.TabStop = False
             '
@@ -120,7 +119,7 @@ Namespace OpenRCTdotNet
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.CancelButton = Me.Cancel
-            Me.ClientSize = New System.Drawing.Size(401, 192)
+            Me.ClientSize = New System.Drawing.Size(401, 199)
             Me.Controls.Add(Me.LinkLabel1)
             Me.Controls.Add(Me.Cancel)
             Me.Controls.Add(Me.OK)
@@ -129,10 +128,11 @@ Namespace OpenRCTdotNet
             Me.Controls.Add(Me.PasswordLabel)
             Me.Controls.Add(Me.UsernameLabel)
             Me.Controls.Add(Me.LogoPictureBox)
-            Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+            Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
             Me.MaximizeBox = False
             Me.MinimizeBox = False
             Me.Name = "OpenRCTdotNetLogin"
+            Me.ShowInTaskbar = False
             Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
             Me.Text = "Login to OpenRCT.NET"
