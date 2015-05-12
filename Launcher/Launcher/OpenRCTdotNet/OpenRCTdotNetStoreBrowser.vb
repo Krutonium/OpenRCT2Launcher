@@ -22,10 +22,15 @@ Public Class OpenRCTdotNetStoreBrowser
         'MsgBox(e.Url.ToString)
         'End If
         Dim uu As String = e.Url.ToString.ToUpper
-        If uu.EndsWith(".ZIP") Or uu.EndsWith(".RCT2MOD") Or uu.EndsWith(".SV6") Or uu.EndsWith(".SC6") Or uu.EndsWith(".ZIP") = True Then
-            'MsgBox("Canceling Nav")
+        Dim url As String = Path.GetExtension(uu)
+        'If uu.EndsWith(".ZIP") Or uu.EndsWith(".RCT2MOD") Or uu.EndsWith(".SV6") Or uu.EndsWith(".SC6") Or uu.EndsWith(".ZIP") = True Then
+        'MsgBox("Canceling Nav")
+        'e.Cancel = True
+        'End If
+        If url = (".RCT2MOD") Or url = (".SV6") Or url = (".TD6") Or url = (".SC6") Then
             e.Cancel = True
         End If
+
         DownloadFileAndInstall(e.Url.ToString)
     End Sub
 
