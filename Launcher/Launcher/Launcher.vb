@@ -3,6 +3,7 @@ Imports Launcher.Forms
 Imports Launcher.My
 Imports Launcher.My.Resources
 Imports Launcher.OpenRCTdotNet
+Imports Launcher.OpenRCTdotNetStoreBrowser
 Imports Microsoft.Win32
 Imports System.IO
 Imports System.IO.Compression
@@ -18,7 +19,16 @@ Public Class frmLauncher
 
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Check for updates
-
+        Dim ArgCount As Integer = My.Application.CommandLineArgs.Count
+        If ArgCount > 0 Then
+            Dim X As Integer = 0
+            Do Until X = ArgCount
+                Launcher.OpenRCTdotNetStoreBrowser.WebBrowser1.Url = New Uri(My.Application.CommandLineArgs(X))
+                X += 1
+            Loop
+            MsgBox("Complete.")
+            Me.Close()
+        End If
         My.Settings.Upgrade()
 
         CheckForIllegalCrossThreadCalls = False
