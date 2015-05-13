@@ -89,7 +89,7 @@ Namespace OpenRCTdotNet
 
                         Dim thisFile = RCT2SavedGamesPath & item.Value("propername").ToString
                         If UpdateSyncForm = True Then
-                            OpenRCTdotNetSyncSaves.lblStatus.Text = OpenRCTdotNetSaveSyncStatusDown & item.Value("propername").ToString
+                            OpenRCTdotNetSyncSaves.lblStatus.Text = OpenRCTdotNetSaveSyncStatusDown & " " & item.Value("propername").ToString
                         End If
                         System.Windows.Forms.Application.DoEvents()
 

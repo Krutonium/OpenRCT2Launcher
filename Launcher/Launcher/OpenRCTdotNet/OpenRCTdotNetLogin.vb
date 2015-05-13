@@ -19,9 +19,15 @@ Namespace OpenRCTdotNet
 
             Try
                 Dim user As OpenRCTdotNetUser = Await OpenRCTdotNetWebActions.Login(username, password, True)
-                MsgBox("Welcome, " & user.Username)
+                'MsgBox("Welcome, " & user.Username)
                 Extras.cmdOpenRCTNetFeatures.Enabled = True
                 Extras.cmdSyncSaves.Enabled = True
+                Dim UploadT = MsgBox("Welcome, " & user.Username & "!" & vbNewLine & "Upload Play Time to Server?", MsgBoxStyle.YesNo, "Upload Play Time?")
+                If UploadT = MsgBoxResult.Yes Then
+                    My.Settings.OpenRCTdotNetUploadTime = True
+                    My.Settings.HasChanged = True
+                    My.Settings.Save()
+                End If
                 Close()
             Catch ex As Exception
                 If TypeOf ex Is OpenRCTdotNetWebActionException Then
