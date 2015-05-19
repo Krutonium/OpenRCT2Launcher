@@ -148,7 +148,7 @@
     <value>Verbose Output</value>
   </data>
   <data name="frmLauncher_extrasButton_text" xml:space="preserve">
-    <value>Extra's</value>
+    <value>Extras</value>
   </data>
   <data name="frmLauncher_logButton_text" xml:space="preserve">
     <value>Log Output to File</value>
