@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,276 +118,211 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="frmLauncher_launchGame_updateMessage" xml:space="preserve">
-    <value>Updaten vanwege missende bestanden...</value>
+    <value>Bezig met updaten wegens ontbrekende bestanden...</value>
   </data>
   <data name="frmLauncher_Load_neverRun" xml:space="preserve">
-    <value>Heb je RCT2 geïnstalleerd en gestart? Zo nee, doe dat en probeer het opnieuw</value>
-  </data>
-  <data name="frmLauncher_launchGame_RCT2NotFound" xml:space="preserve">
-    <value>OpenRCT2 is niet geïnstalleerd of niet gevonden! Downloaden... Als het klaar is, druk weer op "Start".</value>
-  </data>
-  <data name="frmLauncher_update_forceUpdate" xml:space="preserve">
-    <value>Geforceerd updaten...</value>
+    <value>Heb je RCT2 geïnstalleerd en al eens gestart? Zo niet, doe dit dan eerst en probeer het dan opnieuw.</value>
   </data>
   <data name="frmLauncher_updateStateMessage_updating" xml:space="preserve">
-    <value>Updaten...</value>
+    <value>Bezig met updaten...</value>
   </data>
   <data name="frmLauncher_updateStateMessage_uptodate" xml:space="preserve">
-    <value>Bijgewerkt!</value>
+    <value>Up-to-date!</value>
+  </data>
+  <data name="frmLauncher_launchGame_RCT2NotFound" xml:space="preserve">
+    <value>OpenRCT2 is niet geïnstalleerd of niet gevonden! Het wordt nu gedownload. Als dit is gebeurd kun je weer op 'Spelen' klikken.</value>
+  </data>
+  <data name="frmLauncher_update_forceUpdate" xml:space="preserve">
+    <value>Bezig met geforceerd updaten...</value>
+  </data>
+  <data name="frmLauncher_updateStatus_baseText" xml:space="preserve">
+    <value>Controleren of alles up-to-date is...</value>
+  </data>
+  <data name="frmLauncher_launchGameButton_text" xml:space="preserve">
+    <value>OpenRCT2 starten</value>
+  </data>
+  <data name="frmLauncher_forceUpdateButton_text" xml:space="preserve">
+    <value>Update forceren</value>
+  </data>
+  <data name="frmLauncher_verboseOutputButton_text" xml:space="preserve">
+    <value>Uitgebreide uitvoer</value>
   </data>
   <data name="frmLauncher_extrasButton_text" xml:space="preserve">
     <value>Extra's</value>
   </data>
-  <data name="frmLauncher_forceUpdateButton_text" xml:space="preserve">
-    <value>Forceer update</value>
-  </data>
-  <data name="frmLauncher_launchGameButton_text" xml:space="preserve">
-    <value>Start OpenRCT2</value>
-  </data>
   <data name="frmLauncher_logButton_text" xml:space="preserve">
-    <value>Houd logs bij in bestand</value>
+    <value>Uitvoer in bestand vastleggen</value>
   </data>
   <data name="frmLauncher_title" xml:space="preserve">
-    <value>OpenRCT2 Launcher</value>
+    <value>OpenRCT2-launcher</value>
   </data>
-  <data name="frmLauncher_updateStatus_baseText" xml:space="preserve">
-    <value>Controleren op updates....</value>
+  <data name="extras_setupReg_noRegisterKeys" xml:space="preserve">
+    <value>De benodigde registersleutels zijn niet aangetroffen. Heb je zowel RCT1 als RCT2 geïnstalleerd? Zo ja, open dan een 'issue' op GitHub.</value>
   </data>
-  <data name="frmLauncher_verboseOutputButton_text" xml:space="preserve">
-    <value>Verbose Output</value>
+  <data name="extras_cdSoundtrack_firstWarning_text" xml:space="preserve">
+    <value>Als je een cd gebruikt om RollerCoaster Tycoon 1 te spelen, voer die dan nu in.</value>
   </data>
-  <data name="common_complete" xml:space="preserve">
-    <value>Voltooid</value>
+  <data name="extras_cdSoundtrack_firstWarning_title" xml:space="preserve">
+    <value>Voer de cd van RCT1 in</value>
+  </data>
+  <data name="extras_cdSoundtrack_failed_text" xml:space="preserve">
+    <value>Kon het bestand niet kopiëren. Heb je de cd ingevoerd en het spel geïnstalleerd?
+
+Precieze foutmelding:
+</value>
   </data>
   <data name="common_errorOccurred" xml:space="preserve">
-    <value>Er ging iets fout!</value>
+    <value>Er is een fout opgetreden.</value>
   </data>
-  <data name="extras_anyFolderSync_done" xml:space="preserve">
-    <value>'Opgeslagen spellen'-map verplaatst en gekoppeld!</value>
+  <data name="extras_cdSoundtrack_done_text" xml:space="preserve">
+    <value>Voltooid. Je bent nu klaar!</value>
   </data>
-  <data name="extras_anyFolderSync_error_notexists" xml:space="preserve">
-    <value>De geselecteerde map bestaat niet!</value>
+  <data name="common_complete" xml:space="preserve">
+    <value>Voltooien</value>
   </data>
-  <data name="extras_anyFolderSync_fileDialog_desc" xml:space="preserve">
-    <value>Kies de plaats waar de spellen moeten worden opgeslagen</value>
+  <data name="extras_fileSoundtrack_hint" xml:space="preserve">
+    <value>Het benodigde bestand is CSS17.dat</value>
+  </data>
+  <data name="extras_fileSoundtrack_noFileSelected" xml:space="preserve">
+    <value>Geen bestand geselecteerd.</value>
+  </data>
+  <data name="extras_syncDropbox_notInstalled" xml:space="preserve">
+    <value>Dropbox lijkt niet geïnstalleerd te zijn.</value>
+  </data>
+  <data name="extras_syncDropbox_firstWarning_text" xml:space="preserve">
+    <value>Weet je zeker dat je je opgeslagen parken wilt verplaatsen naar Dropbox?</value>
+  </data>
+  <data name="extras_syncDropbox_firstWarning_title" xml:space="preserve">
+    <value>Opgeslagen parken verplaatsen?</value>
+  </data>
+  <data name="extras_syncDropbox_moved_text" xml:space="preserve">
+    <value>De opgeslagen parken zijn naar Dropbox verplaatst, met doorverwijzing.</value>
+  </data>
+  <data name="extras_syncDropbox_moved_title" xml:space="preserve">
+    <value>Opgeslagen parken verplaatst</value>
   </data>
   <data name="extras_anyFolderSync_firstWarning_text" xml:space="preserve">
-    <value>Weet je zeker dat je je opgeslagen spellen wilt verplaatsen?</value>
+    <value>Weet je zeker dat je je opgeslagen parken wilt verplaatsen naar een nieuwe map?</value>
   </data>
   <data name="extras_anyFolderSync_firstWarning_title" xml:space="preserve">
     <value>Weet je het zeker?</value>
   </data>
-  <data name="extras_cdSoundtrack_done_text" xml:space="preserve">
-    <value>Voltooid!</value>
+  <data name="extras_anyFolderSync_fileDialog_desc" xml:space="preserve">
+    <value>Geef aan waar je de opgeslagen parken wilt plaatsen.</value>
   </data>
-  <data name="extras_cdSoundtrack_failed_text" xml:space="preserve">
-    <value>Bestand kon niet worden gekopieerd. Heb je de CD ingevoerd en het spel geïnstalleerd?
-
-Exacte fout:</value>
+  <data name="extras_anyFolderSync_done" xml:space="preserve">
+    <value>De opgeslagen parken zijn naar de nieuwe map verplaatst, met doorverwijzing.</value>
   </data>
-  <data name="extras_cdSoundtrack_firstWarning_text" xml:space="preserve">
-    <value>Als je een CD gebruikt om RCT1 te spelen, voer deze dan nu in</value>
-  </data>
-  <data name="extras_cdSoundtrack_firstWarning_title" xml:space="preserve">
-    <value>Voer RCT1 CD in</value>
-  </data>
-  <data name="extras_fileLocationsButton_text" xml:space="preserve">
-    <value>Toon bestandlocaties (debug)</value>
-  </data>
-  <data name="extras_fileSoundtrack_hint" xml:space="preserve">
-    <value>Het bestand wat je zoekt is CSS17.dat</value>
-  </data>
-  <data name="extras_fileSoundtrack_noFileSelected" xml:space="preserve">
-    <value>Geen bestand gekozen</value>
+  <data name="extras_anyFolderSync_error_notexists" xml:space="preserve">
+    <value>De geselecteerde map bestaat niet.</value>
   </data>
   <data name="extras_rct1musicButton_text" xml:space="preserve">
-    <value>Voeg RCT1-startmuziek toe</value>
+    <value>Titelschermmuziek van RCT1 toevoegen</value>
   </data>
   <data name="extras_rct1musicFileButton_text" xml:space="preserve">
-    <value>Voeg RCT1-startmuziek toe uit een bestand</value>
+    <value>Titelschermmuziek van RCT1 toevoegen door middel van een bestand</value>
   </data>
-  <data name="extras_setupReg_noRegisterKeys" xml:space="preserve">
-    <value>De launcher kon de registerwaarden niet vinden. Heb je RCT1 én RCT2 geïnstalleerd? Zo ja, open dan een issue op GitHub</value>
-  </data>
-  <data name="extras_syncDropbox_firstWarning_text" xml:space="preserve">
-    <value>Weet je zeker dat je je opgeslagen spellen wilt verplaatsen naar Dropbox?</value>
-  </data>
-  <data name="extras_syncDropbox_firstWarning_title" xml:space="preserve">
-    <value>Verplaats opgeslagen spellen?</value>
-  </data>
-  <data name="extras_syncDropbox_moved_text" xml:space="preserve">
-    <value>Opgeslagen spellen verplaatst naar Dropbox en gekoppeld!</value>
-  </data>
-  <data name="extras_syncDropbox_moved_title" xml:space="preserve">
-    <value>Opgeslagen spellen verplaatst!</value>
-  </data>
-  <data name="extras_syncDropbox_notInstalled" xml:space="preserve">
-    <value>Dropbox-installatie niet gevonden</value>
-  </data>
-  <data name="extras_syncSavesAnyFolderButton_text" xml:space="preserve">
-    <value>Verplaats opgeslagen spellen naar een map</value>
+  <data name="extras_fileLocationsButton_text" xml:space="preserve">
+    <value>Bestandslocaties tonen (debug)</value>
   </data>
   <data name="extras_syncSavesDropboxButton_text" xml:space="preserve">
-    <value>Verplaats opgeslagen spellen naar Dropbox</value>
+    <value>Opgeslagen parken met Dropbox synchroniseren</value>
+  </data>
+  <data name="extras_syncSavesAnyFolderButton_text" xml:space="preserve">
+    <value>Opgeslagen parken met een map synchroniseren</value>
   </data>
   <data name="extras_title" xml:space="preserve">
     <value>Extra's</value>
   </data>
   <data name="frmLauncher_update_failed" xml:space="preserve">
-    <value>Kon update niet downloaden</value>
+    <value>Kon de update niet downloaden</value>
   </data>
   <data name="frmLauncher_updateButton_text" xml:space="preserve">
-    <value>Werk bij</value>
+    <value>Updaten</value>
   </data>
   <data name="frmLauncher_optionsButton_title" xml:space="preserve">
     <value>Opties</value>
   </data>
-  <data name="common_cancel" xml:space="preserve">
-    <value>Annuleer</value>
-  </data>
-  <data name="common_ok" xml:space="preserve">
-    <value>OK</value>
+  <data name="OpenRCTdotNetLogin_usernameLabel" xml:space="preserve">
+    <value>Gebruikersnaam</value>
   </data>
   <data name="OpenRCTdotNetLogin_passwordLabel" xml:space="preserve">
     <value>Wachtwoord</value>
   </data>
+  <data name="common_ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="common_cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
   <data name="OpenRCTdotNetLogin_title" xml:space="preserve">
-    <value>Login bij OpenRCT.NET</value>
-  </data>
-  <data name="OpenRCTdotNetLogin_usernameLabel" xml:space="preserve">
-    <value>Gebruikersnaam</value>
-  </data>
-  <data name="common_confirm" xml:space="preserve">
-    <value>Bevestig</value>
+    <value>Aanmelden op OpenRCT.NET</value>
   </data>
   <data name="frmOptions_closeConfirmation_text" xml:space="preserve">
-    <value>Instellingen zijn veranderd. Wijzigingen opslaan?</value>
+    <value>De configuratie is aangepast. Wil je de wijzigingen opslaan?</value>
   </data>
-  <data name="common_apply" xml:space="preserve">
-    <value>Toepassen</value>
+  <data name="common_confirm" xml:space="preserve">
+    <value>Bevestigen</value>
   </data>
-  <data name="common_reset" xml:space="preserve">
-    <value>Herstel</value>
+  <data name="frmOptions_gamePath_label" xml:space="preserve">
+    <value>Spelpad:</value>
   </data>
-  <data name="frmOptions_alwaysGridLines_label" xml:space="preserve">
-    <value>Rasterlijnen op landschap</value>
+  <data name="frmOptions_screenshotFormat_label" xml:space="preserve">
+    <value>Screenshotindeling:</value>
   </data>
-  <data name="frmOptions_currency_deutchmark" xml:space="preserve">
-    <value>Duitse Mark (DM)</value>
+  <data name="frmOptions_playIntroButton_label" xml:space="preserve">
+    <value>Intro afspelen</value>
   </data>
-  <data name="frmOptions_currency_dollar" xml:space="preserve">
-    <value>Dollar ($)</value>
+  <data name="frmOptions_showConfirmationPrompt_label" xml:space="preserve">
+    <value>Vragen om bevestiging</value>
   </data>
-  <data name="frmOptions_currency_euro" xml:space="preserve">
-    <value>Euro (€)</value>
-  </data>
-  <data name="frmOptions_currency_franc" xml:space="preserve">
-    <value>Frank (F)</value>
-  </data>
-  <data name="frmOptions_currency_guilder" xml:space="preserve">
-    <value>Gulden (Dfl.)</value>
-  </data>
-  <data name="frmOptions_currency_krona" xml:space="preserve">
-    <value>Kronen (kr)</value>
+  <data name="frmOptions_edgeScrolling_label" xml:space="preserve">
+    <value>Beeld verschuiven als aanwijzer op de rand staat</value>
   </data>
   <data name="frmOptions_currency_label" xml:space="preserve">
     <value>Valuta:</value>
   </data>
-  <data name="frmOptions_currency_lira" xml:space="preserve">
-    <value>Lire (L)</value>
-  </data>
-  <data name="frmOptions_currency_peseta" xml:space="preserve">
-    <value>Peseta (Pts)</value>
-  </data>
   <data name="frmOptions_currency_pound" xml:space="preserve">
     <value>Ponden (£)</value>
+  </data>
+  <data name="frmOptions_currency_dollar" xml:space="preserve">
+    <value>Dollars ($)</value>
+  </data>
+  <data name="frmOptions_currency_franc" xml:space="preserve">
+    <value>Frank (F)</value>
+  </data>
+  <data name="frmOptions_currency_deutchmark" xml:space="preserve">
+    <value>Duitse mark (DM)</value>
   </data>
   <data name="frmOptions_currency_yen" xml:space="preserve">
     <value>Yen (¥)</value>
   </data>
-  <data name="frmOptions_distSpeed_imperial" xml:space="preserve">
-    <value>Imperieel</value>
+  <data name="frmOptions_currency_peseta" xml:space="preserve">
+    <value>Peseta (Pts)</value>
+  </data>
+  <data name="frmOptions_currency_lira" xml:space="preserve">
+    <value>Lira (L)</value>
+  </data>
+  <data name="frmOptions_currency_guilder" xml:space="preserve">
+    <value>Guldens (fl.)</value>
+  </data>
+  <data name="frmOptions_currency_krona" xml:space="preserve">
+    <value>Kronen (kr)</value>
+  </data>
+  <data name="frmOptions_currency_euro" xml:space="preserve">
+    <value>Euro's (€)</value>
   </data>
   <data name="frmOptions_distSpeed_label" xml:space="preserve">
-    <value>Afstand en snelheid:</value>
+    <value>Afstanden en snelheden:</value>
+  </data>
+  <data name="frmOptions_temperature_label" xml:space="preserve">
+    <value>Temperatuur:</value>
+  </data>
+  <data name="frmOptions_distSpeed_imperial" xml:space="preserve">
+    <value>Engelse maten</value>
   </data>
   <data name="frmOptions_distSpeed_metric" xml:space="preserve">
-    <value>Metrisch</value>
-  </data>
-  <data name="frmOptions_edgeScrolling_label" xml:space="preserve">
-    <value>Verplaats beeld met muisaanwijzer aan schermrand</value>
-  </data>
-  <data name="frmOptions_forcedSoftwareBuffering_label" xml:space="preserve">
-    <value>Forceer software buffer mixing</value>
-  </data>
-  <data name="frmOptions_fullscreenHeight_label" xml:space="preserve">
-    <value>Volledig scherm hoogte:</value>
-  </data>
-  <data name="frmOptions_fullscreenMode_fullscreen" xml:space="preserve">
-    <value>Volledig scherm</value>
-  </data>
-  <data name="frmOptions_fullscreenMode_fullscreenDesktop" xml:space="preserve">
-    <value>Volledig scherm (desktop)</value>
-  </data>
-  <data name="frmOptions_fullscreenMode_label" xml:space="preserve">
-    <value>Schermmodus:</value>
-  </data>
-  <data name="frmOptions_fullscreenMode_windowed" xml:space="preserve">
-    <value>Venster</value>
-  </data>
-  <data name="frmOptions_fullscreenWidth_label" xml:space="preserve">
-    <value>Volledig scherm breedte:</value>
-  </data>
-  <data name="frmOptions_gamePath_label" xml:space="preserve">
-    <value>Spellocatie:</value>
-  </data>
-  <data name="frmOptions_heightLabels_label" xml:space="preserve">
-    <value>Hoogtewaarden:</value>
-  </data>
-  <data name="frmOptions_heightLabels_real" xml:space="preserve">
-    <value>Echte waarden</value>
-  </data>
-  <data name="frmOptions_heightLabels_units" xml:space="preserve">
-    <value>Spelwaarden</value>
-  </data>
-  <data name="frmOptions_landscapeSmoothing_label" xml:space="preserve">
-    <value>Landschap verzachten</value>
-  </data>
-  <data name="frmOptions_language_label" xml:space="preserve">
-    <value>Taal:</value>
-  </data>
-  <data name="frmOptions_outputPath_label" xml:space="preserve">
-    <value>Resultatenlocatie:</value>
-  </data>
-  <data name="frmOptions_playIntroButton_label" xml:space="preserve">
-    <value>Speel intro</value>
-  </data>
-  <data name="frmOptions_saveOutputFile_label" xml:space="preserve">
-    <value>Sla resultaten op in bestand</value>
-  </data>
-  <data name="frmOptions_savePluginData_label" xml:space="preserve">
-    <value>Exporteer plug-in-gegevens naar opgeslagen spellen</value>
-  </data>
-  <data name="frmOptions_screenshotFormat_label" xml:space="preserve">
-    <value>Schermafbeeldingformaat</value>
-  </data>
-  <data name="frmOptions_showConfirmationPrompt_label" xml:space="preserve">
-    <value>Toon bevestiging</value>
-  </data>
-  <data name="frmOptions_soundQuality_high" xml:space="preserve">
-    <value>Hoog</value>
-  </data>
-  <data name="frmOptions_soundQuality_label" xml:space="preserve">
-    <value>Geluidskwaliteit</value>
-  </data>
-  <data name="frmOptions_soundQuality_low" xml:space="preserve">
-    <value>Laag</value>
-  </data>
-  <data name="frmOptions_soundQuality_medium" xml:space="preserve">
-    <value>Middel</value>
-  </data>
-  <data name="frmOptions_startArguments_label" xml:space="preserve">
-    <value>Startparameters:</value>
+    <value>Metriek stelsel</value>
   </data>
   <data name="frmOptions_temperature_celsius" xml:space="preserve">
     <value>Celsius (°C)</value>
@@ -395,40 +330,142 @@ Exacte fout:</value>
   <data name="frmOptions_temperature_fahrenheit" xml:space="preserve">
     <value>Fahrenheit (F)</value>
   </data>
-  <data name="frmOptions_temperature_label" xml:space="preserve">
-    <value>Temperatuur:</value>
+  <data name="frmOptions_alwaysGridLines_label" xml:space="preserve">
+    <value>Raster weergeven op landschap</value>
   </data>
-  <data name="frmOptions_title" xml:space="preserve">
-    <value>Opties</value>
+  <data name="frmOptions_landscapeSmoothing_label" xml:space="preserve">
+    <value>Landschapslijnen verzachten</value>
+  </data>
+  <data name="frmOptions_savePluginData_label" xml:space="preserve">
+    <value>Plug-inobjecten meeleveren in opgeslagen spellen</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_label" xml:space="preserve">
+    <value>Schermmodus:</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_windowed" xml:space="preserve">
+    <value>Venster</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_fullscreen" xml:space="preserve">
+    <value>Volledig scherm</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_fullscreenDesktop" xml:space="preserve">
+    <value>Volledig scherm (bureaublad)</value>
+  </data>
+  <data name="frmOptions_fullscreenWidth_label" xml:space="preserve">
+    <value>Breedte volledig scherm:</value>
+  </data>
+  <data name="frmOptions_fullscreenHeight_label" xml:space="preserve">
+    <value>Hoogte volledig scherm:</value>
+  </data>
+  <data name="frmOptions_language_label" xml:space="preserve">
+    <value>Taal:</value>
   </data>
   <data name="frmOptions_titleScreenMusic_label" xml:space="preserve">
-    <value>Startschermmuziek</value>
+    <value>Titelschermmuziek:</value>
   </data>
   <data name="frmOptions_titleScreenMusic_none" xml:space="preserve">
     <value>Geen</value>
   </data>
   <data name="frmOptions_titleScreenMusic_RCT1" xml:space="preserve">
-    <value>Rollercoaster Tycoon 1</value>
+    <value>RollerCoaster Tycoon 1</value>
   </data>
   <data name="frmOptions_titleScreenMusic_RCT2" xml:space="preserve">
-    <value>Rollercoaster Tycoon 2</value>
+    <value>RollerCoaster Tycoon 2</value>
+  </data>
+  <data name="frmOptions_soundQuality_label" xml:space="preserve">
+    <value>Geluidskwaliteit:</value>
+  </data>
+  <data name="frmOptions_soundQuality_low" xml:space="preserve">
+    <value>Laag</value>
+  </data>
+  <data name="frmOptions_soundQuality_medium" xml:space="preserve">
+    <value>Gemiddeld</value>
+  </data>
+  <data name="frmOptions_soundQuality_high" xml:space="preserve">
+    <value>Hoog</value>
+  </data>
+  <data name="frmOptions_forcedSoftwareBuffering_label" xml:space="preserve">
+    <value>Mixen via softwarebuffer forceren</value>
+  </data>
+  <data name="frmOptions_heightLabels_label" xml:space="preserve">
+    <value>Hoogtemarkering:</value>
+  </data>
+  <data name="frmOptions_heightLabels_units" xml:space="preserve">
+    <value>Eenheden</value>
+  </data>
+  <data name="frmOptions_heightLabels_real" xml:space="preserve">
+    <value>Echte waarden</value>
+  </data>
+  <data name="common_apply" xml:space="preserve">
+    <value>Toepassen</value>
+  </data>
+  <data name="common_reset" xml:space="preserve">
+    <value>Herstellen</value>
+  </data>
+  <data name="frmOptions_startArguments_label" xml:space="preserve">
+    <value>Parameters:</value>
+  </data>
+  <data name="frmOptions_outputPath_label" xml:space="preserve">
+    <value>Uitvoerpad:</value>
+  </data>
+  <data name="frmOptions_saveOutputFile_label" xml:space="preserve">
+    <value>Uitvoer in bestand opslaan</value>
+  </data>
+  <data name="frmOptions_title" xml:space="preserve">
+    <value>Opties</value>
   </data>
   <data name="OpenRCTdotNetConfigure_loggedInAs" xml:space="preserve">
-    <value>Je bent ingelogd als </value>
-  </data>
-  <data name="OpenRCTdotNetConfigure_title" xml:space="preserve">
-    <value>OpenRCT.net instellingen</value>
+    <value>Je bent aangemeld als </value>
   </data>
   <data name="OpenRCTdotNetConfigure_uploadPlayTime_label" xml:space="preserve">
-    <value>Upload speeltijd naar de server</value>
+    <value>Gespeelde tijd uploaden</value>
   </data>
   <data name="OpenRCTdotNetConfigure_uploadSaves_label" xml:space="preserve">
-    <value>Upload gespeelde spellen naar de server</value>
+    <value>Opgeslagen parken uploaden</value>
   </data>
-  <data name="OpenRCTdotNetLogin_getAccountText" xml:space="preserve">
-    <value>Verkrijg je account op OpenRCT.net</value>
+  <data name="OpenRCTdotNetConfigure_title" xml:space="preserve">
+    <value>OpenRCT.net-configuration</value>
   </data>
   <data name="coomon_login" xml:space="preserve">
-    <value>Log in</value>
+    <value>Aanmelden</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_getAccountText" xml:space="preserve">
+    <value>Een account op OpenRCT.net aanmaken</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="OpenRCTIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpenRCTIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LauncherUpdateAvail" xml:space="preserve">
+    <value>Er is een update beschikbaar voor de launcher. Wil je die installeren?</value>
+  </data>
+  <data name="OpenRCTdotNetConfigureSlowDownWarn" xml:space="preserve">
+    <value>Weet je zeker dat je dit wilt inschakelen? Het zal het
+starten van de launcher vertragen, omdat er moet worden verzekerd
+dat alle opgeslagen parken gesynchroniseerd zijn.</value>
+  </data>
+  <data name="OpenRCTdotNetSaveSyncIdle" xml:space="preserve">
+    <value>Inactief</value>
+  </data>
+  <data name="OpenRCTdotNetSaveSyncStatusDown" xml:space="preserve">
+    <value>Bezig met downloaden</value>
+  </data>
+  <data name="OpenRCTdotNetSaveSyncStatusUpload" xml:space="preserve">
+    <value>Bezig met uploaden</value>
+  </data>
+  <data name="paypal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_donate_LG.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="offline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\offline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\index_openrct2_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="login_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login_screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
