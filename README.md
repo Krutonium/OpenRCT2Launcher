@@ -32,5 +32,6 @@ If you find any bugs/want features added, please feel free to file an issue or m
 * FWest98
 * falki147
 * runelaenen
+* Gymnasiast
 
 (Feel free to add yourself when you contribute!)
