@@ -57,7 +57,7 @@ Namespace OpenRCTdotNet
                 Settings.HasChanged = True
             Catch ex As WebException
                 'No internet available or server down: retry next time
-                Settings.OpenRCTdotNetPlaytimeCache += minutesPlayed
+                Settings.OpenRCTdotNetPlaytimeCache = Integer.Parse(minutesPlayed)
                 Settings.HasChanged = True
             Catch ex As Exception
                 'TODO: Add eror handling
