@@ -7,6 +7,7 @@ Imports System.IO.Compression
 Imports ORCT2ModPacker
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
+Imports System.Runtime.InteropServices
 
 Public Class OpenRCTdotNetStoreBrowser
 
@@ -25,11 +26,14 @@ Public Class OpenRCTdotNetStoreBrowser
         Me.Text = "OpenRCT.net Store"
 
         If Settings.OpenRCTdotNetUserID <> Nothing Then
+            'Changing the User Agent ;)
+            ChangeUserAgent("OpenRCT2LauncherStoreBrowser")
             ' dont show ads if you're logged in: no need for an auth key, just add ?loggedin
             WebBrowser1.Url = New System.Uri("https://openrct.net/store.php?loggedin")
         End If
 
     End Sub
+
     Private Sub WebBrowser_Navigating(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserNavigatingEventArgs) Handles WebBrowser1.Navigating
         Dim uu As String = e.Url.ToString.ToUpper
         Dim url As String = Path.GetExtension(uu)
@@ -37,6 +41,7 @@ Public Class OpenRCTdotNetStoreBrowser
             e.Cancel = True
             DownloadFileAndInstall(e.Url.ToString)
         End If
+
     End Sub
 
     Private Sub DownloadFileAndInstall(ByVal URL As String)
@@ -87,4 +92,12 @@ Public Class OpenRCTdotNetStoreBrowser
         tsslStatus.Text = "Shop"
         resettext.Enabled = False
     End Sub
+
+    <DllImport("urlmon.dll", CharSet:=CharSet.Ansi)> _
+    Private Shared Function UrlMkSetSessionOption(ByVal dwOption As Integer, ByVal pBuffer As String, ByVal dwBufferLength As Integer, ByVal dwReserved As Integer) As Integer
+    End Function
+    Const URLMON_OPTION_USERAGENT As Integer = &H10000001
+    Public Function ChangeUserAgent(ByVal Agent As String)
+        UrlMkSetSessionOption(URLMON_OPTION_USERAGENT, Agent, Agent.Length, 0)
+    #End Function
 End Class
