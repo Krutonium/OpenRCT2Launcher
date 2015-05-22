@@ -29,7 +29,8 @@ Public Class OpenRCTdotNetStoreBrowser
             'Changing the User Agent ;)
             ChangeUserAgent("OpenRCT2LauncherStoreBrowser")
             ' dont show ads if you're logged in: no need for an auth key, just add ?loggedin
-            WebBrowser1.Url = New System.Uri("https://openrct.net/store.php?loggedin")
+            'WebBrowser1.Url = New System.Uri("https://openrct.net/store.php?loggedin")
+            WebBrowser1.Url = New Uri("https://openrct.net/content")
         End If
 
     End Sub
