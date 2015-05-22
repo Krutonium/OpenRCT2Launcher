@@ -199,7 +199,7 @@ Public Class UnPackMod
                 System.IO.File.Copy(File, RCT2Dir & "\Saves\" & Path.GetFileName(File), True)
             Next
         End If
-        If File.Exists(Temp & "\license.txt") Then
+        If File.Exists(Temp & "\license.txt") And 0 = 1 Then '0=1 because I wanted this code disabled, but not commented out.
             Dim resp = MsgBox("Open Licence File?", MsgBoxStyle.YesNo)
             If resp = MsgBoxResult.Yes Then
                 Dim notepad As New ProcessStartInfo

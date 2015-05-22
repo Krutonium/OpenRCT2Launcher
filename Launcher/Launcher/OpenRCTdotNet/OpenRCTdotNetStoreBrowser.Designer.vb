@@ -22,9 +22,11 @@ Partial Class OpenRCTdotNetStoreBrowser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.tsslStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.resettext = New System.Windows.Forms.Timer(Me.components)
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -53,6 +55,10 @@ Partial Class OpenRCTdotNetStoreBrowser
         Me.tsslStatus.Size = New System.Drawing.Size(34, 17)
         Me.tsslStatus.Text = "Shop"
         '
+        'resettext
+        '
+        Me.resettext.Interval = 5000
+        '
         'OpenRCTdotNetStoreBrowser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -71,4 +77,5 @@ Partial Class OpenRCTdotNetStoreBrowser
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents tsslStatus As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents resettext As System.Windows.Forms.Timer
 End Class

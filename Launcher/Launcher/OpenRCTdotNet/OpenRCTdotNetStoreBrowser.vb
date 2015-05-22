@@ -5,9 +5,22 @@ Imports System.Net
 Imports System.IO
 Imports System.IO.Compression
 Imports ORCT2ModPacker
+Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Linq
+
 Public Class OpenRCTdotNetStoreBrowser
 
+    Dim ModName As String
+    Dim description As String
+    Dim Author As String
+    Dim DownloadLink As String
+    Dim WS As New WebClient
+
+
     Private Sub OpenRCTdotNetStoreBrowser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Left = (Screen.PrimaryScreen.WorkingArea.Width - Me.Width) / 2
+        Me.Top = (Screen.PrimaryScreen.WorkingArea.Height - Me.Height) / 2
+
         Me.Icon = OpenRCTIcon
         Me.Text = "OpenRCT.net Store"
 
@@ -18,24 +31,15 @@ Public Class OpenRCTdotNetStoreBrowser
 
     End Sub
     Private Sub WebBrowser_Navigating(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserNavigatingEventArgs) Handles WebBrowser1.Navigating
-        'If Not e.Url.IsFile Then
-        'MsgBox(e.Url.ToString)
-        'End If
         Dim uu As String = e.Url.ToString.ToUpper
         Dim url As String = Path.GetExtension(uu)
-        'If uu.EndsWith(".ZIP") Or uu.EndsWith(".RCT2MOD") Or uu.EndsWith(".SV6") Or uu.EndsWith(".SC6") Or uu.EndsWith(".ZIP") = True Then
-        'MsgBox("Canceling Nav")
-        'e.Cancel = True
-        'End If
-        If url = (".RCT2MOD") Or url = (".SV6") Or url = (".TD6") Or url = (".SC6") Then
+        If Path.GetExtension(url) = ".RCT2MOD" Then
             e.Cancel = True
+            DownloadFileAndInstall(e.Url.ToString)
         End If
-
-        DownloadFileAndInstall(e.Url.ToString)
     End Sub
 
     Private Sub DownloadFileAndInstall(ByVal URL As String)
-        Dim WS As New WebClient
         Dim Saves = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2/save/"
         Dim TempF = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2/temp/"
         If Directory.Exists(TempF) = False Then
@@ -44,55 +48,43 @@ Public Class OpenRCTdotNetStoreBrowser
         Dim RCT2LocReg = My.Computer.Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
         Dim RCT2Loc = RCT2LocReg.GetValue("Path")
 
-        If URL.ToUpper.EndsWith(".SV6") Then
-            tsslStatus.Text = "Installing Save..."
-            WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Saved Games/" & Path.GetFileName(URL))
-            tsslStatus.Text = "Saved installed..."
-        ElseIf URL.ToUpper.EndsWith(".SC6") Then
-            tsslStatus.Text = "Installing scenario..."
-            WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Scenarios/" & Path.GetFileName(URL))
-            tsslStatus.Text = "Scenario installed..."
-        ElseIf URL.ToUpper.EndsWith(".DAT") Then
-            tsslStatus.Text = "Installing Object..."
-            WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/ObjData/" & Path.GetFileName(URL))
-            tsslStatus.Text = "Object installed..."
-        ElseIf URL.ToUpper.EndsWith(".TD6") Then
-            tsslStatus.Text = "Installing a Track..."
-            WS.DownloadFileAsync(New Uri(URL), RCT2Loc & "/Tracks/" & Path.GetFileName(URL))
-            tsslStatus.Text = "Track Installed..."
-        ElseIf URL.ToUpper.EndsWith(".ZIP") Then
-            tsslStatus.Text = "Installing Pack..."
-            WS.DownloadFile(New Uri(URL), TempF & "\" & Path.GetFileName(URL))
-            'WS.DownloadFile(New Uri(URL), RCT2Loc & "/ZIP/" & Path.GetFileName(URL))
-            If Directory.Exists(TempF & "/Extracted") Then
-                Directory.Delete(TempF & "/Extracted", True)
-            End If
-            ZipFile.ExtractToDirectory(TempF & "\" & Path.GetFileName(URL), TempF & "/Extracted")
-            For Each Filee In Directory.GetFiles(TempF & "/Extracted", ".", SearchOption.AllDirectories)
-                If Filee.ToUpper.EndsWith(".DAT") Then
-                    File.Copy(Filee, RCT2Loc & "/ObjData/" & Path.GetFileName(Filee), True)
-                End If
-                If Filee.ToUpper.EndsWith(".SC6") Then
-                    File.Copy(Filee, RCT2Loc & "/Scenarios/" & Path.GetFileName(Filee), True)
-                End If
-                If Filee.ToUpper.EndsWith(".SV6") Then
-                    File.Copy(Filee, RCT2Loc & "/Saved Games/" & Path.GetFileName(Filee), True)
-                End If
-            Next
-            tsslStatus.Text = "Pack installed..."
-        ElseIf URL.ToUpper.EndsWith(".RCT2MOD") Then
-            tsslStatus.Text = "Installing Modpack..."
-            WS.DownloadFile(New Uri(URL), TempF & "\" & Path.GetFileName(URL))
-            Dim Snoo As New UnPackMod
-            Snoo.GetInfoFromMod(TempF & "\" & Path.GetFileName(URL))
-            Dim install = MsgBox("Install " & Snoo.ModName & " from " & Snoo.Author & "?", vbYesNo)
-            If install = MsgBoxResult.Yes Then
-                Snoo.UnPackMod(TempF & "\" & Path.GetFileName(URL), RCT2Loc)
-                tsslStatus.Text = "Modpack installed..."
-            Else
-                tsslStatus.Text = "Modpack install aborted..."
-            End If
+        'New Code, Should hopefully solve the issue with Download Prompts
 
+        Path.GetFileName(URL)
+        Dim serverResponse As String = WS.DownloadString("https://openrct.net/api/?a=get_store_file&file=" & Path.GetFileName(URL) & "&secret=" & Settings.OpenRCTdotNetAPISecret)
+        Dim jsonResult = JObject.Parse(serverResponse)
+        ModName = jsonResult.SelectToken("name")
+        description = jsonResult.SelectToken("description")
+        Author = jsonResult.SelectToken("author")
+        DownloadLink = jsonResult.SelectToken("download")
+        Dim Result = MsgBox("Install " & name & " from " & Author & "?" & vbNewLine & vbNewLine & "Description: " & description, MsgBoxStyle.OkCancel, "Install " & name & "?")
+        If Result = MsgBoxResult.Ok Then
+            Try
+                tsslStatus.Text = ("Please Wait, Installing " & ModName & "...")
+                AddHandler WS.DownloadProgressChanged, AddressOf Progress
+                AddHandler WS.DownloadFileCompleted, AddressOf InstallMod
+                WS.DownloadFileAsync(New Uri(DownloadLink), TempF & "/pack.RCT2MOD")
+            Catch ex As Exception
+                tsslStatus.Text = "An error occured."
+            End Try
         End If
+    End Sub
+    Private Sub Progress(ByVal sender As Object, ByVal e As DownloadProgressChangedEventArgs)
+        tsslStatus.Text = ("Please Wait, Downloading " & ModName & " - " & e.ProgressPercentage & "% Downloaded.")
+    End Sub
+    Private Sub InstallMod()
+        tsslStatus.Text = "Please Wait, Installing " & ModName & "..."
+        Dim TempF = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2/temp/"
+        Dim RCT2LocReg = My.Computer.Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
+        Dim RCT2Loc = RCT2LocReg.GetValue("Path")
+        Dim Installer As New UnPackMod
+        Installer.UnPackMod(TempF & "/pack.RCT2MOD", RCT2Loc)
+        tsslStatus.Text = (ModName & " installed successfully!")
+        resettext.Enabled = True
+    End Sub
+
+    Private Sub resettext_Tick(sender As Object, e As EventArgs) Handles resettext.Tick
+        tsslStatus.Text = "Shop"
+        resettext.Enabled = False
     End Sub
 End Class
