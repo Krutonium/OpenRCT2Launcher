@@ -28,12 +28,12 @@ Public Class OpenRCTdotNetStoreBrowser
         If Settings.OpenRCTdotNetUserID <> Nothing Then
             'Changing the User Agent ;)
             ChangeUserAgent("OpenRCT2LauncherStoreBrowser")
-            ' dont show ads if you're logged in: no need for an auth key, just add ?loggedin
-            'WebBrowser1.Url = New System.Uri("https://openrct.net/store.php?loggedin")
+
             WebBrowser1.Url = New Uri("https://openrct.net/content")
         End If
 
     End Sub
+
 
     Private Sub WebBrowser_Navigating(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserNavigatingEventArgs) Handles WebBrowser1.Navigating
         Dim uu As String = e.Url.ToString.ToUpper
@@ -44,6 +44,9 @@ Public Class OpenRCTdotNetStoreBrowser
         End If
 
     End Sub
+
+
+
 
     Private Sub DownloadFileAndInstall(ByVal URL As String)
         Dim Saves = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2/save/"
@@ -101,4 +104,10 @@ Public Class OpenRCTdotNetStoreBrowser
     Public Function ChangeUserAgent(ByVal Agent As String)
         UrlMkSetSessionOption(URLMON_OPTION_USERAGENT, Agent, Agent.Length, 0)
     #End Function
+
+    Private Sub WebBrowser1_NewWindow(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles WebBrowser1.NewWindow
+        e.Cancel = True
+        ' open default browser (e.g. Chrome) if you open a link with target _blank
+        Process.Start(WebBrowser1.StatusText)
+    End Sub
 End Class
