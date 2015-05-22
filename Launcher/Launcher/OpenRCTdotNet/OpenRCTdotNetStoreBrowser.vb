@@ -57,7 +57,7 @@ Public Class OpenRCTdotNetStoreBrowser
         description = jsonResult.SelectToken("description")
         Author = jsonResult.SelectToken("author")
         DownloadLink = jsonResult.SelectToken("download")
-        Dim Result = MsgBox("Install " & name & " from " & Author & "?" & vbNewLine & vbNewLine & "Description: " & description, MsgBoxStyle.OkCancel, "Install " & name & "?")
+        Dim Result = MsgBox("Install " & ModName & " from " & Author & "?" & vbNewLine & vbNewLine & "Description: " & description, MsgBoxStyle.OkCancel, "Install " & ModName & "?")
         If Result = MsgBoxResult.Ok Then
             Try
                 tsslStatus.Text = ("Please Wait, Installing " & ModName & "...")
