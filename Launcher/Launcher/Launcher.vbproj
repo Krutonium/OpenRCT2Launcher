@@ -116,7 +116,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OpenRCT2Config.vb" />
+    <Compile Include="GameConfig.vb" />
     <Compile Include="Forms\Extras.Designer.vb">
       <DependentUpon>Extras.vb</DependentUpon>
     </Compile>
