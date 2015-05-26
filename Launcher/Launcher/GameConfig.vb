@@ -11,6 +11,9 @@ Public Structure GameConfigValues
             AllowSubtypeSwitching    = False
             AlwaysShowGridlines      = False
             Autosave                 = GameConfig.EnumAutosave.EveryMonth
+            Channel                  = ""
+            ChatPeepNames            = True
+            ChatPeepTracking         = True
             ConfirmationPrompt       = False
             ConsoleSmallFont         = False
             ConstructionMarkerColour = 0
@@ -20,6 +23,8 @@ Public Structure GameConfigValues
             DisableBrakesFailure     = False
             EdgeScrolling            = True
             FastLiftHill             = False
+            FollowerPeepNames        = True
+            FollowerPeepTracking     = False
             ForcedSoftwareBuffering  = False
             FullscreenHeight         = -1
             FullscreenMode           = GameConfig.EnumFullscreenMode.Window
@@ -27,6 +32,7 @@ Public Structure GameConfigValues
             GamePath                 = ""
             HardwareDisplay          = False
             LandscapeSmoothing       = True
+            News                     = False
             NoTestCrashes            = False
             PlayIntro                = False
             RCT1ColourScheme         = False
@@ -123,6 +129,9 @@ Public Structure GameConfigValues
     Dim AllowSubtypeSwitching    As Boolean
     Dim AlwaysShowGridlines      As Boolean
     Dim Autosave                 As GameConfig.EnumAutosave
+    Dim Channel                  As String
+    Dim ChatPeepNames            As Boolean
+    Dim ChatPeepTracking         As Boolean
     Dim ConfirmationPrompt       As Integer
     Dim ConsoleSmallFont         As Boolean
     Dim ConstructionMarkerColour As Integer
@@ -133,6 +142,8 @@ Public Structure GameConfigValues
     Dim DisableBrakesFailure     As Boolean
     Dim EdgeScrolling            As Boolean
     Dim FastLiftHill             As Boolean
+    Dim FollowerPeepNames        As Boolean
+    Dim FollowerPeepTracking     As Boolean
     Dim ForcedSoftwareBuffering  As Boolean
     Dim FullscreenHeight         As Integer
     Dim FullscreenMode           As GameConfig.EnumFullscreenMode
@@ -142,6 +153,7 @@ Public Structure GameConfigValues
     Dim LandscapeSmoothing       As Boolean
     Dim Language                 As GameConfig.EnumLanguage
     Dim MeasurementFormat        As GameConfig.EnumMeasurementFormat
+    Dim News As Boolean
     Dim NoTestCrashes            As Boolean
     Dim PlayIntro                As Boolean
     Dim RCT1ColourScheme         As Boolean
@@ -294,6 +306,9 @@ Public Class GameConfig
         getProp("interface", "allow_subtype_switching", values.AllowSubtypeSwitching)
         getProp("general", "always_show_gridlines", values.AlwaysShowGridlines)
         getProp("general", "autosave", values.Autosave)
+        getProp("twitch", "channel", values.Channel)
+        getProp("twitch", "chat_peep_names", values.ChatPeepNames)
+        getProp("twitch", "chat_peep_tracking", values.ChatPeepTracking)
         getProp("general", "confirmation_prompt", values.ConfirmationPrompt)
         getProp("interface", "console_small_font", values.ConsoleSmallFont)
         getProp("general", "construction_marker_colour", values.ConstructionMarkerColour)
@@ -304,6 +319,8 @@ Public Class GameConfig
         getProp("cheat", "disable_brakes_failure", values.DisableBrakesFailure)
         getProp("general", "edge_scrolling", values.EdgeScrolling)
         getProp("cheat", "fast_lift_hill", values.FastLiftHill)
+        getProp("twitch", "follower_peep_names", values.FollowerPeepNames)
+        getProp("twitch", "follower_peep_tracking", values.FollowerPeepTracking)
         getProp("sound", "forced_software_buffering", values.ForcedSoftwareBuffering)
         getProp("general", "fullscreen_height", values.FullscreenHeight)
         getProp("general", "fullscreen_mode", values.FullscreenMode)
@@ -313,6 +330,7 @@ Public Class GameConfig
         getProp("general", "landscape_smoothing", values.LandscapeSmoothing)
         getPropDictionary("general", "language", values.Language, DictLanguage)
         getPropDictionary("general", "measurement_format", values.MeasurementFormat, DictMeasurementFormat)
+        getProp("twitch", "news", values.News)
         getProp("general", "no_test_crashes", values.NoTestCrashes)
         getProp("general", "play_intro", values.PlayIntro)
         getProp("interface", "rct1_colour_scheme", values.RCT1ColourScheme)
@@ -344,6 +362,9 @@ Public Class GameConfig
         setProp("interface", "allow_subtype_switching", values.AllowSubtypeSwitching)
         setProp("general", "always_show_gridlines", values.AlwaysShowGridlines)
         setProp("general", "autosave", values.Autosave)
+        setProp("twitch", "channel", values.Channel)
+        setProp("twitch", "chat_peep_names", values.ChatPeepNames)
+        setProp("twitch", "chat_peep_tracking", values.ChatPeepTracking)
         setProp("general", "confirmation_prompt", values.ConfirmationPrompt)
         setProp("interface", "console_small_font", values.ConsoleSmallFont)
         setProp("general", "construction_marker_colour", values.ConstructionMarkerColour)
@@ -354,6 +375,8 @@ Public Class GameConfig
         setProp("cheat", "disable_brakes_failure", values.DisableBrakesFailure)
         setProp("general", "edge_scrolling", values.EdgeScrolling)
         setProp("cheat", "fast_lift_hill", values.FastLiftHill)
+        setProp("twitch", "follower_peep_names", values.FollowerPeepNames)
+        setProp("twitch", "follower_peep_tracking", values.FollowerPeepTracking)
         setProp("sound", "forced_software_buffering", values.ForcedSoftwareBuffering)
         setProp("general", "fullscreen_height", values.FullscreenHeight)
         setProp("general", "fullscreen_mode", values.FullscreenMode)
@@ -363,6 +386,7 @@ Public Class GameConfig
         setProp("general", "landscape_smoothing", values.LandscapeSmoothing)
         setPropDictionary("general", "language", values.Language, DictLanguage)
         setPropDictionary("general", "measurement_format", values.MeasurementFormat, DictMeasurementFormat)
+        setProp("twitch", "news", values.News)
         setProp("general", "no_test_crashes", values.NoTestCrashes)
         setProp("general", "play_intro", values.PlayIntro)
         setProp("interface", "rct1_colour_scheme", values.RCT1ColourScheme)
@@ -418,7 +442,7 @@ Public Class GameConfig
     Shared Private Sub setProp(section As String, prop As String, o As Object)
         Select Case o.GetTypeCode()
             Case TypeCode.String
-                INIConfig.SetProperty(section, prop, o)
+                INIConfig.SetProperty(section, prop, Chr(34) + o + Chr(34))
             Case TypeCode.Int32
                 INIConfig.SetProperty(section, prop, DirectCast(o, Integer).ToString())
             Case TypeCode.Boolean

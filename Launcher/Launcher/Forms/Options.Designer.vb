@@ -89,6 +89,8 @@ Namespace Forms
         Me.Graphics = New System.Windows.Forms.TabPage()
         Me.chkHardwareDisplay = New System.Windows.Forms.CheckBox()
         Me.Localisation = New System.Windows.Forms.TabPage()
+        Me.cbDateFormat = New System.Windows.Forms.ComboBox()
+        Me.laDateFormat = New System.Windows.Forms.Label()
         Me.Sound = New System.Windows.Forms.TabPage()
         Me.GUI = New System.Windows.Forms.TabPage()
         Me.chkConsoleSmallFont = New System.Windows.Forms.CheckBox()
@@ -108,8 +110,14 @@ Namespace Forms
         Me.chkTestUnfinishedTracks = New System.Windows.Forms.CheckBox()
         Me.chkDebuggingTools = New System.Windows.Forms.CheckBox()
         Me.chkAllowSubtypeSwitching = New System.Windows.Forms.CheckBox()
-        Me.laDateFormat = New System.Windows.Forms.Label()
-        Me.cbDateFormat = New System.Windows.Forms.ComboBox()
+        Me.Twitch = New System.Windows.Forms.TabPage()
+        Me.laChannel = New System.Windows.Forms.Label()
+        Me.tbChannel = New System.Windows.Forms.TextBox()
+        Me.chkFollowerPeepNames = New System.Windows.Forms.CheckBox()
+        Me.chkFollowerPeepTracking = New System.Windows.Forms.CheckBox()
+        Me.chkChatPeepNames = New System.Windows.Forms.CheckBox()
+        Me.chkChatPeepTracking = New System.Windows.Forms.CheckBox()
+        Me.chkNews = New System.Windows.Forms.CheckBox()
         CType(Me.numFullscreenWidth,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.numFullscreenHeight,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.numWindowHeight,System.ComponentModel.ISupportInitialize).BeginInit
@@ -124,6 +132,7 @@ Namespace Forms
         Me.Launcher.SuspendLayout
         Me.Debugging.SuspendLayout
         Me.Miscellaneous.SuspendLayout
+        Me.Twitch.SuspendLayout
         Me.SuspendLayout
         '
         'tbGamePath
@@ -672,6 +681,7 @@ Namespace Forms
         Me.tcMain.Controls.Add(Me.Cheats)
         Me.tcMain.Controls.Add(Me.Launcher)
         Me.tcMain.Controls.Add(Me.Debugging)
+        Me.tcMain.Controls.Add(Me.Twitch)
         Me.tcMain.Controls.Add(Me.Miscellaneous)
         Me.tcMain.Location = New System.Drawing.Point(12, 12)
         Me.tcMain.Name = "tcMain"
@@ -734,6 +744,25 @@ Namespace Forms
         Me.Localisation.TabIndex = 2
         Me.Localisation.Text = "Localisation"
         Me.Localisation.UseVisualStyleBackColor = true
+        '
+        'cbDateFormat
+        '
+        Me.cbDateFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbDateFormat.FormattingEnabled = true
+        Me.cbDateFormat.Items.AddRange(New Object() {"Day/Month/Year", "Month/Day/Year"})
+        Me.cbDateFormat.Location = New System.Drawing.Point(247, 99)
+        Me.cbDateFormat.Name = "cbDateFormat"
+        Me.cbDateFormat.Size = New System.Drawing.Size(242, 21)
+        Me.cbDateFormat.TabIndex = 30
+        '
+        'laDateFormat
+        '
+        Me.laDateFormat.AutoSize = true
+        Me.laDateFormat.Location = New System.Drawing.Point(247, 83)
+        Me.laDateFormat.Name = "laDateFormat"
+        Me.laDateFormat.Size = New System.Drawing.Size(65, 13)
+        Me.laDateFormat.TabIndex = 29
+        Me.laDateFormat.Text = "Date Format"
         '
         'Sound
         '
@@ -963,24 +992,87 @@ Namespace Forms
         Me.chkAllowSubtypeSwitching.Text = "Show all vehicles sharing a track/ride type"
         Me.chkAllowSubtypeSwitching.UseVisualStyleBackColor = true
         '
-        'laDateFormat
+        'Twitch
         '
-        Me.laDateFormat.AutoSize = true
-        Me.laDateFormat.Location = New System.Drawing.Point(247, 83)
-        Me.laDateFormat.Name = "laDateFormat"
-        Me.laDateFormat.Size = New System.Drawing.Size(65, 13)
-        Me.laDateFormat.TabIndex = 29
-        Me.laDateFormat.Text = "Date Format"
+        Me.Twitch.Controls.Add(Me.chkNews)
+        Me.Twitch.Controls.Add(Me.chkChatPeepTracking)
+        Me.Twitch.Controls.Add(Me.chkChatPeepNames)
+        Me.Twitch.Controls.Add(Me.chkFollowerPeepTracking)
+        Me.Twitch.Controls.Add(Me.chkFollowerPeepNames)
+        Me.Twitch.Controls.Add(Me.tbChannel)
+        Me.Twitch.Controls.Add(Me.laChannel)
+        Me.Twitch.Location = New System.Drawing.Point(4, 22)
+        Me.Twitch.Name = "Twitch"
+        Me.Twitch.Size = New System.Drawing.Size(492, 170)
+        Me.Twitch.TabIndex = 8
+        Me.Twitch.Text = "Twitch"
+        Me.Twitch.UseVisualStyleBackColor = true
         '
-        'cbDateFormat
+        'laChannel
         '
-        Me.cbDateFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbDateFormat.FormattingEnabled = true
-        Me.cbDateFormat.Items.AddRange(New Object() {"Day/Month/Year", "Month/Day/Year"})
-        Me.cbDateFormat.Location = New System.Drawing.Point(247, 99)
-        Me.cbDateFormat.Name = "cbDateFormat"
-        Me.cbDateFormat.Size = New System.Drawing.Size(242, 21)
-        Me.cbDateFormat.TabIndex = 30
+        Me.laChannel.AutoSize = true
+        Me.laChannel.Location = New System.Drawing.Point(3, 3)
+        Me.laChannel.Name = "laChannel"
+        Me.laChannel.Size = New System.Drawing.Size(110, 13)
+        Me.laChannel.TabIndex = 0
+        Me.laChannel.Text = "Twitch Channel name"
+        '
+        'tbChannel
+        '
+        Me.tbChannel.Location = New System.Drawing.Point(3, 19)
+        Me.tbChannel.Name = "tbChannel"
+        Me.tbChannel.Size = New System.Drawing.Size(486, 20)
+        Me.tbChannel.TabIndex = 1
+        '
+        'chkFollowerPeepNames
+        '
+        Me.chkFollowerPeepNames.AutoSize = true
+        Me.chkFollowerPeepNames.Location = New System.Drawing.Point(3, 45)
+        Me.chkFollowerPeepNames.Name = "chkFollowerPeepNames"
+        Me.chkFollowerPeepNames.Size = New System.Drawing.Size(154, 17)
+        Me.chkFollowerPeepNames.TabIndex = 2
+        Me.chkFollowerPeepNames.Text = "Name peeps after followers"
+        Me.chkFollowerPeepNames.UseVisualStyleBackColor = true
+        '
+        'chkFollowerPeepTracking
+        '
+        Me.chkFollowerPeepTracking.AutoSize = true
+        Me.chkFollowerPeepTracking.Location = New System.Drawing.Point(247, 45)
+        Me.chkFollowerPeepTracking.Name = "chkFollowerPeepTracking"
+        Me.chkFollowerPeepTracking.Size = New System.Drawing.Size(125, 17)
+        Me.chkFollowerPeepTracking.TabIndex = 3
+        Me.chkFollowerPeepTracking.Text = "Track follower peeps"
+        Me.chkFollowerPeepTracking.UseVisualStyleBackColor = true
+        '
+        'chkChatPeepNames
+        '
+        Me.chkChatPeepNames.AutoSize = true
+        Me.chkChatPeepNames.Location = New System.Drawing.Point(3, 68)
+        Me.chkChatPeepNames.Name = "chkChatPeepNames"
+        Me.chkChatPeepNames.Size = New System.Drawing.Size(215, 17)
+        Me.chkChatPeepNames.TabIndex = 4
+        Me.chkChatPeepNames.Text = "Name peeps after people in Twitch chat"
+        Me.chkChatPeepNames.UseVisualStyleBackColor = true
+        '
+        'chkChatPeepTracking
+        '
+        Me.chkChatPeepTracking.AutoSize = true
+        Me.chkChatPeepTracking.Location = New System.Drawing.Point(247, 68)
+        Me.chkChatPeepTracking.Name = "chkChatPeepTracking"
+        Me.chkChatPeepTracking.Size = New System.Drawing.Size(110, 17)
+        Me.chkChatPeepTracking.TabIndex = 5
+        Me.chkChatPeepTracking.Text = "Track chat peeps"
+        Me.chkChatPeepTracking.UseVisualStyleBackColor = true
+        '
+        'chkNews
+        '
+        Me.chkNews.AutoSize = true
+        Me.chkNews.Location = New System.Drawing.Point(3, 91)
+        Me.chkNews.Name = "chkNews"
+        Me.chkNews.Size = New System.Drawing.Size(144, 17)
+        Me.chkNews.TabIndex = 6
+        Me.chkNews.Text = "Pull Twitch chat as news"
+        Me.chkNews.UseVisualStyleBackColor = true
         '
         'FrmOptions
         '
@@ -1020,6 +1112,8 @@ Namespace Forms
         Me.Debugging.PerformLayout
         Me.Miscellaneous.ResumeLayout(false)
         Me.Miscellaneous.PerformLayout
+        Me.Twitch.ResumeLayout(false)
+        Me.Twitch.PerformLayout
         Me.ResumeLayout(false)
 
 End Sub
@@ -1107,5 +1201,13 @@ End Sub
         Friend WithEvents chkNoTestCrashes As System.Windows.Forms.CheckBox
         Friend WithEvents cbDateFormat As System.Windows.Forms.ComboBox
         Friend WithEvents laDateFormat As System.Windows.Forms.Label
+        Friend WithEvents Twitch As System.Windows.Forms.TabPage
+        Friend WithEvents tbChannel As System.Windows.Forms.TextBox
+        Friend WithEvents laChannel As System.Windows.Forms.Label
+        Friend WithEvents chkNews As System.Windows.Forms.CheckBox
+        Friend WithEvents chkChatPeepTracking As System.Windows.Forms.CheckBox
+        Friend WithEvents chkChatPeepNames As System.Windows.Forms.CheckBox
+        Friend WithEvents chkFollowerPeepTracking As System.Windows.Forms.CheckBox
+        Friend WithEvents chkFollowerPeepNames As System.Windows.Forms.CheckBox
     End Class
 End Namespace
