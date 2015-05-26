@@ -152,6 +152,9 @@ Namespace Forms
             chkAllowSubtypeSwitching.Checked         = c.AllowSubtypeSwitching
             chkAlwaysShowGridlines.Checked           = c.AlwaysShowGridlines
             cbAutosave.SelectedIndex                 = c.Autosave
+            tbChannel.Text                           = c.Channel
+            chkChatPeepNames.Checked                 = c.ChatPeepNames
+            chkChatPeepTracking.Checked              = c.ChatPeepTracking
             chkConfirmationPrompt.Checked            = c.ConfirmationPrompt
             chkConsoleSmallFont.Checked              = c.ConsoleSmallFont
             cbConstructionMarkerColour.SelectedIndex = c.ConstructionMarkerColour
@@ -162,6 +165,8 @@ Namespace Forms
             chkDisableBrakesFailure.Checked          = c.DisableBrakesFailure
             chkEdgeScrolling.Checked                 = c.EdgeScrolling
             chkFastLiftHill.Checked                  = c.FastLiftHill
+            chkFollowerPeepNames.Checked             = c.FollowerPeepNames
+            chkFollowerPeepTracking.Checked          = c.FollowerPeepTracking
             chkForcedSoftwareBuffering.Checked       = c.ForcedSoftwareBuffering
             numFullscreenHeight.Value                = c.FullscreenHeight
             cbFullscreenMode.SelectedIndex           = c.FullscreenMode
@@ -171,6 +176,7 @@ Namespace Forms
             chkLandscapeSmoothing.Checked            = c.LandscapeSmoothing
             cbLanguage.SelectedIndex                 = c.Language - 1
             cbMeasurementFormat.SelectedIndex        = c.MeasurementFormat
+            chkNews.Checked                          = c.News
             chkNoTestCrashes.Checked                 = c.NoTestCrashes
             chkPlayIntro.Checked                     = c.PlayIntro
             chkRCT1ColourScheme.Checked              = c.RCT1ColourScheme
@@ -198,6 +204,9 @@ Namespace Forms
             c.AllowSubtypeSwitching    = chkAllowSubtypeSwitching.Checked
             c.AlwaysShowGridlines      = chkAlwaysShowGridlines.Checked
             c.Autosave                 = cbAutosave.SelectedIndex
+            c.Channel                  = tbChannel.Text
+            c.ChatPeepNames            = chkChatPeepNames.Checked
+            c.ChatPeepTracking         = chkChatPeepTracking.Checked
             c.ConfirmationPrompt       = chkConfirmationPrompt.Checked
             c.ConsoleSmallFont         = chkConsoleSmallFont.Checked
             c.ConstructionMarkerColour = cbConstructionMarkerColour.SelectedIndex
@@ -208,6 +217,8 @@ Namespace Forms
             c.DisableBrakesFailure     = chkDisableBrakesFailure.Checked
             c.EdgeScrolling            = chkEdgeScrolling.Checked
             c.FastLiftHill             = chkFastLiftHill.Checked
+            c.FollowerPeepNames        = chkFollowerPeepNames.Checked
+            c.FollowerPeepTracking     = chkFollowerPeepTracking.Checked
             c.ForcedSoftwareBuffering  = chkForcedSoftwareBuffering.Checked
             c.FullscreenHeight         = numFullscreenHeight.Value
             c.FullscreenMode           = cbFullscreenMode.SelectedIndex
@@ -217,6 +228,7 @@ Namespace Forms
             c.LandscapeSmoothing       = chkLandscapeSmoothing.Checked
             c.Language                 = cbLanguage.SelectedIndex + 1
             c.MeasurementFormat        = cbMeasurementFormat.SelectedIndex
+            c.News                     = chkNews.Checked
             c.NoTestCrashes            = chkNoTestCrashes.Checked
             c.PlayIntro                = chkPlayIntro.Checked
             c.RCT1ColourScheme         = chkRCT1ColourScheme.Checked
