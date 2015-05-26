@@ -4,7 +4,6 @@ Imports Launcher.My
 Imports Launcher.My.Resources
 Imports Launcher.OpenRCTdotNet
 Imports Launcher.OpenRCTdotNetStoreBrowser
-Imports Microsoft.Win32
 Imports System.IO
 Imports System.IO.Compression
 Imports System.Net
@@ -33,7 +32,7 @@ Public Class frmLauncher
 
         CheckForIllegalCrossThreadCalls = False
 
-        OpenRCT2Config.Load(Constants.OpenRCT2ConfigFile)
+        GameConfig.load(Constants.OpenRCT2ConfigFile)
 
         Settings.HasChanged = False
 
@@ -45,7 +44,7 @@ Public Class frmLauncher
             Task.Run(DirectCast(Async Sub() Await OpenRCTdotNetWebActions.SaveUploadTime(0), Action))
         End If
 
-        cmdLaunchGame.Enabled = Directory.Exists(OpenRCT2Config.GamePath)
+        cmdLaunchGame.Enabled = Directory.Exists(GameConfig.values.GamePath)
 
         'PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
         'PictureBox1.Image = Logo
@@ -56,14 +55,8 @@ Public Class frmLauncher
             Directory.CreateDirectory(Constants.OpenRCT2Folder)
         End If
 
-        'If the programm couldn't find the path look for it in the registry
-        If String.IsNullOrEmpty(OpenRCT2Config.GamePath) Then
-            Try
-                OpenRCT2Config.GamePath = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup").GetValue("Path")
-                OpenRCT2Config.HasChanged = True
-            Catch ex As Exception
-                MsgBox(frmLauncher_Load_neverRun)
-            End Try
+        If String.IsNullOrEmpty(GameConfig.values.GamePath) Then
+            MsgBox(frmLauncher_Load_neverRun)
         End If
 
 
@@ -112,11 +105,7 @@ Public Class frmLauncher
                 Process.StartInfo.Arguments += Settings.Arguments
             End If
 
-            'Save before starting the *.exe to prevent it from failing to load
-            If OpenRCT2Config.HasChanged Then
-                Await OpenRCT2Config.Save(Constants.OpenRCT2ConfigFile)
-                OpenRCT2Config.HasChanged = False
-            End If
+            GameConfig.save(Constants.OpenRCT2ConfigFile)
 
             Process.Start()
 
@@ -173,7 +162,7 @@ Public Class frmLauncher
     Private Sub cmdOptions_Click(sender As Object, e As EventArgs) Handles cmdOptions.Click
         FrmOptions.ShowDialog()
 
-        cmdLaunchGame.Enabled = Directory.Exists(OpenRCT2Config.GamePath)
+        cmdLaunchGame.Enabled = Directory.Exists(GameConfig.values.GamePath)
     End Sub
 
     Private Sub cmdExtras_Click(sender As Object, e As EventArgs) Handles cmdExtras.Click
@@ -187,9 +176,7 @@ Public Class frmLauncher
             Settings.Save()
         End If
 
-        If OpenRCT2Config.HasChanged Then
-            Task.Run(DirectCast(Async Sub() Await OpenRCT2Config.Save(Constants.OpenRCT2ConfigFile), Action))
-        End If
+        GameConfig.save(Constants.OpenRCT2ConfigFile)
     End Sub
 
     Private Async Function WriteOutput(process As Process) As Task
@@ -246,7 +233,7 @@ Public Class frmLauncher
         End Try
 
         RunWithInvoke(Sub(this)
-                          this.cmdLaunchGame.Enabled = Directory.Exists(OpenRCT2Config.GamePath)
+                          this.cmdLaunchGame.Enabled = Directory.Exists(GameConfig.values.GamePath)
                           this.cmdUpdate.Enabled = True
                           this.cmdLaunchGame.Select()
                       End Sub)
