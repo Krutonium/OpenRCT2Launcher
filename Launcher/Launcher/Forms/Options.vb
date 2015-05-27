@@ -56,7 +56,6 @@ Namespace Forms
             tbOutputPath.Text         = My.Settings.PropertyValues("OutputPath").Property.DefaultValue
             chkCheckUpdates.Checked   = My.Settings.PropertyValues("CheckUpdates").Property.DefaultValue
             chkInstallUpdates.Checked = My.Settings.PropertyValues("InstallUpdates").Property.DefaultValue
-            chkCheckLauncher.Checked  = My.Settings.PropertyValues("CheckLauncher").Property.DefaultValue
 
             tbOutputPath.Enabled      = chkSaveOutput.Checked
             cmdOutputPath.Enabled     = chkSaveOutput.Checked
@@ -94,10 +93,6 @@ Namespace Forms
                 Return True
             End If
 
-            If chkCheckLauncher.Checked <> Settings.CheckLauncher Then
-                Return True
-            End If
-
             Return False
         End Function
 
@@ -108,7 +103,6 @@ Namespace Forms
             Settings.OutputPath     = tbOutputPath.Text
             Settings.CheckUpdates   = chkCheckUpdates.Checked
             Settings.InstallUpdates = chkInstallUpdates.Checked
-            Settings.CheckLauncher  = chkCheckLauncher.Checked
 
             Settings.HasChanged = True
         End Sub
@@ -141,7 +135,6 @@ Namespace Forms
             tbOutputPath.Text         = Settings.OutputPath
             chkCheckUpdates.Checked   = Settings.CheckUpdates
             chkInstallUpdates.Checked = Settings.InstallUpdates
-            chkCheckLauncher.Checked  = Settings.CheckLauncher
 
             tbOutputPath.Enabled      = chkSaveOutput.Checked
             cmdOutputPath.Enabled     = chkSaveOutput.Checked
