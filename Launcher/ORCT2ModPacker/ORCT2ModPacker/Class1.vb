@@ -159,55 +159,60 @@ Public Class UnPackMod
             Directory.CreateDirectory(RCT2Dir)
         End If
         ZipFile.ExtractToDirectory(ModFilePath, Temp)
-        If Directory.Exists(Temp & "ObjData") Then
-            If Directory.Exists(RCT2Dir & "\ObjData") = False Then
-                Directory.CreateDirectory(RCT2Dir & "\ObjData")
+        Try
+            If Directory.Exists(Temp & "ObjData") Then
+                If Directory.Exists(RCT2Dir & "\ObjData") = False Then
+                    Directory.CreateDirectory(RCT2Dir & "\ObjData")
+                End If
+                For Each File In Directory.GetFiles(Temp & "ObjData")
+                    System.IO.File.Copy(File, RCT2Dir & "\ObjData\" & Path.GetFileName(File), True)
+                Next
             End If
-            For Each File In Directory.GetFiles(Temp & "ObjData")
-                System.IO.File.Copy(File, RCT2Dir & "\ObjData\" & Path.GetFileName(File), True)
-            Next
-        End If
-        If Directory.Exists(Temp & "Data") Then
-            If Directory.Exists(RCT2Dir & "\Data") = False Then
-                Directory.CreateDirectory(RCT2Dir & "\Data")
+            If Directory.Exists(Temp & "Data") Then
+                If Directory.Exists(RCT2Dir & "\Data") = False Then
+                    Directory.CreateDirectory(RCT2Dir & "\Data")
+                End If
+                For Each File In Directory.GetFiles(Temp & "Data")
+                    System.IO.File.Copy(File, RCT2Dir & "\Data\" & Path.GetFileName(File), True)
+                Next
             End If
-            For Each File In Directory.GetFiles(Temp & "Data")
-                System.IO.File.Copy(File, RCT2Dir & "\Data\" & Path.GetFileName(File), True)
-            Next
-        End If
-        If Directory.Exists(Temp & "Scenarios") Then
-            If Directory.Exists(RCT2Dir & "\Scenarios") = False Then
-                Directory.CreateDirectory(RCT2Dir & "\Scenarios")
+            If Directory.Exists(Temp & "Scenarios") Then
+                If Directory.Exists(RCT2Dir & "\Scenarios") = False Then
+                    Directory.CreateDirectory(RCT2Dir & "\Scenarios")
+                End If
+                For Each File In Directory.GetFiles(Temp & "Scenarios")
+                    System.IO.File.Copy(File, RCT2Dir & "\Scenarios\" & Path.GetFileName(File), True)
+                Next
             End If
-            For Each File In Directory.GetFiles(Temp & "Scenarios")
-                System.IO.File.Copy(File, RCT2Dir & "\Scenarios\" & Path.GetFileName(File), True)
-            Next
-        End If
-        If Directory.Exists(Temp & "Tracks") Then
-            If Directory.Exists(RCT2Dir & "\Tracks") = False Then
-                Directory.CreateDirectory(RCT2Dir & "\Tracks")
+            If Directory.Exists(Temp & "Tracks") Then
+                If Directory.Exists(RCT2Dir & "\Tracks") = False Then
+                    Directory.CreateDirectory(RCT2Dir & "\Tracks")
+                End If
+                For Each File In Directory.GetFiles(Temp & "Tracks")
+                    System.IO.File.Copy(File, RCT2Dir & "\Tracks\" & Path.GetFileName(File), True)
+                Next
             End If
-            For Each File In Directory.GetFiles(Temp & "Tracks")
-                System.IO.File.Copy(File, RCT2Dir & "\Tracks\" & Path.GetFileName(File), True)
-            Next
-        End If
-        If Directory.Exists(Temp & "Saves") Then
-            If Directory.Exists(RCT2Dir & "\Saves") = False Then
-                Directory.CreateDirectory(RCT2Dir & "\Saves")
+            If Directory.Exists(Temp & "Saves") Then
+                If Directory.Exists(RCT2Dir & "\Saves") = False Then
+                    Directory.CreateDirectory(RCT2Dir & "\Saves")
+                End If
+                For Each File In Directory.GetFiles(Temp & "Saves")
+                    System.IO.File.Copy(File, RCT2Dir & "\Saves\" & Path.GetFileName(File), True)
+                Next
             End If
-            For Each File In Directory.GetFiles(Temp & "Saves")
-                System.IO.File.Copy(File, RCT2Dir & "\Saves\" & Path.GetFileName(File), True)
-            Next
-        End If
-        If File.Exists(Temp & "\license.txt") And 0 = 1 Then '0=1 because I wanted this code disabled, but not commented out.
-            Dim resp = MsgBox("Open Licence File?", MsgBoxStyle.YesNo)
-            If resp = MsgBoxResult.Yes Then
-                Dim notepad As New ProcessStartInfo
-                notepad.FileName = ("Notepad.exe")
-                notepad.Arguments = (Temp & "\license.txt")
-                Process.Start(notepad).WaitForExit()
+            If File.Exists(Temp & "\license.txt") And 0 = 1 Then '0=1 because I wanted this code disabled, but not commented out.
+                Dim resp = MsgBox("Open Licence File?", MsgBoxStyle.YesNo)
+                If resp = MsgBoxResult.Yes Then
+                    Dim notepad As New ProcessStartInfo
+                    notepad.FileName = ("Notepad.exe")
+                    notepad.Arguments = (Temp & "\license.txt")
+                    Process.Start(notepad).WaitForExit()
+                End If
             End If
-        End If
+        Catch ex As Exception
+            MsgBox("Sorry, but it seems you have a CD based install of the game. To use this, your going to need to install your game somewhere other than Program Files.", MsgBoxStyle.Critical, "Error :( ")
+        End Try
+
         Directory.Delete(Temp, True)
     End Sub
     Public ReadOnly Property ModName As String

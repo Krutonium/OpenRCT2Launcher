@@ -7,6 +7,7 @@ Imports Launcher.OpenRCTdotNetStoreBrowser
 Imports System.IO
 Imports System.IO.Compression
 Imports System.Net
+Imports Microsoft.Win32
 
 Public Class frmLauncher
 
@@ -35,6 +36,15 @@ Public Class frmLauncher
         GameConfig.load(Constants.OpenRCT2ConfigFile)
 
         Settings.HasChanged = False
+
+        'Dim Key2 = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
+        'Dim RCT2 = Key2.GetValue("Path")
+        'Dim reader As System.IO.DirectoryInfo
+        'reader = My.Computer.FileSystem.GetDirectoryInfo(RCT2)
+        'If reader.Attributes = FileAttributes.ReadOnly Then
+        'FixingPermissions.ShowDialog()
+        'End If
+
 
         If Settings.CheckUpdates Then
             Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
@@ -89,13 +99,13 @@ Public Class frmLauncher
             If Settings.SaveOutput Then
                 If Directory.Exists(Path.GetDirectoryName(Settings.OutputPath)) Then
                     Process.StartInfo.RedirectStandardOutput = True
-                    Process.StartInfo.RedirectStandardError  = True
-                    Process.StartInfo.UseShellExecute        = False
+                    Process.StartInfo.RedirectStandardError = True
+                    Process.StartInfo.UseShellExecute = False
                 End If
             End If
 
             Process.StartInfo.WorkingDirectory = Constants.OpenRCT2Bin 'OpenRCT2's Executibles will be stored here, so we make this the working dir.
-            Process.StartInfo.FileName         = Constants.OpenRCT2Exe 'The EXE of course.
+            Process.StartInfo.FileName = Constants.OpenRCT2Exe 'The EXE of course.
 
             If Settings.Verbose Then
                 Process.StartInfo.Arguments += "--verbose "
@@ -208,8 +218,8 @@ Public Class frmLauncher
                 Exit Try
             End If
 
-            If (remoteVersion <> Settings.LocalVersion And Not Settings.InstallUpdates) And Not force
-                If MessageBox.Show("There is a new version of OpenRCT2 available. Do you want to download it?", "OpenRCT2 Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> Windows.Forms.DialogResult.Yes
+            If (remoteVersion <> Settings.LocalVersion And Not Settings.InstallUpdates) And Not force Then
+                If MessageBox.Show("There is a new version of OpenRCT2 available. Do you want to download it?", "OpenRCT2 Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> Windows.Forms.DialogResult.Yes Then
                     Exit Try
                 End If
             End If
