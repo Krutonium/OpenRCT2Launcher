@@ -108,11 +108,11 @@ namespace HelperLibrary.Utils
 		/// Writes the configuration to an ini file.
 		/// </summary>
 		/// <param name="path">The path of the ini file to save as.</param>
-		public async Task Save(string path)
+		public void Save(string path)
 		{
 			using (var sw = new StreamWriter(new FileStream(path, FileMode.Create, FileAccess.Write)))
-				foreach (var line in _lines)
-					await sw.WriteLineAsync(line);
+                foreach (var line in _lines)
+                    sw.WriteLine(line);
 		}
 
 		/// <summary>

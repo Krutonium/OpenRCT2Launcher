@@ -104,7 +104,7 @@ Public Class frmLauncher
                 End If
             End If
 
-            Process.StartInfo.WorkingDirectory = Constants.OpenRCT2Bin 'OpenRCT2's Executibles will be stored here, so we make this the working dir.
+            Process.StartInfo.WorkingDirectory = Constants.OpenRCT2Bin 'OpenRCT2's executables will be stored here, so we make this the working dir.
             Process.StartInfo.FileName = Constants.OpenRCT2Exe 'The EXE of course.
 
             If Settings.Verbose Then
