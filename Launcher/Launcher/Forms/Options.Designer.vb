@@ -93,7 +93,6 @@ Namespace Forms
         Me.Sound = New System.Windows.Forms.TabPage()
         Me.GUI = New System.Windows.Forms.TabPage()
         Me.chkConsoleSmallFont = New System.Windows.Forms.CheckBox()
-        Me.chkRCT1ColourScheme = New System.Windows.Forms.CheckBox()
         Me.chkToolbarShowCheats = New System.Windows.Forms.CheckBox()
         Me.chkToolbarShowResearch = New System.Windows.Forms.CheckBox()
         Me.chkToolbarShowFinances = New System.Windows.Forms.CheckBox()
@@ -772,7 +771,6 @@ Namespace Forms
         'GUI
         '
         Me.GUI.Controls.Add(Me.chkConsoleSmallFont)
-        Me.GUI.Controls.Add(Me.chkRCT1ColourScheme)
         Me.GUI.Controls.Add(Me.chkToolbarShowCheats)
         Me.GUI.Controls.Add(Me.numWindowSnapProximity)
         Me.GUI.Controls.Add(Me.chkToolbarShowResearch)
@@ -789,22 +787,12 @@ Namespace Forms
         'chkConsoleSmallFont
         '
         Me.chkConsoleSmallFont.AutoSize = true
-        Me.chkConsoleSmallFont.Location = New System.Drawing.Point(247, 91)
+        Me.chkConsoleSmallFont.Location = New System.Drawing.Point(3, 91)
         Me.chkConsoleSmallFont.Name = "chkConsoleSmallFont"
         Me.chkConsoleSmallFont.Size = New System.Drawing.Size(143, 17)
         Me.chkConsoleSmallFont.TabIndex = 29
         Me.chkConsoleSmallFont.Text = "Use small font in console"
         Me.chkConsoleSmallFont.UseVisualStyleBackColor = true
-        '
-        'chkRCT1ColourScheme
-        '
-        Me.chkRCT1ColourScheme.AutoSize = true
-        Me.chkRCT1ColourScheme.Location = New System.Drawing.Point(3, 91)
-        Me.chkRCT1ColourScheme.Name = "chkRCT1ColourScheme"
-        Me.chkRCT1ColourScheme.Size = New System.Drawing.Size(120, 17)
-        Me.chkRCT1ColourScheme.TabIndex = 11
-        Me.chkRCT1ColourScheme.Text = "RCT1 colour sheme"
-        Me.chkRCT1ColourScheme.UseVisualStyleBackColor = true
         '
         'chkToolbarShowCheats
         '
@@ -1171,7 +1159,6 @@ End Sub
         Friend WithEvents GUI As System.Windows.Forms.TabPage
         Friend WithEvents Miscellaneous As System.Windows.Forms.TabPage
         Friend WithEvents chkHardwareDisplay As System.Windows.Forms.CheckBox
-        Friend WithEvents chkRCT1ColourScheme As System.Windows.Forms.CheckBox
         Friend WithEvents chkToolbarShowCheats As System.Windows.Forms.CheckBox
         Friend WithEvents chkToolbarShowResearch As System.Windows.Forms.CheckBox
         Friend WithEvents chkToolbarShowFinances As System.Windows.Forms.CheckBox

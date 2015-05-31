@@ -172,7 +172,6 @@ Namespace Forms
             chkNews.Checked                          = c.News
             chkNoTestCrashes.Checked                 = c.NoTestCrashes
             chkPlayIntro.Checked                     = c.PlayIntro
-            chkRCT1ColourScheme.Checked              = c.RCT1ColourScheme
             chkRideMusic.Checked                     = c.RideMusic
             chkSavePluginData.Checked                = c.SavePluginData
             cbScreenshotFormat.SelectedIndex         = c.ScreenshotFormat
@@ -224,7 +223,6 @@ Namespace Forms
             c.News                     = chkNews.Checked
             c.NoTestCrashes            = chkNoTestCrashes.Checked
             c.PlayIntro                = chkPlayIntro.Checked
-            c.RCT1ColourScheme         = chkRCT1ColourScheme.Checked
             c.RideMusic                = chkRideMusic.Checked
             c.SavePluginData           = chkSavePluginData.Checked
             c.ScreenshotFormat         = cbScreenshotFormat.SelectedIndex
