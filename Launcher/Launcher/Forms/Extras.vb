@@ -177,5 +177,21 @@ Namespace Forms
         Private Sub cmdWebStore_Click(sender As Object, e As EventArgs) Handles cmdWebStore.Click
             OpenRCTdotNetStoreBrowser.Visible = True
         End Sub
+
+        Private Sub cmdSteamStub_Click(sender As Object, e As EventArgs) Handles cmdSteamStub.Click
+            Dim msg = MsgBox("This will replace your games startup file with a menu to start the original or this launcher. Continue?", MsgBoxStyle.YesNo, "Install Steam Stub?")
+            If msg = MsgBoxResult.Yes Then
+                Dim FByte() As Byte = My.Resources.Stub
+                If File.Exists(RCT2 & "\RCT2.exe") Then
+                    If File.Exists(RCT2 & "\Vanilla.exe") = False Then
+                        File.Copy(RCT2 & "\RCT2.exe", RCT2 & "\Vanilla.exe")
+                    Else
+                        MsgBox("You can't do this more than once!", MsgBoxStyle.Critical, "Error")
+                    End If
+                End If
+                File.WriteAllBytes(RCT2 & "\RCT2.exe", FByte)
+                MsgBox("Complete!")
+            End If
+        End Sub
     End Class
 End Namespace

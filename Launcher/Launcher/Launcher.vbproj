@@ -27,8 +27,8 @@
     <InstallUrl>https://openrct.net/launcher/Launcher/ClickOnce/</InstallUrl>
     <UpdateUrl>https://openrct.net/launcher/Launcher/ClickOnce/</UpdateUrl>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>21</ApplicationRevision>
-    <ApplicationVersion>1.0.0.21</ApplicationVersion>
+    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationVersion>1.0.0.22</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -76,7 +76,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
@@ -280,6 +280,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login_screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stub.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>

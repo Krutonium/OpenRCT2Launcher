@@ -38,6 +38,7 @@ Namespace Forms
             Me.cmdSyncSaves = New System.Windows.Forms.Button()
             Me.gboOpenRCTnet = New System.Windows.Forms.GroupBox()
             Me.cmdWebStore = New System.Windows.Forms.Button()
+            Me.cmdSteamStub = New System.Windows.Forms.Button()
             Me.gboOpenRCTnet.SuspendLayout()
             Me.SuspendLayout()
             '
@@ -61,7 +62,7 @@ Namespace Forms
             '
             'cmdDebug
             '
-            Me.cmdDebug.Location = New System.Drawing.Point(12, 194)
+            Me.cmdDebug.Location = New System.Drawing.Point(12, 242)
             Me.cmdDebug.Name = "cmdDebug"
             Me.cmdDebug.Size = New System.Drawing.Size(165, 23)
             Me.cmdDebug.TabIndex = 2
@@ -136,11 +137,21 @@ Namespace Forms
             Me.cmdWebStore.Text = "Open OpenRCT.net Store (Free)"
             Me.cmdWebStore.UseVisualStyleBackColor = True
             '
+            'cmdSteamStub
+            '
+            Me.cmdSteamStub.Location = New System.Drawing.Point(18, 184)
+            Me.cmdSteamStub.Name = "cmdSteamStub"
+            Me.cmdSteamStub.Size = New System.Drawing.Size(159, 23)
+            Me.cmdSteamStub.TabIndex = 10
+            Me.cmdSteamStub.Text = "Install Steam Stub"
+            Me.cmdSteamStub.UseVisualStyleBackColor = True
+            '
             'Extras
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-            Me.ClientSize = New System.Drawing.Size(362, 187)
+            Me.ClientSize = New System.Drawing.Size(362, 213)
+            Me.Controls.Add(Me.cmdSteamStub)
             Me.Controls.Add(Me.gboOpenRCTnet)
             Me.Controls.Add(Me.cmdSyncAnyFolder)
             Me.Controls.Add(Me.cmdDropboxSync)
@@ -166,5 +177,6 @@ Namespace Forms
         Friend WithEvents cmdSyncSaves As System.Windows.Forms.Button
         Friend WithEvents gboOpenRCTnet As System.Windows.Forms.GroupBox
         Friend WithEvents cmdWebStore As System.Windows.Forms.Button
+        Friend WithEvents cmdSteamStub As System.Windows.Forms.Button
     End Class
 End Namespace

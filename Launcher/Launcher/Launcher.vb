@@ -37,14 +37,16 @@ Public Class frmLauncher
 
         Settings.HasChanged = False
 
-        'Dim Key2 = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
-        'Dim RCT2 = Key2.GetValue("Path")
-        'Dim reader As System.IO.DirectoryInfo
-        'reader = My.Computer.FileSystem.GetDirectoryInfo(RCT2)
-        'If reader.Attributes = FileAttributes.ReadOnly Then
-        'FixingPermissions.ShowDialog()
-        'End If
-
+        'Dim strPath As String = System.IO.Path.GetDirectoryName( _
+        'System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+        Dim FileName As String = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName
+        'strPath = strPath.Remove(0, 6)
+        'strPath = strPath & FileName
+        'MsgBox(strPath)
+        If File.Exists(Constants.OpenRCT2Folder & "\StubPath.path") Then
+            File.Delete(Constants.OpenRCT2Folder & "\StubPath.path")
+        End If
+        File.WriteAllText(Constants.OpenRCT2Folder & "\StubPath.path", FileName)
 
         If Settings.CheckUpdates Then
             Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))
