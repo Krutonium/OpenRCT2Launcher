@@ -9,6 +9,7 @@ Public Class ModPack
     Dim Zip As String = Nothing
     Dim LastError As String = Nothing
     Dim Temp As String = Path.GetTempPath & "ModPacker\"
+
     Public Function PackMod()
         Try
             System.IO.Directory.Delete(Temp, True)
@@ -128,6 +129,7 @@ Public Class UnPackMod
     Dim Desc As String = Nothing
     Dim Auth As String = Nothing
     Dim Temp As String = Path.GetTempPath & "ModPacker\"
+    Dim Themes As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\OpenRCT2\color schemes"
     Public Sub GetInfoFromMod(ByVal ModFilePath As String)
         Using zippedFile As ZipArchive = ZipFile.Open(ModFilePath, ZipArchiveMode.Read)
             Dim ntry As ZipArchiveEntry = zippedFile.GetEntry("info.RCT2")
@@ -198,6 +200,14 @@ Public Class UnPackMod
                 End If
                 For Each File In Directory.GetFiles(Temp & "Saves")
                     System.IO.File.Copy(File, RCT2Dir & "\Saves\" & Path.GetFileName(File), True)
+                Next
+            End If
+            If Directory.Exists(Temp & "\Themes") Then
+                If Directory.Exists(Themes) = False Then
+                    Directory.CreateDirectory(Themes)
+                End If
+                For Each File In Directory.GetFiles(Temp & "\Themes")
+                    System.IO.File.Copy(File, Themes & Path.GetFileName(File), True)
                 Next
             End If
             If File.Exists(Temp & "\license.txt") And 0 = 1 Then '0=1 because I wanted this code disabled, but not commented out.
