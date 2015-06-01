@@ -129,7 +129,7 @@ Public Class UnPackMod
     Dim Desc As String = Nothing
     Dim Auth As String = Nothing
     Dim Temp As String = Path.GetTempPath & "ModPacker\"
-    Dim Themes As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\OpenRCT2\color schemes"
+    Dim Themes As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\OpenRCT2\colour schemes\"
     Public Sub GetInfoFromMod(ByVal ModFilePath As String)
         Using zippedFile As ZipArchive = ZipFile.Open(ModFilePath, ZipArchiveMode.Read)
             Dim ntry As ZipArchiveEntry = zippedFile.GetEntry("info.RCT2")
@@ -207,6 +207,7 @@ Public Class UnPackMod
                     Directory.CreateDirectory(Themes)
                 End If
                 For Each File In Directory.GetFiles(Temp & "\Themes")
+                    'MsgBox(File & " " & Themes & Path.GetFileName(File))
                     System.IO.File.Copy(File, Themes & Path.GetFileName(File), True)
                 Next
             End If
