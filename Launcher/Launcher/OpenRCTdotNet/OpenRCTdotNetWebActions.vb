@@ -158,65 +158,72 @@ Namespace OpenRCTdotNet
                         System.Windows.Forms.Application.DoEvents()
 
                         'check if file exists, if it does, check if it's older than the cloud file and if so; download, if it does not; download
+                        Dim doDownload = False
+
                         If File.Exists(thisFile) Then
 
                             Dim infoReader As System.IO.FileInfo
                             infoReader = My.Computer.FileSystem.GetFileInfo(thisFile)
                             If infoReader.LastWriteTime.ToUniversalTime < Date.Parse(item.Value("savedate")) Then
-                                File.Delete(thisFile)
-
-                                'Dim downloadFileUri As New Uri(String.Format("{0}?a=get_savegame&user={1}&auth={2}&secret={3}&file={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, item.Value("propername").ToString))
-                                'Call (New WebClient).DownloadFile(downloadFileUri, thisFile)
-                                Dim downloadFileUri As New Uri(String.Format("{0}{1}/coastercloud/{2}", "https://openrct.net/api/v2/", Secret, item.Value("propername").ToString()))
-
-                                request = WebRequest.Create(downloadUri)
-                                request.Method = "POST"
-                                postData = String.Format("userID={0}&auth={1}", Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode)
-                                byteArray = Encoding.UTF8.GetBytes(postData)
-                                request.ContentType = "application/x-www-form-urlencoded"
-                                request.ContentLength = byteArray.Length
-                                dataStream = request.GetRequestStream()
-                                dataStream.Write(byteArray, 0, byteArray.Length)
-                                dataStream.Close()
-                                response = request.GetResponse()
-
-
-
-                                Dim remoteStream = response.GetResponseStream()
-                                Dim localStream = File.Create(thisFile)
-                                Dim buffer(1024) As Byte
-                                Dim bytesRead, bytesProcessed As Integer
-
-                                Do
-                                    bytesRead = remoteStream.Read(buffer, 0, buffer.Length)
-                                    localStream.Write(buffer, 0, bytesRead)
-                                    bytesProcessed += bytesRead
-                                Loop While bytesRead > 0
-
-
-                                response.Close()
-
-                                File.SetLastWriteTime(thisFile, New DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Integer.Parse(item.Value("savedateUNIX").ToString)).ToUniversalTime())
-                                ' set writetime to custom time from website so it doesnt get overwritten when another computer gets added
+                                doDownload = True
                             End If
 
                         Else
+                            doDownload = True
+                        End If
 
-                            Dim downloadFileUri As New Uri(String.Format("{0}?a=get_savegame&user={1}&auth={2}&secret={3}&file={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, item.Value("propername").ToString))
-                            Call (New WebClient).DownloadFile(downloadFileUri, thisFile)
+                        If doDownload Then
+                            If File.Exists(thisFile) Then
+                                File.Delete(thisFile)
+                            End If
+
+                            'Dim downloadFileUri As New Uri(String.Format("{0}?a=get_savegame&user={1}&auth={2}&secret={3}&file={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, item.Value("propername").ToString))
+                            'Call (New WebClient).DownloadFile(downloadFileUri, thisFile)
+                            Dim downloadFileUri As New Uri(String.Format("{0}{1}/coastercloud/{2}", "https://openrct.net/api/v2/", Secret, item.Value("propername").ToString().ToLower()))
+                            request = WebRequest.Create(downloadFileUri)
+                            request.Method = "POST"
+                            postData = String.Format("userID={0}&auth={1}", Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode)
+                            byteArray = Encoding.UTF8.GetBytes(postData)
+                            request.ContentType = "application/x-www-form-urlencoded"
+                            request.ContentLength = byteArray.Length
+
+
+                            dataStream = request.GetRequestStream()
+                            dataStream.Write(byteArray, 0, byteArray.Length)
+                            dataStream.Close()
+                            response = request.GetResponse()
+                            Dim s As Stream = response.GetResponseStream()
+                            
+                            'Source stream with requested document  
+                            Dim SourceStream = response.GetResponseStream()
+
+                            'SourceStream has no ReadAll, so we must read data block-by-block  
+                            'Temporary Buffer and block size  
+                            Dim Buffer(4096) As Byte, BlockSize As Integer
+
+                            'Memory stream to store data  
+                            Dim TempStream As New MemoryStream
+                            Do
+                                BlockSize = SourceStream.Read(Buffer, 0, 4096)
+                                If BlockSize > 0 Then TempStream.Write(Buffer, 0, BlockSize)
+                            Loop While BlockSize > 0
+
+                            Dim theFile As New FileStream(thisFile, FileMode.Create, FileAccess.Write)
+                            TempStream.WriteTo(theFile)
+                            theFile.Close()
+                            TempStream.Close()
+
+                            s.Close()
+                            response.Close()
+
+
                             File.SetLastWriteTime(thisFile, New DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Integer.Parse(item.Value("savedateUNIX").ToString)).ToUniversalTime())
                             ' set writetime to custom time from website so it doesnt get overwritten when another computer gets added
                         End If
                     Next
                 End If
             Catch ex As Exception
-                MsgBox(ex.ToString)
-                ' Catch ex As WebException
-                'TODO: Add eror handling
-                'MsgBox(ex.ToString)
-                'Catch ex As JsonSerializationException
-                'TODO: Add eror handling
-                'MsgBox(ex.ToString)
+                MsgBox("Error. Please take a screenshot and let the developers know." & ex.ToString)
             End Try
         End Function
 
@@ -225,21 +232,38 @@ Namespace OpenRCTdotNet
             'Find local path where games are saved
             Dim RCT2SavedGamesPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2/save"
 
-            ' Make a reference to a directory.
             Dim di As New DirectoryInfo(RCT2SavedGamesPath)
-            ' Get a reference to each file in that directory.
             Dim fiArr As FileInfo() = di.GetFiles()
-            ' Display the names of the files.
             Dim fri As FileInfo
             Try
                 For Each fri In fiArr
                     If fri.FullName.ToLower.EndsWith(".sv6") Then
+                        Dim doUpload As Boolean = False
                         If UpdateSyncForm = True Then
                             OpenRCTdotNetSyncSaves.lblStatus.Text = OpenRCTdotNetSaveSyncStatusUpload & " " & fri.ToString()
                         End If
                         System.Windows.Forms.Application.DoEvents()
-                        Dim uploadFileUri As New Uri(String.Format("{0}?a=get_savegame&user={1}&auth={2}&secret={3}&file={4}&info=true", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, fri.Name))
-                        Dim serverResponse As String = (New WebClient).DownloadString(uploadFileUri)
+                        Dim uploadFileUri As New Uri(String.Format("{0}{1}/coastercloud/info/{2}.json", "https://openrct.net/api/v2/", Secret, fri.Name.ToLower().Substring(0, fri.Name.Length - 4)))
+                        Debug.WriteLine(uploadFileUri.ToString())
+
+                        'Dim serverResponse As String = (New WebClient).DownloadString(uploadFileUri)
+                        Dim request As WebRequest = WebRequest.Create(uploadFileUri)
+                        request.Method = "POST"
+                        Dim postData As String = String.Format("userID={0}&auth={1}", Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode)
+                        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+                        request.ContentType = "application/x-www-form-urlencoded"
+                        request.ContentLength = byteArray.Length
+                        Dim dataStream As Stream = request.GetRequestStream()
+                        dataStream.Write(byteArray, 0, byteArray.Length)
+                        dataStream.Close()
+                        Dim response As WebResponse = request.GetResponse()
+                        dataStream = response.GetResponseStream()
+                        Dim reader As New StreamReader(dataStream)
+                        Dim serverResponse As String = reader.ReadToEnd()
+                        reader.Close()
+                        dataStream.Close()
+                        response.Close()
+
                         'MsgBox(serverResponse)
                         jsonResult = JObject.Parse(serverResponse)
                         If jsonResult.SelectToken("error") Is Nothing Then
@@ -255,22 +279,87 @@ Namespace OpenRCTdotNet
                             Dim Hash As String = HashB.ToString
                             If Hash = jsonResult.SelectToken("MD5").ToString.ToUpper = False Then
                                 If DateTime.Compare(DateTime.Parse(ConvertTimestamp(jsonResult.SelectToken("savedateUNIX").ToString())), fri.LastWriteTime.ToUniversalTime) < 0 Then
-                                    Dim savedTime = ConvertDateTime(fri.LastWriteTime)
-                                    Dim doUploadFileUri As New Uri(String.Format("{0}?a=add_savegame&user={1}&auth={2}&savedtime={3}&secret={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, savedTime, Secret))
+                                    'Dim savedTime = ConvertDateTime(fri.LastWriteTime)
+                                    'Dim doUploadFileUri As New Uri(String.Format("{0}?a=add_savegame&user={1}&auth={2}&savedtime={3}&secret={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, savedTime, Secret))
                                     'OpenRCTdotNetSyncSaves.Text = fri.ToString
-                                    Call (New WebClient).UploadFile(doUploadFileUri, fri.FullName)
+                                    'Call (New WebClient).UploadFile(doUploadFileUri, fri.FullName)
+                                    doUpload = True
                                 End If
                             End If
                         Else
-                            If jsonResult.SelectToken("error") = "Savegame not found" Then
+                            If jsonResult.SelectToken("moreInfo") = "Savegame not found" Then
                                 ' the game isn't found on the server, so I don't even have to check if I want to upload
-                                Dim savedTime = ConvertDateTime(fri.LastWriteTime)
-                                Dim doUploadFileUri As New Uri(String.Format("{0}?a=add_savegame&user={1}&auth={2}&savedtime={3}&secret={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, savedTime, Secret))
+                                'Dim savedTime = ConvertDateTime(fri.LastWriteTime)
+                                'Dim doUploadFileUri As New Uri(String.Format("{0}?a=add_savegame&user={1}&auth={2}&savedtime={3}&secret={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, savedTime, Secret))
                                 'OpenRCTdotNetSyncSaves.Text = fri.ToString
-                                Call (New WebClient).UploadFile(doUploadFileUri, fri.FullName)
+                                'Call (New WebClient).UploadFile(doUploadFileUri, fri.FullName)
+                                doUpload = True
                             Else
                                 MsgBox(jsonResult.SelectToken("error"))
                             End If
+                        End If
+                        If doUpload Then
+                            'MsgBox("Uploading " & fri.Name)
+
+                            Dim savedTime = ConvertDateTime(fri.LastWriteTime)
+                            Dim doUploadFileUri As New Uri(String.Format("{0}{1}/coastercloud/add.json", "https://openrct.net/api/v2/", Secret))
+                            'filepath: fri.FullName
+                            Dim boundary As String = Guid.NewGuid().ToString().Replace("-", String.Empty)
+                            Dim obj = HttpWebRequest.Create(doUploadFileUri)
+                            Dim objWebReq = CType(obj, HttpWebRequest)
+                            objWebReq.ContentType = "multipart/form-data; boundary=" + boundary
+                            objWebReq.Method = "POST"
+
+                            Dim memStream = New MemoryStream(100240)
+                            Dim writer = New StreamWriter(memStream)
+
+                            writer.Write("--" + boundary + vbCrLf)
+                            writer.Write("Content-Disposition: form-data; name=""{0}""{1}{2}", "userID", vbCrLf, vbCrLf)
+                            writer.Write(Settings.OpenRCTdotNetUserID)
+                            writer.Write(vbCrLf)
+
+
+                            writer.Write("--" + boundary + vbCrLf)
+                            writer.Write("Content-Disposition: form-data; name=""{0}""{1}{2}", "auth", vbCrLf, vbCrLf)
+                            writer.Write(Settings.OpenRCTdotNetUserAuthCode)
+                            writer.Write(vbCrLf)
+
+                            writer.Write("--" + boundary + vbCrLf)
+                            writer.Write("Content-Disposition: form-data; name=""{0}""{1}{2}", "savedtime", vbCrLf, vbCrLf)
+                            writer.Write(savedTime)
+                            writer.Write(vbCrLf)
+
+                            'File
+                            writer.Write("--" + boundary + vbCrLf)
+                            writer.Write("Content-Disposition: form-data; name=""{0}""; filename=""{1}""{2}", "file", fri.FullName, vbCrLf)
+                            writer.Write("Content-Type: application/octet-stream " + vbCrLf + vbCrLf)
+                            'writer.Write(File.ReadAllBytes(fri.FullName).ToArray())
+                            writer.Flush()
+
+                            Using file = New FileStream(fri.FullName, FileMode.Open, FileAccess.Read)
+                                Dim bytes(file.Length) As Byte
+                                file.Read(bytes, 0, Integer.Parse(file.Length))
+                                memStream.Write(bytes, 0, Integer.Parse(file.Length))
+                            End Using
+
+
+                            writer.Write(vbCrLf)
+
+                            writer.Write("--{0}--{1}", boundary, vbCrLf)
+
+                            writer.Flush()
+
+                            objWebReq.ContentLength = memStream.Length
+                            Dim rStream = objWebReq.GetRequestStream()
+                            memStream.WriteTo(rStream)
+                            memStream.Close()
+
+                            Dim WebResponse = objWebReq.GetResponse()
+                            Dim stReader = New StreamReader(WebResponse.GetResponseStream())
+                            Dim output = stReader.ReadToEnd()
+
+                            'MsgBox(output)
+
                         End If
                     End If
                 Next fri
