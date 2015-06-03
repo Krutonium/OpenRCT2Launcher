@@ -36,7 +36,6 @@ Namespace OpenRCTdotNet
                 dataStream.Write(byteArray, 0, byteArray.Length)
                 dataStream.Close()
                 Dim response As WebResponse = request.GetResponse()
-                Console.WriteLine(CType(response, HttpWebResponse).StatusDescription)
                 dataStream = response.GetResponseStream()
                 Dim reader As New StreamReader(dataStream)
                 Dim serverResponse As String = reader.ReadToEnd()
@@ -89,14 +88,13 @@ Namespace OpenRCTdotNet
                 dataStream.Write(byteArray, 0, byteArray.Length)
                 dataStream.Close()
                 Dim response As WebResponse = request.GetResponse()
-                Console.WriteLine(CType(response, HttpWebResponse).StatusDescription)
                 dataStream = response.GetResponseStream()
                 Dim reader As New StreamReader(dataStream)
                 Dim serverResponse As String = reader.ReadToEnd()
                 reader.Close()
                 dataStream.Close()
                 response.Close()
-                MsgBox(serverResponse)
+                'MsgBox(serverResponse) 'debug
 
                 Settings.OpenRCTdotNetPlaytimeCache = 0
                 Settings.HasChanged = True
@@ -119,11 +117,32 @@ Namespace OpenRCTdotNet
 
         Public Shared Async Function DownloadSaves(Optional ByVal UpdateSyncForm As Boolean = False) As Task
             Dim jsonResult As JObject
-            Dim downloadUri As New Uri(String.Format("{0}?a=get_savegames&user={1}&auth={2}&secret={3}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret))
+            Dim downloadUri As New Uri(String.Format("{0}{1}/coastercloud.json", "https://openrct.net/api/v2/", Secret))
+
             Dim RCT2SavedGamesPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "/OpenRCT2/save/"
 
             Try
-                Dim serverResponse As String = Await (New WebClient).DownloadStringTaskAsync(downloadUri)
+                'Await (New WebClient).DownloadStringTaskAsync(downloadUri)
+                Dim request As WebRequest = WebRequest.Create(downloadUri)
+                request.Method = "POST"
+                Dim postData As String = String.Format("userID={0}&auth={1}", Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode)
+                Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+                request.ContentType = "application/x-www-form-urlencoded"
+                request.ContentLength = byteArray.Length
+                Dim dataStream As Stream = request.GetRequestStream()
+                dataStream.Write(byteArray, 0, byteArray.Length)
+                dataStream.Close()
+                Dim response As WebResponse = request.GetResponse()
+                dataStream = response.GetResponseStream()
+                Dim reader As New StreamReader(dataStream)
+                Dim serverResponse As String = reader.ReadToEnd()
+                reader.Close()
+                dataStream.Close()
+                response.Close()
+                'MsgBox(serverResponse) 'debug
+
+
+
                 jsonResult = JObject.Parse(serverResponse)
 
                 If jsonResult.SelectToken("error") Is Nothing Then
@@ -146,8 +165,37 @@ Namespace OpenRCTdotNet
                             If infoReader.LastWriteTime.ToUniversalTime < Date.Parse(item.Value("savedate")) Then
                                 File.Delete(thisFile)
 
-                                Dim downloadFileUri As New Uri(String.Format("{0}?a=get_savegame&user={1}&auth={2}&secret={3}&file={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, item.Value("propername").ToString))
-                                Call (New WebClient).DownloadFile(downloadFileUri, thisFile)
+                                'Dim downloadFileUri As New Uri(String.Format("{0}?a=get_savegame&user={1}&auth={2}&secret={3}&file={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, item.Value("propername").ToString))
+                                'Call (New WebClient).DownloadFile(downloadFileUri, thisFile)
+                                Dim downloadFileUri As New Uri(String.Format("{0}{1}/coastercloud/{2}", "https://openrct.net/api/v2/", Secret, item.Value("propername").ToString()))
+
+                                request = WebRequest.Create(downloadUri)
+                                request.Method = "POST"
+                                postData = String.Format("userID={0}&auth={1}", Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode)
+                                byteArray = Encoding.UTF8.GetBytes(postData)
+                                request.ContentType = "application/x-www-form-urlencoded"
+                                request.ContentLength = byteArray.Length
+                                dataStream = request.GetRequestStream()
+                                dataStream.Write(byteArray, 0, byteArray.Length)
+                                dataStream.Close()
+                                response = request.GetResponse()
+
+
+
+                                Dim remoteStream = response.GetResponseStream()
+                                Dim localStream = File.Create(thisFile)
+                                Dim buffer(1024) As Byte
+                                Dim bytesRead, bytesProcessed As Integer
+
+                                Do
+                                    bytesRead = remoteStream.Read(buffer, 0, buffer.Length)
+                                    localStream.Write(buffer, 0, bytesRead)
+                                    bytesProcessed += bytesRead
+                                Loop While bytesRead > 0
+
+
+                                response.Close()
+
                                 File.SetLastWriteTime(thisFile, New DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Integer.Parse(item.Value("savedateUNIX").ToString)).ToUniversalTime())
                                 ' set writetime to custom time from website so it doesnt get overwritten when another computer gets added
                             End If
@@ -161,12 +209,14 @@ Namespace OpenRCTdotNet
                         End If
                     Next
                 End If
-            Catch ex As WebException
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+                ' Catch ex As WebException
                 'TODO: Add eror handling
                 'MsgBox(ex.ToString)
-            Catch ex As JsonSerializationException
+                'Catch ex As JsonSerializationException
                 'TODO: Add eror handling
-                MsgBox(ex.ToString)
+                'MsgBox(ex.ToString)
             End Try
         End Function
 
