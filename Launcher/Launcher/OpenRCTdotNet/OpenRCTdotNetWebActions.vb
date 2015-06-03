@@ -43,7 +43,7 @@ Namespace OpenRCTdotNet
                 reader.Close()
                 dataStream.Close()
                 response.Close()
-                MsgBox(serverResponse)
+                'MsgBox(serverResponse) 'debug
                 jsonResult = JObject.Parse(serverResponse)
             Catch ex As WebException
                 Return Nothing
@@ -75,9 +75,29 @@ Namespace OpenRCTdotNet
 
         Public Shared Async Function SaveUploadTime(minutesPlayed As Integer) As Task
             minutesPlayed += Settings.OpenRCTdotNetPlaytimeCache
-            Dim downloadUri As New Uri(String.Format("{0}?a=set_time_played&user={1}&auth={2}&secret={3}&minutes={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, minutesPlayed))
+            'Dim downloadUri As New Uri(String.Format("{0}?a=set_time_played&user={1}&auth={2}&secret={3}&minutes={4}", URLBase, Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, Secret, minutesPlayed))
+            Dim downloadUri As New Uri(String.Format("{0}{1}/coastercloud/playtime.json", "https://openrct.net/api/v2/", Secret))
             Try
-                Await (New WebClient).DownloadStringTaskAsync(downloadUri)
+                'Await (New WebClient).DownloadStringTaskAsync(downloadUri)
+                Dim request As WebRequest = WebRequest.Create(downloadUri)
+                request.Method = "POST"
+                Dim postData As String = String.Format("userID={0}&auth={1}&minutes={2}", Settings.OpenRCTdotNetUserID, Settings.OpenRCTdotNetUserAuthCode, minutesPlayed)
+                Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+                request.ContentType = "application/x-www-form-urlencoded"
+                request.ContentLength = byteArray.Length
+                Dim dataStream As Stream = request.GetRequestStream()
+                dataStream.Write(byteArray, 0, byteArray.Length)
+                dataStream.Close()
+                Dim response As WebResponse = request.GetResponse()
+                Console.WriteLine(CType(response, HttpWebResponse).StatusDescription)
+                dataStream = response.GetResponseStream()
+                Dim reader As New StreamReader(dataStream)
+                Dim serverResponse As String = reader.ReadToEnd()
+                reader.Close()
+                dataStream.Close()
+                response.Close()
+                MsgBox(serverResponse)
+
                 Settings.OpenRCTdotNetPlaytimeCache = 0
                 Settings.HasChanged = True
             Catch ex As WebException
