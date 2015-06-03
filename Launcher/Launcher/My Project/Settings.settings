@@ -33,7 +33,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="OpenRCTdotNetAPISecret" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg</Value>
+      <Value Profile="(Default)">RsSBWxpsOehfk0h2iZfbSOin7hzEwewoHoZEWp7LEp1Zpj1Iig</Value>
     </Setting>
     <Setting Name="OpenRCTdotNetSaveGames" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

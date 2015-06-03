@@ -176,8 +176,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQL"& _ 
-            "br0mIDHoPMYropLd0Sg")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("RsSBWxpsOehfk0h2iZfbSOin7hzEwewoHoZEWp7LEp1Zpj1Iig")>  _
         Public ReadOnly Property OpenRCTdotNetAPISecret() As String
             Get
                 Return CType(Me("OpenRCTdotNetAPISecret"),String)

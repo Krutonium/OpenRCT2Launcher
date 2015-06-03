@@ -1,4 +1,5 @@
-﻿Imports System.Net
+﻿Imports System
+Imports System.Net
 Imports System.IO
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
@@ -14,16 +15,35 @@ Namespace OpenRCTdotNet
         Private Shared ReadOnly Secret As String = Settings.OpenRCTdotNetAPISecret
         Private Const URLBase As String = "https://openrct.net/api/"
 
-        Private Const LoginAuthCodeKey = "authcode"
-        Private Const LoginUserIdKey = "user_id"
-        Private Const LoginUsernameKey = "user_name"
+        Private Const LoginAuthCodeKey = "authCode"
+        Private Const LoginUserIdKey = "userID"
+        Private Const LoginUsernameKey = "username"
         Private Const LoginErrorKey = "error"
 
         Public Shared Async Function Login(username As String, password As String, saveLogin As Boolean) As Task(Of OpenRCTdotNetUser)
             Dim jsonResult As JObject
-            Dim downloadUri As New Uri(String.Format("{0}?a=auth&username={1}&password={2}&secret={3}", URLBase, username, password, Secret))
+            Dim downloadUri As New Uri(String.Format("{0}{1}/auth.json", "https://openrct.net/api/v2/", Secret))
             Try
-                Dim serverResponse As String = Await (New WebClient).DownloadStringTaskAsync(downloadUri)
+                'Dim serverResponse As String = Await (New WebClient).DownloadStringTaskAsync(downloadUri)
+
+                Dim request As WebRequest = WebRequest.Create(downloadUri)
+                request.Method = "POST"
+                Dim postData As String = String.Format("username={0}&password={1}", username, password)
+                Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+                request.ContentType = "application/x-www-form-urlencoded"
+                request.ContentLength = byteArray.Length
+                Dim dataStream As Stream = request.GetRequestStream()
+                dataStream.Write(byteArray, 0, byteArray.Length)
+                dataStream.Close()
+                Dim response As WebResponse = request.GetResponse()
+                Console.WriteLine(CType(response, HttpWebResponse).StatusDescription)
+                dataStream = response.GetResponseStream()
+                Dim reader As New StreamReader(dataStream)
+                Dim serverResponse As String = reader.ReadToEnd()
+                reader.Close()
+                dataStream.Close()
+                response.Close()
+                MsgBox(serverResponse)
                 jsonResult = JObject.Parse(serverResponse)
             Catch ex As WebException
                 Return Nothing
@@ -32,14 +52,19 @@ Namespace OpenRCTdotNet
             End Try
 
             If jsonResult.SelectToken(LoginErrorKey) IsNot Nothing Then
-                Throw New OpenRCTdotNetWebActionException(jsonResult.SelectToken(LoginErrorKey))
+                If jsonResult.SelectToken("moreInfo") IsNot Nothing Then
+                    Throw New OpenRCTdotNetWebActionException(jsonResult.SelectToken("moreInfo"))
+                Else
+                    Throw New OpenRCTdotNetWebActionException("An error happened: " & jsonResult.SelectToken(LoginErrorKey).ToString())
+                End If
+
             End If
 
             If saveLogin Then
                 Settings.OpenRCTdotNetUserAuthCode = jsonResult.SelectToken(LoginAuthCodeKey)
                 Settings.OpenRCTdotNetUserID = jsonResult.SelectToken(LoginUserIdKey)
                 Settings.OpenRCTdotNetUsername = jsonResult.SelectToken(LoginUsernameKey)
-                If jsonResult.SelectToken("user_rank") = "2" Then
+                If jsonResult.SelectToken("userRank") = "2" Then
                     Settings.Donator = True
                 End If
                 Settings.HasChanged = True
