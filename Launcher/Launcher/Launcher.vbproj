@@ -76,7 +76,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
@@ -116,12 +116,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FixingPermissions.Designer.vb">
-      <DependentUpon>FixingPermissions.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FixingPermissions.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="GameConfig.vb" />
     <Compile Include="Forms\Extras.Designer.vb">
       <DependentUpon>Extras.vb</DependentUpon>
@@ -187,9 +181,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\Extras.resx">
       <DependentUpon>Extras.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FixingPermissions.resx">
-      <DependentUpon>FixingPermissions.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Launcher.resx">
       <DependentUpon>Launcher.vb</DependentUpon>

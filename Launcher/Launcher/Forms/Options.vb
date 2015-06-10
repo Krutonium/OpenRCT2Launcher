@@ -36,6 +36,8 @@ Namespace Forms
                 configSaveLauncher()
             End If
 
+            'Check for an update
+            Call frmLauncher.GameUpdate(False)
             Close()
         End Sub
 
@@ -56,8 +58,9 @@ Namespace Forms
             tbOutputPath.Text         = My.Settings.PropertyValues("OutputPath").Property.DefaultValue
             chkCheckUpdates.Checked   = My.Settings.PropertyValues("CheckUpdates").Property.DefaultValue
             chkInstallUpdates.Checked = My.Settings.PropertyValues("InstallUpdates").Property.DefaultValue
-
-            tbOutputPath.Enabled      = chkSaveOutput.Checked
+            rdoDevelop.Checked = False
+            rdoStable.Checked = True
+            tbOutputPath.Enabled = chkSaveOutput.Checked
             cmdOutputPath.Enabled     = chkSaveOutput.Checked
             chkInstallUpdates.Enabled = chkCheckUpdates.Checked
         End Sub
@@ -93,6 +96,10 @@ Namespace Forms
                 Return True
             End If
 
+            If rdoDevelop.Checked <> Settings.DownloadDevelop Then
+                Return True
+            End If
+
             Return False
         End Function
 
@@ -103,6 +110,7 @@ Namespace Forms
             Settings.OutputPath     = tbOutputPath.Text
             Settings.CheckUpdates   = chkCheckUpdates.Checked
             Settings.InstallUpdates = chkInstallUpdates.Checked
+            Settings.DownloadDevelop = rdoDevelop.Checked
 
             Settings.HasChanged = True
         End Sub
@@ -139,6 +147,15 @@ Namespace Forms
             tbOutputPath.Enabled      = chkSaveOutput.Checked
             cmdOutputPath.Enabled     = chkSaveOutput.Checked
             chkInstallUpdates.Enabled = chkCheckUpdates.Checked
+
+            If Settings.DownloadDevelop = False Then
+                rdoDevelop.Checked = False
+                rdoStable.Checked = True
+            Else
+                rdoStable.Checked = False
+                rdoDevelop.Checked = True
+            End If
+
         End Sub
 
         Private Sub fromGameConfigValues(c As GameConfigValues)

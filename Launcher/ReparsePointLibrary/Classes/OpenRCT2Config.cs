@@ -8,8 +8,10 @@ namespace HelperLibrary.Classes {
         public static string OpenRCT2Exe = OpenRCT2Bin + @"\openrct2.exe";
         public static string OpenRCT2Dll = OpenRCT2Bin + @"\openrct2.dll";
 
-        public static string UpdateURL = "https://openrct.net/latest.zip";
-        public static string UpdateVersionURL = "https://openrct.net/latest.zip?a=version";
+        public static string UpdateDevelopURL = "https://openrct.net/latest.zip";
+        public static string UpdateVersionDevelopURL = "https://openrct.net/latest.zip?a=version";
+        public static string UpdateStableURL = "https://openrct.net/latest-stable.zip";
+        public static string UpdateVersionStableURL = "https://openrct.net/latest-stable.zip?a=version";
     }
 
     [Serializable]

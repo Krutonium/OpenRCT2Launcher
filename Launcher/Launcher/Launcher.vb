@@ -204,7 +204,7 @@ Public Class frmLauncher
         writer.Close()
     End Function
 
-    Private Async Function GameUpdate(force As Boolean) As Task
+    Public Async Function GameUpdate(force As Boolean) As Task
         RunWithInvoke(Sub(this)
                           this.cmdLaunchGame.Enabled = False
                           this.cmdUpdate.Enabled = False
@@ -214,7 +214,13 @@ Public Class frmLauncher
 
         Try
             'Get remote version from the webpage
-            Dim remoteVersion As String = Await WS.DownloadStringTaskAsync(Constants.UpdateVersionURL)
+            Dim remoteVersion As String
+
+            If Settings.DownloadDevelop = True Then
+                remoteVersion = Await WS.DownloadStringTaskAsync(Constants.UpdateVersionDevelopURL)
+            Else
+                remoteVersion = Await WS.DownloadStringTaskAsync(Constants.UpdateVersionStableURL)
+            End If
 
             If remoteVersion = Nothing Then
                 Exit Try
@@ -232,8 +238,11 @@ Public Class frmLauncher
                 End If
 
                 Directory.CreateDirectory(Constants.OpenRCT2Bin)
-
-                WS.DownloadFile(Constants.UpdateURL, Constants.OpenRCT2Bin + "\update.zip")
+                If Settings.DownloadDevelop = True Then
+                    WS.DownloadFile(Constants.UpdateDevelopURL, Constants.OpenRCT2Bin + "\update.zip")
+                Else
+                    WS.DownloadFile(Constants.UpdateStableURL, Constants.OpenRCT2Bin + "\update.zip")
+                End If
 
                 ZipFile.ExtractToDirectory(Constants.OpenRCT2Bin + "\update.zip", Constants.OpenRCT2Bin)    'Extracts to said folder.
                 File.Delete(Constants.OpenRCT2Bin + "\update.zip")
