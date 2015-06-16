@@ -272,9 +272,6 @@
   <ItemGroup>
     <None Include="Resources\login_screen.png" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Stub.exe" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
     <PostBuildEvent>

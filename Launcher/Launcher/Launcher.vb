@@ -43,10 +43,14 @@ Public Class frmLauncher
         'strPath = strPath.Remove(0, 6)
         'strPath = strPath & FileName
         'MsgBox(strPath)
-        If File.Exists(Constants.OpenRCT2Folder & "\StubPath.path") Then
-            File.Delete(Constants.OpenRCT2Folder & "\StubPath.path")
-        End If
-        File.WriteAllText(Constants.OpenRCT2Folder & "\StubPath.path", FileName)
+        Try
+            If File.Exists(Constants.OpenRCT2Folder & "\StubPath.path") Then
+                File.Delete(Constants.OpenRCT2Folder & "\StubPath.path")
+            End If
+            File.WriteAllText(Constants.OpenRCT2Folder & "\StubPath.path", FileName)
+        Catch ex As Exception
+            'silently fail.
+        End Try
 
         If Settings.CheckUpdates Then
             Task.Run(DirectCast(Async Sub() Await GameUpdate(False), Action))

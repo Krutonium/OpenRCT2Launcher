@@ -5,6 +5,8 @@ Imports Launcher.My
 Imports Launcher.My.Resources
 Imports Microsoft.Win32
 Imports Launcher.OpenRCTdotNet
+Imports System.Net
+Imports System.IO.Compression
 
 Namespace Forms
     Public Class Extras
@@ -31,22 +33,40 @@ Namespace Forms
         End Sub
 
         Private Sub SetupReg()
+            'Try
+            '    Key1 = Registry.LocalMachine.OpenSubKey("Software\fish technology group\rollercoaster tycoon setup")
+            '    RCT1CD = Key1.GetValue("SetupPath")
+            '    RCT1 = Key1.GetValue("Path")
+            '    Key2 = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
+            '    RCT2CD = Key2.GetValue("SetupPath")   'Where RCT2 sees the CD as located
+            '    RCT2 = Key2.GetValue("Path")
+            '    Settings.OptionsDialogRCT1 = True
+            'Catch ex As Exception
+            '    If Settings.OptionsDialogRCT1 = False Then
+            '        Settings.OptionsDialogRCT1 = True
+            '        'MsgBox(extras_setupReg_noRegisterKeys)
+            '    End If
+            '    cmdCSS17.Enabled = False
+            '    cmdCSS17File.Enabled = True
+            '    cmdDebug.Enabled = True
+            'End Try
             Try
                 Key1 = Registry.LocalMachine.OpenSubKey("Software\fish technology group\rollercoaster tycoon setup")
                 RCT1CD = Key1.GetValue("SetupPath")
                 RCT1 = Key1.GetValue("Path")
-                Key2 = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
-                RCT2CD = Key2.GetValue("SetupPath")   'Where RCT2 sees the CD as located
-                RCT2 = Key2.GetValue("Path")
-                Settings.OptionsDialogRCT1 = True
             Catch ex As Exception
                 If Settings.OptionsDialogRCT1 = False Then
                     Settings.OptionsDialogRCT1 = True
-                    'MsgBox(extras_setupReg_noRegisterKeys)
                 End If
                 cmdCSS17.Enabled = False
                 cmdCSS17File.Enabled = True
-                cmdDebug.Enabled = True
+            End Try
+            Try
+                Key2 = Registry.LocalMachine.OpenSubKey("Software\Infogrames\rollercoaster tycoon 2 setup")
+                RCT2CD = Key2.GetValue("SetupPath")   'Where RCT2 sees the CD as located
+                RCT2 = Key2.GetValue("Path")
+            Catch ex As Exception
+                MsgBox("Is RollerCoaster Tycoon 2 Installed?")
             End Try
         End Sub
 
@@ -181,17 +201,34 @@ Namespace Forms
         Private Sub cmdSteamStub_Click(sender As Object, e As EventArgs) Handles cmdSteamStub.Click
             Dim msg = MsgBox("This will replace your games startup file with a menu to start the original or this launcher. Continue?", MsgBoxStyle.YesNo, "Install Steam Stub?")
             If msg = MsgBoxResult.Yes Then
-                Dim FByte() As Byte = My.Resources.Stub
                 If File.Exists(RCT2 & "\RCT2.exe") Then
                     If File.Exists(RCT2 & "\Vanilla.exe") = False Then
                         File.Copy(RCT2 & "\RCT2.exe", RCT2 & "\Vanilla.exe")
-                    Else
-                        MsgBox("You can't do this more than once!", MsgBoxStyle.Critical, "Error")
                     End If
                 End If
-                File.WriteAllBytes(RCT2 & "\RCT2.exe", FByte)
-                MsgBox("Complete!")
+
+                Try
+                    File.Delete(RCT2 & "\RCT2.exe")
+                Catch ex As Exception
+                End Try
+                Try
+                    File.Delete(RCT2 & "\CustomControls.dll")
+                Catch ex As Exception
+                End Try
+                Try
+                    File.Delete(RCT2 & "\OpenRCT2 Stub Readme.txt")
+                Catch ex As Exception
+                End Try
+                Try
+                    File.Delete(RCT2 & "\OpenRCT2 Launcher.exe")
+                Catch ex As Exception
+                End Try
+
+                Dim WS As New WebClient
+                WS.DownloadFile("http://openrct.net/launcher/Launcher/Stub.zip", "Stub.zip")
+                ZipFile.ExtractToDirectory("Stub.zip", RCT2)
             End If
+            MsgBox("Complete!")
         End Sub
     End Class
 End Namespace
