@@ -31,6 +31,16 @@ Public Class frmLauncher
         End If
         My.Settings.Upgrade()
 
+        If Settings.FirstRun = True Then
+            Dim ShouldDLDevelop = MsgBox("Do you want to download Development Builds or Stable Builds? You can change this later in Options -> Launcher tab. (Yes = Development, No = Stable)", vbYesNo, "Develop or Stable?")
+            If ShouldDLDevelop = MsgBoxResult.Yes Then
+                My.Settings.DownloadDevelop = True
+            Else
+                My.Settings.DownloadDevelop = False
+            End If
+            Settings.FirstRun = False
+            My.Settings.Save()
+        End If
         CheckForIllegalCrossThreadCalls = False
 
         GameConfig.load(Constants.OpenRCT2ConfigFile)

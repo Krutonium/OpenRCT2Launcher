@@ -270,13 +270,25 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property DownloadDevelop() As Boolean
             Get
                 Return CType(Me("DownloadDevelop"),Boolean)
             End Get
             Set
                 Me("DownloadDevelop") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property FirstRun() As Boolean
+            Get
+                Return CType(Me("FirstRun"),Boolean)
+            End Get
+            Set
+                Me("FirstRun") = value
             End Set
         End Property
     End Class
