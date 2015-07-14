@@ -22,7 +22,7 @@ Namespace OpenRCTdotNet
                 'MsgBox("Welcome, " & user.Username)
                 Extras.cmdOpenRCTNetFeatures.Enabled = True
                 Extras.cmdSyncSaves.Enabled = True
-                Dim UploadT = MsgBox("Welcome, " & user.Username & "!" & vbNewLine & "Upload Play Time to Server?", MsgBoxStyle.YesNo, "Upload Play Time?")
+                Dim UploadT = MsgBox(OpenRCTdotNetLogin_welcome & user.Username & "!" & vbNewLine & OpenRCTdotNetLogin_uploadPlayTime_text, MsgBoxStyle.YesNo, OpenRCTdotNetLogin_uploadPlayTime_title)
                 If UploadT = MsgBoxResult.Yes Then
                     My.Settings.OpenRCTdotNetUploadTime = True
                     My.Settings.HasChanged = True

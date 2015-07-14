@@ -34,7 +34,7 @@ Partial Class OpenRCTdotNetSyncSaves
         Me.cmdSync.Name = "cmdSync"
         Me.cmdSync.Size = New System.Drawing.Size(292, 27)
         Me.cmdSync.TabIndex = 0
-        Me.cmdSync.Text = "Sync"
+        Me.cmdSync.Text = Global.Launcher.My.Resources.Resources.OpenRCTdotNetSyncSaves_sync
         Me.cmdSync.UseVisualStyleBackColor = True
         '
         'lblStatus
@@ -66,7 +66,7 @@ Partial Class OpenRCTdotNetSyncSaves
         Me.Controls.Add(Me.cmdSync)
         Me.Name = "OpenRCTdotNetSyncSaves"
         Me.ShowInTaskbar = False
-        Me.Text = "Save Sync"
+        Me.Text = Global.Launcher.My.Resources.Resources.OpenRCTdotNetSyncSaves_saveSync
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

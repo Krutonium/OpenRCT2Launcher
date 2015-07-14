@@ -13,7 +13,7 @@ Public Class frmLauncher
 
     Private Sub frmLauncher_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If My.Computer.Keyboard.AltKeyDown Then
-            Me.Text = "Current Version: " + Settings.LocalVersion 'Hold Alt, and the title of the launcher shows the current version :)
+            Me.Text = frmLauncher_currentVersion + Settings.LocalVersion 'Hold Alt, and the title of the launcher shows the current version :)
         End If
     End Sub
 
@@ -26,13 +26,13 @@ Public Class frmLauncher
                 Launcher.OpenRCTdotNetStoreBrowser.WebBrowser1.Url = New Uri(My.Application.CommandLineArgs(X))
                 X += 1
             Loop
-            MsgBox("Complete.")
+            MsgBox(frmLauncher_complete)
             Me.Close()
         End If
         My.Settings.Upgrade()
 
         If Settings.FirstRun = True Then
-            Dim ShouldDLDevelop = MsgBox("Do you want to download Development Builds or Stable Builds? You can change this later in Options -> Launcher tab. (Yes = Development, No = Stable)", vbYesNo, "Develop or Stable?")
+            Dim ShouldDLDevelop = MsgBox(frmLauncher_stableOrDevFirstRun_text, MsgBoxStyle.YesNo, frmLauncher_stableOrDevFirstRun_title)
             If ShouldDLDevelop = MsgBoxResult.Yes Then
                 My.Settings.DownloadDevelop = True
             Else
@@ -241,7 +241,7 @@ Public Class frmLauncher
             End If
 
             If (remoteVersion <> Settings.LocalVersion And Not Settings.InstallUpdates) And Not force Then
-                If MessageBox.Show("There is a new version of OpenRCT2 available. Do you want to download it?", "OpenRCT2 Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> Windows.Forms.DialogResult.Yes Then
+                If MessageBox.Show(frmLauncher_newVersion, "OpenRCT2 Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> Windows.Forms.DialogResult.Yes Then
                     Exit Try
                 End If
             End If

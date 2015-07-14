@@ -92,7 +92,7 @@ Namespace OpenRCTdotNet
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
             Me.Name = "OpenRCTdotNetConfigure"
             Me.ShowInTaskbar = False
-            Me.Text = "OpenRCT.net Configuration"
+            Me.Text = Global.Launcher.My.Resources.Resources.OpenRCTdotNetConfigure_configuration
             CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
             Me.PerformLayout()

@@ -191,6 +191,7 @@
     <EmbeddedResource Include="OpenRCTdotNet\OpenRCTdotNetLogin.resx">
       <DependentUpon>OpenRCTdotNetLogin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.de-DE.resx" />
     <EmbeddedResource Include="My Project\Resources.nl.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

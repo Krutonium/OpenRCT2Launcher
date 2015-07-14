@@ -93,7 +93,7 @@ Namespace Forms
             Me.cmdLoginOpenRCTnet.Name = "cmdLoginOpenRCTnet"
             Me.cmdLoginOpenRCTnet.Size = New System.Drawing.Size(324, 23)
             Me.cmdLoginOpenRCTnet.TabIndex = 5
-            Me.cmdLoginOpenRCTnet.Text = "Sign into OpenRCT.net" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+            Me.cmdLoginOpenRCTnet.Text = Global.Launcher.My.Resources.Resources.extras_loginOpenRCTnet & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
             Me.cmdLoginOpenRCTnet.UseVisualStyleBackColor = True
             '
             'cmdOpenRCTNetFeatures
@@ -103,7 +103,7 @@ Namespace Forms
             Me.cmdOpenRCTNetFeatures.Name = "cmdOpenRCTNetFeatures"
             Me.cmdOpenRCTNetFeatures.Size = New System.Drawing.Size(159, 23)
             Me.cmdOpenRCTNetFeatures.TabIndex = 7
-            Me.cmdOpenRCTNetFeatures.Text = "Configure OpenRCT.net Features"
+            Me.cmdOpenRCTNetFeatures.Text = Global.Launcher.My.Resources.Resources.extras_openRCTNetFeatures
             Me.cmdOpenRCTNetFeatures.UseVisualStyleBackColor = True
             '
             'cmdSyncSaves
@@ -112,7 +112,7 @@ Namespace Forms
             Me.cmdSyncSaves.Name = "cmdSyncSaves"
             Me.cmdSyncSaves.Size = New System.Drawing.Size(159, 23)
             Me.cmdSyncSaves.TabIndex = 8
-            Me.cmdSyncSaves.Text = "Sync Saves"
+            Me.cmdSyncSaves.Text = Global.Launcher.My.Resources.Resources.extras_syncSaves
             Me.cmdSyncSaves.UseVisualStyleBackColor = True
             '
             'gboOpenRCTnet
@@ -126,7 +126,7 @@ Namespace Forms
             Me.gboOpenRCTnet.Size = New System.Drawing.Size(336, 108)
             Me.gboOpenRCTnet.TabIndex = 9
             Me.gboOpenRCTnet.TabStop = False
-            Me.gboOpenRCTnet.Text = "OpenRCT.net Integration"
+            Me.gboOpenRCTnet.Text = Global.Launcher.My.Resources.Resources.extras_gboOpenRCTnet
             '
             'cmdWebStore
             '
@@ -134,7 +134,7 @@ Namespace Forms
             Me.cmdWebStore.Name = "cmdWebStore"
             Me.cmdWebStore.Size = New System.Drawing.Size(324, 23)
             Me.cmdWebStore.TabIndex = 9
-            Me.cmdWebStore.Text = "Open OpenRCT.net Store (Free)"
+            Me.cmdWebStore.Text = Global.Launcher.My.Resources.Resources.extras_webStore
             Me.cmdWebStore.UseVisualStyleBackColor = True
             '
             'cmdSteamStub
@@ -143,7 +143,7 @@ Namespace Forms
             Me.cmdSteamStub.Name = "cmdSteamStub"
             Me.cmdSteamStub.Size = New System.Drawing.Size(159, 23)
             Me.cmdSteamStub.TabIndex = 10
-            Me.cmdSteamStub.Text = "Install Steam Stub"
+            Me.cmdSteamStub.Text = Global.Launcher.My.Resources.Resources.extras_steamStub
             Me.cmdSteamStub.UseVisualStyleBackColor = True
             '
             'Extras
@@ -160,7 +160,7 @@ Namespace Forms
             Me.Controls.Add(Me.cmdCSS17)
             Me.Name = "Extras"
             Me.ShowInTaskbar = False
-            Me.Text = "Extras"
+            Me.Text = Global.Launcher.My.Resources.Resources.extras_controlsExtras
             Me.gboOpenRCTnet.ResumeLayout(False)
             Me.ResumeLayout(False)
 
