@@ -55,7 +55,7 @@ Namespace OpenRCTdotNet
             '
             'PasswordLabel
             '
-            Me.PasswordLabel.Location = New System.Drawing.Point(167, 67)
+            Me.PasswordLabel.Location = New System.Drawing.Point(167, 73)
             Me.PasswordLabel.Name = "PasswordLabel"
             Me.PasswordLabel.Size = New System.Drawing.Size(220, 23)
             Me.PasswordLabel.TabIndex = 2
@@ -96,13 +96,13 @@ Namespace OpenRCTdotNet
             '
             'LinkLabel1
             '
-            Me.LinkLabel1.AutoSize = True
-            Me.LinkLabel1.Location = New System.Drawing.Point(189, 129)
+            Me.LinkLabel1.Location = New System.Drawing.Point(164, 129)
             Me.LinkLabel1.Name = "LinkLabel1"
-            Me.LinkLabel1.Size = New System.Drawing.Size(170, 13)
+            Me.LinkLabel1.Size = New System.Drawing.Size(220, 13)
             Me.LinkLabel1.TabIndex = 6
             Me.LinkLabel1.TabStop = True
             Me.LinkLabel1.Text = Global.Launcher.My.Resources.Resources.OpenRCTdotNetLogin_getAccount
+            Me.LinkLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter
             '
             'LogoPictureBox
             '
