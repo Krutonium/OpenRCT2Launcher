@@ -1114,5 +1114,653 @@ Namespace My.Resources
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Construction Marker:.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_constructionMarkerColour_label() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_constructionMarkerColour_label", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to White.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_constructionMarkerColour_white() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_constructionMarkerColour_white", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Translucent.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_constructionMarkerColour_translucent() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_constructionMarkerColour_translucent", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Window height:.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_windowHeight_label() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_windowHeight_label", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Window width:.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_windowWidth_label() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_windowWidth_label", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Ride Music.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_rideMusic() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_rideMusic", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Sound.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_sound() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_sound", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Window snap proximity:.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_windowSnapProximity() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_windowSnapProximity", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Autosave frequency:.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_autosave() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_autosave", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Every week.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_autosave_everyWeek() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_autosave_everyWeek", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Every 2 weeks.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_autosave_everyTwoWeeks() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_autosave_everyTwoWeeks", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Every month.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_autosave_everyMonth() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_autosave_everyMonth", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Every 4 months.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_autosave_everyFourMonths() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_autosave_everyFourMonths", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Every year.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_autosave_everyYear() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_autosave_everyYear", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Never.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_autosave_never() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_autosave_never", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Install updates automatically.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_installUpdates() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_installUpdates", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Check for updates automatically.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_checkUpdates() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_checkUpdates", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Graphics.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_graphics() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_graphics", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Hardware display.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_hardwareDisplay() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_hardwareDisplay", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Localisation.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_localisation() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_localisation", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Date Format.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_dateFormat() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_dateFormat", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Day/Month/Year.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_dateFormat_dmy() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_dateFormat_dmy", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Month/Day/Year.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_dateFormat_mdy() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_dateFormat_mdy", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to GUI.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_gui() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_gui", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Use small font in console.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_consoleSmallFont() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_consoleSmallFont", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Show cheats button on toolbar.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_toolbarShowCheats() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_toolbarShowCheats", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Show research button on toolbar.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_toolbarShowResearch() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_toolbarShowResearch", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Show finances button on toolbar.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_toolbarShowFinances() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_toolbarShowFinances", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Cheats.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_cheats() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_cheats", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Unlock entry and ride prices.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_unlockAllPrices() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_unlockAllPrices", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Disable breakdowns.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_disableAllBreakdowns() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_disableAllBreakdowns", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Disable brakes failure.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_disableBrakesFailure() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_disableBrakesFailure", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Allow faster lift hill speeds.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_fastLiftHill() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_fastLiftHill", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Launcher.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_launcher() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_launcher", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Download Development Builds.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_rdoDevelop() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_rdoDevelop", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Download Stable Builds Only.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_rdoStable() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_rdoStable", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Debugging.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_debugging() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_debugging", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Twitch.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_twitch() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_twitch", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Pull Twitch chat as news.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkNews() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkNews", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Track chat peeps.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkChatPeepTracking() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkChatPeepTracking", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Name peeps after people in Twitch chat.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkChatPeepNames() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkChatPeepNames", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Track follower peeps.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkFollowerPeepTracking() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkFollowerPeepTracking", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Name peeps after followers.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkFollowerPeepNames() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkFollowerPeepNames", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Twitch Channel name.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_laChannel() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_laChannel", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Miscellaneous.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_miscellaneous() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_miscellaneous", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to No crashes while testing.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkNoTestCrashes() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkNoTestCrashes", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Allow testing of unfinished tracks.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkTestUnfinishedTracks() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkTestUnfinishedTracks", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Enable debugging tools.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkDebuggingTools() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkDebuggingTools", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Show all vehicles sharing a track/ride type.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkAllowSubtypeSwitching() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkAllowSubtypeSwitching", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Options.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_options_label() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_options_label", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Sign into OpenRCT.net.
+        '''</summary>
+        Friend ReadOnly Property extras_loginOpenRCTnet() As String
+            Get
+                Return ResourceManager.GetString("extras_loginOpenRCTnet", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Configure OpenRCT.net Features.
+        '''</summary>
+        Friend ReadOnly Property extras_openRCTNetFeatures() As String
+            Get
+                Return ResourceManager.GetString("extras_openRCTNetFeatures", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Sync Saves.
+        '''</summary>
+        Friend ReadOnly Property extras_syncSaves() As String
+            Get
+                Return ResourceManager.GetString("extras_syncSaves", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to OpenRCT.net Integration.
+        '''</summary>
+        Friend ReadOnly Property extras_gboOpenRCTnet() As String
+            Get
+                Return ResourceManager.GetString("extras_gboOpenRCTnet", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Open OpenRCT.net Store (Free).
+        '''</summary>
+        Friend ReadOnly Property extras_webStore() As String
+            Get
+                Return ResourceManager.GetString("extras_webStore", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Install Steam Stub.
+        '''</summary>
+        Friend ReadOnly Property extras_steamStub() As String
+            Get
+                Return ResourceManager.GetString("extras_steamStub", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Extras.
+        '''</summary>
+        Friend ReadOnly Property extras_controlsExtras() As String
+            Get
+                Return ResourceManager.GetString("extras_controlsExtras", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to OpenRCT.net Configuration.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetConfigure_configuration() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetConfigure_configuration", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to User name.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetLogin_username() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetLogin_username", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Password.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetLogin_password() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetLogin_password", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Get your account at OpenRCT.net.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetLogin_getAccount() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetLogin_getAccount", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Login to OpenRCT.NET.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetLogin_login() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetLogin_login", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Save Sync.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetSyncSaves_saveSync() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetSyncSaves_saveSync", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Sync.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetSyncSaves_sync() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetSyncSaves_sync", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Current Version: .
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_currentVersion() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_currentVersion", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Do you want to download Development Builds or Stable Builds? You can change this later in Options -> Launcher tab. (Yes = Development, No = Stable).
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_stableOrDevFirstRun_text() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_stableOrDevFirstRun_text", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Develop or Stable?.
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_stableOrDevFirstRun_title() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_stableOrDevFirstRun_title", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to There is a new version of OpenRCT2 available. Do you want to download it?.
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_newVersion() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_newVersion", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Complete..
+        '''</summary>
+        Friend ReadOnly Property frmLauncher_complete() As String
+            Get
+                Return ResourceManager.GetString("frmLauncher_complete", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Welcome, .
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetLogin_welcome() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetLogin_welcome", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Upload Play Time to Server?.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetLogin_uploadPlayTime_text() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetLogin_uploadPlayTime_text", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized resource similar to Upload Play Time?.
+        '''</summary>
+        Friend ReadOnly Property OpenRCTdotNetLogin_uploadPlayTime_title() As String
+            Get
+                Return ResourceManager.GetString("OpenRCTdotNetLogin_uploadPlayTime_title", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace

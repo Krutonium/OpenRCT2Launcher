@@ -50,7 +50,7 @@ Namespace OpenRCTdotNet
             Me.UsernameLabel.Name = "UsernameLabel"
             Me.UsernameLabel.Size = New System.Drawing.Size(220, 23)
             Me.UsernameLabel.TabIndex = 0
-            Me.UsernameLabel.Text = "User name"
+            Me.UsernameLabel.Text = Global.Launcher.My.Resources.Resources.OpenRCTdotNetLogin_username
             Me.UsernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'PasswordLabel
@@ -59,7 +59,7 @@ Namespace OpenRCTdotNet
             Me.PasswordLabel.Name = "PasswordLabel"
             Me.PasswordLabel.Size = New System.Drawing.Size(220, 23)
             Me.PasswordLabel.TabIndex = 2
-            Me.PasswordLabel.Text = "Password"
+            Me.PasswordLabel.Text = Global.Launcher.My.Resources.Resources.OpenRCTdotNetLogin_password
             Me.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'UsernameTextBox
@@ -102,7 +102,7 @@ Namespace OpenRCTdotNet
             Me.LinkLabel1.Size = New System.Drawing.Size(170, 13)
             Me.LinkLabel1.TabIndex = 6
             Me.LinkLabel1.TabStop = True
-            Me.LinkLabel1.Text = "Get your account at OpenRCT.net"
+            Me.LinkLabel1.Text = Global.Launcher.My.Resources.Resources.OpenRCTdotNetLogin_getAccount
             '
             'LogoPictureBox
             '
@@ -135,7 +135,7 @@ Namespace OpenRCTdotNet
             Me.ShowInTaskbar = False
             Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-            Me.Text = "Login to OpenRCT.NET"
+            Me.Text = Global.Launcher.My.Resources.Resources.OpenRCTdotNetLogin_login
             CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
             Me.PerformLayout()

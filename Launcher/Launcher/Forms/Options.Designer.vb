@@ -158,7 +158,7 @@ Namespace Forms
             Me.laGamePath.Name = "laGamePath"
             Me.laGamePath.Size = New System.Drawing.Size(63, 13)
             Me.laGamePath.TabIndex = 2
-            Me.laGamePath.Text = "Game Path:"
+            Me.laGamePath.Text = Global.Launcher.My.Resources.Resources.frmOptions_gamePath_label
             '
             'laScreenshotFormat
             '
@@ -167,7 +167,7 @@ Namespace Forms
             Me.laScreenshotFormat.Name = "laScreenshotFormat"
             Me.laScreenshotFormat.Size = New System.Drawing.Size(99, 13)
             Me.laScreenshotFormat.TabIndex = 3
-            Me.laScreenshotFormat.Text = "Screenshot Format:"
+            Me.laScreenshotFormat.Text = Global.Launcher.My.Resources.Resources.frmOptions_screenshotFormat_label
             '
             'cbScreenshotFormat
             '
@@ -217,7 +217,7 @@ Namespace Forms
             Me.laCurrency.Name = "laCurrency"
             Me.laCurrency.Size = New System.Drawing.Size(52, 13)
             Me.laCurrency.TabIndex = 8
-            Me.laCurrency.Text = "Currency:"
+            Me.laCurrency.Text = Global.Launcher.My.Resources.Resources.frmOptions_currency_label
             '
             'cbCurrency
             '
@@ -236,7 +236,7 @@ Namespace Forms
             Me.laMeasurementFormat.Name = "laMeasurementFormat"
             Me.laMeasurementFormat.Size = New System.Drawing.Size(107, 13)
             Me.laMeasurementFormat.TabIndex = 10
-            Me.laMeasurementFormat.Text = "Distance and Speed:"
+            Me.laMeasurementFormat.Text = Global.Launcher.My.Resources.Resources.frmOptions_distSpeed_label
             '
             'laTemperatureFormat
             '
@@ -245,7 +245,7 @@ Namespace Forms
             Me.laTemperatureFormat.Name = "laTemperatureFormat"
             Me.laTemperatureFormat.Size = New System.Drawing.Size(70, 13)
             Me.laTemperatureFormat.TabIndex = 11
-            Me.laTemperatureFormat.Text = "Temperature:"
+            Me.laTemperatureFormat.Text = Global.Launcher.My.Resources.Resources.frmOptions_temperature_label
             '
             'cbMeasurementFormat
             '
@@ -304,7 +304,7 @@ Namespace Forms
             Me.laFullscreenMode.Name = "laFullscreenMode"
             Me.laFullscreenMode.Size = New System.Drawing.Size(87, 13)
             Me.laFullscreenMode.TabIndex = 18
-            Me.laFullscreenMode.Text = "Fullscreen mode:"
+            Me.laFullscreenMode.Text = Global.Launcher.My.Resources.Resources.frmOptions_fullscreenMode_label
             '
             'cbFullscreenMode
             '
@@ -323,7 +323,7 @@ Namespace Forms
             Me.laFullscreenWidth.Name = "laFullscreenWidth"
             Me.laFullscreenWidth.Size = New System.Drawing.Size(86, 13)
             Me.laFullscreenWidth.TabIndex = 20
-            Me.laFullscreenWidth.Text = "Fullscreen width:"
+            Me.laFullscreenWidth.Text = Global.Launcher.My.Resources.Resources.frmOptions_fullscreenWidth_label
             '
             'numFullscreenWidth
             '
@@ -352,7 +352,7 @@ Namespace Forms
             Me.laFullscreenHeight.Name = "laFullscreenHeight"
             Me.laFullscreenHeight.Size = New System.Drawing.Size(90, 13)
             Me.laFullscreenHeight.TabIndex = 23
-            Me.laFullscreenHeight.Text = "Fullscreen height:"
+            Me.laFullscreenHeight.Text = Global.Launcher.My.Resources.Resources.frmOptions_fullscreenHeight_label
             '
             'laLanguage
             '
@@ -361,7 +361,7 @@ Namespace Forms
             Me.laLanguage.Name = "laLanguage"
             Me.laLanguage.Size = New System.Drawing.Size(58, 13)
             Me.laLanguage.TabIndex = 25
-            Me.laLanguage.Text = "Language:"
+            Me.laLanguage.Text = Global.Launcher.My.Resources.Resources.frmOptions_language_label
             '
             'cbLanguage
             '
@@ -380,7 +380,7 @@ Namespace Forms
             Me.laTitleMusic.Name = "laTitleMusic"
             Me.laTitleMusic.Size = New System.Drawing.Size(95, 13)
             Me.laTitleMusic.TabIndex = 27
-            Me.laTitleMusic.Text = "Title screen music:"
+            Me.laTitleMusic.Text = Global.Launcher.My.Resources.Resources.frmOptions_titleScreenMusic_label
             '
             'cbTitleMusic
             '
@@ -399,7 +399,7 @@ Namespace Forms
             Me.laSoundQuality.Name = "laSoundQuality"
             Me.laSoundQuality.Size = New System.Drawing.Size(76, 13)
             Me.laSoundQuality.TabIndex = 29
-            Me.laSoundQuality.Text = "Sound Quality:"
+            Me.laSoundQuality.Text = Global.Launcher.My.Resources.Resources.frmOptions_soundQuality_label
             '
             'cbSoundQuality
             '
@@ -425,7 +425,7 @@ Namespace Forms
             '
             Me.cbConstructionMarkerColour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbConstructionMarkerColour.FormattingEnabled = True
-            Me.cbConstructionMarkerColour.Items.AddRange(New Object() {"White", "Translucent"})
+            Me.cbConstructionMarkerColour.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_constructionMarkerColour_white, Global.Launcher.My.Resources.Resources.frmOptions_constructionMarkerColour_translucent})
             Me.cbConstructionMarkerColour.Location = New System.Drawing.Point(247, 19)
             Me.cbConstructionMarkerColour.Name = "cbConstructionMarkerColour"
             Me.cbConstructionMarkerColour.Size = New System.Drawing.Size(239, 21)
@@ -438,7 +438,7 @@ Namespace Forms
             Me.laConstructionMarkerColour.Name = "laConstructionMarkerColour"
             Me.laConstructionMarkerColour.Size = New System.Drawing.Size(105, 13)
             Me.laConstructionMarkerColour.TabIndex = 29
-            Me.laConstructionMarkerColour.Text = "Construction Marker:"
+            Me.laConstructionMarkerColour.Text = Global.Launcher.My.Resources.Resources.frmOptions_constructionMarkerColour_label
             '
             'numWindowHeight
             '
@@ -467,7 +467,7 @@ Namespace Forms
             Me.laWindowHeight.Name = "laWindowHeight"
             Me.laWindowHeight.Size = New System.Drawing.Size(81, 13)
             Me.laWindowHeight.TabIndex = 26
-            Me.laWindowHeight.Text = "Window height:"
+            Me.laWindowHeight.Text = Global.Launcher.My.Resources.Resources.frmOptions_windowHeight_label
             '
             'laWindowWidth
             '
@@ -476,7 +476,7 @@ Namespace Forms
             Me.laWindowWidth.Name = "laWindowWidth"
             Me.laWindowWidth.Size = New System.Drawing.Size(77, 13)
             Me.laWindowWidth.TabIndex = 25
-            Me.laWindowWidth.Text = "Window width:"
+            Me.laWindowWidth.Text = Global.Launcher.My.Resources.Resources.frmOptions_windowWidth_label
             '
             'cbShowHeightAsUnits
             '
@@ -495,7 +495,7 @@ Namespace Forms
             Me.laShowHeightAsUnits.Name = "laShowHeightAsUnits"
             Me.laShowHeightAsUnits.Size = New System.Drawing.Size(75, 13)
             Me.laShowHeightAsUnits.TabIndex = 27
-            Me.laShowHeightAsUnits.Text = "Height Labels:"
+            Me.laShowHeightAsUnits.Text = Global.Launcher.My.Resources.Resources.frmOptions_heightLabels_label
             '
             'chkRideMusic
             '
@@ -504,7 +504,7 @@ Namespace Forms
             Me.chkRideMusic.Name = "chkRideMusic"
             Me.chkRideMusic.Size = New System.Drawing.Size(79, 17)
             Me.chkRideMusic.TabIndex = 33
-            Me.chkRideMusic.Text = "Ride Music"
+            Me.chkRideMusic.Text = Global.Launcher.My.Resources.Resources.frmOptions_rideMusic
             Me.chkRideMusic.UseVisualStyleBackColor = True
             '
             'chkSound
@@ -514,7 +514,7 @@ Namespace Forms
             Me.chkSound.Name = "chkSound"
             Me.chkSound.Size = New System.Drawing.Size(57, 17)
             Me.chkSound.TabIndex = 32
-            Me.chkSound.Text = "Sound"
+            Me.chkSound.Text = Global.Launcher.My.Resources.Resources.frmOptions_sound
             Me.chkSound.UseVisualStyleBackColor = True
             '
             'numWindowSnapProximity
@@ -533,13 +533,13 @@ Namespace Forms
             Me.laWindowSnapProximity.Name = "laWindowSnapProximity"
             Me.laWindowSnapProximity.Size = New System.Drawing.Size(118, 13)
             Me.laWindowSnapProximity.TabIndex = 20
-            Me.laWindowSnapProximity.Text = "Window snap proximity:"
+            Me.laWindowSnapProximity.Text = Global.Launcher.My.Resources.Resources.frmOptions_windowSnapProximity
             '
             'cbAutosave
             '
             Me.cbAutosave.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbAutosave.FormattingEnabled = True
-            Me.cbAutosave.Items.AddRange(New Object() {"Every week", "Every 2 weeks", "Every month", "Every 4 months", "Every year", "Never"})
+            Me.cbAutosave.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_autosave_everyWeek, Global.Launcher.My.Resources.Resources.frmOptions_autosave_everyTwoWeeks, Global.Launcher.My.Resources.Resources.frmOptions_autosave_everyMonth, Global.Launcher.My.Resources.Resources.frmOptions_autosave_everyFourMonths, Global.Launcher.My.Resources.Resources.frmOptions_autosave_everyYear, Global.Launcher.My.Resources.Resources.frmOptions_autosave_never})
             Me.cbAutosave.Location = New System.Drawing.Point(3, 19)
             Me.cbAutosave.Name = "cbAutosave"
             Me.cbAutosave.Size = New System.Drawing.Size(238, 21)
@@ -552,7 +552,7 @@ Namespace Forms
             Me.laAutosave.Name = "laAutosave"
             Me.laAutosave.Size = New System.Drawing.Size(105, 13)
             Me.laAutosave.TabIndex = 18
-            Me.laAutosave.Text = "Autosave frequency:"
+            Me.laAutosave.Text = Global.Launcher.My.Resources.Resources.frmOptions_autosave
             '
             'cmdOk
             '
@@ -588,7 +588,7 @@ Namespace Forms
             Me.laArguments.Name = "laArguments"
             Me.laArguments.Size = New System.Drawing.Size(60, 13)
             Me.laArguments.TabIndex = 6
-            Me.laArguments.Text = "Arguments:"
+            Me.laArguments.Text = Global.Launcher.My.Resources.Resources.frmOptions_startArguments_label
             '
             'tbArguments
             '
@@ -620,7 +620,7 @@ Namespace Forms
             Me.laOutputPath.Name = "laOutputPath"
             Me.laOutputPath.Size = New System.Drawing.Size(67, 13)
             Me.laOutputPath.TabIndex = 2
-            Me.laOutputPath.Text = "Output Path:"
+            Me.laOutputPath.Text = Global.Launcher.My.Resources.Resources.frmOptions_outputPath_label
             '
             'chkSaveOutput
             '
@@ -649,7 +649,7 @@ Namespace Forms
             Me.chkInstallUpdates.Name = "chkInstallUpdates"
             Me.chkInstallUpdates.Size = New System.Drawing.Size(158, 17)
             Me.chkInstallUpdates.TabIndex = 1
-            Me.chkInstallUpdates.Text = "Install updates automatically"
+            Me.chkInstallUpdates.Text = Global.Launcher.My.Resources.Resources.frmOptions_installUpdates
             Me.chkInstallUpdates.UseVisualStyleBackColor = True
             '
             'chkCheckUpdates
@@ -659,7 +659,7 @@ Namespace Forms
             Me.chkCheckUpdates.Name = "chkCheckUpdates"
             Me.chkCheckUpdates.Size = New System.Drawing.Size(177, 17)
             Me.chkCheckUpdates.TabIndex = 0
-            Me.chkCheckUpdates.Text = "Check for updates automatically"
+            Me.chkCheckUpdates.Text = Global.Launcher.My.Resources.Resources.frmOptions_checkUpdates
             Me.chkCheckUpdates.UseVisualStyleBackColor = True
             '
             'tcMain
@@ -701,7 +701,7 @@ Namespace Forms
             Me.Graphics.Padding = New System.Windows.Forms.Padding(3)
             Me.Graphics.Size = New System.Drawing.Size(492, 170)
             Me.Graphics.TabIndex = 1
-            Me.Graphics.Text = "Graphics"
+            Me.Graphics.Text = Global.Launcher.My.Resources.Resources.frmOptions_graphics
             Me.Graphics.UseVisualStyleBackColor = True
             '
             'chkHardwareDisplay
@@ -711,7 +711,7 @@ Namespace Forms
             Me.chkHardwareDisplay.Name = "chkHardwareDisplay"
             Me.chkHardwareDisplay.Size = New System.Drawing.Size(107, 17)
             Me.chkHardwareDisplay.TabIndex = 30
-            Me.chkHardwareDisplay.Text = "Hardware display"
+            Me.chkHardwareDisplay.Text = Global.Launcher.My.Resources.Resources.frmOptions_hardwareDisplay
             Me.chkHardwareDisplay.UseVisualStyleBackColor = True
             '
             'Localisation
@@ -732,14 +732,14 @@ Namespace Forms
             Me.Localisation.Name = "Localisation"
             Me.Localisation.Size = New System.Drawing.Size(492, 170)
             Me.Localisation.TabIndex = 2
-            Me.Localisation.Text = "Localisation"
+            Me.Localisation.Text = Global.Launcher.My.Resources.Resources.frmOptions_localisation
             Me.Localisation.UseVisualStyleBackColor = True
             '
             'cbDateFormat
             '
             Me.cbDateFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbDateFormat.FormattingEnabled = True
-            Me.cbDateFormat.Items.AddRange(New Object() {"Day/Month/Year", "Month/Day/Year"})
+            Me.cbDateFormat.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_dateFormat_dmy, Global.Launcher.My.Resources.Resources.frmOptions_dateFormat_mdy})
             Me.cbDateFormat.Location = New System.Drawing.Point(247, 99)
             Me.cbDateFormat.Name = "cbDateFormat"
             Me.cbDateFormat.Size = New System.Drawing.Size(242, 21)
@@ -752,7 +752,7 @@ Namespace Forms
             Me.laDateFormat.Name = "laDateFormat"
             Me.laDateFormat.Size = New System.Drawing.Size(65, 13)
             Me.laDateFormat.TabIndex = 29
-            Me.laDateFormat.Text = "Date Format"
+            Me.laDateFormat.Text = Global.Launcher.My.Resources.Resources.frmOptions_dateFormat
             '
             'Sound
             '
@@ -767,7 +767,7 @@ Namespace Forms
             Me.Sound.Name = "Sound"
             Me.Sound.Size = New System.Drawing.Size(492, 170)
             Me.Sound.TabIndex = 3
-            Me.Sound.Text = "Sound"
+            Me.Sound.Text = Global.Launcher.My.Resources.Resources.frmOptions_sound
             Me.Sound.UseVisualStyleBackColor = True
             '
             'GUI
@@ -783,7 +783,7 @@ Namespace Forms
             Me.GUI.Name = "GUI"
             Me.GUI.Size = New System.Drawing.Size(492, 170)
             Me.GUI.TabIndex = 4
-            Me.GUI.Text = "GUI"
+            Me.GUI.Text = Global.Launcher.My.Resources.Resources.frmOptions_gui
             Me.GUI.UseVisualStyleBackColor = True
             '
             'chkConsoleSmallFont
@@ -793,7 +793,7 @@ Namespace Forms
             Me.chkConsoleSmallFont.Name = "chkConsoleSmallFont"
             Me.chkConsoleSmallFont.Size = New System.Drawing.Size(143, 17)
             Me.chkConsoleSmallFont.TabIndex = 29
-            Me.chkConsoleSmallFont.Text = "Use small font in console"
+            Me.chkConsoleSmallFont.Text = Global.Launcher.My.Resources.Resources.frmOptions_consoleSmallFont
             Me.chkConsoleSmallFont.UseVisualStyleBackColor = True
             '
             'chkToolbarShowCheats
@@ -803,7 +803,7 @@ Namespace Forms
             Me.chkToolbarShowCheats.Name = "chkToolbarShowCheats"
             Me.chkToolbarShowCheats.Size = New System.Drawing.Size(171, 17)
             Me.chkToolbarShowCheats.TabIndex = 10
-            Me.chkToolbarShowCheats.Text = "Show cheats button on toolbar"
+            Me.chkToolbarShowCheats.Text = Global.Launcher.My.Resources.Resources.frmOptions_toolbarShowCheats
             Me.chkToolbarShowCheats.UseVisualStyleBackColor = True
             '
             'chkToolbarShowResearch
@@ -813,7 +813,7 @@ Namespace Forms
             Me.chkToolbarShowResearch.Name = "chkToolbarShowResearch"
             Me.chkToolbarShowResearch.Size = New System.Drawing.Size(180, 17)
             Me.chkToolbarShowResearch.TabIndex = 9
-            Me.chkToolbarShowResearch.Text = "Show research button on toolbar"
+            Me.chkToolbarShowResearch.Text = Global.Launcher.My.Resources.Resources.frmOptions_toolbarShowResearch
             Me.chkToolbarShowResearch.UseVisualStyleBackColor = True
             '
             'chkToolbarShowFinances
@@ -823,7 +823,7 @@ Namespace Forms
             Me.chkToolbarShowFinances.Name = "chkToolbarShowFinances"
             Me.chkToolbarShowFinances.Size = New System.Drawing.Size(179, 17)
             Me.chkToolbarShowFinances.TabIndex = 8
-            Me.chkToolbarShowFinances.Text = "Show finances button on toolbar"
+            Me.chkToolbarShowFinances.Text = Global.Launcher.My.Resources.Resources.frmOptions_toolbarShowFinances
             Me.chkToolbarShowFinances.UseVisualStyleBackColor = True
             '
             'Cheats
@@ -836,7 +836,7 @@ Namespace Forms
             Me.Cheats.Name = "Cheats"
             Me.Cheats.Size = New System.Drawing.Size(492, 170)
             Me.Cheats.TabIndex = 7
-            Me.Cheats.Text = "Cheats"
+            Me.Cheats.Text = Global.Launcher.My.Resources.Resources.frmOptions_cheats
             Me.Cheats.UseVisualStyleBackColor = True
             '
             'chkUnlockAllPrices
@@ -846,7 +846,7 @@ Namespace Forms
             Me.chkUnlockAllPrices.Name = "chkUnlockAllPrices"
             Me.chkUnlockAllPrices.Size = New System.Drawing.Size(158, 17)
             Me.chkUnlockAllPrices.TabIndex = 3
-            Me.chkUnlockAllPrices.Text = "Unlock entry and ride prices"
+            Me.chkUnlockAllPrices.Text = Global.Launcher.My.Resources.Resources.frmOptions_unlockAllPrices
             Me.chkUnlockAllPrices.UseVisualStyleBackColor = True
             '
             'chkDisableAllBreakdowns
@@ -856,7 +856,7 @@ Namespace Forms
             Me.chkDisableAllBreakdowns.Name = "chkDisableAllBreakdowns"
             Me.chkDisableAllBreakdowns.Size = New System.Drawing.Size(125, 17)
             Me.chkDisableAllBreakdowns.TabIndex = 2
-            Me.chkDisableAllBreakdowns.Text = "Disable breakdowns "
+            Me.chkDisableAllBreakdowns.Text = Global.Launcher.My.Resources.Resources.frmOptions_disableAllBreakdowns
             Me.chkDisableAllBreakdowns.UseVisualStyleBackColor = True
             '
             'chkDisableBrakesFailure
@@ -866,7 +866,7 @@ Namespace Forms
             Me.chkDisableBrakesFailure.Name = "chkDisableBrakesFailure"
             Me.chkDisableBrakesFailure.Size = New System.Drawing.Size(127, 17)
             Me.chkDisableBrakesFailure.TabIndex = 1
-            Me.chkDisableBrakesFailure.Text = "Disable brakes failure"
+            Me.chkDisableBrakesFailure.Text = Global.Launcher.My.Resources.Resources.frmOptions_disableBrakesFailure
             Me.chkDisableBrakesFailure.UseVisualStyleBackColor = True
             '
             'chkFastLiftHill
@@ -876,7 +876,7 @@ Namespace Forms
             Me.chkFastLiftHill.Name = "chkFastLiftHill"
             Me.chkFastLiftHill.Size = New System.Drawing.Size(145, 17)
             Me.chkFastLiftHill.TabIndex = 0
-            Me.chkFastLiftHill.Text = "Allow faster lift hill speeds"
+            Me.chkFastLiftHill.Text = Global.Launcher.My.Resources.Resources.frmOptions_fastLiftHill
             Me.chkFastLiftHill.UseVisualStyleBackColor = True
             '
             'Launcher
@@ -893,7 +893,7 @@ Namespace Forms
             Me.Launcher.Padding = New System.Windows.Forms.Padding(3)
             Me.Launcher.Size = New System.Drawing.Size(492, 170)
             Me.Launcher.TabIndex = 0
-            Me.Launcher.Text = "Launcher"
+            Me.Launcher.Text = Global.Launcher.My.Resources.Resources.frmOptions_launcher
             Me.Launcher.UseVisualStyleBackColor = True
             '
             'rdoDevelop
@@ -904,7 +904,7 @@ Namespace Forms
             Me.rdoDevelop.Size = New System.Drawing.Size(170, 17)
             Me.rdoDevelop.TabIndex = 4
             Me.rdoDevelop.TabStop = True
-            Me.rdoDevelop.Text = "Download Development Builds"
+            Me.rdoDevelop.Text = Global.Launcher.My.Resources.Resources.frmOptions_rdoDevelop
             Me.rdoDevelop.UseVisualStyleBackColor = True
             '
             'rdoStable
@@ -915,7 +915,7 @@ Namespace Forms
             Me.rdoStable.Size = New System.Drawing.Size(161, 17)
             Me.rdoStable.TabIndex = 3
             Me.rdoStable.TabStop = True
-            Me.rdoStable.Text = "Download Stable Builds Only"
+            Me.rdoStable.Text = Global.Launcher.My.Resources.Resources.frmOptions_rdoStable
             Me.rdoStable.UseVisualStyleBackColor = True
             '
             'Debugging
@@ -931,7 +931,7 @@ Namespace Forms
             Me.Debugging.Name = "Debugging"
             Me.Debugging.Size = New System.Drawing.Size(492, 170)
             Me.Debugging.TabIndex = 6
-            Me.Debugging.Text = "Debugging"
+            Me.Debugging.Text = Global.Launcher.My.Resources.Resources.frmOptions_debugging
             Me.Debugging.UseVisualStyleBackColor = True
             '
             'Twitch
@@ -947,7 +947,7 @@ Namespace Forms
             Me.Twitch.Name = "Twitch"
             Me.Twitch.Size = New System.Drawing.Size(492, 170)
             Me.Twitch.TabIndex = 8
-            Me.Twitch.Text = "Twitch"
+            Me.Twitch.Text = Global.Launcher.My.Resources.Resources.frmOptions_twitch
             Me.Twitch.UseVisualStyleBackColor = True
             '
             'chkNews
@@ -957,7 +957,7 @@ Namespace Forms
             Me.chkNews.Name = "chkNews"
             Me.chkNews.Size = New System.Drawing.Size(144, 17)
             Me.chkNews.TabIndex = 6
-            Me.chkNews.Text = "Pull Twitch chat as news"
+            Me.chkNews.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkNews
             Me.chkNews.UseVisualStyleBackColor = True
             '
             'chkChatPeepTracking
@@ -967,7 +967,7 @@ Namespace Forms
             Me.chkChatPeepTracking.Name = "chkChatPeepTracking"
             Me.chkChatPeepTracking.Size = New System.Drawing.Size(110, 17)
             Me.chkChatPeepTracking.TabIndex = 5
-            Me.chkChatPeepTracking.Text = "Track chat peeps"
+            Me.chkChatPeepTracking.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkChatPeepTracking
             Me.chkChatPeepTracking.UseVisualStyleBackColor = True
             '
             'chkChatPeepNames
@@ -977,7 +977,7 @@ Namespace Forms
             Me.chkChatPeepNames.Name = "chkChatPeepNames"
             Me.chkChatPeepNames.Size = New System.Drawing.Size(215, 17)
             Me.chkChatPeepNames.TabIndex = 4
-            Me.chkChatPeepNames.Text = "Name peeps after people in Twitch chat"
+            Me.chkChatPeepNames.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkChatPeepNames
             Me.chkChatPeepNames.UseVisualStyleBackColor = True
             '
             'chkFollowerPeepTracking
@@ -987,7 +987,7 @@ Namespace Forms
             Me.chkFollowerPeepTracking.Name = "chkFollowerPeepTracking"
             Me.chkFollowerPeepTracking.Size = New System.Drawing.Size(125, 17)
             Me.chkFollowerPeepTracking.TabIndex = 3
-            Me.chkFollowerPeepTracking.Text = "Track follower peeps"
+            Me.chkFollowerPeepTracking.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkFollowerPeepTracking
             Me.chkFollowerPeepTracking.UseVisualStyleBackColor = True
             '
             'chkFollowerPeepNames
@@ -997,7 +997,7 @@ Namespace Forms
             Me.chkFollowerPeepNames.Name = "chkFollowerPeepNames"
             Me.chkFollowerPeepNames.Size = New System.Drawing.Size(154, 17)
             Me.chkFollowerPeepNames.TabIndex = 2
-            Me.chkFollowerPeepNames.Text = "Name peeps after followers"
+            Me.chkFollowerPeepNames.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkFollowerPeepNames
             Me.chkFollowerPeepNames.UseVisualStyleBackColor = True
             '
             'tbChannel
@@ -1014,7 +1014,7 @@ Namespace Forms
             Me.laChannel.Name = "laChannel"
             Me.laChannel.Size = New System.Drawing.Size(110, 13)
             Me.laChannel.TabIndex = 0
-            Me.laChannel.Text = "Twitch Channel name"
+            Me.laChannel.Text = Global.Launcher.My.Resources.Resources.frmOptions_laChannel
             '
             'Miscellaneous
             '
@@ -1033,7 +1033,7 @@ Namespace Forms
             Me.Miscellaneous.Name = "Miscellaneous"
             Me.Miscellaneous.Size = New System.Drawing.Size(492, 170)
             Me.Miscellaneous.TabIndex = 5
-            Me.Miscellaneous.Text = "Miscellaneous"
+            Me.Miscellaneous.Text = Global.Launcher.My.Resources.Resources.frmOptions_miscellaneous
             Me.Miscellaneous.UseVisualStyleBackColor = True
             '
             'chkNoTestCrashes
@@ -1043,7 +1043,7 @@ Namespace Forms
             Me.chkNoTestCrashes.Name = "chkNoTestCrashes"
             Me.chkNoTestCrashes.Size = New System.Drawing.Size(141, 17)
             Me.chkNoTestCrashes.TabIndex = 21
-            Me.chkNoTestCrashes.Text = "No crashes while testing"
+            Me.chkNoTestCrashes.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkNoTestCrashes
             Me.chkNoTestCrashes.UseVisualStyleBackColor = True
             '
             'chkTestUnfinishedTracks
@@ -1053,7 +1053,7 @@ Namespace Forms
             Me.chkTestUnfinishedTracks.Name = "chkTestUnfinishedTracks"
             Me.chkTestUnfinishedTracks.Size = New System.Drawing.Size(180, 17)
             Me.chkTestUnfinishedTracks.TabIndex = 20
-            Me.chkTestUnfinishedTracks.Text = "Allow testing of unfinished tracks"
+            Me.chkTestUnfinishedTracks.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkTestUnfinishedTracks
             Me.chkTestUnfinishedTracks.UseVisualStyleBackColor = True
             '
             'chkDebuggingTools
@@ -1063,7 +1063,7 @@ Namespace Forms
             Me.chkDebuggingTools.Name = "chkDebuggingTools"
             Me.chkDebuggingTools.Size = New System.Drawing.Size(137, 17)
             Me.chkDebuggingTools.TabIndex = 19
-            Me.chkDebuggingTools.Text = "Enable debugging tools"
+            Me.chkDebuggingTools.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkDebuggingTools
             Me.chkDebuggingTools.UseVisualStyleBackColor = True
             '
             'chkAllowSubtypeSwitching
@@ -1073,7 +1073,7 @@ Namespace Forms
             Me.chkAllowSubtypeSwitching.Name = "chkAllowSubtypeSwitching"
             Me.chkAllowSubtypeSwitching.Size = New System.Drawing.Size(226, 17)
             Me.chkAllowSubtypeSwitching.TabIndex = 18
-            Me.chkAllowSubtypeSwitching.Text = "Show all vehicles sharing a track/ride type"
+            Me.chkAllowSubtypeSwitching.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkAllowSubtypeSwitching
             Me.chkAllowSubtypeSwitching.UseVisualStyleBackColor = True
             '
         'FrmOptions
@@ -1091,7 +1091,7 @@ Namespace Forms
         Me.Name = "FrmOptions"
         Me.ShowIcon = false
         Me.ShowInTaskbar = false
-        Me.Text = "Options"
+            Me.Text = Global.Launcher.My.Resources.Resources.frmOptions_options_label
         CType(Me.numFullscreenWidth,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.numFullscreenHeight,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.numWindowHeight,System.ComponentModel.ISupportInitialize).EndInit
