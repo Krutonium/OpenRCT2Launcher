@@ -7,7 +7,7 @@ OpenRCT2 Launcher
 
 An Open Source Launcher &amp; Updater for OpenRCT2:
 
-*https://github.com/IntelOrca/OpenRCT2*
+*https://github.com/OpenRCT2/OpenRCT2*
 
 ###SO: What can this launcher do for you?
 
@@ -33,5 +33,6 @@ If you find any bugs/want features added, please feel free to file an issue or m
 * falki147
 * runelaenen
 * Gymnasiast
+* danidoedel
 
 (Feel free to add yourself when you contribute!)
