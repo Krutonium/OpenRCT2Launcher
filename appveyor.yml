@@ -10,6 +10,7 @@ after_test:
   - md LauncherRelease
   - xcopy "%CD%\Launcher\Launcher\bin\Release\*.exe" "%CD%\LauncherRelease" /y
   - xcopy "%CD%\Launcher\Launcher\bin\Release\*.dll" "%CD%\LauncherRelease" /y
+  - xcopy "%CD%\Launcher\Launcher\bin\Release\de-DE\*.dll" "%CD%\LauncherRelease\de-DE" /y
   
 artifacts:
   - path: LauncherRelease
