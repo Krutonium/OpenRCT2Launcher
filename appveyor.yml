@@ -8,8 +8,10 @@ configuration:
   
 after_test:
   - md LauncherRelease
+  - md LauncherRelease\de-DE
   - xcopy "%CD%\Launcher\Launcher\bin\Release\*.exe" "%CD%\LauncherRelease" /y
   - xcopy "%CD%\Launcher\Launcher\bin\Release\*.dll" "%CD%\LauncherRelease" /y
+  - xcopy "%CD%\Launcher\Launcher\bin\Release\de-DE\OpenRCT2 Launcher.resources.dll" "%CD%\LauncherRelease\de-DE" /y
   
 artifacts:
   - path: LauncherRelease
