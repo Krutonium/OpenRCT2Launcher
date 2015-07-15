@@ -544,7 +544,7 @@ make sure your saves are syncronized.</value>
     <value>Check for updates automatically</value>
   </data>
   <data name="frmOptions_chkAllowSubtypeSwitching" xml:space="preserve">
-    <value>Show all vehicles sharing a track/ride type</value>
+    <value>Select rides by track type</value>
   </data>
   <data name="frmOptions_chkChatPeepNames" xml:space="preserve">
     <value>Name peeps after people in Twitch chat</value>
@@ -652,7 +652,7 @@ make sure your saves are syncronized.</value>
     <value>Twitch</value>
   </data>
   <data name="frmOptions_unlockAllPrices" xml:space="preserve">
-    <value>Unlock entry and ride prices</value>
+    <value>Unlock all prices</value>
   </data>
   <data name="frmOptions_windowSnapProximity" xml:space="preserve">
     <value>Window snap proximity:</value>
@@ -686,5 +686,26 @@ make sure your saves are syncronized.</value>
   </data>
   <data name="OpenRCTdotNetSyncSaves_sync" xml:space="preserve">
     <value>Sync</value>
+  </data>
+  <data name="frmOptions_AutoStaff" xml:space="preserve">
+    <value>Automatically place staff</value>
+  </data>
+  <data name="frmOptions_BuildInPauseMode" xml:space="preserve">
+    <value>Allow building in pause mode</value>
+  </data>
+  <data name="frmOptions_InvertViewportDrag" xml:space="preserve">
+    <value>Invert right mouse dragging</value>
+  </data>
+  <data name="frmOptions_MasterVolume" xml:space="preserve">
+    <value>Master volume:</value>
+  </data>
+  <data name="frmOptions_MinimizeFullscreenFocusLoss" xml:space="preserve">
+    <value>Minimize fullscreen on focus loss</value>
+  </data>
+  <data name="frmOptions_MusicVolume" xml:space="preserve">
+    <value>Music volume:</value>
+  </data>
+  <data name="frmOptions_UncapFPS" xml:space="preserve">
+    <value>Uncap FPS</value>
   </data>
 </root>
