@@ -86,22 +86,30 @@ Namespace Forms
         Me.chkCheckUpdates = New System.Windows.Forms.CheckBox()
         Me.tcMain = New System.Windows.Forms.TabControl()
         Me.Graphics = New System.Windows.Forms.TabPage()
-        Me.chkHardwareDisplay = New System.Windows.Forms.CheckBox()
-        Me.Localisation = New System.Windows.Forms.TabPage()
-        Me.cbDateFormat = New System.Windows.Forms.ComboBox()
-        Me.laDateFormat = New System.Windows.Forms.Label()
-        Me.Sound = New System.Windows.Forms.TabPage()
-        Me.GUI = New System.Windows.Forms.TabPage()
-        Me.chkConsoleSmallFont = New System.Windows.Forms.CheckBox()
-        Me.chkToolbarShowCheats = New System.Windows.Forms.CheckBox()
-        Me.chkToolbarShowResearch = New System.Windows.Forms.CheckBox()
-        Me.chkToolbarShowFinances = New System.Windows.Forms.CheckBox()
-        Me.Cheats = New System.Windows.Forms.TabPage()
-        Me.chkUnlockAllPrices = New System.Windows.Forms.CheckBox()
-        Me.chkDisableAllBreakdowns = New System.Windows.Forms.CheckBox()
-        Me.chkDisableBrakesFailure = New System.Windows.Forms.CheckBox()
-        Me.chkFastLiftHill = New System.Windows.Forms.CheckBox()
-        Me.Launcher = New System.Windows.Forms.TabPage()
+            Me.chkMinimizeFullscreenFocusLoss = New System.Windows.Forms.CheckBox()
+            Me.chkUncapFPS = New System.Windows.Forms.CheckBox()
+            Me.chkHardwareDisplay = New System.Windows.Forms.CheckBox()
+            Me.Localisation = New System.Windows.Forms.TabPage()
+            Me.cbDateFormat = New System.Windows.Forms.ComboBox()
+            Me.laDateFormat = New System.Windows.Forms.Label()
+            Me.Sound = New System.Windows.Forms.TabPage()
+            Me.numMusicVolume = New System.Windows.Forms.NumericUpDown()
+            Me.laMusicVolume = New System.Windows.Forms.Label()
+            Me.numMasterVolume = New System.Windows.Forms.NumericUpDown()
+            Me.laMasterVolume = New System.Windows.Forms.Label()
+            Me.GUI = New System.Windows.Forms.TabPage()
+            Me.chkInvertViewportDrag = New System.Windows.Forms.CheckBox()
+            Me.chkConsoleSmallFont = New System.Windows.Forms.CheckBox()
+            Me.chkToolbarShowCheats = New System.Windows.Forms.CheckBox()
+            Me.chkToolbarShowResearch = New System.Windows.Forms.CheckBox()
+            Me.chkToolbarShowFinances = New System.Windows.Forms.CheckBox()
+            Me.Cheats = New System.Windows.Forms.TabPage()
+            Me.chkBuildInPauseMode = New System.Windows.Forms.CheckBox()
+            Me.chkUnlockAllPrices = New System.Windows.Forms.CheckBox()
+            Me.chkDisableAllBreakdowns = New System.Windows.Forms.CheckBox()
+            Me.chkDisableBrakesFailure = New System.Windows.Forms.CheckBox()
+            Me.chkFastLiftHill = New System.Windows.Forms.CheckBox()
+            Me.Launcher = New System.Windows.Forms.TabPage()
             Me.rdoDevelop = New System.Windows.Forms.RadioButton()
             Me.rdoStable = New System.Windows.Forms.RadioButton()
             Me.Debugging = New System.Windows.Forms.TabPage()
@@ -114,10 +122,11 @@ Namespace Forms
             Me.tbChannel = New System.Windows.Forms.TextBox()
             Me.laChannel = New System.Windows.Forms.Label()
             Me.Miscellaneous = New System.Windows.Forms.TabPage()
+            Me.chkAutoStaff = New System.Windows.Forms.CheckBox()
             Me.chkNoTestCrashes = New System.Windows.Forms.CheckBox()
             Me.chkTestUnfinishedTracks = New System.Windows.Forms.CheckBox()
             Me.chkDebuggingTools = New System.Windows.Forms.CheckBox()
-            Me.chkAllowSubtypeSwitching = New System.Windows.Forms.CheckBox()
+            Me.chkSelectByTrackType = New System.Windows.Forms.CheckBox()
             CType(Me.numFullscreenWidth, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.numFullscreenHeight, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.numWindowHeight, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -127,6 +136,8 @@ Namespace Forms
             Me.Graphics.SuspendLayout()
             Me.Localisation.SuspendLayout()
             Me.Sound.SuspendLayout()
+            CType(Me.numMusicVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.numMasterVolume, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.GUI.SuspendLayout()
             Me.Cheats.SuspendLayout()
             Me.Launcher.SuspendLayout()
@@ -163,7 +174,7 @@ Namespace Forms
             'laScreenshotFormat
             '
             Me.laScreenshotFormat.AutoSize = True
-            Me.laScreenshotFormat.Location = New System.Drawing.Point(247, 3)
+            Me.laScreenshotFormat.Location = New System.Drawing.Point(248, 3)
             Me.laScreenshotFormat.Name = "laScreenshotFormat"
             Me.laScreenshotFormat.Size = New System.Drawing.Size(99, 13)
             Me.laScreenshotFormat.TabIndex = 3
@@ -175,15 +186,15 @@ Namespace Forms
             Me.cbScreenshotFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbScreenshotFormat.FormattingEnabled = True
             Me.cbScreenshotFormat.Items.AddRange(New Object() {"*.bmp", "*.png"})
-            Me.cbScreenshotFormat.Location = New System.Drawing.Point(247, 19)
+            Me.cbScreenshotFormat.Location = New System.Drawing.Point(248, 19)
             Me.cbScreenshotFormat.Name = "cbScreenshotFormat"
-            Me.cbScreenshotFormat.Size = New System.Drawing.Size(242, 21)
+            Me.cbScreenshotFormat.Size = New System.Drawing.Size(239, 21)
             Me.cbScreenshotFormat.TabIndex = 4
             '
             'chkPlayIntro
             '
             Me.chkPlayIntro.AutoSize = True
-            Me.chkPlayIntro.Location = New System.Drawing.Point(247, 92)
+            Me.chkPlayIntro.Location = New System.Drawing.Point(248, 92)
             Me.chkPlayIntro.Name = "chkPlayIntro"
             Me.chkPlayIntro.Size = New System.Drawing.Size(70, 17)
             Me.chkPlayIntro.TabIndex = 5
@@ -213,7 +224,7 @@ Namespace Forms
             'laCurrency
             '
             Me.laCurrency.AutoSize = True
-            Me.laCurrency.Location = New System.Drawing.Point(247, 3)
+            Me.laCurrency.Location = New System.Drawing.Point(248, 3)
             Me.laCurrency.Name = "laCurrency"
             Me.laCurrency.Size = New System.Drawing.Size(52, 13)
             Me.laCurrency.TabIndex = 8
@@ -224,9 +235,9 @@ Namespace Forms
             Me.cbCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbCurrency.FormattingEnabled = True
             Me.cbCurrency.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_currency_pound, Global.Launcher.My.Resources.Resources.frmOptions_currency_dollar, Global.Launcher.My.Resources.Resources.frmOptions_currency_franc, Global.Launcher.My.Resources.Resources.frmOptions_currency_deutchmark, Global.Launcher.My.Resources.Resources.frmOptions_currency_yen, Global.Launcher.My.Resources.Resources.frmOptions_currency_peseta, Global.Launcher.My.Resources.Resources.frmOptions_currency_lira, Global.Launcher.My.Resources.Resources.frmOptions_currency_guilder, Global.Launcher.My.Resources.Resources.frmOptions_currency_krona, Global.Launcher.My.Resources.Resources.frmOptions_currency_euro})
-            Me.cbCurrency.Location = New System.Drawing.Point(247, 19)
+            Me.cbCurrency.Location = New System.Drawing.Point(248, 19)
             Me.cbCurrency.Name = "cbCurrency"
-            Me.cbCurrency.Size = New System.Drawing.Size(242, 21)
+            Me.cbCurrency.Size = New System.Drawing.Size(239, 21)
             Me.cbCurrency.TabIndex = 9
             '
             'laMeasurementFormat
@@ -241,7 +252,7 @@ Namespace Forms
             'laTemperatureFormat
             '
             Me.laTemperatureFormat.AutoSize = True
-            Me.laTemperatureFormat.Location = New System.Drawing.Point(247, 43)
+            Me.laTemperatureFormat.Location = New System.Drawing.Point(248, 43)
             Me.laTemperatureFormat.Name = "laTemperatureFormat"
             Me.laTemperatureFormat.Size = New System.Drawing.Size(70, 13)
             Me.laTemperatureFormat.TabIndex = 11
@@ -254,7 +265,7 @@ Namespace Forms
             Me.cbMeasurementFormat.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_distSpeed_imperial, Global.Launcher.My.Resources.Resources.frmOptions_distSpeed_metric})
             Me.cbMeasurementFormat.Location = New System.Drawing.Point(3, 59)
             Me.cbMeasurementFormat.Name = "cbMeasurementFormat"
-            Me.cbMeasurementFormat.Size = New System.Drawing.Size(237, 21)
+            Me.cbMeasurementFormat.Size = New System.Drawing.Size(239, 21)
             Me.cbMeasurementFormat.TabIndex = 12
             '
             'cbTemperatureFormat
@@ -262,15 +273,15 @@ Namespace Forms
             Me.cbTemperatureFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbTemperatureFormat.FormattingEnabled = True
             Me.cbTemperatureFormat.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_temperature_celsius, Global.Launcher.My.Resources.Resources.frmOptions_temperature_fahrenheit})
-            Me.cbTemperatureFormat.Location = New System.Drawing.Point(247, 59)
+            Me.cbTemperatureFormat.Location = New System.Drawing.Point(248, 59)
             Me.cbTemperatureFormat.Name = "cbTemperatureFormat"
-            Me.cbTemperatureFormat.Size = New System.Drawing.Size(242, 21)
+            Me.cbTemperatureFormat.Size = New System.Drawing.Size(239, 21)
             Me.cbTemperatureFormat.TabIndex = 13
             '
             'chkAlwaysShowGridlines
             '
             Me.chkAlwaysShowGridlines.AutoSize = True
-            Me.chkAlwaysShowGridlines.Location = New System.Drawing.Point(247, 124)
+            Me.chkAlwaysShowGridlines.Location = New System.Drawing.Point(248, 124)
             Me.chkAlwaysShowGridlines.Name = "chkAlwaysShowGridlines"
             Me.chkAlwaysShowGridlines.Size = New System.Drawing.Size(137, 17)
             Me.chkAlwaysShowGridlines.TabIndex = 14
@@ -313,7 +324,7 @@ Namespace Forms
             Me.cbFullscreenMode.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_fullscreenMode_windowed, Global.Launcher.My.Resources.Resources.frmOptions_fullscreenMode_fullscreen, Global.Launcher.My.Resources.Resources.frmOptions_fullscreenMode_fullscreenDesktop})
             Me.cbFullscreenMode.Location = New System.Drawing.Point(3, 19)
             Me.cbFullscreenMode.Name = "cbFullscreenMode"
-            Me.cbFullscreenMode.Size = New System.Drawing.Size(238, 21)
+            Me.cbFullscreenMode.Size = New System.Drawing.Size(239, 21)
             Me.cbFullscreenMode.TabIndex = 19
             '
             'laFullscreenWidth
@@ -332,13 +343,13 @@ Namespace Forms
             Me.numFullscreenWidth.Maximum = New Decimal(New Integer() {-2147483648, 0, 0, 0})
             Me.numFullscreenWidth.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
             Me.numFullscreenWidth.Name = "numFullscreenWidth"
-            Me.numFullscreenWidth.Size = New System.Drawing.Size(238, 20)
+            Me.numFullscreenWidth.Size = New System.Drawing.Size(239, 20)
             Me.numFullscreenWidth.TabIndex = 22
             '
             'numFullscreenHeight
             '
             Me.numFullscreenHeight.Increment = New Decimal(New Integer() {100, 0, 0, 0})
-            Me.numFullscreenHeight.Location = New System.Drawing.Point(247, 59)
+            Me.numFullscreenHeight.Location = New System.Drawing.Point(248, 59)
             Me.numFullscreenHeight.Maximum = New Decimal(New Integer() {-2147483648, 0, 0, 0})
             Me.numFullscreenHeight.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
             Me.numFullscreenHeight.Name = "numFullscreenHeight"
@@ -348,7 +359,7 @@ Namespace Forms
             'laFullscreenHeight
             '
             Me.laFullscreenHeight.AutoSize = True
-            Me.laFullscreenHeight.Location = New System.Drawing.Point(247, 43)
+            Me.laFullscreenHeight.Location = New System.Drawing.Point(248, 43)
             Me.laFullscreenHeight.Name = "laFullscreenHeight"
             Me.laFullscreenHeight.Size = New System.Drawing.Size(90, 13)
             Me.laFullscreenHeight.TabIndex = 23
@@ -370,13 +381,13 @@ Namespace Forms
             Me.cbLanguage.Items.AddRange(New Object() {"English (UK)", "English (US)", "Deutsch", "Nederlands", "Français", "Magyar", "Polski", "Español", "Svenska"})
             Me.cbLanguage.Location = New System.Drawing.Point(3, 19)
             Me.cbLanguage.Name = "cbLanguage"
-            Me.cbLanguage.Size = New System.Drawing.Size(238, 21)
+            Me.cbLanguage.Size = New System.Drawing.Size(239, 21)
             Me.cbLanguage.TabIndex = 26
             '
             'laTitleMusic
             '
             Me.laTitleMusic.AutoSize = True
-            Me.laTitleMusic.Location = New System.Drawing.Point(246, 3)
+            Me.laTitleMusic.Location = New System.Drawing.Point(248, 3)
             Me.laTitleMusic.Name = "laTitleMusic"
             Me.laTitleMusic.Size = New System.Drawing.Size(95, 13)
             Me.laTitleMusic.TabIndex = 27
@@ -387,9 +398,9 @@ Namespace Forms
             Me.cbTitleMusic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbTitleMusic.FormattingEnabled = True
             Me.cbTitleMusic.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_titleScreenMusic_none, Global.Launcher.My.Resources.Resources.frmOptions_titleScreenMusic_RCT1, Global.Launcher.My.Resources.Resources.frmOptions_titleScreenMusic_RCT2})
-            Me.cbTitleMusic.Location = New System.Drawing.Point(247, 19)
+            Me.cbTitleMusic.Location = New System.Drawing.Point(248, 19)
             Me.cbTitleMusic.Name = "cbTitleMusic"
-            Me.cbTitleMusic.Size = New System.Drawing.Size(242, 21)
+            Me.cbTitleMusic.Size = New System.Drawing.Size(239, 21)
             Me.cbTitleMusic.TabIndex = 28
             '
             'laSoundQuality
@@ -408,13 +419,13 @@ Namespace Forms
             Me.cbSoundQuality.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_soundQuality_low, Global.Launcher.My.Resources.Resources.frmOptions_soundQuality_medium, Global.Launcher.My.Resources.Resources.frmOptions_soundQuality_high})
             Me.cbSoundQuality.Location = New System.Drawing.Point(3, 19)
             Me.cbSoundQuality.Name = "cbSoundQuality"
-            Me.cbSoundQuality.Size = New System.Drawing.Size(238, 21)
+            Me.cbSoundQuality.Size = New System.Drawing.Size(239, 21)
             Me.cbSoundQuality.TabIndex = 30
             '
             'chkForcedSoftwareBuffering
             '
             Me.chkForcedSoftwareBuffering.AutoSize = True
-            Me.chkForcedSoftwareBuffering.Location = New System.Drawing.Point(3, 69)
+            Me.chkForcedSoftwareBuffering.Location = New System.Drawing.Point(3, 108)
             Me.chkForcedSoftwareBuffering.Name = "chkForcedSoftwareBuffering"
             Me.chkForcedSoftwareBuffering.Size = New System.Drawing.Size(168, 17)
             Me.chkForcedSoftwareBuffering.TabIndex = 31
@@ -426,7 +437,7 @@ Namespace Forms
             Me.cbConstructionMarkerColour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbConstructionMarkerColour.FormattingEnabled = True
             Me.cbConstructionMarkerColour.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_constructionMarkerColour_white, Global.Launcher.My.Resources.Resources.frmOptions_constructionMarkerColour_translucent})
-            Me.cbConstructionMarkerColour.Location = New System.Drawing.Point(247, 19)
+            Me.cbConstructionMarkerColour.Location = New System.Drawing.Point(248, 19)
             Me.cbConstructionMarkerColour.Name = "cbConstructionMarkerColour"
             Me.cbConstructionMarkerColour.Size = New System.Drawing.Size(239, 21)
             Me.cbConstructionMarkerColour.TabIndex = 29
@@ -434,7 +445,7 @@ Namespace Forms
             'laConstructionMarkerColour
             '
             Me.laConstructionMarkerColour.AutoSize = True
-            Me.laConstructionMarkerColour.Location = New System.Drawing.Point(247, 3)
+            Me.laConstructionMarkerColour.Location = New System.Drawing.Point(248, 3)
             Me.laConstructionMarkerColour.Name = "laConstructionMarkerColour"
             Me.laConstructionMarkerColour.Size = New System.Drawing.Size(105, 13)
             Me.laConstructionMarkerColour.TabIndex = 29
@@ -443,7 +454,7 @@ Namespace Forms
             'numWindowHeight
             '
             Me.numWindowHeight.Increment = New Decimal(New Integer() {100, 0, 0, 0})
-            Me.numWindowHeight.Location = New System.Drawing.Point(247, 98)
+            Me.numWindowHeight.Location = New System.Drawing.Point(248, 98)
             Me.numWindowHeight.Maximum = New Decimal(New Integer() {-2147483648, 0, 0, 0})
             Me.numWindowHeight.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
             Me.numWindowHeight.Name = "numWindowHeight"
@@ -457,13 +468,13 @@ Namespace Forms
             Me.numWindowWidth.Maximum = New Decimal(New Integer() {-2147483648, 0, 0, 0})
             Me.numWindowWidth.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
             Me.numWindowWidth.Name = "numWindowWidth"
-            Me.numWindowWidth.Size = New System.Drawing.Size(238, 20)
+            Me.numWindowWidth.Size = New System.Drawing.Size(239, 20)
             Me.numWindowWidth.TabIndex = 27
             '
             'laWindowHeight
             '
             Me.laWindowHeight.AutoSize = True
-            Me.laWindowHeight.Location = New System.Drawing.Point(247, 82)
+            Me.laWindowHeight.Location = New System.Drawing.Point(248, 82)
             Me.laWindowHeight.Name = "laWindowHeight"
             Me.laWindowHeight.Size = New System.Drawing.Size(81, 13)
             Me.laWindowHeight.TabIndex = 26
@@ -485,7 +496,7 @@ Namespace Forms
             Me.cbShowHeightAsUnits.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_heightLabels_units, Global.Launcher.My.Resources.Resources.frmOptions_heightLabels_real})
             Me.cbShowHeightAsUnits.Location = New System.Drawing.Point(3, 99)
             Me.cbShowHeightAsUnits.Name = "cbShowHeightAsUnits"
-            Me.cbShowHeightAsUnits.Size = New System.Drawing.Size(237, 21)
+            Me.cbShowHeightAsUnits.Size = New System.Drawing.Size(239, 21)
             Me.cbShowHeightAsUnits.TabIndex = 28
             '
             'laShowHeightAsUnits
@@ -500,7 +511,7 @@ Namespace Forms
             'chkRideMusic
             '
             Me.chkRideMusic.AutoSize = True
-            Me.chkRideMusic.Location = New System.Drawing.Point(3, 46)
+            Me.chkRideMusic.Location = New System.Drawing.Point(248, 85)
             Me.chkRideMusic.Name = "chkRideMusic"
             Me.chkRideMusic.Size = New System.Drawing.Size(79, 17)
             Me.chkRideMusic.TabIndex = 33
@@ -510,7 +521,7 @@ Namespace Forms
             'chkSound
             '
             Me.chkSound.AutoSize = True
-            Me.chkSound.Location = New System.Drawing.Point(246, 46)
+            Me.chkSound.Location = New System.Drawing.Point(3, 85)
             Me.chkSound.Name = "chkSound"
             Me.chkSound.Size = New System.Drawing.Size(57, 17)
             Me.chkSound.TabIndex = 32
@@ -523,7 +534,7 @@ Namespace Forms
             Me.numWindowSnapProximity.Location = New System.Drawing.Point(3, 19)
             Me.numWindowSnapProximity.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
             Me.numWindowSnapProximity.Name = "numWindowSnapProximity"
-            Me.numWindowSnapProximity.Size = New System.Drawing.Size(486, 20)
+            Me.numWindowSnapProximity.Size = New System.Drawing.Size(484, 20)
             Me.numWindowSnapProximity.TabIndex = 28
             '
             'laWindowSnapProximity
@@ -556,7 +567,7 @@ Namespace Forms
             '
             'cmdOk
             '
-            Me.cmdOk.Location = New System.Drawing.Point(12, 214)
+            Me.cmdOk.Location = New System.Drawing.Point(12, 237)
             Me.cmdOk.Name = "cmdOk"
             Me.cmdOk.Size = New System.Drawing.Size(163, 23)
             Me.cmdOk.TabIndex = 36
@@ -565,7 +576,7 @@ Namespace Forms
             '
             'cmdCancel
             '
-            Me.cmdCancel.Location = New System.Drawing.Point(181, 214)
+            Me.cmdCancel.Location = New System.Drawing.Point(181, 237)
             Me.cmdCancel.Name = "cmdCancel"
             Me.cmdCancel.Size = New System.Drawing.Size(163, 23)
             Me.cmdCancel.TabIndex = 37
@@ -574,7 +585,7 @@ Namespace Forms
             '
             'cmdReset
             '
-            Me.cmdReset.Location = New System.Drawing.Point(350, 214)
+            Me.cmdReset.Location = New System.Drawing.Point(350, 237)
             Me.cmdReset.Name = "cmdReset"
             Me.cmdReset.Size = New System.Drawing.Size(162, 23)
             Me.cmdReset.TabIndex = 40
@@ -608,7 +619,7 @@ Namespace Forms
             '
             'tbOutputPath
             '
-            Me.tbOutputPath.Location = New System.Drawing.Point(247, 39)
+            Me.tbOutputPath.Location = New System.Drawing.Point(248, 39)
             Me.tbOutputPath.Name = "tbOutputPath"
             Me.tbOutputPath.Size = New System.Drawing.Size(206, 20)
             Me.tbOutputPath.TabIndex = 3
@@ -616,7 +627,7 @@ Namespace Forms
             'laOutputPath
             '
             Me.laOutputPath.AutoSize = True
-            Me.laOutputPath.Location = New System.Drawing.Point(247, 23)
+            Me.laOutputPath.Location = New System.Drawing.Point(248, 23)
             Me.laOutputPath.Name = "laOutputPath"
             Me.laOutputPath.Size = New System.Drawing.Size(67, 13)
             Me.laOutputPath.TabIndex = 2
@@ -625,7 +636,7 @@ Namespace Forms
             'chkSaveOutput
             '
             Me.chkSaveOutput.AutoSize = True
-            Me.chkSaveOutput.Location = New System.Drawing.Point(247, 3)
+            Me.chkSaveOutput.Location = New System.Drawing.Point(248, 3)
             Me.chkSaveOutput.Name = "chkSaveOutput"
             Me.chkSaveOutput.Size = New System.Drawing.Size(117, 17)
             Me.chkSaveOutput.TabIndex = 1
@@ -645,7 +656,7 @@ Namespace Forms
             'chkInstallUpdates
             '
             Me.chkInstallUpdates.AutoSize = True
-            Me.chkInstallUpdates.Location = New System.Drawing.Point(247, 45)
+            Me.chkInstallUpdates.Location = New System.Drawing.Point(248, 45)
             Me.chkInstallUpdates.Name = "chkInstallUpdates"
             Me.chkInstallUpdates.Size = New System.Drawing.Size(158, 17)
             Me.chkInstallUpdates.TabIndex = 1
@@ -673,14 +684,17 @@ Namespace Forms
             Me.tcMain.Controls.Add(Me.Debugging)
             Me.tcMain.Controls.Add(Me.Twitch)
             Me.tcMain.Controls.Add(Me.Miscellaneous)
+            Me.tcMain.ItemSize = New System.Drawing.Size(54, 18)
             Me.tcMain.Location = New System.Drawing.Point(12, 12)
             Me.tcMain.Name = "tcMain"
             Me.tcMain.SelectedIndex = 0
-            Me.tcMain.Size = New System.Drawing.Size(500, 196)
+            Me.tcMain.Size = New System.Drawing.Size(500, 219)
             Me.tcMain.TabIndex = 43
             '
             'Graphics
             '
+            Me.Graphics.Controls.Add(Me.chkMinimizeFullscreenFocusLoss)
+            Me.Graphics.Controls.Add(Me.chkUncapFPS)
             Me.Graphics.Controls.Add(Me.chkHardwareDisplay)
             Me.Graphics.Controls.Add(Me.cbConstructionMarkerColour)
             Me.Graphics.Controls.Add(Me.laFullscreenMode)
@@ -699,10 +713,30 @@ Namespace Forms
             Me.Graphics.Location = New System.Drawing.Point(4, 22)
             Me.Graphics.Name = "Graphics"
             Me.Graphics.Padding = New System.Windows.Forms.Padding(3)
-            Me.Graphics.Size = New System.Drawing.Size(492, 170)
+            Me.Graphics.Size = New System.Drawing.Size(492, 193)
             Me.Graphics.TabIndex = 1
             Me.Graphics.Text = Global.Launcher.My.Resources.Resources.frmOptions_graphics
             Me.Graphics.UseVisualStyleBackColor = True
+            '
+            'chkMinimizeFullscreenFocusLoss
+            '
+            Me.chkMinimizeFullscreenFocusLoss.AutoSize = True
+            Me.chkMinimizeFullscreenFocusLoss.Location = New System.Drawing.Point(3, 170)
+            Me.chkMinimizeFullscreenFocusLoss.Name = "chkMinimizeFullscreenFocusLoss"
+            Me.chkMinimizeFullscreenFocusLoss.Size = New System.Drawing.Size(179, 17)
+            Me.chkMinimizeFullscreenFocusLoss.TabIndex = 32
+            Me.chkMinimizeFullscreenFocusLoss.Text = Global.Launcher.My.Resources.Resources.frmOptions_MinimizeFullscreenFocusLoss
+            Me.chkMinimizeFullscreenFocusLoss.UseVisualStyleBackColor = True
+            '
+            'chkUncapFPS
+            '
+            Me.chkUncapFPS.AutoSize = True
+            Me.chkUncapFPS.Location = New System.Drawing.Point(248, 147)
+            Me.chkUncapFPS.Name = "chkUncapFPS"
+            Me.chkUncapFPS.Size = New System.Drawing.Size(81, 17)
+            Me.chkUncapFPS.TabIndex = 31
+            Me.chkUncapFPS.Text = Global.Launcher.My.Resources.Resources.frmOptions_UncapFPS
+            Me.chkUncapFPS.UseVisualStyleBackColor = True
             '
             'chkHardwareDisplay
             '
@@ -730,7 +764,7 @@ Namespace Forms
             Me.Localisation.Controls.Add(Me.cbMeasurementFormat)
             Me.Localisation.Location = New System.Drawing.Point(4, 22)
             Me.Localisation.Name = "Localisation"
-            Me.Localisation.Size = New System.Drawing.Size(492, 170)
+            Me.Localisation.Size = New System.Drawing.Size(492, 193)
             Me.Localisation.TabIndex = 2
             Me.Localisation.Text = Global.Launcher.My.Resources.Resources.frmOptions_localisation
             Me.Localisation.UseVisualStyleBackColor = True
@@ -740,15 +774,15 @@ Namespace Forms
             Me.cbDateFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbDateFormat.FormattingEnabled = True
             Me.cbDateFormat.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_dateFormat_dmy, Global.Launcher.My.Resources.Resources.frmOptions_dateFormat_mdy})
-            Me.cbDateFormat.Location = New System.Drawing.Point(247, 99)
+            Me.cbDateFormat.Location = New System.Drawing.Point(248, 99)
             Me.cbDateFormat.Name = "cbDateFormat"
-            Me.cbDateFormat.Size = New System.Drawing.Size(242, 21)
+            Me.cbDateFormat.Size = New System.Drawing.Size(239, 21)
             Me.cbDateFormat.TabIndex = 30
             '
             'laDateFormat
             '
             Me.laDateFormat.AutoSize = True
-            Me.laDateFormat.Location = New System.Drawing.Point(247, 83)
+            Me.laDateFormat.Location = New System.Drawing.Point(248, 83)
             Me.laDateFormat.Name = "laDateFormat"
             Me.laDateFormat.Size = New System.Drawing.Size(65, 13)
             Me.laDateFormat.TabIndex = 29
@@ -756,6 +790,10 @@ Namespace Forms
             '
             'Sound
             '
+            Me.Sound.Controls.Add(Me.numMusicVolume)
+            Me.Sound.Controls.Add(Me.laMusicVolume)
+            Me.Sound.Controls.Add(Me.numMasterVolume)
+            Me.Sound.Controls.Add(Me.laMasterVolume)
             Me.Sound.Controls.Add(Me.chkRideMusic)
             Me.Sound.Controls.Add(Me.chkSound)
             Me.Sound.Controls.Add(Me.laSoundQuality)
@@ -765,13 +803,48 @@ Namespace Forms
             Me.Sound.Controls.Add(Me.chkForcedSoftwareBuffering)
             Me.Sound.Location = New System.Drawing.Point(4, 22)
             Me.Sound.Name = "Sound"
-            Me.Sound.Size = New System.Drawing.Size(492, 170)
+            Me.Sound.Size = New System.Drawing.Size(492, 193)
             Me.Sound.TabIndex = 3
             Me.Sound.Text = Global.Launcher.My.Resources.Resources.frmOptions_sound
             Me.Sound.UseVisualStyleBackColor = True
             '
+            'numMusicVolume
+            '
+            Me.numMusicVolume.Location = New System.Drawing.Point(248, 59)
+            Me.numMusicVolume.Name = "numMusicVolume"
+            Me.numMusicVolume.Size = New System.Drawing.Size(239, 20)
+            Me.numMusicVolume.TabIndex = 39
+            Me.numMusicVolume.Value = New Decimal(New Integer() {100, 0, 0, 0})
+            '
+            'laMusicVolume
+            '
+            Me.laMusicVolume.AutoSize = True
+            Me.laMusicVolume.Location = New System.Drawing.Point(248, 43)
+            Me.laMusicVolume.Name = "laMusicVolume"
+            Me.laMusicVolume.Size = New System.Drawing.Size(75, 13)
+            Me.laMusicVolume.TabIndex = 38
+            Me.laMusicVolume.Text = Global.Launcher.My.Resources.Resources.frmOptions_MusicVolume
+            '
+            'numMasterVolume
+            '
+            Me.numMasterVolume.Location = New System.Drawing.Point(3, 59)
+            Me.numMasterVolume.Name = "numMasterVolume"
+            Me.numMasterVolume.Size = New System.Drawing.Size(239, 20)
+            Me.numMasterVolume.TabIndex = 35
+            Me.numMasterVolume.Value = New Decimal(New Integer() {100, 0, 0, 0})
+            '
+            'laMasterVolume
+            '
+            Me.laMasterVolume.AutoSize = True
+            Me.laMasterVolume.Location = New System.Drawing.Point(3, 43)
+            Me.laMasterVolume.Name = "laMasterVolume"
+            Me.laMasterVolume.Size = New System.Drawing.Size(79, 13)
+            Me.laMasterVolume.TabIndex = 34
+            Me.laMasterVolume.Text = Global.Launcher.My.Resources.Resources.frmOptions_MasterVolume
+            '
             'GUI
             '
+            Me.GUI.Controls.Add(Me.chkInvertViewportDrag)
             Me.GUI.Controls.Add(Me.chkConsoleSmallFont)
             Me.GUI.Controls.Add(Me.chkToolbarShowCheats)
             Me.GUI.Controls.Add(Me.numWindowSnapProximity)
@@ -781,10 +854,20 @@ Namespace Forms
             Me.GUI.Controls.Add(Me.chkEdgeScrolling)
             Me.GUI.Location = New System.Drawing.Point(4, 22)
             Me.GUI.Name = "GUI"
-            Me.GUI.Size = New System.Drawing.Size(492, 170)
+            Me.GUI.Size = New System.Drawing.Size(492, 193)
             Me.GUI.TabIndex = 4
             Me.GUI.Text = Global.Launcher.My.Resources.Resources.frmOptions_gui
             Me.GUI.UseVisualStyleBackColor = True
+            '
+            'chkInvertViewportDrag
+            '
+            Me.chkInvertViewportDrag.AutoSize = True
+            Me.chkInvertViewportDrag.Location = New System.Drawing.Point(248, 91)
+            Me.chkInvertViewportDrag.Name = "chkInvertViewportDrag"
+            Me.chkInvertViewportDrag.Size = New System.Drawing.Size(154, 17)
+            Me.chkInvertViewportDrag.TabIndex = 30
+            Me.chkInvertViewportDrag.Text = Global.Launcher.My.Resources.Resources.frmOptions_InvertViewportDrag
+            Me.chkInvertViewportDrag.UseVisualStyleBackColor = True
             '
             'chkConsoleSmallFont
             '
@@ -799,7 +882,7 @@ Namespace Forms
             'chkToolbarShowCheats
             '
             Me.chkToolbarShowCheats.AutoSize = True
-            Me.chkToolbarShowCheats.Location = New System.Drawing.Point(247, 68)
+            Me.chkToolbarShowCheats.Location = New System.Drawing.Point(248, 68)
             Me.chkToolbarShowCheats.Name = "chkToolbarShowCheats"
             Me.chkToolbarShowCheats.Size = New System.Drawing.Size(171, 17)
             Me.chkToolbarShowCheats.TabIndex = 10
@@ -819,7 +902,7 @@ Namespace Forms
             'chkToolbarShowFinances
             '
             Me.chkToolbarShowFinances.AutoSize = True
-            Me.chkToolbarShowFinances.Location = New System.Drawing.Point(247, 45)
+            Me.chkToolbarShowFinances.Location = New System.Drawing.Point(248, 45)
             Me.chkToolbarShowFinances.Name = "chkToolbarShowFinances"
             Me.chkToolbarShowFinances.Size = New System.Drawing.Size(179, 17)
             Me.chkToolbarShowFinances.TabIndex = 8
@@ -828,21 +911,32 @@ Namespace Forms
             '
             'Cheats
             '
+            Me.Cheats.Controls.Add(Me.chkBuildInPauseMode)
             Me.Cheats.Controls.Add(Me.chkUnlockAllPrices)
             Me.Cheats.Controls.Add(Me.chkDisableAllBreakdowns)
             Me.Cheats.Controls.Add(Me.chkDisableBrakesFailure)
             Me.Cheats.Controls.Add(Me.chkFastLiftHill)
             Me.Cheats.Location = New System.Drawing.Point(4, 22)
             Me.Cheats.Name = "Cheats"
-            Me.Cheats.Size = New System.Drawing.Size(492, 170)
+            Me.Cheats.Size = New System.Drawing.Size(492, 193)
             Me.Cheats.TabIndex = 7
             Me.Cheats.Text = Global.Launcher.My.Resources.Resources.frmOptions_cheats
             Me.Cheats.UseVisualStyleBackColor = True
             '
+            'chkBuildInPauseMode
+            '
+            Me.chkBuildInPauseMode.AutoSize = True
+            Me.chkBuildInPauseMode.Location = New System.Drawing.Point(3, 49)
+            Me.chkBuildInPauseMode.Name = "chkBuildInPauseMode"
+            Me.chkBuildInPauseMode.Size = New System.Drawing.Size(162, 17)
+            Me.chkBuildInPauseMode.TabIndex = 4
+            Me.chkBuildInPauseMode.Text = Global.Launcher.My.Resources.Resources.frmOptions_BuildInPauseMode
+            Me.chkBuildInPauseMode.UseVisualStyleBackColor = True
+            '
             'chkUnlockAllPrices
             '
             Me.chkUnlockAllPrices.AutoSize = True
-            Me.chkUnlockAllPrices.Location = New System.Drawing.Point(247, 26)
+            Me.chkUnlockAllPrices.Location = New System.Drawing.Point(248, 26)
             Me.chkUnlockAllPrices.Name = "chkUnlockAllPrices"
             Me.chkUnlockAllPrices.Size = New System.Drawing.Size(158, 17)
             Me.chkUnlockAllPrices.TabIndex = 3
@@ -854,7 +948,7 @@ Namespace Forms
             Me.chkDisableAllBreakdowns.AutoSize = True
             Me.chkDisableAllBreakdowns.Location = New System.Drawing.Point(3, 26)
             Me.chkDisableAllBreakdowns.Name = "chkDisableAllBreakdowns"
-            Me.chkDisableAllBreakdowns.Size = New System.Drawing.Size(125, 17)
+            Me.chkDisableAllBreakdowns.Size = New System.Drawing.Size(122, 17)
             Me.chkDisableAllBreakdowns.TabIndex = 2
             Me.chkDisableAllBreakdowns.Text = Global.Launcher.My.Resources.Resources.frmOptions_disableAllBreakdowns
             Me.chkDisableAllBreakdowns.UseVisualStyleBackColor = True
@@ -862,7 +956,7 @@ Namespace Forms
             'chkDisableBrakesFailure
             '
             Me.chkDisableBrakesFailure.AutoSize = True
-            Me.chkDisableBrakesFailure.Location = New System.Drawing.Point(247, 3)
+            Me.chkDisableBrakesFailure.Location = New System.Drawing.Point(248, 3)
             Me.chkDisableBrakesFailure.Name = "chkDisableBrakesFailure"
             Me.chkDisableBrakesFailure.Size = New System.Drawing.Size(127, 17)
             Me.chkDisableBrakesFailure.TabIndex = 1
@@ -891,7 +985,7 @@ Namespace Forms
             Me.Launcher.Location = New System.Drawing.Point(4, 22)
             Me.Launcher.Name = "Launcher"
             Me.Launcher.Padding = New System.Windows.Forms.Padding(3)
-            Me.Launcher.Size = New System.Drawing.Size(492, 170)
+            Me.Launcher.Size = New System.Drawing.Size(492, 193)
             Me.Launcher.TabIndex = 0
             Me.Launcher.Text = Global.Launcher.My.Resources.Resources.frmOptions_launcher
             Me.Launcher.UseVisualStyleBackColor = True
@@ -929,7 +1023,7 @@ Namespace Forms
             Me.Debugging.Controls.Add(Me.laOutputPath)
             Me.Debugging.Location = New System.Drawing.Point(4, 22)
             Me.Debugging.Name = "Debugging"
-            Me.Debugging.Size = New System.Drawing.Size(492, 170)
+            Me.Debugging.Size = New System.Drawing.Size(492, 193)
             Me.Debugging.TabIndex = 6
             Me.Debugging.Text = Global.Launcher.My.Resources.Resources.frmOptions_debugging
             Me.Debugging.UseVisualStyleBackColor = True
@@ -945,7 +1039,7 @@ Namespace Forms
             Me.Twitch.Controls.Add(Me.laChannel)
             Me.Twitch.Location = New System.Drawing.Point(4, 22)
             Me.Twitch.Name = "Twitch"
-            Me.Twitch.Size = New System.Drawing.Size(492, 170)
+            Me.Twitch.Size = New System.Drawing.Size(492, 193)
             Me.Twitch.TabIndex = 8
             Me.Twitch.Text = Global.Launcher.My.Resources.Resources.frmOptions_twitch
             Me.Twitch.UseVisualStyleBackColor = True
@@ -963,7 +1057,7 @@ Namespace Forms
             'chkChatPeepTracking
             '
             Me.chkChatPeepTracking.AutoSize = True
-            Me.chkChatPeepTracking.Location = New System.Drawing.Point(247, 68)
+            Me.chkChatPeepTracking.Location = New System.Drawing.Point(248, 68)
             Me.chkChatPeepTracking.Name = "chkChatPeepTracking"
             Me.chkChatPeepTracking.Size = New System.Drawing.Size(110, 17)
             Me.chkChatPeepTracking.TabIndex = 5
@@ -983,7 +1077,7 @@ Namespace Forms
             'chkFollowerPeepTracking
             '
             Me.chkFollowerPeepTracking.AutoSize = True
-            Me.chkFollowerPeepTracking.Location = New System.Drawing.Point(247, 45)
+            Me.chkFollowerPeepTracking.Location = New System.Drawing.Point(248, 45)
             Me.chkFollowerPeepTracking.Name = "chkFollowerPeepTracking"
             Me.chkFollowerPeepTracking.Size = New System.Drawing.Size(125, 17)
             Me.chkFollowerPeepTracking.TabIndex = 3
@@ -1004,7 +1098,7 @@ Namespace Forms
             '
             Me.tbChannel.Location = New System.Drawing.Point(3, 19)
             Me.tbChannel.Name = "tbChannel"
-            Me.tbChannel.Size = New System.Drawing.Size(486, 20)
+            Me.tbChannel.Size = New System.Drawing.Size(484, 20)
             Me.tbChannel.TabIndex = 1
             '
             'laChannel
@@ -1018,6 +1112,7 @@ Namespace Forms
             '
             'Miscellaneous
             '
+            Me.Miscellaneous.Controls.Add(Me.chkAutoStaff)
             Me.Miscellaneous.Controls.Add(Me.chkNoTestCrashes)
             Me.Miscellaneous.Controls.Add(Me.chkConfirmationPrompt)
             Me.Miscellaneous.Controls.Add(Me.chkPlayIntro)
@@ -1026,15 +1121,25 @@ Namespace Forms
             Me.Miscellaneous.Controls.Add(Me.laScreenshotFormat)
             Me.Miscellaneous.Controls.Add(Me.cbScreenshotFormat)
             Me.Miscellaneous.Controls.Add(Me.cbAutosave)
-            Me.Miscellaneous.Controls.Add(Me.chkAllowSubtypeSwitching)
+            Me.Miscellaneous.Controls.Add(Me.chkSelectByTrackType)
             Me.Miscellaneous.Controls.Add(Me.laAutosave)
             Me.Miscellaneous.Controls.Add(Me.chkSavePluginData)
             Me.Miscellaneous.Location = New System.Drawing.Point(4, 22)
             Me.Miscellaneous.Name = "Miscellaneous"
-            Me.Miscellaneous.Size = New System.Drawing.Size(492, 170)
+            Me.Miscellaneous.Size = New System.Drawing.Size(492, 193)
             Me.Miscellaneous.TabIndex = 5
             Me.Miscellaneous.Text = Global.Launcher.My.Resources.Resources.frmOptions_miscellaneous
             Me.Miscellaneous.UseVisualStyleBackColor = True
+            '
+            'chkAutoStaff
+            '
+            Me.chkAutoStaff.AutoSize = True
+            Me.chkAutoStaff.Location = New System.Drawing.Point(248, 115)
+            Me.chkAutoStaff.Name = "chkAutoStaff"
+            Me.chkAutoStaff.Size = New System.Drawing.Size(140, 17)
+            Me.chkAutoStaff.TabIndex = 22
+            Me.chkAutoStaff.Text = Global.Launcher.My.Resources.Resources.frmOptions_AutoStaff
+            Me.chkAutoStaff.UseVisualStyleBackColor = True
             '
             'chkNoTestCrashes
             '
@@ -1049,7 +1154,7 @@ Namespace Forms
             'chkTestUnfinishedTracks
             '
             Me.chkTestUnfinishedTracks.AutoSize = True
-            Me.chkTestUnfinishedTracks.Location = New System.Drawing.Point(247, 69)
+            Me.chkTestUnfinishedTracks.Location = New System.Drawing.Point(248, 69)
             Me.chkTestUnfinishedTracks.Name = "chkTestUnfinishedTracks"
             Me.chkTestUnfinishedTracks.Size = New System.Drawing.Size(180, 17)
             Me.chkTestUnfinishedTracks.TabIndex = 20
@@ -1066,59 +1171,61 @@ Namespace Forms
             Me.chkDebuggingTools.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkDebuggingTools
             Me.chkDebuggingTools.UseVisualStyleBackColor = True
             '
-            'chkAllowSubtypeSwitching
+            'chkSelectByTrackType
             '
-            Me.chkAllowSubtypeSwitching.AutoSize = True
-            Me.chkAllowSubtypeSwitching.Location = New System.Drawing.Point(247, 46)
-            Me.chkAllowSubtypeSwitching.Name = "chkAllowSubtypeSwitching"
-            Me.chkAllowSubtypeSwitching.Size = New System.Drawing.Size(226, 17)
-            Me.chkAllowSubtypeSwitching.TabIndex = 18
-            Me.chkAllowSubtypeSwitching.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkAllowSubtypeSwitching
-            Me.chkAllowSubtypeSwitching.UseVisualStyleBackColor = True
+            Me.chkSelectByTrackType.AutoSize = True
+            Me.chkSelectByTrackType.Location = New System.Drawing.Point(248, 46)
+            Me.chkSelectByTrackType.Name = "chkSelectByTrackType"
+            Me.chkSelectByTrackType.Size = New System.Drawing.Size(226, 17)
+            Me.chkSelectByTrackType.TabIndex = 18
+            Me.chkSelectByTrackType.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkAllowSubtypeSwitching
+            Me.chkSelectByTrackType.UseVisualStyleBackColor = True
             '
-        'FrmOptions
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(524, 249)
-        Me.Controls.Add(Me.tcMain)
-        Me.Controls.Add(Me.cmdReset)
-        Me.Controls.Add(Me.cmdCancel)
-        Me.Controls.Add(Me.cmdOk)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.MaximizeBox = false
-        Me.MinimizeBox = false
-        Me.Name = "FrmOptions"
-        Me.ShowIcon = false
-        Me.ShowInTaskbar = false
-            Me.Text = Global.Launcher.My.Resources.Resources.frmOptions_options_label
-        CType(Me.numFullscreenWidth,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.numFullscreenHeight,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.numWindowHeight,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.numWindowWidth,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.numWindowSnapProximity,System.ComponentModel.ISupportInitialize).EndInit
-        Me.tcMain.ResumeLayout(false)
-        Me.Graphics.ResumeLayout(false)
-        Me.Graphics.PerformLayout
-        Me.Localisation.ResumeLayout(false)
-        Me.Localisation.PerformLayout
-        Me.Sound.ResumeLayout(false)
-        Me.Sound.PerformLayout
-        Me.GUI.ResumeLayout(false)
-        Me.GUI.PerformLayout
-        Me.Cheats.ResumeLayout(false)
-        Me.Cheats.PerformLayout
-        Me.Launcher.ResumeLayout(false)
-        Me.Launcher.PerformLayout
-        Me.Debugging.ResumeLayout(false)
-        Me.Debugging.PerformLayout
-        Me.Twitch.ResumeLayout(false)
-        Me.Twitch.PerformLayout
-        Me.Miscellaneous.ResumeLayout(false)
-        Me.Miscellaneous.PerformLayout
-        Me.ResumeLayout(false)
+            'FrmOptions
+            '
+            Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+            Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+            Me.ClientSize = New System.Drawing.Size(524, 272)
+            Me.Controls.Add(Me.tcMain)
+            Me.Controls.Add(Me.cmdReset)
+            Me.Controls.Add(Me.cmdCancel)
+            Me.Controls.Add(Me.cmdOk)
+            Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+            Me.MaximizeBox = False
+            Me.MinimizeBox = False
+            Me.Name = "FrmOptions"
+            Me.ShowIcon = False
+            Me.ShowInTaskbar = False
+            Me.Text = "Options"
+            CType(Me.numFullscreenWidth, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.numFullscreenHeight, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.numWindowHeight, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.numWindowWidth, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.numWindowSnapProximity, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.tcMain.ResumeLayout(False)
+            Me.Graphics.ResumeLayout(False)
+            Me.Graphics.PerformLayout()
+            Me.Localisation.ResumeLayout(False)
+            Me.Localisation.PerformLayout()
+            Me.Sound.ResumeLayout(False)
+            Me.Sound.PerformLayout()
+            CType(Me.numMusicVolume, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.numMasterVolume, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.GUI.ResumeLayout(False)
+            Me.GUI.PerformLayout()
+            Me.Cheats.ResumeLayout(False)
+            Me.Cheats.PerformLayout()
+            Me.Launcher.ResumeLayout(False)
+            Me.Launcher.PerformLayout()
+            Me.Debugging.ResumeLayout(False)
+            Me.Debugging.PerformLayout()
+            Me.Twitch.ResumeLayout(False)
+            Me.Twitch.PerformLayout()
+            Me.Miscellaneous.ResumeLayout(False)
+            Me.Miscellaneous.PerformLayout()
+            Me.ResumeLayout(False)
 
-End Sub
+        End Sub
         Friend WithEvents tbGamePath As System.Windows.Forms.TextBox
         Friend WithEvents cmdGamePath As System.Windows.Forms.Button
         Friend WithEvents laGamePath As System.Windows.Forms.Label
@@ -1190,7 +1297,7 @@ End Sub
         Friend WithEvents chkToolbarShowFinances As System.Windows.Forms.CheckBox
         Friend WithEvents chkTestUnfinishedTracks As System.Windows.Forms.CheckBox
         Friend WithEvents chkDebuggingTools As System.Windows.Forms.CheckBox
-        Friend WithEvents chkAllowSubtypeSwitching As System.Windows.Forms.CheckBox
+        Friend WithEvents chkSelectByTrackType As System.Windows.Forms.CheckBox
         Friend WithEvents Debugging As System.Windows.Forms.TabPage
         Friend WithEvents chkConsoleSmallFont As System.Windows.Forms.CheckBox
         Friend WithEvents Cheats As System.Windows.Forms.TabPage
@@ -1211,5 +1318,14 @@ End Sub
         Friend WithEvents chkFollowerPeepNames As System.Windows.Forms.CheckBox
         Friend WithEvents rdoDevelop As System.Windows.Forms.RadioButton
         Friend WithEvents rdoStable As System.Windows.Forms.RadioButton
+        Friend WithEvents chkUncapFPS As System.Windows.Forms.CheckBox
+        Friend WithEvents chkMinimizeFullscreenFocusLoss As System.Windows.Forms.CheckBox
+        Friend WithEvents numMusicVolume As System.Windows.Forms.NumericUpDown
+        Friend WithEvents laMusicVolume As System.Windows.Forms.Label
+        Friend WithEvents numMasterVolume As System.Windows.Forms.NumericUpDown
+        Friend WithEvents laMasterVolume As System.Windows.Forms.Label
+        Friend WithEvents chkInvertViewportDrag As System.Windows.Forms.CheckBox
+        Friend WithEvents chkBuildInPauseMode As System.Windows.Forms.CheckBox
+        Friend WithEvents chkAutoStaff As System.Windows.Forms.CheckBox
     End Class
 End Namespace

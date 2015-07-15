@@ -8,47 +8,54 @@ Public Structure GameConfigValues
 
     Sub New(c As Constructor)
         If c = Constructor.DefaultValues
-            AllowSubtypeSwitching    = False
-            AlwaysShowGridlines      = False
-            Autosave                 = GameConfig.EnumAutosave.EveryMonth
-            Channel                  = ""
-            ChatPeepNames            = True
-            ChatPeepTracking         = True
-            ConfirmationPrompt       = False
-            ConsoleSmallFont         = False
-            ConstructionMarkerColour = 0
-            DateFormat               = GameConfig.EnumDateFormat.DMY
-            DebuggingTools           = False
-            DisableAllBreakdowns     = False
-            DisableBrakesFailure     = False
-            EdgeScrolling            = True
-            FastLiftHill             = False
-            FollowerPeepNames        = True
-            FollowerPeepTracking     = False
-            ForcedSoftwareBuffering  = False
-            FullscreenHeight         = -1
-            FullscreenMode           = GameConfig.EnumFullscreenMode.Window
-            FullscreenWidth          = -1
-            HardwareDisplay          = False
-            LandscapeSmoothing       = True
-            News                     = False
-            NoTestCrashes            = False
-            PlayIntro                = False
-            RideMusic                = True
-            SavePluginData           = False
-            ScreenshotFormat         = GameConfig.EnumScreenshotFormat.PNG
-            ShowHeightAsUnits        = False
-            Sound                    = True
-            SoundQuality             = GameConfig.EnumSoundQuality.High
-            TestUnfinishedTracks     = False
-            TitleMusic               = GameConfig.EnumTitleMusic.RCT2
-            ToolbarShowCheats        = False
-            ToolbarShowFinances      = False
-            ToolbarShowResearch      = True
-            UnlockAllPrices          = False
-            WindowHeight             = -1
-            WindowSnapProximity      = 5
-            WindowWidth              = -1
+            AlwaysShowGridlines         = False
+            Autosave                    = GameConfig.EnumAutosave.EveryMonth
+            AutoStaff                   = False
+            BuildInPauseMode            = False
+            Channel                     = ""
+            ChatPeepNames               = True
+            ChatPeepTracking            = True
+            ConfirmationPrompt          = False
+            ConsoleSmallFont            = False
+            ConstructionMarkerColour    = 0
+            DateFormat                  = GameConfig.EnumDateFormat.DMY
+            DebuggingTools              = False
+            DisableAllBreakdowns        = False
+            DisableBrakesFailure        = False
+            EdgeScrolling               = True
+            FastLiftHill                = False
+            FollowerPeepNames           = True
+            FollowerPeepTracking        = False
+            ForcedSoftwareBuffering     = False
+            FullscreenHeight            = -1
+            FullscreenMode              = GameConfig.EnumFullscreenMode.Window
+            FullscreenWidth             = -1
+            HardwareDisplay             = False
+            InvertViewportDrag          = False
+            LandscapeSmoothing          = True
+            MasterVolume                = 100
+            MinimizeFullscreenFocusLoss = True
+            MusicVolume                 = 100
+            News                        = False
+            NoTestCrashes               = False
+            PlayIntro                   = False
+            RideMusic                   = True
+            SavePluginData              = False
+            ScreenshotFormat            = GameConfig.EnumScreenshotFormat.PNG
+            SelectByTrackType           = False
+            ShowHeightAsUnits           = False
+            Sound                       = True
+            SoundQuality                = GameConfig.EnumSoundQuality.High
+            TestUnfinishedTracks        = False
+            TitleMusic                  = GameConfig.EnumTitleMusic.RCT2
+            ToolbarShowCheats           = False
+            ToolbarShowFinances         = False
+            ToolbarShowResearch         = True
+            UncapFPS                    = False
+            UnlockAllPrices             = False
+            WindowHeight                = -1
+            WindowSnapProximity         = 5
+            WindowWidth                 = -1
 
             Dim ri As New Globalization.RegionInfo(Globalization.CultureInfo.CurrentCulture.LCID)
 
@@ -124,52 +131,59 @@ Public Structure GameConfigValues
         End If
     End Sub
 
-    Dim AllowSubtypeSwitching    As Boolean
-    Dim AlwaysShowGridlines      As Boolean
-    Dim Autosave                 As Integer
-    Dim Channel                  As String
-    Dim ChatPeepNames            As Boolean
-    Dim ChatPeepTracking         As Boolean
-    Dim ConfirmationPrompt       As Integer
-    Dim ConsoleSmallFont         As Boolean
-    Dim ConstructionMarkerColour As Integer
-    Dim CurrencyFormat           As Integer
-    Dim DateFormat               As Integer
-    Dim DebuggingTools           As Boolean
-    Dim DisableAllBreakdowns     As Boolean
-    Dim DisableBrakesFailure     As Boolean
-    Dim EdgeScrolling            As Boolean
-    Dim FastLiftHill             As Boolean
-    Dim FollowerPeepNames        As Boolean
-    Dim FollowerPeepTracking     As Boolean
-    Dim ForcedSoftwareBuffering  As Boolean
-    Dim FullscreenHeight         As Integer
-    Dim FullscreenMode           As Integer
-    Dim FullscreenWidth          As Integer
-    Dim GamePath                 As String
-    Dim HardwareDisplay          As Boolean
-    Dim LandscapeSmoothing       As Boolean
-    Dim Language                 As Integer
-    Dim MeasurementFormat        As Integer
-    Dim News                     As Boolean
-    Dim NoTestCrashes            As Boolean
-    Dim PlayIntro                As Boolean
-    Dim RideMusic                As Boolean
-    Dim SavePluginData           As Boolean
-    Dim ScreenshotFormat         As Integer
-    Dim ShowHeightAsUnits        As Boolean
-    Dim Sound                    As Boolean
-    Dim SoundQuality             As Integer
-    Dim TemperatureFormat        As Integer
-    Dim TestUnfinishedTracks     As Boolean
-    Dim TitleMusic               As Integer
-    Dim ToolbarShowCheats        As Boolean
-    Dim ToolbarShowFinances      As Boolean
-    Dim ToolbarShowResearch      As Boolean
-    Dim UnlockAllPrices          As Boolean
-    Dim WindowHeight             As Integer
-    Dim WindowSnapProximity      As Integer
-    Dim WindowWidth              As Integer
+    Dim AlwaysShowGridlines         As Boolean
+    Dim AutoStaff                   As Boolean
+    Dim Autosave                    As Integer
+    Dim Channel                     As String
+    Dim ChatPeepNames               As Boolean
+    Dim ChatPeepTracking            As Boolean
+    Dim ConfirmationPrompt          As Integer
+    Dim ConsoleSmallFont            As Boolean
+    Dim ConstructionMarkerColour    As Integer
+    Dim CurrencyFormat              As Integer
+    Dim DateFormat                  As Integer
+    Dim DebuggingTools              As Boolean
+    Dim DisableAllBreakdowns        As Boolean
+    Dim DisableBrakesFailure        As Boolean
+    Dim EdgeScrolling               As Boolean
+    Dim FastLiftHill                As Boolean
+    Dim FollowerPeepNames           As Boolean
+    Dim FollowerPeepTracking        As Boolean
+    Dim ForcedSoftwareBuffering     As Boolean
+    Dim FullscreenHeight            As Integer
+    Dim FullscreenMode              As Integer
+    Dim FullscreenWidth             As Integer
+    Dim GamePath                    As String
+    Dim HardwareDisplay             As Boolean
+    Dim InvertViewportDrag          As Boolean
+    Dim LandscapeSmoothing          As Boolean
+    Dim Language                    As Integer
+    Dim MasterVolume                As Integer
+    Dim MeasurementFormat           As Integer
+    Dim MinimizeFullscreenFocusLoss As Boolean
+    Dim MusicVolume                 As Integer
+    Dim News                        As Boolean
+    Dim NoTestCrashes               As Boolean
+    Dim BuildInPauseMode            As Boolean
+    Dim PlayIntro                   As Boolean
+    Dim RideMusic                   As Boolean
+    Dim SavePluginData              As Boolean
+    Dim ScreenshotFormat            As Integer
+    Dim SelectByTrackType           As Boolean
+    Dim ShowHeightAsUnits           As Boolean
+    Dim Sound                       As Boolean
+    Dim SoundQuality                As Integer
+    Dim TemperatureFormat           As Integer
+    Dim TestUnfinishedTracks        As Boolean
+    Dim TitleMusic                  As Integer
+    Dim ToolbarShowCheats           As Boolean
+    Dim ToolbarShowFinances         As Boolean
+    Dim ToolbarShowResearch         As Boolean
+    Dim UncapFPS                    As Boolean
+    Dim UnlockAllPrices             As Boolean
+    Dim WindowHeight                As Integer
+    Dim WindowSnapProximity         As Integer
+    Dim WindowWidth                 As Integer
 End Structure
 
 Public Class GameConfig
@@ -302,6 +316,7 @@ Public Class GameConfig
             Return
         End Try
 
+        getProp("cheat", "build_in_pause_mode", values.BuildInPauseMode)
         getProp("cheat", "disable_all_breakdowns", values.DisableAllBreakdowns)
         getProp("cheat", "disable_brakes_failure", values.DisableBrakesFailure)
         getProp("cheat", "fast_lift_hill", values.FastLiftHill)
@@ -309,6 +324,7 @@ Public Class GameConfig
         
         getProp("general", "always_show_gridlines", values.AlwaysShowGridlines)
         getPropRange("general", "autosave", values.Autosave, 0, 5)
+        getProp("general", "auto_staff", values.AutoStaff)
         getProp("general", "confirmation_prompt", values.ConfirmationPrompt)
         getPropRange("general", "construction_marker_colour", values.ConstructionMarkerColour, 0, 1)
         getPropDictionary("general", "currency_format", values.CurrencyFormat, DictCurrencyFormat)
@@ -320,9 +336,11 @@ Public Class GameConfig
         getPropRange("general", "fullscreen_width", values.FullscreenWidth, -1, 2147483647)
         getProp("general", "game_path", values.GamePath)
         getProp("general", "hardware_display", values.HardwareDisplay)
+        getProp("general", "invert_viewport_drag", values.InvertViewportDrag)
         getProp("general", "landscape_smoothing", values.LandscapeSmoothing)
         getPropDictionary("general", "language", values.Language, DictLanguage)
         getPropDictionary("general", "measurement_format", values.MeasurementFormat, DictMeasurementFormat)
+        getProp("general", "minimize_fullscreen_focus_loss", values.MinimizeFullscreenFocusLoss)
         getProp("general", "no_test_crashes", values.NoTestCrashes)
         getProp("general", "play_intro", values.PlayIntro)
         getProp("general", "save_plugin_data", values.SavePluginData)
@@ -330,17 +348,20 @@ Public Class GameConfig
         getProp("general", "show_height_as_units", values.ShowHeightAsUnits)
         getPropDictionary("general", "temperature_format", values.TemperatureFormat, DictTemperatureFormat)
         getProp("general", "test_unfinished_tracks", values.TestUnfinishedTracks)
+        getProp("general", "uncap_fps", values.UncapFPS)
         getPropRange("general", "window_height", values.WindowHeight, -1, 2147483647)
         getPropRange("general", "window_snap_proximity", values.WindowSnapProximity, 0, 255)
         getPropRange("general", "window_width", values.WindowWidth, -1, 2147483647)
         
-        getProp("interface", "allow_subtype_switching", values.AllowSubtypeSwitching)
         getProp("interface", "console_small_font", values.ConsoleSmallFont)
+        getProp("interface", "select_by_track_type", values.SelectByTrackType)
         getProp("interface", "toolbar_show_cheats", values.ToolbarShowCheats)
         getProp("interface", "toolbar_show_finances", values.ToolbarShowFinances)
         getProp("interface", "toolbar_show_research", values.ToolbarShowResearch)
 
         getProp("sound", "forced_software_buffering", values.ForcedSoftwareBuffering)
+        getPropRange("sound", "master_volume", values.MasterVolume, 0, 100)
+        getPropRange("sound", "music_volume", values.MusicVolume, 0, 100)
         getProp("sound", "ride_music", values.RideMusic)
         getProp("sound", "sound", values.Sound)
         getPropRange("sound", "sound_quality", values.SoundQuality, 0, 2)
@@ -365,6 +386,7 @@ Public Class GameConfig
             INIConfig = New IniConfiguration()
         End If
 
+        setProp("cheat", "build_in_pause_mode", values.BuildInPauseMode)
         setProp("cheat", "disable_all_breakdowns", values.DisableAllBreakdowns)
         setProp("cheat", "disable_brakes_failure", values.DisableBrakesFailure)
         setProp("cheat", "fast_lift_hill", values.FastLiftHill)
@@ -372,6 +394,7 @@ Public Class GameConfig
 
         setProp("general", "always_show_gridlines", values.AlwaysShowGridlines)
         setProp("general", "autosave", values.Autosave)
+        setProp("general", "auto_staff", values.AutoStaff)
         setProp("general", "confirmation_prompt", values.ConfirmationPrompt)
         setProp("general", "construction_marker_colour", values.ConstructionMarkerColour)
         setPropDictionary("general", "currency_format", values.CurrencyFormat, DictCurrencyFormat)
@@ -383,9 +406,11 @@ Public Class GameConfig
         setProp("general", "fullscreen_width", values.FullscreenWidth)
         setProp("general", "game_path", values.GamePath)
         setProp("general", "hardware_display", values.HardwareDisplay)
+        setProp("general", "invert_viewport_drag", values.InvertViewportDrag)
         setProp("general", "landscape_smoothing", values.LandscapeSmoothing)
         setPropDictionary("general", "language", values.Language, DictLanguage)
         setPropDictionary("general", "measurement_format", values.MeasurementFormat, DictMeasurementFormat)
+        setProp("general", "minimize_fullscreen_focus_loss", values.MinimizeFullscreenFocusLoss)
         setProp("general", "no_test_crashes", values.NoTestCrashes)
         setProp("general", "play_intro", values.PlayIntro)
         setProp("general", "save_plugin_data", values.SavePluginData)
@@ -393,17 +418,20 @@ Public Class GameConfig
         setProp("general", "show_height_as_units", values.ShowHeightAsUnits)
         setPropDictionary("general", "temperature_format", values.TemperatureFormat, DictTemperatureFormat)
         setProp("general", "test_unfinished_tracks", values.TestUnfinishedTracks)
+        setProp("general", "uncap_fps", values.UncapFPS)
         setProp("general", "window_height", values.WindowHeight)
         setProp("general", "window_snap_proximity", values.WindowSnapProximity)
         setProp("general", "window_width", values.WindowWidth)
 
-        setProp("interface", "allow_subtype_switching", values.AllowSubtypeSwitching)
         setProp("interface", "console_small_font", values.ConsoleSmallFont)
+        setProp("interface", "select_by_track_type", values.SelectByTrackType)
         setProp("interface", "toolbar_show_cheats", values.ToolbarShowCheats)
         setProp("interface", "toolbar_show_finances", values.ToolbarShowFinances)
         setProp("interface", "toolbar_show_research", values.ToolbarShowResearch)
         
         setProp("sound", "forced_software_buffering", values.ForcedSoftwareBuffering)
+        setProp("sound", "master_volume", values.MasterVolume)
+        setProp("sound", "music_volume", values.MusicVolume)
         setProp("sound", "ride_music", values.RideMusic)
         setProp("sound", "sound", values.Sound)
         setProp("sound", "sound_quality", values.SoundQuality)

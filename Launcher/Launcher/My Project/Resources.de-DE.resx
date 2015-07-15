@@ -682,4 +682,25 @@
   <data name="OpenRCTdotNetLogin_uploadPlayTime_title" xml:space="preserve">
     <value>Spielzeit hochladen?</value>
   </data>
+  <data name="frmOptions_AutoStaff" xml:space="preserve">
+    <value>Personal automatisch platzieren</value>
+  </data>
+  <data name="frmOptions_BuildInPauseMode" xml:space="preserve">
+    <value>Erlaube im Pausenmodus zu bauen</value>
+  </data>
+  <data name="frmOptions_InvertViewportDrag" xml:space="preserve">
+    <value>Ziehen mit rechter Maustaste umkehren</value>
+  </data>
+  <data name="frmOptions_MasterVolume" xml:space="preserve">
+    <value>Gesamtlautstärke:</value>
+  </data>
+  <data name="frmOptions_MinimizeFullscreenFocusLoss" xml:space="preserve">
+    <value>Vollbild minimieren, wenn Spiel nicht im Vordergrund</value>
+  </data>
+  <data name="frmOptions_MusicVolume" xml:space="preserve">
+    <value>Musiklautstärke:</value>
+  </data>
+  <data name="frmOptions_UncapFPS" xml:space="preserve">
+    <value>FPS-Limit aufheben</value>
+  </data>
 </root>
