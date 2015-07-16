@@ -676,6 +676,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Automatically place staff.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_AutoStaff() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_AutoStaff", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Allow building in pause mode.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_BuildInPauseMode() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_BuildInPauseMode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Cheats.
         '''</summary>
         Friend ReadOnly Property frmOptions_cheats() As String
@@ -1018,15 +1036,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Forced Software Buffer Mixing.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_forcedSoftwareBuffering_label() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_forcedSoftwareBuffering_label", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Fullscreen height:.
         '''</summary>
         Friend ReadOnly Property frmOptions_fullscreenHeight_label() As String
@@ -1153,6 +1162,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Invert right mouse dragging.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_InvertViewportDrag() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_InvertViewportDrag", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Twitch Channel name.
         '''</summary>
         Friend ReadOnly Property frmOptions_laChannel() As String
@@ -1198,11 +1216,38 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Master volume:.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_MasterVolume() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_MasterVolume", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Minimize fullscreen on focus loss.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_MinimizeFullscreenFocusLoss() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_MinimizeFullscreenFocusLoss", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Miscellaneous.
         '''</summary>
         Friend ReadOnly Property frmOptions_miscellaneous() As String
             Get
                 Return ResourceManager.GetString("frmOptions_miscellaneous", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Music volume:.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_MusicVolume() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_MusicVolume", resourceCulture)
             End Get
         End Property
         
@@ -1302,42 +1347,6 @@ Namespace My.Resources
         Friend ReadOnly Property frmOptions_sound() As String
             Get
                 Return ResourceManager.GetString("frmOptions_sound", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to High.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_soundQuality_high() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_soundQuality_high", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Sound Quality:.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_soundQuality_label() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_soundQuality_label", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Low.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_soundQuality_low() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_soundQuality_low", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Medium.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_soundQuality_medium() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_soundQuality_medium", resourceCulture)
             End Get
         End Property
         
@@ -1455,6 +1464,15 @@ Namespace My.Resources
         Friend ReadOnly Property frmOptions_twitch() As String
             Get
                 Return ResourceManager.GetString("frmOptions_twitch", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Uncap FPS.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_UncapFPS() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_UncapFPS", resourceCulture)
             End Get
         End Property
         
@@ -1760,69 +1778,6 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("paypal", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-
-        '''<summary>
-        '''  Looks up a localized string similar to Minimize fullscreen on focus loss.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_MinimizeFullscreenFocusLoss() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_MinimizeFullscreenFocusLoss", resourceCulture)
-            End Get
-        End Property
-
-        '''<summary>
-        '''  Looks up a localized string similar to Uncap FPS.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_UncapFPS() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_UncapFPS", resourceCulture)
-            End Get
-        End Property
-
-        '''<summary>
-        '''  Looks up a localized string similar to Music volume:.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_MusicVolume() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_MusicVolume", resourceCulture)
-            End Get
-        End Property
-
-        '''<summary>
-        '''  Looks up a localized string similar to Master volume:.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_MasterVolume() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_MasterVolume", resourceCulture)
-            End Get
-        End Property
-
-        '''<summary>
-        '''  Looks up a localized string similar to Invert right mouse dragging.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_InvertViewportDrag() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_InvertViewportDrag", resourceCulture)
-            End Get
-        End Property
-
-        '''<summary>
-        '''  Looks up a localized string similar to Allow building in pause mode.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_BuildInPauseMode() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_BuildInPauseMode", resourceCulture)
-            End Get
-        End Property
-
-        '''<summary>
-        '''  Looks up a localized string similar to Automatically place staff.
-        '''</summary>
-        Friend ReadOnly Property frmOptions_AutoStaff() As String
-            Get
-                Return ResourceManager.GetString("frmOptions_AutoStaff", resourceCulture)
             End Get
         End Property
     End Module

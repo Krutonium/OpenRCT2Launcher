@@ -53,9 +53,6 @@ Namespace Forms
         Me.cbLanguage = New System.Windows.Forms.ComboBox()
         Me.laTitleMusic = New System.Windows.Forms.Label()
         Me.cbTitleMusic = New System.Windows.Forms.ComboBox()
-        Me.laSoundQuality = New System.Windows.Forms.Label()
-        Me.cbSoundQuality = New System.Windows.Forms.ComboBox()
-        Me.chkForcedSoftwareBuffering = New System.Windows.Forms.CheckBox()
         Me.cbConstructionMarkerColour = New System.Windows.Forms.ComboBox()
         Me.laConstructionMarkerColour = New System.Windows.Forms.Label()
         Me.numWindowHeight = New System.Windows.Forms.NumericUpDown()
@@ -387,7 +384,7 @@ Namespace Forms
             'laTitleMusic
             '
             Me.laTitleMusic.AutoSize = True
-            Me.laTitleMusic.Location = New System.Drawing.Point(248, 3)
+            Me.laTitleMusic.Location = New System.Drawing.Point(3, 3)
             Me.laTitleMusic.Name = "laTitleMusic"
             Me.laTitleMusic.Size = New System.Drawing.Size(95, 13)
             Me.laTitleMusic.TabIndex = 27
@@ -398,39 +395,10 @@ Namespace Forms
             Me.cbTitleMusic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbTitleMusic.FormattingEnabled = True
             Me.cbTitleMusic.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_titleScreenMusic_none, Global.Launcher.My.Resources.Resources.frmOptions_titleScreenMusic_RCT1, Global.Launcher.My.Resources.Resources.frmOptions_titleScreenMusic_RCT2})
-            Me.cbTitleMusic.Location = New System.Drawing.Point(248, 19)
+            Me.cbTitleMusic.Location = New System.Drawing.Point(3, 19)
             Me.cbTitleMusic.Name = "cbTitleMusic"
-            Me.cbTitleMusic.Size = New System.Drawing.Size(239, 21)
+            Me.cbTitleMusic.Size = New System.Drawing.Size(484, 21)
             Me.cbTitleMusic.TabIndex = 28
-            '
-            'laSoundQuality
-            '
-            Me.laSoundQuality.AutoSize = True
-            Me.laSoundQuality.Location = New System.Drawing.Point(3, 3)
-            Me.laSoundQuality.Name = "laSoundQuality"
-            Me.laSoundQuality.Size = New System.Drawing.Size(76, 13)
-            Me.laSoundQuality.TabIndex = 29
-            Me.laSoundQuality.Text = Global.Launcher.My.Resources.Resources.frmOptions_soundQuality_label
-            '
-            'cbSoundQuality
-            '
-            Me.cbSoundQuality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-            Me.cbSoundQuality.FormattingEnabled = True
-            Me.cbSoundQuality.Items.AddRange(New Object() {Global.Launcher.My.Resources.Resources.frmOptions_soundQuality_low, Global.Launcher.My.Resources.Resources.frmOptions_soundQuality_medium, Global.Launcher.My.Resources.Resources.frmOptions_soundQuality_high})
-            Me.cbSoundQuality.Location = New System.Drawing.Point(3, 19)
-            Me.cbSoundQuality.Name = "cbSoundQuality"
-            Me.cbSoundQuality.Size = New System.Drawing.Size(239, 21)
-            Me.cbSoundQuality.TabIndex = 30
-            '
-            'chkForcedSoftwareBuffering
-            '
-            Me.chkForcedSoftwareBuffering.AutoSize = True
-            Me.chkForcedSoftwareBuffering.Location = New System.Drawing.Point(3, 108)
-            Me.chkForcedSoftwareBuffering.Name = "chkForcedSoftwareBuffering"
-            Me.chkForcedSoftwareBuffering.Size = New System.Drawing.Size(168, 17)
-            Me.chkForcedSoftwareBuffering.TabIndex = 31
-            Me.chkForcedSoftwareBuffering.Text = Global.Launcher.My.Resources.Resources.frmOptions_forcedSoftwareBuffering_label
-            Me.chkForcedSoftwareBuffering.UseVisualStyleBackColor = True
             '
             'cbConstructionMarkerColour
             '
@@ -796,11 +764,8 @@ Namespace Forms
             Me.Sound.Controls.Add(Me.laMasterVolume)
             Me.Sound.Controls.Add(Me.chkRideMusic)
             Me.Sound.Controls.Add(Me.chkSound)
-            Me.Sound.Controls.Add(Me.laSoundQuality)
-            Me.Sound.Controls.Add(Me.cbSoundQuality)
             Me.Sound.Controls.Add(Me.cbTitleMusic)
             Me.Sound.Controls.Add(Me.laTitleMusic)
-            Me.Sound.Controls.Add(Me.chkForcedSoftwareBuffering)
             Me.Sound.Location = New System.Drawing.Point(4, 22)
             Me.Sound.Name = "Sound"
             Me.Sound.Size = New System.Drawing.Size(492, 193)
@@ -1253,9 +1218,6 @@ Namespace Forms
         Friend WithEvents cbLanguage As System.Windows.Forms.ComboBox
         Friend WithEvents laTitleMusic As System.Windows.Forms.Label
         Friend WithEvents cbTitleMusic As System.Windows.Forms.ComboBox
-        Friend WithEvents laSoundQuality As System.Windows.Forms.Label
-        Friend WithEvents cbSoundQuality As System.Windows.Forms.ComboBox
-        Friend WithEvents chkForcedSoftwareBuffering As System.Windows.Forms.CheckBox
         Friend WithEvents cbShowHeightAsUnits As System.Windows.Forms.ComboBox
         Friend WithEvents laShowHeightAsUnits As System.Windows.Forms.Label
         Friend WithEvents cmdOk As System.Windows.Forms.Button
