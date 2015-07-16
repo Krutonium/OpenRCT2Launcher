@@ -178,7 +178,6 @@ Namespace Forms
             chkFastLiftHill.Checked                  = c.FastLiftHill
             chkFollowerPeepNames.Checked             = c.FollowerPeepNames
             chkFollowerPeepTracking.Checked          = c.FollowerPeepTracking
-            chkForcedSoftwareBuffering.Checked       = c.ForcedSoftwareBuffering
             numFullscreenHeight.Value                = c.FullscreenHeight
             cbFullscreenMode.SelectedIndex           = c.FullscreenMode
             numFullscreenWidth.Value                 = c.FullscreenWidth
@@ -200,7 +199,6 @@ Namespace Forms
             chkSelectByTrackType.Checked             = c.SelectByTrackType
             cbShowHeightAsUnits.SelectedIndex        = 1 + c.ShowHeightAsUnits
             chkSound.Checked                         = c.Sound
-            cbSoundQuality.SelectedIndex             = c.SoundQuality
             cbTemperatureFormat.SelectedIndex        = c.TemperatureFormat
             chkTestUnfinishedTracks.Checked          = c.TestUnfinishedTracks
             cbTitleMusic.SelectedIndex               = c.TitleMusic
@@ -236,7 +234,6 @@ Namespace Forms
             c.FastLiftHill                           = chkFastLiftHill.Checked
             c.FollowerPeepNames                      = chkFollowerPeepNames.Checked
             c.FollowerPeepTracking                   = chkFollowerPeepTracking.Checked
-            c.ForcedSoftwareBuffering                = chkForcedSoftwareBuffering.Checked
             c.FullscreenHeight                       = numFullscreenHeight.Value
             c.FullscreenMode                         = cbFullscreenMode.SelectedIndex
             c.FullscreenWidth                        = numFullscreenWidth.Value
@@ -258,7 +255,6 @@ Namespace Forms
             c.SelectByTrackType                      = chkSelectByTrackType.Checked
             c.ShowHeightAsUnits                      = 1 - cbShowHeightAsUnits.SelectedIndex
             c.Sound                                  = chkSound.Checked
-            c.SoundQuality                           = cbSoundQuality.SelectedIndex
             c.TemperatureFormat                      = cbTemperatureFormat.SelectedIndex
             c.TestUnfinishedTracks                   = chkTestUnfinishedTracks.Checked
             c.TitleMusic                             = cbTitleMusic.SelectedIndex

@@ -26,7 +26,6 @@ Public Structure GameConfigValues
             FastLiftHill                = False
             FollowerPeepNames           = True
             FollowerPeepTracking        = False
-            ForcedSoftwareBuffering     = False
             FullscreenHeight            = -1
             FullscreenMode              = GameConfig.EnumFullscreenMode.Window
             FullscreenWidth             = -1
@@ -45,7 +44,6 @@ Public Structure GameConfigValues
             SelectByTrackType           = False
             ShowHeightAsUnits           = False
             Sound                       = True
-            SoundQuality                = GameConfig.EnumSoundQuality.High
             TestUnfinishedTracks        = False
             TitleMusic                  = GameConfig.EnumTitleMusic.RCT2
             ToolbarShowCheats           = False
@@ -149,7 +147,6 @@ Public Structure GameConfigValues
     Dim FastLiftHill                As Boolean
     Dim FollowerPeepNames           As Boolean
     Dim FollowerPeepTracking        As Boolean
-    Dim ForcedSoftwareBuffering     As Boolean
     Dim FullscreenHeight            As Integer
     Dim FullscreenMode              As Integer
     Dim FullscreenWidth             As Integer
@@ -172,7 +169,6 @@ Public Structure GameConfigValues
     Dim SelectByTrackType           As Boolean
     Dim ShowHeightAsUnits           As Boolean
     Dim Sound                       As Boolean
-    Dim SoundQuality                As Integer
     Dim TemperatureFormat           As Integer
     Dim TestUnfinishedTracks        As Boolean
     Dim TitleMusic                  As Integer
@@ -240,12 +236,6 @@ Public Class GameConfig
     Enum EnumScreenshotFormat
 		BMP = 0
 		PNG
-	End Enum
-
-    Enum EnumSoundQuality
-		Low = 0
-		Medium
-		High
 	End Enum
 
 	Enum EnumTemperatureFormat
@@ -359,12 +349,10 @@ Public Class GameConfig
         getProp("interface", "toolbar_show_finances", values.ToolbarShowFinances)
         getProp("interface", "toolbar_show_research", values.ToolbarShowResearch)
 
-        getProp("sound", "forced_software_buffering", values.ForcedSoftwareBuffering)
         getPropRange("sound", "master_volume", values.MasterVolume, 0, 100)
         getPropRange("sound", "music_volume", values.MusicVolume, 0, 100)
         getProp("sound", "ride_music", values.RideMusic)
         getProp("sound", "sound", values.Sound)
-        getPropRange("sound", "sound_quality", values.SoundQuality, 0, 2)
         getPropRange("sound", "title_music", values.TitleMusic, 0, 2)
 
         getProp("twitch", "channel", values.Channel)
@@ -429,12 +417,10 @@ Public Class GameConfig
         setProp("interface", "toolbar_show_finances", values.ToolbarShowFinances)
         setProp("interface", "toolbar_show_research", values.ToolbarShowResearch)
         
-        setProp("sound", "forced_software_buffering", values.ForcedSoftwareBuffering)
         setProp("sound", "master_volume", values.MasterVolume)
         setProp("sound", "music_volume", values.MusicVolume)
         setProp("sound", "ride_music", values.RideMusic)
         setProp("sound", "sound", values.Sound)
-        setProp("sound", "sound_quality", values.SoundQuality)
         setProp("sound", "title_music", values.TitleMusic)
 
         setProp("twitch", "channel", values.Channel)

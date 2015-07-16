@@ -372,21 +372,6 @@ Exact Error:
   <data name="frmOptions_titleScreenMusic_RCT2" xml:space="preserve">
     <value>RollerCoaster Tycoon 2</value>
   </data>
-  <data name="frmOptions_soundQuality_label" xml:space="preserve">
-    <value>Sound Quality:</value>
-  </data>
-  <data name="frmOptions_soundQuality_low" xml:space="preserve">
-    <value>Low</value>
-  </data>
-  <data name="frmOptions_soundQuality_medium" xml:space="preserve">
-    <value>Medium</value>
-  </data>
-  <data name="frmOptions_soundQuality_high" xml:space="preserve">
-    <value>High</value>
-  </data>
-  <data name="frmOptions_forcedSoftwareBuffering_label" xml:space="preserve">
-    <value>Forced Software Buffer Mixing</value>
-  </data>
   <data name="frmOptions_heightLabels_label" xml:space="preserve">
     <value>Height Labels:</value>
   </data>
