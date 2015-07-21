@@ -1161,7 +1161,7 @@ Namespace Forms
             Me.Name = "FrmOptions"
             Me.ShowIcon = False
             Me.ShowInTaskbar = False
-            Me.Text = "Options"
+            Me.Text = Global.Launcher.My.Resources.Resources.frmOptions_title
             CType(Me.numFullscreenWidth, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.numFullscreenHeight, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.numWindowHeight, System.ComponentModel.ISupportInitialize).EndInit()

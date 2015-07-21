@@ -66,7 +66,7 @@ Namespace Forms
                 RCT2CD = Key2.GetValue("SetupPath")   'Where RCT2 sees the CD as located
                 RCT2 = Key2.GetValue("Path")
             Catch ex As Exception
-                MsgBox("Is RollerCoaster Tycoon 2 Installed?")
+                MsgBox(Global.Launcher.My.Resources.Resources.extras_RCT2_Installed)
             End Try
         End Sub
 
@@ -96,7 +96,7 @@ Namespace Forms
 
         Private Sub cmdCSS17File_Click(sender As Object, e As EventArgs) Handles cmdCSS17File.Click
 
-            OFD1.Filter = "RCT1 Theme Music|*.dat"
+            OFD1.Filter = Global.Launcher.My.Resources.Resources.extras_RCT1ThemeMusic
             MsgBox(extras_fileSoundtrack_hint)
             OFD1.ShowDialog()
 
@@ -199,7 +199,7 @@ Namespace Forms
         End Sub
 
         Private Sub cmdSteamStub_Click(sender As Object, e As EventArgs) Handles cmdSteamStub.Click
-            Dim msg = MsgBox("This will replace your games startup file with a menu to start the original or this launcher. Continue?", MsgBoxStyle.YesNo, "Install Steam Stub?")
+            Dim msg = MsgBox(Global.Launcher.My.Resources.Resources.extras_steamStub_InstallMessage, MsgBoxStyle.YesNo, Global.Launcher.My.Resources.Resources.extras_steamStub_InstallTitle)
             If msg = MsgBoxResult.Yes Then
                 If File.Exists(RCT2 & "\RCT2.exe") Then
                     If File.Exists(RCT2 & "\Vanilla.exe") = False Then
@@ -228,7 +228,7 @@ Namespace Forms
                 WS.DownloadFile("http://openrct.net/launcher/Launcher/Stub.zip", "Stub.zip")
                 ZipFile.ExtractToDirectory("Stub.zip", RCT2)
             End If
-            MsgBox("Complete!")
+            MsgBox(Global.Launcher.My.Resources.Resources.common_complete)
         End Sub
     End Class
 End Namespace

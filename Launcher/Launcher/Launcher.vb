@@ -32,14 +32,7 @@ Public Class frmLauncher
         My.Settings.Upgrade()
 
         If Settings.FirstRun = True Then
-            Dim ShouldDLDevelop = MsgBox(frmLauncher_stableOrDevFirstRun_text, MsgBoxStyle.YesNo, frmLauncher_stableOrDevFirstRun_title)
-            If ShouldDLDevelop = MsgBoxResult.Yes Then
-                My.Settings.DownloadDevelop = True
-            Else
-                My.Settings.DownloadDevelop = False
-            End If
-            Settings.FirstRun = False
-            My.Settings.Save()
+            FirstRunDialog.ShowDialog()
         End If
         CheckForIllegalCrossThreadCalls = False
 
@@ -174,7 +167,7 @@ Public Class frmLauncher
                 Close()
             End If
         Else
-            MsgBox(frmLauncher_launchGame_RCT2NotFound)
+            MsgBox(frmLauncher_launchGame_RCT2NotFound, MsgBoxStyle.Information)
 
             'Redownload
             Await GameUpdate(True)
