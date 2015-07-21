@@ -116,6 +116,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FirstRunDialog.Designer.vb">
+      <DependentUpon>FirstRunDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FirstRunDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GameConfig.vb" />
     <Compile Include="Forms\Extras.Designer.vb">
       <DependentUpon>Extras.vb</DependentUpon>
@@ -179,6 +185,9 @@
     <Compile Include="OpenRCTdotNet\OpenRCTdotNetWebActions.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\FirstRunDialog.resx">
+      <DependentUpon>FirstRunDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Extras.resx">
       <DependentUpon>Extras.vb</DependentUpon>
     </EmbeddedResource>
@@ -192,7 +201,9 @@
       <DependentUpon>OpenRCTdotNetLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.de-DE.resx" />
-    <EmbeddedResource Include="My Project\Resources.nl.resx" />
+    <EmbeddedResource Include="My Project\Resources.nl.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -207,6 +218,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Launcher_TemporaryKey.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -272,6 +284,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login_screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon%2864%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>

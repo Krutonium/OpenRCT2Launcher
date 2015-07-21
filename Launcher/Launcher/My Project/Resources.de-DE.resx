@@ -121,7 +121,7 @@
     <value>Update aufgrund fehlender Dateien...</value>
   </data>
   <data name="frmLauncher_Load_neverRun" xml:space="preserve">
-    <value>Haben Sie RCT2 installiert und mindestens einmal gestartet? Falls nicht, tun Sie es bitte jetzt und versuchen Sie es noch einmal.</value>
+    <value>Haben Sie RCT2 installiert und mindestens einmal gestartet? Falls nicht, tun Sie dies bitte jetzt und versuchen Sie es erneut.</value>
   </data>
   <data name="frmLauncher_updateStateMessage_updating" xml:space="preserve">
     <value>Update...</value>
@@ -130,7 +130,7 @@
     <value>Auf neustem Stand!</value>
   </data>
   <data name="frmLauncher_launchGame_RCT2NotFound" xml:space="preserve">
-    <value>OpenRCT2 ist nicht installiert oder wurde nicht gefunden! Wird nun heruntergeladen. Nachdem es abgeschlossen wurde, einfach wieder auf 'Spielen' klicken.</value>
+    <value>OpenRCT2 ist nicht installiert und wird gerade automatisch heruntergeladen oder aktualisiert. Nachdem dies abgeschlossen wurde, einfach wieder auf 'OpenRCT2 starten' klicken.</value>
   </data>
   <data name="frmLauncher_update_forceUpdate" xml:space="preserve">
     <value>Update wird erzwungen...</value>
@@ -545,10 +545,10 @@
     <value>Optionen</value>
   </data>
   <data name="frmOptions_rdoDevelop" xml:space="preserve">
-    <value>'Development Builds' downloaden</value>
+    <value>'Development Builds' herunterladen</value>
   </data>
   <data name="frmOptions_rdoStable" xml:space="preserve">
-    <value>Nur 'Stable Builds' downloaden</value>
+    <value>Nur 'Stable Builds' herunterladen</value>
   </data>
   <data name="frmOptions_sound" xml:space="preserve">
     <value>Sound</value>
@@ -646,14 +646,14 @@
   <data name="frmLauncher_currentVersion" xml:space="preserve">
     <value>Aktuelle Version: </value>
   </data>
-  <data name="frmLauncher_stableOrDevFirstRun_text" xml:space="preserve">
-    <value>Wollen Sie die 'Development Builds' oder 'Stable Builds' downloaden? Sie können dies später in den Optionen ändern -> Launcher Tab. (Ja = Development, Nein = Stable)</value>
+  <data name="frmFirstRunDialog_stableOrDevFirstRun_text" xml:space="preserve">
+    <value>Wollen Sie die 'Development Builds' oder 'Stable Builds' herunterladen? Sie können dies später in den Optionen ändern -&gt; Launcher Tab</value>
   </data>
-  <data name="frmLauncher_stableOrDevFirstRun_title" xml:space="preserve">
+  <data name="frmFirstRunDialog_stableOrDevFirstRun_title" xml:space="preserve">
     <value>Develop oder Stable?</value>
   </data>
   <data name="frmLauncher_newVersion" xml:space="preserve">
-    <value>Eine neue Version von OpenRCT2 ist verfügbar. Wollen Sie diese downloaden?</value>
+    <value>Eine neue Version von OpenRCT2 ist verfügbar. Wollen Sie diese herunterladen?</value>
   </data>
   <data name="frmLauncher_complete" xml:space="preserve">
     <value>Abgeschlossen.</value>
@@ -687,5 +687,23 @@
   </data>
   <data name="frmOptions_UncapFPS" xml:space="preserve">
     <value>FPS-Limit aufheben</value>
+  </data>
+  <data name="frmFirstRunDialog_DevelopmentButton" xml:space="preserve">
+    <value>'Development' spielen</value>
+  </data>
+  <data name="frmFirstRunDialog_StableButton" xml:space="preserve">
+    <value>'Stable' spielen (empfohlen)</value>
+  </data>
+  <data name="extras_RCT1ThemeMusic" xml:space="preserve">
+    <value>RCT1 Titelmusik|*.dat</value>
+  </data>
+  <data name="extras_RCT2_Installed" xml:space="preserve">
+    <value>Ist RollerCoaster Tycoon 2 installiert?</value>
+  </data>
+  <data name="extras_steamStub_InstallMessage" xml:space="preserve">
+    <value>Dies wird die Startdateien Ihres Spiels durch ein Menü ersetzen, um das Original oder diesen Launcher zu starten. Fortsetzen?</value>
+  </data>
+  <data name="extras_steamStub_InstallTitle" xml:space="preserve">
+    <value>'Steam Stub' installieren?</value>
   </data>
 </root>

@@ -117,53 +117,258 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="frmLauncher_launchGame_updateMessage" xml:space="preserve">
-    <value>Updating due to Missing Files...</value>
+  <data name="frmOptions_fullscreenHeight_label" xml:space="preserve">
+    <value>Fullscreen height:</value>
+  </data>
+  <data name="common_confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="frmOptions_alwaysGridLines_label" xml:space="preserve">
+    <value>Gridlines on Landscape</value>
   </data>
   <data name="frmLauncher_Load_neverRun" xml:space="preserve">
     <value>Have you installed and ran RCT2 at least once? If not, then please do so and try again.</value>
   </data>
-  <data name="frmLauncher_updateStateMessage_updating" xml:space="preserve">
-    <value>Updating...</value>
+  <data name="frmOptions_playIntroButton_label" xml:space="preserve">
+    <value>Play Intro</value>
   </data>
-  <data name="frmLauncher_updateStateMessage_uptodate" xml:space="preserve">
-    <value>Up to Date!</value>
+  <data name="frmOptions_constructionMarkerColour_label" xml:space="preserve">
+    <value>Construction Marker:</value>
   </data>
-  <data name="frmLauncher_launchGame_RCT2NotFound" xml:space="preserve">
-    <value>OpenRCT2 not installed or not found! Downloading. When it is done, feel free to press play again.</value>
+  <data name="frmLauncher_optionsButton_title" xml:space="preserve">
+    <value>Options</value>
   </data>
-  <data name="frmLauncher_update_forceUpdate" xml:space="preserve">
-    <value>Force updating...</value>
+  <data name="frmOptions_dateFormat" xml:space="preserve">
+    <value>Date Format</value>
   </data>
-  <data name="frmLauncher_updateStatus_baseText" xml:space="preserve">
-    <value>Checking if you are up to date...</value>
+  <data name="frmOptions_hardwareDisplay" xml:space="preserve">
+    <value>Hardware display</value>
   </data>
-  <data name="frmLauncher_launchGameButton_text" xml:space="preserve">
-    <value>Launch OpenRCT2</value>
+  <data name="extras_cdSoundtrack_done_text" xml:space="preserve">
+    <value>Done! You're all good to go!</value>
   </data>
-  <data name="frmLauncher_forceUpdateButton_text" xml:space="preserve">
-    <value>Force Update</value>
+  <data name="frmOptions_dateFormat_mdy" xml:space="preserve">
+    <value>Month/Day/Year</value>
   </data>
-  <data name="frmLauncher_verboseOutputButton_text" xml:space="preserve">
-    <value>Verbose Output</value>
+  <data name="extras_anyFolderSync_error_notexists" xml:space="preserve">
+    <value>The folder you selected doesn't exist!</value>
   </data>
-  <data name="frmLauncher_extrasButton_text" xml:space="preserve">
-    <value>Extras</value>
+  <data name="LauncherUpdateAvail" xml:space="preserve">
+    <value>There is an update to the launcher available. Update?</value>
   </data>
-  <data name="frmLauncher_logButton_text" xml:space="preserve">
-    <value>Log Output to File</value>
+  <data name="OpenRCTdotNetLogin_title" xml:space="preserve">
+    <value>Login to OpenRCT.NET</value>
+  </data>
+  <data name="frmOptions_currency_peseta" xml:space="preserve">
+    <value>Peseta (Pts)</value>
+  </data>
+  <data name="extras_rct1musicFileButton_text" xml:space="preserve">
+    <value>Add RCT1 Title Music from File</value>
+  </data>
+  <data name="frmOptions_currency_dollar" xml:space="preserve">
+    <value>Dollars ($)</value>
+  </data>
+  <data name="common_reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="frmFirstRunDialog_stableOrDevFirstRun_title" xml:space="preserve">
+    <value>Develop or Stable?</value>
+  </data>
+  <data name="extras_syncSavesAnyFolderButton_text" xml:space="preserve">
+    <value>Sync Saves to Any Folder</value>
+  </data>
+  <data name="frmLauncher_update_failed" xml:space="preserve">
+    <value>Failed to download update</value>
+  </data>
+  <data name="frmOptions_fastLiftHill" xml:space="preserve">
+    <value>Allow faster lift hill speeds</value>
+  </data>
+  <data name="extras_rct1musicButton_text" xml:space="preserve">
+    <value>Add RCT 1 Title Music</value>
+  </data>
+  <data name="extras_fileSoundtrack_hint" xml:space="preserve">
+    <value>The file you are looking for is CSS17.dat</value>
+  </data>
+  <data name="frmOptions_chkAllowSubtypeSwitching" xml:space="preserve">
+    <value>Select rides by track type</value>
+  </data>
+  <data name="frmOptions_saveOutputFile_label" xml:space="preserve">
+    <value>Save Output to File</value>
+  </data>
+  <data name="frmLauncher_currentVersion" xml:space="preserve">
+    <value>Current Version: </value>
+  </data>
+  <data name="frmOptions_laChannel" xml:space="preserve">
+    <value>Twitch Channel name</value>
   </data>
   <data name="frmLauncher_title" xml:space="preserve">
     <value>OpenRCT2 Launcher</value>
   </data>
-  <data name="extras_setupReg_noRegisterKeys" xml:space="preserve">
-    <value>The launcher could not find the registry keys. Do you have Both RCT1 &amp; RCT2 Installed? If you do, please open an issue on GitHub.</value>
+  <data name="frmOptions_autosave_everyWeek" xml:space="preserve">
+    <value>Every week</value>
   </data>
-  <data name="extras_cdSoundtrack_firstWarning_text" xml:space="preserve">
-    <value>If you are using a CD to run RollerCoaster Tycoon 1, Please insert it now.</value>
+  <data name="frmOptions_InvertViewportDrag" xml:space="preserve">
+    <value>Invert right mouse dragging</value>
   </data>
-  <data name="extras_cdSoundtrack_firstWarning_title" xml:space="preserve">
-    <value>Please insert RCT 1 CD</value>
+  <data name="frmOptions_autosave_everyYear" xml:space="preserve">
+    <value>Every year</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_RCT2" xml:space="preserve">
+    <value>RollerCoaster Tycoon 2</value>
+  </data>
+  <data name="frmOptions_distSpeed_metric" xml:space="preserve">
+    <value>Metric</value>
+  </data>
+  <data name="extras_openRCTNetFeatures" xml:space="preserve">
+    <value>Configure OpenRCT.net Features</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="offline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\offline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="frmOptions_UncapFPS" xml:space="preserve">
+    <value>Uncap FPS</value>
+  </data>
+  <data name="frmOptions_constructionMarkerColour_translucent" xml:space="preserve">
+    <value>Translucent</value>
+  </data>
+  <data name="frmOptions_installUpdates" xml:space="preserve">
+    <value>Install updates automatically</value>
+  </data>
+  <data name="frmOptions_autosave" xml:space="preserve">
+    <value>Autosave frequency:</value>
+  </data>
+  <data name="common_errorOccurred" xml:space="preserve">
+    <value>An Error has occured!</value>
+  </data>
+  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="frmOptions_autosave_everyTwoWeeks" xml:space="preserve">
+    <value>Every 2 weeks</value>
+  </data>
+  <data name="frmOptions_sound" xml:space="preserve">
+    <value>Sound</value>
+  </data>
+  <data name="common_complete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="frmOptions_startArguments_label" xml:space="preserve">
+    <value>Arguments:</value>
+  </data>
+  <data name="frmOptions_windowHeight_label" xml:space="preserve">
+    <value>Window height:</value>
+  </data>
+  <data name="frmOptions_checkUpdates" xml:space="preserve">
+    <value>Check for updates automatically</value>
+  </data>
+  <data name="frmLauncher_launchGameButton_text" xml:space="preserve">
+    <value>Launch OpenRCT2</value>
+  </data>
+  <data name="frmOptions_consoleSmallFont" xml:space="preserve">
+    <value>Use small font in console</value>
+  </data>
+  <data name="frmOptions_constructionMarkerColour_white" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="frmOptions_MasterVolume" xml:space="preserve">
+    <value>Master volume:</value>
+  </data>
+  <data name="extras_syncDropbox_moved_text" xml:space="preserve">
+    <value>Saves moved to Dropbox and Linked!</value>
+  </data>
+  <data name="frmOptions_options_label" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="frmOptions_toolbarShowResearch" xml:space="preserve">
+    <value>Show research button on toolbar</value>
+  </data>
+  <data name="OpenRCTIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpenRCTIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="frmOptions_BuildInPauseMode" xml:space="preserve">
+    <value>Allow building in pause mode</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_fullscreenDesktop" xml:space="preserve">
+    <value>Fullscreen (desktop)</value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_uploadPlayTime_label" xml:space="preserve">
+    <value>Upload play time to Server</value>
+  </data>
+  <data name="paypal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_donate_LG.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="frmOptions_temperature_label" xml:space="preserve">
+    <value>Temperature:</value>
+  </data>
+  <data name="extras_syncSavesDropboxButton_text" xml:space="preserve">
+    <value>Sync Saves to Dropbox</value>
+  </data>
+  <data name="coomon_login" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="frmOptions_currency_euro" xml:space="preserve">
+    <value>Euro (€)</value>
+  </data>
+  <data name="frmOptions_heightLabels_real" xml:space="preserve">
+    <value>Real Values</value>
+  </data>
+  <data name="frmOptions_currency_krona" xml:space="preserve">
+    <value>Krona (kr)</value>
+  </data>
+  <data name="frmOptions_autosave_everyFourMonths" xml:space="preserve">
+    <value>Every 4 months</value>
+  </data>
+  <data name="frmOptions_chkDebuggingTools" xml:space="preserve">
+    <value>Enable debugging tools</value>
+  </data>
+  <data name="frmLauncher_extrasButton_text" xml:space="preserve">
+    <value>Extras</value>
+  </data>
+  <data name="frmOptions_title" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="frmOptions_distSpeed_label" xml:space="preserve">
+    <value>Distance and Speed:</value>
+  </data>
+  <data name="extras_syncDropbox_moved_title" xml:space="preserve">
+    <value>Saves Moved!</value>
+  </data>
+  <data name="frmLauncher_verboseOutputButton_text" xml:space="preserve">
+    <value>Verbose Output</value>
+  </data>
+  <data name="frmOptions_chkTestUnfinishedTracks" xml:space="preserve">
+    <value>Allow testing of unfinished tracks</value>
+  </data>
+  <data name="extras_syncSaves" xml:space="preserve">
+    <value>Sync Saves</value>
+  </data>
+  <data name="frmLauncher_complete" xml:space="preserve">
+    <value>Complete.</value>
+  </data>
+  <data name="frmOptions_windowSnapProximity" xml:space="preserve">
+    <value>Window snap proximity:</value>
+  </data>
+  <data name="frmOptions_windowWidth_label" xml:space="preserve">
+    <value>Window width:</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_fullscreen" xml:space="preserve">
+    <value>Fullscreen</value>
+  </data>
+  <data name="frmOptions_MusicVolume" xml:space="preserve">
+    <value>Music volume:</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_RCT1" xml:space="preserve">
+    <value>RollerCoaster Tycoon 1</value>
+  </data>
+  <data name="frmOptions_distSpeed_imperial" xml:space="preserve">
+    <value>Imperial</value>
+  </data>
+  <data name="extras_fileSoundtrack_noFileSelected" xml:space="preserve">
+    <value>No file selected.</value>
+  </data>
+  <data name="frmLauncher_logButton_text" xml:space="preserve">
+    <value>Log Output to File</value>
   </data>
   <data name="extras_cdSoundtrack_failed_text" xml:space="preserve">
     <value>Failed to copy file - Do you have the CD inserted and the game installed?
@@ -171,526 +376,342 @@
 Exact Error:
 </value>
   </data>
-  <data name="common_errorOccurred" xml:space="preserve">
-    <value>An Error has occured!</value>
+  <data name="frmOptions_savePluginData_label" xml:space="preserve">
+    <value>Export plug-in objects with saved games</value>
   </data>
-  <data name="extras_cdSoundtrack_done_text" xml:space="preserve">
-    <value>Done! You're all good to go!</value>
-  </data>
-  <data name="common_complete" xml:space="preserve">
-    <value>Complete</value>
-  </data>
-  <data name="extras_fileSoundtrack_hint" xml:space="preserve">
-    <value>The file you are looking for is CSS17.dat</value>
-  </data>
-  <data name="extras_fileSoundtrack_noFileSelected" xml:space="preserve">
-    <value>No file selected.</value>
-  </data>
-  <data name="extras_syncDropbox_notInstalled" xml:space="preserve">
-    <value>Sorry, I don't think you have Dropbox Installed.</value>
-  </data>
-  <data name="extras_syncDropbox_firstWarning_text" xml:space="preserve">
-    <value>Are you sure you want to move your Saves to Dropbox?</value>
-  </data>
-  <data name="extras_syncDropbox_firstWarning_title" xml:space="preserve">
-    <value>Move Saves?</value>
-  </data>
-  <data name="extras_syncDropbox_moved_text" xml:space="preserve">
-    <value>Saves moved to Dropbox and Linked!</value>
-  </data>
-  <data name="extras_syncDropbox_moved_title" xml:space="preserve">
-    <value>Saves Moved!</value>
-  </data>
-  <data name="extras_anyFolderSync_firstWarning_text" xml:space="preserve">
-    <value>Are you sure you want to move your saves to a new folder?</value>
-  </data>
-  <data name="extras_anyFolderSync_firstWarning_title" xml:space="preserve">
-    <value>Are you sure?</value>
-  </data>
-  <data name="extras_anyFolderSync_fileDialog_desc" xml:space="preserve">
-    <value>Select where you want the saves to be stored.</value>
-  </data>
-  <data name="extras_anyFolderSync_done" xml:space="preserve">
-    <value>Saves moved to folder and Linked!</value>
-  </data>
-  <data name="extras_anyFolderSync_error_notexists" xml:space="preserve">
-    <value>The folder you selected doesn't exist!</value>
-  </data>
-  <data name="extras_rct1musicButton_text" xml:space="preserve">
-    <value>Add RCT 1 Title Music</value>
-  </data>
-  <data name="extras_rct1musicFileButton_text" xml:space="preserve">
-    <value>Add RCT1 Title Music from File</value>
-  </data>
-  <data name="extras_fileLocationsButton_text" xml:space="preserve">
-    <value>Show File Locations (Debug)</value>
-  </data>
-  <data name="extras_syncSavesDropboxButton_text" xml:space="preserve">
-    <value>Sync Saves to Dropbox</value>
-  </data>
-  <data name="extras_syncSavesAnyFolderButton_text" xml:space="preserve">
-    <value>Sync Saves to Any Folder</value>
-  </data>
-  <data name="extras_title" xml:space="preserve">
-    <value>Extras</value>
-  </data>
-  <data name="frmLauncher_update_failed" xml:space="preserve">
-    <value>Failed to download update</value>
-  </data>
-  <data name="frmLauncher_updateButton_text" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="frmLauncher_optionsButton_title" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="OpenRCTdotNetLogin_usernameLabel" xml:space="preserve">
-    <value>User name</value>
-  </data>
-  <data name="OpenRCTdotNetLogin_passwordLabel" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="common_ok" xml:space="preserve">
-    <value>OK</value>
+  <data name="extras_cdSoundtrack_firstWarning_title" xml:space="preserve">
+    <value>Please insert RCT 1 CD</value>
   </data>
   <data name="common_cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="OpenRCTdotNetLogin_title" xml:space="preserve">
-    <value>Login to OpenRCT.NET</value>
+  <data name="OpenRCTdotNetLogin_welcome" xml:space="preserve">
+    <value>Welcome, </value>
   </data>
-  <data name="frmOptions_closeConfirmation_text" xml:space="preserve">
-    <value>Configuration has been changed. Save Changes?</value>
+  <data name="extras_setupReg_noRegisterKeys" xml:space="preserve">
+    <value>The launcher could not find the registry keys. Do you have Both RCT1 &amp; RCT2 Installed? If you do, please open an issue on GitHub.</value>
   </data>
-  <data name="common_confirm" xml:space="preserve">
-    <value>Confirm</value>
+  <data name="extras_title" xml:space="preserve">
+    <value>Extras</value>
   </data>
-  <data name="frmOptions_gamePath_label" xml:space="preserve">
-    <value>Game Path:</value>
+  <data name="frmOptions_toolbarShowFinances" xml:space="preserve">
+    <value>Show finances button on toolbar</value>
   </data>
-  <data name="frmOptions_screenshotFormat_label" xml:space="preserve">
-    <value>Screenshot Format:</value>
+  <data name="frmOptions_rideMusic" xml:space="preserve">
+    <value>Ride Music</value>
   </data>
-  <data name="frmOptions_playIntroButton_label" xml:space="preserve">
-    <value>Play Intro</value>
+  <data name="common_ok" xml:space="preserve">
+    <value>OK</value>
   </data>
-  <data name="frmOptions_showConfirmationPrompt_label" xml:space="preserve">
-    <value>Show Confirmation Prompt</value>
+  <data name="OpenRCTdotNetLogin_password" xml:space="preserve">
+    <value>Password</value>
   </data>
-  <data name="frmOptions_edgeScrolling_label" xml:space="preserve">
-    <value>Scroll view when pointer at screen edge</value>
+  <data name="frmLauncher_updateStateMessage_updating" xml:space="preserve">
+    <value>Updating...</value>
   </data>
-  <data name="frmOptions_currency_label" xml:space="preserve">
-    <value>Currency:</value>
+  <data name="frmOptions_AutoStaff" xml:space="preserve">
+    <value>Automatically place staff</value>
   </data>
-  <data name="frmOptions_currency_pound" xml:space="preserve">
-    <value>Pounds (£)</value>
-  </data>
-  <data name="frmOptions_currency_dollar" xml:space="preserve">
-    <value>Dollars ($)</value>
-  </data>
-  <data name="frmOptions_currency_franc" xml:space="preserve">
-    <value>Franc (F)</value>
-  </data>
-  <data name="frmOptions_currency_deutchmark" xml:space="preserve">
-    <value>Deutschmark (DM)</value>
-  </data>
-  <data name="frmOptions_currency_yen" xml:space="preserve">
-    <value>Yen (¥)</value>
-  </data>
-  <data name="frmOptions_currency_peseta" xml:space="preserve">
-    <value>Peseta (Pts)</value>
-  </data>
-  <data name="frmOptions_currency_lira" xml:space="preserve">
-    <value>Lira (L)</value>
-  </data>
-  <data name="frmOptions_currency_guilder" xml:space="preserve">
-    <value>Guilders (Dfl.)</value>
-  </data>
-  <data name="frmOptions_currency_krona" xml:space="preserve">
-    <value>Krona (kr)</value>
-  </data>
-  <data name="frmOptions_currency_euro" xml:space="preserve">
-    <value>Euro (€)</value>
-  </data>
-  <data name="frmOptions_distSpeed_label" xml:space="preserve">
-    <value>Distance and Speed:</value>
-  </data>
-  <data name="frmOptions_temperature_label" xml:space="preserve">
-    <value>Temperature:</value>
-  </data>
-  <data name="frmOptions_distSpeed_imperial" xml:space="preserve">
-    <value>Imperial</value>
-  </data>
-  <data name="frmOptions_distSpeed_metric" xml:space="preserve">
-    <value>Metric</value>
-  </data>
-  <data name="frmOptions_temperature_celsius" xml:space="preserve">
-    <value>Celsius (°C)</value>
-  </data>
-  <data name="frmOptions_temperature_fahrenheit" xml:space="preserve">
-    <value>Fahrenheit (F)</value>
-  </data>
-  <data name="frmOptions_alwaysGridLines_label" xml:space="preserve">
-    <value>Gridlines on Landscape</value>
-  </data>
-  <data name="frmOptions_landscapeSmoothing_label" xml:space="preserve">
-    <value>Landscape Smoothing</value>
-  </data>
-  <data name="frmOptions_savePluginData_label" xml:space="preserve">
-    <value>Export plug-in objects with saved games</value>
-  </data>
-  <data name="frmOptions_fullscreenMode_label" xml:space="preserve">
-    <value>Fullscreen mode:</value>
-  </data>
-  <data name="frmOptions_fullscreenMode_windowed" xml:space="preserve">
-    <value>Windowed</value>
-  </data>
-  <data name="frmOptions_fullscreenMode_fullscreen" xml:space="preserve">
-    <value>Fullscreen</value>
-  </data>
-  <data name="frmOptions_fullscreenMode_fullscreenDesktop" xml:space="preserve">
-    <value>Fullscreen (desktop)</value>
-  </data>
-  <data name="frmOptions_fullscreenWidth_label" xml:space="preserve">
-    <value>Fullscreen width:</value>
-  </data>
-  <data name="frmOptions_fullscreenHeight_label" xml:space="preserve">
-    <value>Fullscreen height:</value>
-  </data>
-  <data name="frmOptions_language_label" xml:space="preserve">
-    <value>Language:</value>
-  </data>
-  <data name="frmOptions_titleScreenMusic_label" xml:space="preserve">
-    <value>Title screen music:</value>
+  <data name="frmLauncher_updateButton_text" xml:space="preserve">
+    <value>Update</value>
   </data>
   <data name="frmOptions_titleScreenMusic_none" xml:space="preserve">
     <value>None</value>
   </data>
-  <data name="frmOptions_titleScreenMusic_RCT1" xml:space="preserve">
-    <value>RollerCoaster Tycoon 1</value>
-  </data>
-  <data name="frmOptions_titleScreenMusic_RCT2" xml:space="preserve">
-    <value>RollerCoaster Tycoon 2</value>
-  </data>
-  <data name="frmOptions_heightLabels_label" xml:space="preserve">
-    <value>Height Labels:</value>
-  </data>
-  <data name="frmOptions_heightLabels_units" xml:space="preserve">
-    <value>Units</value>
-  </data>
-  <data name="frmOptions_heightLabels_real" xml:space="preserve">
-    <value>Real Values</value>
-  </data>
-  <data name="common_apply" xml:space="preserve">
-    <value>Apply</value>
-  </data>
-  <data name="common_reset" xml:space="preserve">
-    <value>Reset</value>
-  </data>
-  <data name="frmOptions_startArguments_label" xml:space="preserve">
-    <value>Arguments:</value>
-  </data>
-  <data name="frmOptions_outputPath_label" xml:space="preserve">
-    <value>Output Path:</value>
-  </data>
-  <data name="frmOptions_saveOutputFile_label" xml:space="preserve">
-    <value>Save Output to File</value>
-  </data>
-  <data name="frmOptions_title" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="OpenRCTdotNetConfigure_loggedInAs" xml:space="preserve">
-    <value>You are logged in as </value>
-  </data>
-  <data name="OpenRCTdotNetConfigure_uploadPlayTime_label" xml:space="preserve">
-    <value>Upload play time to Server</value>
-  </data>
-  <data name="OpenRCTdotNetConfigure_uploadSaves_label" xml:space="preserve">
-    <value>Upload Saves to Server</value>
-  </data>
-  <data name="OpenRCTdotNetConfigure_title" xml:space="preserve">
-    <value>OpenRCT.net Configuration</value>
-  </data>
-  <data name="coomon_login" xml:space="preserve">
-    <value>Log in</value>
-  </data>
-  <data name="OpenRCTdotNetLogin_getAccountText" xml:space="preserve">
-    <value>Get your account at OpenRCT.net</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="OpenRCTIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OpenRCTIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LauncherUpdateAvail" xml:space="preserve">
-    <value>There is an update to the launcher available. Update?</value>
+  <data name="frmOptions_twitch" xml:space="preserve">
+    <value>Twitch</value>
   </data>
   <data name="OpenRCTdotNetConfigureSlowDownWarn" xml:space="preserve">
     <value>Are you sure you want to enable this? This will slow 
 down the launcher when opening, since it needs to 
 make sure your saves are syncronized.</value>
   </data>
-  <data name="OpenRCTdotNetSaveSyncIdle" xml:space="preserve">
-    <value>Idle</value>
+  <data name="OpenRCTdotNetLogin_uploadPlayTime_text" xml:space="preserve">
+    <value>Upload Play Time to Server?</value>
   </data>
-  <data name="OpenRCTdotNetSaveSyncStatusDown" xml:space="preserve">
-    <value>Currently Downloading</value>
+  <data name="frmLauncher_launchGame_RCT2NotFound" xml:space="preserve">
+    <value>OpenRCT2 not installed or not found! Downloading. When it is done, feel free to press play again.</value>
   </data>
-  <data name="OpenRCTdotNetSaveSyncStatusUpload" xml:space="preserve">
-    <value>Currently Uploading</value>
-  </data>
-  <data name="paypal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btn_donate_LG.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="offline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\offline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\index_openrct2_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="login_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login_screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FixingPermissionsTitle" xml:space="preserve">
-    <value>Fixing Permissions</value>
-  </data>
-  <data name="frmOptions_constructionMarkerColour_label" xml:space="preserve">
-    <value>Construction Marker:</value>
-  </data>
-  <data name="frmOptions_windowHeight_label" xml:space="preserve">
-    <value>Window height:</value>
-  </data>
-  <data name="frmOptions_windowWidth_label" xml:space="preserve">
-    <value>Window width:</value>
-  </data>
-  <data name="extras_controlsExtras" xml:space="preserve">
-    <value>Extras</value>
-  </data>
-  <data name="extras_gboOpenRCTnet" xml:space="preserve">
-    <value>OpenRCT.net Integration</value>
-  </data>
-  <data name="extras_loginOpenRCTnet" xml:space="preserve">
-    <value>Sign into OpenRCT.net</value>
-  </data>
-  <data name="extras_openRCTNetFeatures" xml:space="preserve">
-    <value>Configure OpenRCT.net Features</value>
-  </data>
-  <data name="extras_steamStub" xml:space="preserve">
-    <value>Install Steam Stub</value>
-  </data>
-  <data name="extras_syncSaves" xml:space="preserve">
-    <value>Sync Saves</value>
-  </data>
-  <data name="extras_webStore" xml:space="preserve">
-    <value>Open OpenRCT.net Store (Free)</value>
-  </data>
-  <data name="frmLauncher_complete" xml:space="preserve">
-    <value>Complete.</value>
-  </data>
-  <data name="frmLauncher_currentVersion" xml:space="preserve">
-    <value>Current Version: </value>
-  </data>
-  <data name="frmLauncher_newVersion" xml:space="preserve">
-    <value>There is a new version of OpenRCT2 available. Do you want to download it?</value>
-  </data>
-  <data name="frmLauncher_stableOrDevFirstRun_text" xml:space="preserve">
-    <value>Do you want to download Development Builds or Stable Builds? You can change this later in Options -&gt; Launcher tab. (Yes = Development, No = Stable)</value>
-  </data>
-  <data name="frmLauncher_stableOrDevFirstRun_title" xml:space="preserve">
-    <value>Develop or Stable?</value>
-  </data>
-  <data name="frmOptions_autosave" xml:space="preserve">
-    <value>Autosave frequency:</value>
-  </data>
-  <data name="frmOptions_autosave_everyFourMonths" xml:space="preserve">
-    <value>Every 4 months</value>
-  </data>
-  <data name="frmOptions_autosave_everyMonth" xml:space="preserve">
-    <value>Every month</value>
-  </data>
-  <data name="frmOptions_autosave_everyTwoWeeks" xml:space="preserve">
-    <value>Every 2 weeks</value>
-  </data>
-  <data name="frmOptions_autosave_everyWeek" xml:space="preserve">
-    <value>Every week</value>
-  </data>
-  <data name="frmOptions_autosave_everyYear" xml:space="preserve">
-    <value>Every year</value>
-  </data>
-  <data name="frmOptions_autosave_never" xml:space="preserve">
-    <value>Never</value>
-  </data>
-  <data name="frmOptions_cheats" xml:space="preserve">
-    <value>Cheats</value>
-  </data>
-  <data name="frmOptions_checkUpdates" xml:space="preserve">
-    <value>Check for updates automatically</value>
-  </data>
-  <data name="frmOptions_chkAllowSubtypeSwitching" xml:space="preserve">
-    <value>Select rides by track type</value>
-  </data>
-  <data name="frmOptions_chkChatPeepNames" xml:space="preserve">
-    <value>Name peeps after people in Twitch chat</value>
-  </data>
-  <data name="frmOptions_chkChatPeepTracking" xml:space="preserve">
-    <value>Track chat peeps</value>
-  </data>
-  <data name="frmOptions_chkDebuggingTools" xml:space="preserve">
-    <value>Enable debugging tools</value>
-  </data>
-  <data name="frmOptions_chkFollowerPeepNames" xml:space="preserve">
-    <value>Name peeps after followers</value>
-  </data>
-  <data name="frmOptions_chkFollowerPeepTracking" xml:space="preserve">
-    <value>Track follower peeps</value>
-  </data>
-  <data name="frmOptions_chkNews" xml:space="preserve">
-    <value>Pull Twitch chat as news</value>
-  </data>
-  <data name="frmOptions_chkNoTestCrashes" xml:space="preserve">
-    <value>No crashes while testing</value>
-  </data>
-  <data name="frmOptions_chkTestUnfinishedTracks" xml:space="preserve">
-    <value>Allow testing of unfinished tracks</value>
-  </data>
-  <data name="frmOptions_consoleSmallFont" xml:space="preserve">
-    <value>Use small font in console</value>
-  </data>
-  <data name="frmOptions_constructionMarkerColour_translucent" xml:space="preserve">
-    <value>Translucent</value>
-  </data>
-  <data name="frmOptions_constructionMarkerColour_white" xml:space="preserve">
-    <value>White</value>
-  </data>
-  <data name="frmOptions_dateFormat" xml:space="preserve">
-    <value>Date Format</value>
-  </data>
-  <data name="frmOptions_dateFormat_dmy" xml:space="preserve">
-    <value>Day/Month/Year</value>
-  </data>
-  <data name="frmOptions_dateFormat_mdy" xml:space="preserve">
-    <value>Month/Day/Year</value>
-  </data>
-  <data name="frmOptions_debugging" xml:space="preserve">
-    <value>Debugging</value>
-  </data>
-  <data name="frmOptions_disableAllBreakdowns" xml:space="preserve">
-    <value>Disable breakdowns</value>
-  </data>
-  <data name="frmOptions_disableBrakesFailure" xml:space="preserve">
-    <value>Disable brakes failure</value>
-  </data>
-  <data name="frmOptions_fastLiftHill" xml:space="preserve">
-    <value>Allow faster lift hill speeds</value>
-  </data>
-  <data name="frmOptions_graphics" xml:space="preserve">
-    <value>Graphics</value>
-  </data>
-  <data name="frmOptions_gui" xml:space="preserve">
-    <value>GUI</value>
-  </data>
-  <data name="frmOptions_hardwareDisplay" xml:space="preserve">
-    <value>Hardware display</value>
-  </data>
-  <data name="frmOptions_installUpdates" xml:space="preserve">
-    <value>Install updates automatically</value>
-  </data>
-  <data name="frmOptions_laChannel" xml:space="preserve">
-    <value>Twitch Channel name</value>
-  </data>
-  <data name="frmOptions_launcher" xml:space="preserve">
-    <value>Launcher</value>
-  </data>
-  <data name="frmOptions_localisation" xml:space="preserve">
-    <value>Localisation</value>
-  </data>
-  <data name="frmOptions_miscellaneous" xml:space="preserve">
-    <value>Miscellaneous</value>
-  </data>
-  <data name="frmOptions_options_label" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="frmOptions_rdoDevelop" xml:space="preserve">
-    <value>Download Development Builds</value>
-  </data>
-  <data name="frmOptions_rdoStable" xml:space="preserve">
-    <value>Download Stable Builds Only</value>
-  </data>
-  <data name="frmOptions_rideMusic" xml:space="preserve">
-    <value>Ride Music</value>
-  </data>
-  <data name="frmOptions_sound" xml:space="preserve">
-    <value>Sound</value>
-  </data>
-  <data name="frmOptions_toolbarShowCheats" xml:space="preserve">
-    <value>Show cheats button on toolbar</value>
-  </data>
-  <data name="frmOptions_toolbarShowFinances" xml:space="preserve">
-    <value>Show finances button on toolbar</value>
-  </data>
-  <data name="frmOptions_toolbarShowResearch" xml:space="preserve">
-    <value>Show research button on toolbar</value>
-  </data>
-  <data name="frmOptions_twitch" xml:space="preserve">
-    <value>Twitch</value>
+  <data name="frmOptions_language_label" xml:space="preserve">
+    <value>Language:</value>
   </data>
   <data name="frmOptions_unlockAllPrices" xml:space="preserve">
     <value>Unlock all prices</value>
   </data>
-  <data name="frmOptions_windowSnapProximity" xml:space="preserve">
-    <value>Window snap proximity:</value>
+  <data name="frmLauncher_updateStatus_baseText" xml:space="preserve">
+    <value>Checking if you are up to date...</value>
   </data>
-  <data name="OpenRCTdotNetConfigure_configuration" xml:space="preserve">
-    <value>OpenRCT.net Configuration</value>
+  <data name="common_apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="frmLauncher_forceUpdateButton_text" xml:space="preserve">
+    <value>Force Update</value>
+  </data>
+  <data name="frmOptions_titleScreenMusic_label" xml:space="preserve">
+    <value>Title screen music:</value>
+  </data>
+  <data name="extras_anyFolderSync_done" xml:space="preserve">
+    <value>Saves moved to folder and Linked!</value>
+  </data>
+  <data name="logo_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\index_openrct2_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenRCTdotNetSaveSyncStatusUpload" xml:space="preserve">
+    <value>Currently Uploading</value>
+  </data>
+  <data name="frmOptions_launcher" xml:space="preserve">
+    <value>Launcher</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_passwordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_getAccountText" xml:space="preserve">
+    <value>Get your account at OpenRCT.net</value>
+  </data>
+  <data name="frmOptions_outputPath_label" xml:space="preserve">
+    <value>Output Path:</value>
+  </data>
+  <data name="frmOptions_currency_guilder" xml:space="preserve">
+    <value>Guilders (Dfl.)</value>
+  </data>
+  <data name="frmOptions_chkNoTestCrashes" xml:space="preserve">
+    <value>No crashes while testing</value>
+  </data>
+  <data name="frmOptions_currency_label" xml:space="preserve">
+    <value>Currency:</value>
   </data>
   <data name="OpenRCTdotNetLogin_getAccount" xml:space="preserve">
     <value>Get your account at OpenRCT.net</value>
   </data>
-  <data name="OpenRCTdotNetLogin_login" xml:space="preserve">
-    <value>Login to OpenRCT.NET</value>
-  </data>
-  <data name="OpenRCTdotNetLogin_password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="OpenRCTdotNetLogin_uploadPlayTime_text" xml:space="preserve">
-    <value>Upload Play Time to Server?</value>
-  </data>
-  <data name="OpenRCTdotNetLogin_uploadPlayTime_title" xml:space="preserve">
-    <value>Upload Play Time?</value>
-  </data>
-  <data name="OpenRCTdotNetLogin_username" xml:space="preserve">
-    <value>User name</value>
-  </data>
-  <data name="OpenRCTdotNetLogin_welcome" xml:space="preserve">
-    <value>Welcome, </value>
+  <data name="frmOptions_chkNews" xml:space="preserve">
+    <value>Pull Twitch chat as news</value>
   </data>
   <data name="OpenRCTdotNetSyncSaves_saveSync" xml:space="preserve">
     <value>Save Sync</value>
   </data>
-  <data name="OpenRCTdotNetSyncSaves_sync" xml:space="preserve">
-    <value>Sync</value>
+  <data name="frmOptions_currency_deutchmark" xml:space="preserve">
+    <value>Deutschmark (DM)</value>
   </data>
-  <data name="frmOptions_AutoStaff" xml:space="preserve">
-    <value>Automatically place staff</value>
+  <data name="frmOptions_rdoDevelop" xml:space="preserve">
+    <value>Download Development Builds</value>
   </data>
-  <data name="frmOptions_BuildInPauseMode" xml:space="preserve">
-    <value>Allow building in pause mode</value>
+  <data name="frmLauncher_update_forceUpdate" xml:space="preserve">
+    <value>Force updating...</value>
   </data>
-  <data name="frmOptions_InvertViewportDrag" xml:space="preserve">
-    <value>Invert right mouse dragging</value>
+  <data name="extras_fileLocationsButton_text" xml:space="preserve">
+    <value>Show File Locations (Debug)</value>
   </data>
-  <data name="frmOptions_MasterVolume" xml:space="preserve">
-    <value>Master volume:</value>
+  <data name="frmOptions_graphics" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
+  <data name="frmLauncher_updateStateMessage_uptodate" xml:space="preserve">
+    <value>Up to Date!</value>
   </data>
   <data name="frmOptions_MinimizeFullscreenFocusLoss" xml:space="preserve">
     <value>Minimize fullscreen on focus loss</value>
   </data>
-  <data name="frmOptions_MusicVolume" xml:space="preserve">
-    <value>Music volume:</value>
+  <data name="OpenRCTdotNetSaveSyncIdle" xml:space="preserve">
+    <value>Idle</value>
   </data>
-  <data name="frmOptions_UncapFPS" xml:space="preserve">
-    <value>Uncap FPS</value>
+  <data name="frmOptions_currency_yen" xml:space="preserve">
+    <value>Yen (¥)</value>
+  </data>
+  <data name="extras_cdSoundtrack_firstWarning_text" xml:space="preserve">
+    <value>If you are using a CD to run RollerCoaster Tycoon 1, Please insert it now.</value>
+  </data>
+  <data name="frmOptions_showConfirmationPrompt_label" xml:space="preserve">
+    <value>Show Confirmation Prompt</value>
+  </data>
+  <data name="OpenRCTdotNetSyncSaves_sync" xml:space="preserve">
+    <value>Sync</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_usernameLabel" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="frmOptions_heightLabels_label" xml:space="preserve">
+    <value>Height Labels:</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_username" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="frmOptions_dateFormat_dmy" xml:space="preserve">
+    <value>Day/Month/Year</value>
+  </data>
+  <data name="frmOptions_chkChatPeepNames" xml:space="preserve">
+    <value>Name peeps after people in Twitch chat</value>
+  </data>
+  <data name="frmOptions_debugging" xml:space="preserve">
+    <value>Debugging</value>
+  </data>
+  <data name="extras_syncDropbox_firstWarning_title" xml:space="preserve">
+    <value>Move Saves?</value>
+  </data>
+  <data name="frmOptions_disableAllBreakdowns" xml:space="preserve">
+    <value>Disable breakdowns</value>
+  </data>
+  <data name="frmOptions_screenshotFormat_label" xml:space="preserve">
+    <value>Screenshot Format:</value>
+  </data>
+  <data name="extras_gboOpenRCTnet" xml:space="preserve">
+    <value>OpenRCT.net Integration</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_label" xml:space="preserve">
+    <value>Fullscreen mode:</value>
+  </data>
+  <data name="frmOptions_rdoStable" xml:space="preserve">
+    <value>Download Stable Builds Only</value>
+  </data>
+  <data name="frmLauncher_newVersion" xml:space="preserve">
+    <value>There is a new version of OpenRCT2 available. Do you want to download it?</value>
+  </data>
+  <data name="extras_controlsExtras" xml:space="preserve">
+    <value>Extras</value>
+  </data>
+  <data name="extras_loginOpenRCTnet" xml:space="preserve">
+    <value>Sign into OpenRCT.net</value>
+  </data>
+  <data name="extras_webStore" xml:space="preserve">
+    <value>Open OpenRCT.net Store (Free)</value>
+  </data>
+  <data name="frmOptions_fullscreenMode_windowed" xml:space="preserve">
+    <value>Windowed</value>
+  </data>
+  <data name="frmOptions_disableBrakesFailure" xml:space="preserve">
+    <value>Disable brakes failure</value>
+  </data>
+  <data name="FixingPermissionsTitle" xml:space="preserve">
+    <value>Fixing Permissions</value>
+  </data>
+  <data name="frmOptions_autosave_everyMonth" xml:space="preserve">
+    <value>Every month</value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_uploadSaves_label" xml:space="preserve">
+    <value>Upload Saves to Server</value>
+  </data>
+  <data name="frmOptions_currency_franc" xml:space="preserve">
+    <value>Franc (F)</value>
+  </data>
+  <data name="frmLauncher_launchGame_updateMessage" xml:space="preserve">
+    <value>Updating due to Missing Files...</value>
+  </data>
+  <data name="extras_syncDropbox_notInstalled" xml:space="preserve">
+    <value>Sorry, I don't think you have Dropbox Installed.</value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_title" xml:space="preserve">
+    <value>OpenRCT.net Configuration</value>
+  </data>
+  <data name="frmOptions_edgeScrolling_label" xml:space="preserve">
+    <value>Scroll view when pointer at screen edge</value>
+  </data>
+  <data name="extras_anyFolderSync_firstWarning_text" xml:space="preserve">
+    <value>Are you sure you want to move your saves to a new folder?</value>
+  </data>
+  <data name="frmOptions_landscapeSmoothing_label" xml:space="preserve">
+    <value>Landscape Smoothing</value>
+  </data>
+  <data name="frmOptions_currency_pound" xml:space="preserve">
+    <value>Pounds (£)</value>
+  </data>
+  <data name="login_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login_screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="frmOptions_chkChatPeepTracking" xml:space="preserve">
+    <value>Track chat peeps</value>
+  </data>
+  <data name="extras_syncDropbox_firstWarning_text" xml:space="preserve">
+    <value>Are you sure you want to move your Saves to Dropbox?</value>
+  </data>
+  <data name="frmOptions_closeConfirmation_text" xml:space="preserve">
+    <value>Configuration has been changed. Save Changes?</value>
+  </data>
+  <data name="extras_anyFolderSync_fileDialog_desc" xml:space="preserve">
+    <value>Select where you want the saves to be stored.</value>
+  </data>
+  <data name="frmOptions_chkFollowerPeepNames" xml:space="preserve">
+    <value>Name peeps after followers</value>
+  </data>
+  <data name="frmOptions_currency_lira" xml:space="preserve">
+    <value>Lira (L)</value>
+  </data>
+  <data name="frmOptions_miscellaneous" xml:space="preserve">
+    <value>Miscellaneous</value>
+  </data>
+  <data name="frmOptions_localisation" xml:space="preserve">
+    <value>Localisation</value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_configuration" xml:space="preserve">
+    <value>OpenRCT.net Configuration</value>
+  </data>
+  <data name="frmOptions_cheats" xml:space="preserve">
+    <value>Cheats</value>
+  </data>
+  <data name="frmOptions_autosave_never" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="frmOptions_temperature_fahrenheit" xml:space="preserve">
+    <value>Fahrenheit (F)</value>
+  </data>
+  <data name="frmFirstRunDialog_stableOrDevFirstRun_text" xml:space="preserve">
+    <value>Do you want to download Development Builds or Stable Builds? You can change this later in Options -&gt; Launcher tab</value>
+  </data>
+  <data name="frmOptions_gui" xml:space="preserve">
+    <value>GUI</value>
+  </data>
+  <data name="OpenRCTdotNetConfigure_loggedInAs" xml:space="preserve">
+    <value>You are logged in as </value>
+  </data>
+  <data name="OpenRCTdotNetLogin_uploadPlayTime_title" xml:space="preserve">
+    <value>Upload Play Time?</value>
+  </data>
+  <data name="frmOptions_fullscreenWidth_label" xml:space="preserve">
+    <value>Fullscreen width:</value>
+  </data>
+  <data name="extras_anyFolderSync_firstWarning_title" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="frmOptions_gamePath_label" xml:space="preserve">
+    <value>Game Path:</value>
+  </data>
+  <data name="extras_steamStub" xml:space="preserve">
+    <value>Install Steam Stub</value>
+  </data>
+  <data name="OpenRCTdotNetLogin_login" xml:space="preserve">
+    <value>Login to OpenRCT.NET</value>
+  </data>
+  <data name="frmOptions_heightLabels_units" xml:space="preserve">
+    <value>Units</value>
+  </data>
+  <data name="frmOptions_toolbarShowCheats" xml:space="preserve">
+    <value>Show cheats button on toolbar</value>
+  </data>
+  <data name="frmOptions_chkFollowerPeepTracking" xml:space="preserve">
+    <value>Track follower peeps</value>
+  </data>
+  <data name="OpenRCTdotNetSaveSyncStatusDown" xml:space="preserve">
+    <value>Currently Downloading</value>
+  </data>
+  <data name="frmOptions_temperature_celsius" xml:space="preserve">
+    <value>Celsius (°C)</value>
+  </data>
+  <data name="Icon(64)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon(64).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="extras_RCT1ThemeMusic" xml:space="preserve">
+    <value>RCT1 Theme Music|*.dat</value>
+  </data>
+  <data name="extras_RCT2_Installed" xml:space="preserve">
+    <value>Is RollerCoaster Tycoon 2 Installed?</value>
+  </data>
+  <data name="extras_steamStub_InstallMessage" xml:space="preserve">
+    <value>This will replace your games startup file with a menu to start the original or this launcher. Continue?</value>
+  </data>
+  <data name="extras_steamStub_InstallTitle" xml:space="preserve">
+    <value>Install Steam Stub?</value>
+  </data>
+  <data name="frmFirstRunDialog_DevelopmentButton" xml:space="preserve">
+    <value>Play development</value>
+  </data>
+  <data name="frmFirstRunDialog_StableButton" xml:space="preserve">
+    <value>Play stable (recommended)</value>
   </data>
 </root>
