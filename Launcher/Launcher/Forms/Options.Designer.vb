@@ -124,6 +124,7 @@ Namespace Forms
             Me.chkTestUnfinishedTracks = New System.Windows.Forms.CheckBox()
             Me.chkDebuggingTools = New System.Windows.Forms.CheckBox()
             Me.chkSelectByTrackType = New System.Windows.Forms.CheckBox()
+            Me.chkToolbarShowRecentMessages = New System.Windows.Forms.CheckBox()
             CType(Me.numFullscreenWidth, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.numFullscreenHeight, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.numWindowHeight, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -375,7 +376,7 @@ Namespace Forms
             '
             Me.cbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
             Me.cbLanguage.FormattingEnabled = True
-            Me.cbLanguage.Items.AddRange(New Object() {"English (UK)", "English (US)", "Deutsch", "Nederlands", "Français", "Magyar", "Polski", "Español", "Svenska"})
+            Me.cbLanguage.Items.AddRange(New Object() {"English (UK)", "English (US)", "Deutsch", "Nederlands", "Français", "Magyar", "Polski", "Español", "Svenska", "Italiano", "Português (BR)"})
             Me.cbLanguage.Location = New System.Drawing.Point(3, 19)
             Me.cbLanguage.Name = "cbLanguage"
             Me.cbLanguage.Size = New System.Drawing.Size(239, 21)
@@ -809,6 +810,7 @@ Namespace Forms
             '
             'GUI
             '
+            Me.GUI.Controls.Add(Me.chkToolbarShowRecentMessages)
             Me.GUI.Controls.Add(Me.chkInvertViewportDrag)
             Me.GUI.Controls.Add(Me.chkConsoleSmallFont)
             Me.GUI.Controls.Add(Me.chkToolbarShowCheats)
@@ -837,7 +839,7 @@ Namespace Forms
             'chkConsoleSmallFont
             '
             Me.chkConsoleSmallFont.AutoSize = True
-            Me.chkConsoleSmallFont.Location = New System.Drawing.Point(3, 91)
+            Me.chkConsoleSmallFont.Location = New System.Drawing.Point(3, 114)
             Me.chkConsoleSmallFont.Name = "chkConsoleSmallFont"
             Me.chkConsoleSmallFont.Size = New System.Drawing.Size(143, 17)
             Me.chkConsoleSmallFont.TabIndex = 29
@@ -903,7 +905,7 @@ Namespace Forms
             Me.chkUnlockAllPrices.AutoSize = True
             Me.chkUnlockAllPrices.Location = New System.Drawing.Point(248, 26)
             Me.chkUnlockAllPrices.Name = "chkUnlockAllPrices"
-            Me.chkUnlockAllPrices.Size = New System.Drawing.Size(158, 17)
+            Me.chkUnlockAllPrices.Size = New System.Drawing.Size(104, 17)
             Me.chkUnlockAllPrices.TabIndex = 3
             Me.chkUnlockAllPrices.Text = Global.Launcher.My.Resources.Resources.frmOptions_unlockAllPrices
             Me.chkUnlockAllPrices.UseVisualStyleBackColor = True
@@ -1141,10 +1143,20 @@ Namespace Forms
             Me.chkSelectByTrackType.AutoSize = True
             Me.chkSelectByTrackType.Location = New System.Drawing.Point(248, 46)
             Me.chkSelectByTrackType.Name = "chkSelectByTrackType"
-            Me.chkSelectByTrackType.Size = New System.Drawing.Size(226, 17)
+            Me.chkSelectByTrackType.Size = New System.Drawing.Size(145, 17)
             Me.chkSelectByTrackType.TabIndex = 18
             Me.chkSelectByTrackType.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkAllowSubtypeSwitching
             Me.chkSelectByTrackType.UseVisualStyleBackColor = True
+            '
+            'chkToolbarShowRecentMessages
+            '
+            Me.chkToolbarShowRecentMessages.AutoSize = True
+            Me.chkToolbarShowRecentMessages.Location = New System.Drawing.Point(3, 91)
+            Me.chkToolbarShowRecentMessages.Name = "chkToolbarShowRecentMessages"
+            Me.chkToolbarShowRecentMessages.Size = New System.Drawing.Size(186, 17)
+            Me.chkToolbarShowRecentMessages.TabIndex = 31
+            Me.chkToolbarShowRecentMessages.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkToolbarShowRecentMessages
+            Me.chkToolbarShowRecentMessages.UseVisualStyleBackColor = True
             '
             'FrmOptions
             '
@@ -1289,5 +1301,6 @@ Namespace Forms
         Friend WithEvents chkInvertViewportDrag As System.Windows.Forms.CheckBox
         Friend WithEvents chkBuildInPauseMode As System.Windows.Forms.CheckBox
         Friend WithEvents chkAutoStaff As System.Windows.Forms.CheckBox
+        Friend WithEvents chkToolbarShowRecentMessages As System.Windows.Forms.CheckBox
     End Class
 End Namespace

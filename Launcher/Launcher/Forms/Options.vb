@@ -204,6 +204,7 @@ Namespace Forms
             cbTitleMusic.SelectedIndex               = c.TitleMusic
             chkToolbarShowCheats.Checked             = c.ToolbarShowCheats
             chkToolbarShowFinances.Checked           = c.ToolbarShowFinances
+            chkToolbarShowRecentMessages.Checked     = c.ToolbarShowRecentMessages
             chkToolbarShowResearch.Checked           = c.ToolbarShowResearch
             chkUncapFPS.Checked                      = c.UncapFPS
             chkUnlockAllPrices.Checked               = c.UnlockAllPrices
@@ -260,6 +261,7 @@ Namespace Forms
             c.TitleMusic                             = cbTitleMusic.SelectedIndex
             c.ToolbarShowCheats                      = chkToolbarShowCheats.Checked
             c.ToolbarShowFinances                    = chkToolbarShowFinances.Checked
+            c.ToolbarShowRecentMessages              = chkToolbarShowRecentMessages.Checked
             c.ToolbarShowResearch                    = chkToolbarShowResearch.Checked
             c.UncapFPS                               = chkUncapFPS.Checked
             c.UnlockAllPrices                        = chkUnlockAllPrices.Checked

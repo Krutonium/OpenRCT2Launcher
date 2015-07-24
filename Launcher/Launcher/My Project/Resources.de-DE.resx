@@ -545,10 +545,10 @@
     <value>Optionen</value>
   </data>
   <data name="frmOptions_rdoDevelop" xml:space="preserve">
-    <value>'Development Builds' herunterladen</value>
+    <value>Entwicklungsversionen herunterladen</value>
   </data>
   <data name="frmOptions_rdoStable" xml:space="preserve">
-    <value>Nur 'Stable Builds' herunterladen</value>
+    <value>Nur die stabilen Versionen herunterladen</value>
   </data>
   <data name="frmOptions_sound" xml:space="preserve">
     <value>Sound</value>
@@ -647,10 +647,10 @@
     <value>Aktuelle Version: </value>
   </data>
   <data name="frmFirstRunDialog_stableOrDevFirstRun_text" xml:space="preserve">
-    <value>Wollen Sie die 'Development Builds' oder 'Stable Builds' herunterladen? Sie können dies später in den Optionen ändern -&gt; Launcher Tab</value>
+    <value>Wollen Sie die Entwicklungsversion oder stabile Version herunterladen? Sie können dies später in den Optionen ändern -&gt; Launcher Tab</value>
   </data>
   <data name="frmFirstRunDialog_stableOrDevFirstRun_title" xml:space="preserve">
-    <value>Develop oder Stable?</value>
+    <value>Entwicklungsversion oder stabile Version?</value>
   </data>
   <data name="frmLauncher_newVersion" xml:space="preserve">
     <value>Eine neue Version von OpenRCT2 ist verfügbar. Wollen Sie diese herunterladen?</value>
@@ -689,10 +689,10 @@
     <value>FPS-Limit aufheben</value>
   </data>
   <data name="frmFirstRunDialog_DevelopmentButton" xml:space="preserve">
-    <value>'Development' spielen</value>
+    <value>Entwicklungsversion spielen</value>
   </data>
   <data name="frmFirstRunDialog_StableButton" xml:space="preserve">
-    <value>'Stable' spielen (empfohlen)</value>
+    <value>Stabile Version spielen (empfohlen)</value>
   </data>
   <data name="extras_RCT1ThemeMusic" xml:space="preserve">
     <value>RCT1 Titelmusik|*.dat</value>
@@ -705,5 +705,8 @@
   </data>
   <data name="extras_steamStub_InstallTitle" xml:space="preserve">
     <value>'Steam Stub' installieren?</value>
+  </data>
+  <data name="frmOptions_chkToolbarShowRecentMessages" xml:space="preserve">
+    <value>Letzte Nachrichten in der Symbolleiste anzeig.</value>
   </data>
 </root>

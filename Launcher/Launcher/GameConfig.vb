@@ -48,6 +48,7 @@ Public Structure GameConfigValues
             TitleMusic                  = GameConfig.EnumTitleMusic.RCT2
             ToolbarShowCheats           = False
             ToolbarShowFinances         = False
+            ToolbarShowRecentMessages   = False
             ToolbarShowResearch         = True
             UncapFPS                    = False
             UnlockAllPrices             = False
@@ -107,6 +108,10 @@ Public Structure GameConfigValues
                     Language = GameConfig.EnumLanguage.Spanish
                 Case "SVE"
                     Language = GameConfig.EnumLanguage.Swedish
+                Case "ITA"
+                    Language = GameConfig.EnumLanguage.Italian
+                Case "BRA"
+                    Language = GameConfig.EnumLanguage.PortugueseBR
                 Case Else
                     Language = GameConfig.EnumLanguage.EnglishUK
             End Select
@@ -174,6 +179,7 @@ Public Structure GameConfigValues
     Dim TitleMusic                  As Integer
     Dim ToolbarShowCheats           As Boolean
     Dim ToolbarShowFinances         As Boolean
+    Dim ToolbarShowRecentMessages   As Boolean
     Dim ToolbarShowResearch         As Boolean
     Dim UncapFPS                    As Boolean
     Dim UnlockAllPrices             As Boolean
@@ -225,7 +231,9 @@ Public Class GameConfig
 		Hungarian
 		Polish
 		Spanish
-		Swedish
+        Swedish
+        Italian
+        PortugueseBR
 	End Enum
 
     Enum EnumMeasurementFormat
@@ -285,6 +293,8 @@ Public Class GameConfig
         DictLanguage.Add("pl-PL", EnumLanguage.Polish)
         DictLanguage.Add("es-ES", EnumLanguage.Spanish)
         DictLanguage.Add("sv-SE", EnumLanguage.Swedish)
+        DictLanguage.Add("it-IT", EnumLanguage.Italian)
+        DictLanguage.Add("pt-BR", EnumLanguage.PortugueseBR)
 
         DictMeasurementFormat.Add("IMPERIAL", EnumMeasurementFormat.Imperial)
         DictMeasurementFormat.Add("METRIC", EnumMeasurementFormat.Metric)
@@ -347,6 +357,7 @@ Public Class GameConfig
         getProp("interface", "select_by_track_type", values.SelectByTrackType)
         getProp("interface", "toolbar_show_cheats", values.ToolbarShowCheats)
         getProp("interface", "toolbar_show_finances", values.ToolbarShowFinances)
+        getProp("interface", "toolbar_show_news", values.ToolbarShowRecentMessages)
         getProp("interface", "toolbar_show_research", values.ToolbarShowResearch)
 
         getPropRange("sound", "master_volume", values.MasterVolume, 0, 100)
@@ -415,6 +426,7 @@ Public Class GameConfig
         setProp("interface", "select_by_track_type", values.SelectByTrackType)
         setProp("interface", "toolbar_show_cheats", values.ToolbarShowCheats)
         setProp("interface", "toolbar_show_finances", values.ToolbarShowFinances)
+        setProp("interface", "toolbar_show_news", values.ToolbarShowRecentMessages)
         setProp("interface", "toolbar_show_research", values.ToolbarShowResearch)
         
         setProp("sound", "master_volume", values.MasterVolume)

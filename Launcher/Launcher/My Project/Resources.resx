@@ -714,4 +714,7 @@ make sure your saves are syncronized.</value>
   <data name="frmFirstRunDialog_StableButton" xml:space="preserve">
     <value>Play stable (recommended)</value>
   </data>
+  <data name="frmOptions_chkToolbarShowRecentMessages" xml:space="preserve">
+    <value>Show recent messages on toolbar</value>
+  </data>
 </root>
