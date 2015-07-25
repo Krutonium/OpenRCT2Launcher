@@ -170,7 +170,8 @@ Namespace Forms
             chkConsoleSmallFont.Checked              = c.ConsoleSmallFont
             cbConstructionMarkerColour.SelectedIndex = c.ConstructionMarkerColour
             cbCurrency.SelectedIndex                 = c.CurrencyFormat
-            cbDateFormat.SelectedIndex               = c.DateFormat
+            cbDateFormat.SelectedIndex = c.DateFormat
+            chkDayNightCycle.Checked = c.DayNightCycle
             chkDebuggingTools.Checked                = c.DebuggingTools
             chkDisableAllBreakdowns.Checked          = c.DisableAllBreakdowns
             chkDisableBrakesFailure.Checked          = c.DisableBrakesFailure
@@ -227,7 +228,8 @@ Namespace Forms
             c.ConsoleSmallFont                       = chkConsoleSmallFont.Checked
             c.ConstructionMarkerColour               = cbConstructionMarkerColour.SelectedIndex
             c.CurrencyFormat                         = cbCurrency.SelectedIndex
-            c.DateFormat                             = cbDateFormat.SelectedIndex
+            c.DateFormat = cbDateFormat.SelectedIndex
+            c.DayNightCycle = chkDayNightCycle.Checked
             c.DebuggingTools                         = chkDebuggingTools.Checked
             c.DisableAllBreakdowns                   = chkDisableAllBreakdowns.Checked
             c.DisableBrakesFailure                   = chkDisableBrakesFailure.Checked

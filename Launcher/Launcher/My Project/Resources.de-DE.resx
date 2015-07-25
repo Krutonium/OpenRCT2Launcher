@@ -680,7 +680,7 @@
     <value>Gesamtlautstärke:</value>
   </data>
   <data name="frmOptions_MinimizeFullscreenFocusLoss" xml:space="preserve">
-    <value>Vollbild minimieren, wenn Spiel nicht im Vordergrund</value>
+    <value>Vollbild min., wenn Spiel nicht im Vordergrund</value>
   </data>
   <data name="frmOptions_MusicVolume" xml:space="preserve">
     <value>Musiklautstärke:</value>
@@ -708,5 +708,8 @@
   </data>
   <data name="frmOptions_chkToolbarShowRecentMessages" xml:space="preserve">
     <value>Letzte Nachrichten in der Symbolleiste anzeig.</value>
+  </data>
+  <data name="frmOptions_chkDayNightCycle" xml:space="preserve">
+    <value>Tag-Nacht-Wechsel</value>
   </data>
 </root>

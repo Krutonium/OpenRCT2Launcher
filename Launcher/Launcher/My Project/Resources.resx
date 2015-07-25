@@ -717,4 +717,7 @@ make sure your saves are syncronized.</value>
   <data name="frmOptions_chkToolbarShowRecentMessages" xml:space="preserve">
     <value>Show recent messages on toolbar</value>
   </data>
+  <data name="frmOptions_chkDayNightCycle" xml:space="preserve">
+    <value>Cycle day / night</value>
+  </data>
 </root>

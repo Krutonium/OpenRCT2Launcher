@@ -125,6 +125,7 @@ Namespace Forms
             Me.chkDebuggingTools = New System.Windows.Forms.CheckBox()
             Me.chkSelectByTrackType = New System.Windows.Forms.CheckBox()
             Me.chkToolbarShowRecentMessages = New System.Windows.Forms.CheckBox()
+            Me.chkDayNightCycle = New System.Windows.Forms.CheckBox()
             CType(Me.numFullscreenWidth, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.numFullscreenHeight, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.numWindowHeight, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -679,6 +680,7 @@ Namespace Forms
             Me.Graphics.Controls.Add(Me.chkAlwaysShowGridlines)
             Me.Graphics.Controls.Add(Me.laWindowWidth)
             Me.Graphics.Controls.Add(Me.chkLandscapeSmoothing)
+            Me.Graphics.Controls.Add(Me.chkDayNightCycle)
             Me.Graphics.Location = New System.Drawing.Point(4, 22)
             Me.Graphics.Name = "Graphics"
             Me.Graphics.Padding = New System.Windows.Forms.Padding(3)
@@ -1158,6 +1160,16 @@ Namespace Forms
             Me.chkToolbarShowRecentMessages.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkToolbarShowRecentMessages
             Me.chkToolbarShowRecentMessages.UseVisualStyleBackColor = True
             '
+            'chkDayNightCycle
+            '
+            Me.chkDayNightCycle.AutoSize = True
+            Me.chkDayNightCycle.Location = New System.Drawing.Point(248, 170)
+            Me.chkDayNightCycle.Name = "chkDayNightCycle"
+            Me.chkDayNightCycle.Size = New System.Drawing.Size(186, 17)
+            Me.chkDayNightCycle.TabIndex = 32
+            Me.chkDayNightCycle.Text = Global.Launcher.My.Resources.Resources.frmOptions_chkDayNightCycle
+            Me.chkDayNightCycle.UseVisualStyleBackColor = True
+            '
             'FrmOptions
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1302,5 +1314,6 @@ Namespace Forms
         Friend WithEvents chkBuildInPauseMode As System.Windows.Forms.CheckBox
         Friend WithEvents chkAutoStaff As System.Windows.Forms.CheckBox
         Friend WithEvents chkToolbarShowRecentMessages As System.Windows.Forms.CheckBox
+        Friend WithEvents chkDayNightCycle As System.Windows.Forms.CheckBox
     End Class
 End Namespace

@@ -19,6 +19,7 @@ Public Structure GameConfigValues
             ConsoleSmallFont            = False
             ConstructionMarkerColour    = 0
             DateFormat                  = GameConfig.EnumDateFormat.DMY
+            DayNightCycle               = False
             DebuggingTools              = False
             DisableAllBreakdowns        = False
             DisableBrakesFailure        = False
@@ -145,6 +146,7 @@ Public Structure GameConfigValues
     Dim ConstructionMarkerColour    As Integer
     Dim CurrencyFormat              As Integer
     Dim DateFormat                  As Integer
+    Dim DayNightCycle               As Boolean
     Dim DebuggingTools              As Boolean
     Dim DisableAllBreakdowns        As Boolean
     Dim DisableBrakesFailure        As Boolean
@@ -329,6 +331,7 @@ Public Class GameConfig
         getPropRange("general", "construction_marker_colour", values.ConstructionMarkerColour, 0, 1)
         getPropDictionary("general", "currency_format", values.CurrencyFormat, DictCurrencyFormat)
         getPropDictionary("general", "date_format", values.DateFormat, DictDateFormat)
+        getProp("general", "day_night_cycle", values.DayNightCycle)
         getProp("general", "debugging_tools", values.DebuggingTools)
         getProp("general", "edge_scrolling", values.EdgeScrolling)
         getPropRange("general", "fullscreen_height", values.FullscreenHeight, -1, 2147483647)
@@ -398,6 +401,7 @@ Public Class GameConfig
         setProp("general", "construction_marker_colour", values.ConstructionMarkerColour)
         setPropDictionary("general", "currency_format", values.CurrencyFormat, DictCurrencyFormat)
         setPropDictionary("general", "date_format", values.DateFormat, DictDateFormat)
+        setProp("general", "day_night_cycle", values.DayNightCycle)
         setProp("general", "debugging_tools", values.DebuggingTools)
         setProp("general", "edge_scrolling", values.EdgeScrolling)
         setProp("general", "fullscreen_height", values.FullscreenHeight)
