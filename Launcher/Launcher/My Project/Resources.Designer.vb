@@ -305,7 +305,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_RCT1ThemeMusic", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Is RollerCoaster Tycoon 2 Installed?.
         '''</summary>
@@ -314,7 +314,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_RCT2_Installed", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to The launcher could not find the registry keys. Do you have Both RCT1 &amp; RCT2 Installed? If you do, please open an issue on GitHub..
         '''</summary>
@@ -323,7 +323,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_setupReg_noRegisterKeys", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Install Steam Stub.
         '''</summary>
@@ -332,7 +332,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_steamStub", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to This will replace your games startup file with a menu to start the original or this launcher. Continue?.
         '''</summary>
@@ -341,7 +341,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_steamStub_InstallMessage", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Install Steam Stub?.
         '''</summary>
@@ -350,7 +350,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_steamStub_InstallTitle", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Are you sure you want to move your Saves to Dropbox?.
         '''</summary>
@@ -359,7 +359,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_syncDropbox_firstWarning_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Move Saves?.
         '''</summary>
@@ -368,7 +368,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_syncDropbox_firstWarning_title", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Saves moved to Dropbox and Linked!.
         '''</summary>
@@ -377,7 +377,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_syncDropbox_moved_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Saves Moved!.
         '''</summary>
@@ -386,7 +386,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_syncDropbox_moved_title", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Sorry, I don&apos;t think you have Dropbox Installed..
         '''</summary>
@@ -395,7 +395,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_syncDropbox_notInstalled", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Sync Saves.
         '''</summary>
@@ -404,7 +404,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_syncSaves", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Sync Saves to Any Folder.
         '''</summary>
@@ -413,7 +413,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_syncSavesAnyFolderButton_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Sync Saves to Dropbox.
         '''</summary>
@@ -422,7 +422,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_syncSavesDropboxButton_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Extras.
         '''</summary>
@@ -431,7 +431,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_title", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Open OpenRCT.net Store (Free).
         '''</summary>
@@ -440,7 +440,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("extras_webStore", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Fixing Permissions.
         '''</summary>
@@ -449,7 +449,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("FixingPermissionsTitle", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Play development.
         '''</summary>
@@ -458,7 +458,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmFirstRunDialog_DevelopmentButton", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Play stable (recommended).
         '''</summary>
@@ -467,7 +467,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmFirstRunDialog_StableButton", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Do you want to download Development Builds or Stable Builds? You can change this later in Options -&gt; Launcher tab.
         '''</summary>
@@ -476,7 +476,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmFirstRunDialog_stableOrDevFirstRun_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Develop or Stable?.
         '''</summary>
@@ -485,7 +485,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmFirstRunDialog_stableOrDevFirstRun_title", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Complete..
         '''</summary>
@@ -494,7 +494,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_complete", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Current Version: .
         '''</summary>
@@ -503,7 +503,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_currentVersion", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Extras.
         '''</summary>
@@ -512,7 +512,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_extrasButton_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Force Update.
         '''</summary>
@@ -521,7 +521,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_forceUpdateButton_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to OpenRCT2 not installed or not found! Downloading. When it is done, feel free to press play again..
         '''</summary>
@@ -530,7 +530,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_launchGame_RCT2NotFound", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Updating due to Missing Files....
         '''</summary>
@@ -539,7 +539,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_launchGame_updateMessage", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Launch OpenRCT2.
         '''</summary>
@@ -548,7 +548,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_launchGameButton_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Have you installed and ran RCT2 at least once? If not, then please do so and try again..
         '''</summary>
@@ -557,7 +557,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_Load_neverRun", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Log Output to File.
         '''</summary>
@@ -566,7 +566,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_logButton_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to There is a new version of OpenRCT2 available. Do you want to download it?.
         '''</summary>
@@ -575,7 +575,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_newVersion", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Options.
         '''</summary>
@@ -584,7 +584,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_optionsButton_title", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to OpenRCT2 Launcher.
         '''</summary>
@@ -593,7 +593,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_title", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Failed to download update.
         '''</summary>
@@ -602,7 +602,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_update_failed", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Force updating....
         '''</summary>
@@ -611,7 +611,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_update_forceUpdate", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Update.
         '''</summary>
@@ -620,7 +620,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_updateButton_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Updating....
         '''</summary>
@@ -629,7 +629,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_updateStateMessage_updating", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Up to Date!.
         '''</summary>
@@ -638,7 +638,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_updateStateMessage_uptodate", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Checking if you are up to date....
         '''</summary>
@@ -647,7 +647,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_updateStatus_baseText", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Verbose Output.
         '''</summary>
@@ -656,7 +656,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmLauncher_verboseOutputButton_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Gridlines on Landscape.
         '''</summary>
@@ -665,7 +665,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_alwaysGridLines_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Autosave frequency:.
         '''</summary>
@@ -674,7 +674,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_autosave", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Every 4 months.
         '''</summary>
@@ -683,7 +683,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_autosave_everyFourMonths", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Every month.
         '''</summary>
@@ -692,7 +692,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_autosave_everyMonth", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Every 2 weeks.
         '''</summary>
@@ -701,7 +701,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_autosave_everyTwoWeeks", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Every week.
         '''</summary>
@@ -710,7 +710,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_autosave_everyWeek", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Every year.
         '''</summary>
@@ -719,7 +719,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_autosave_everyYear", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Never.
         '''</summary>
@@ -728,7 +728,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_autosave_never", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Automatically place staff.
         '''</summary>
@@ -737,7 +737,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_AutoStaff", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Allow building in pause mode.
         '''</summary>
@@ -746,7 +746,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_BuildInPauseMode", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Cheats.
         '''</summary>
@@ -755,7 +755,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_cheats", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Check for updates automatically.
         '''</summary>
@@ -764,7 +764,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_checkUpdates", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Select rides by track type.
         '''</summary>
@@ -773,7 +773,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_chkAllowSubtypeSwitching", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Name peeps after people in Twitch chat.
         '''</summary>
@@ -782,7 +782,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_chkChatPeepNames", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Track chat peeps.
         '''</summary>
@@ -791,7 +791,16 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_chkChatPeepTracking", resourceCulture)
             End Get
         End Property
-
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Cycle day / night.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkDayNightCycle() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkDayNightCycle", resourceCulture)
+            End Get
+        End Property
+        
         '''<summary>
         '''  Looks up a localized string similar to Enable debugging tools.
         '''</summary>
@@ -800,7 +809,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_chkDebuggingTools", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Name peeps after followers.
         '''</summary>
@@ -809,7 +818,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_chkFollowerPeepNames", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Track follower peeps.
         '''</summary>
@@ -818,7 +827,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_chkFollowerPeepTracking", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Pull Twitch chat as news.
         '''</summary>
@@ -827,7 +836,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_chkNews", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to No crashes while testing.
         '''</summary>
@@ -836,7 +845,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_chkNoTestCrashes", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Allow testing of unfinished tracks.
         '''</summary>
@@ -845,7 +854,16 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_chkTestUnfinishedTracks", resourceCulture)
             End Get
         End Property
-
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Show recent messages on toolbar.
+        '''</summary>
+        Friend ReadOnly Property frmOptions_chkToolbarShowRecentMessages() As String
+            Get
+                Return ResourceManager.GetString("frmOptions_chkToolbarShowRecentMessages", resourceCulture)
+            End Get
+        End Property
+        
         '''<summary>
         '''  Looks up a localized string similar to Configuration has been changed. Save Changes?.
         '''</summary>
@@ -854,7 +872,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_closeConfirmation_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Use small font in console.
         '''</summary>
@@ -863,7 +881,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_consoleSmallFont", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Construction Marker:.
         '''</summary>
@@ -872,7 +890,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_constructionMarkerColour_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Translucent.
         '''</summary>
@@ -881,7 +899,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_constructionMarkerColour_translucent", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to White.
         '''</summary>
@@ -890,7 +908,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_constructionMarkerColour_white", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Deutschmark (DM).
         '''</summary>
@@ -899,7 +917,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_deutchmark", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Dollars ($).
         '''</summary>
@@ -908,7 +926,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_dollar", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Euro (€).
         '''</summary>
@@ -917,7 +935,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_euro", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Franc (F).
         '''</summary>
@@ -926,7 +944,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_franc", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Guilders (Dfl.).
         '''</summary>
@@ -935,7 +953,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_guilder", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Krona (kr).
         '''</summary>
@@ -944,7 +962,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_krona", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Currency:.
         '''</summary>
@@ -953,7 +971,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Lira (L).
         '''</summary>
@@ -962,7 +980,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_lira", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Peseta (Pts).
         '''</summary>
@@ -971,7 +989,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_peseta", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Pounds (£).
         '''</summary>
@@ -980,7 +998,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_pound", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Yen (¥).
         '''</summary>
@@ -989,7 +1007,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_currency_yen", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Date Format.
         '''</summary>
@@ -998,7 +1016,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_dateFormat", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Day/Month/Year.
         '''</summary>
@@ -1007,7 +1025,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_dateFormat_dmy", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Month/Day/Year.
         '''</summary>
@@ -1016,7 +1034,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_dateFormat_mdy", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Debugging.
         '''</summary>
@@ -1025,7 +1043,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_debugging", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Disable breakdowns.
         '''</summary>
@@ -1034,7 +1052,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_disableAllBreakdowns", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Disable brakes failure.
         '''</summary>
@@ -1043,7 +1061,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_disableBrakesFailure", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Imperial.
         '''</summary>
@@ -1052,7 +1070,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_distSpeed_imperial", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Distance and Speed:.
         '''</summary>
@@ -1061,7 +1079,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_distSpeed_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Metric.
         '''</summary>
@@ -1070,7 +1088,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_distSpeed_metric", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Scroll view when pointer at screen edge.
         '''</summary>
@@ -1079,7 +1097,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_edgeScrolling_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Allow faster lift hill speeds.
         '''</summary>
@@ -1088,7 +1106,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_fastLiftHill", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Fullscreen height:.
         '''</summary>
@@ -1097,7 +1115,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_fullscreenHeight_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Fullscreen.
         '''</summary>
@@ -1106,7 +1124,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_fullscreenMode_fullscreen", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Fullscreen (desktop).
         '''</summary>
@@ -1115,7 +1133,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_fullscreenMode_fullscreenDesktop", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Fullscreen mode:.
         '''</summary>
@@ -1124,7 +1142,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_fullscreenMode_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Windowed.
         '''</summary>
@@ -1133,7 +1151,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_fullscreenMode_windowed", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Fullscreen width:.
         '''</summary>
@@ -1142,7 +1160,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_fullscreenWidth_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Game Path:.
         '''</summary>
@@ -1151,7 +1169,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_gamePath_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Graphics.
         '''</summary>
@@ -1160,7 +1178,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_graphics", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to GUI.
         '''</summary>
@@ -1169,7 +1187,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_gui", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Hardware display.
         '''</summary>
@@ -1178,7 +1196,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_hardwareDisplay", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Height Labels:.
         '''</summary>
@@ -1187,7 +1205,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_heightLabels_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Real Values.
         '''</summary>
@@ -1196,7 +1214,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_heightLabels_real", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Units.
         '''</summary>
@@ -1205,7 +1223,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_heightLabels_units", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Install updates automatically.
         '''</summary>
@@ -1214,7 +1232,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_installUpdates", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Invert right mouse dragging.
         '''</summary>
@@ -1223,7 +1241,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_InvertViewportDrag", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Twitch Channel name.
         '''</summary>
@@ -1232,7 +1250,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_laChannel", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Landscape Smoothing.
         '''</summary>
@@ -1241,7 +1259,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_landscapeSmoothing_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Language:.
         '''</summary>
@@ -1250,7 +1268,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_language_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Launcher.
         '''</summary>
@@ -1259,7 +1277,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_launcher", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Localisation.
         '''</summary>
@@ -1268,7 +1286,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_localisation", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Master volume:.
         '''</summary>
@@ -1277,7 +1295,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_MasterVolume", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Minimize fullscreen on focus loss.
         '''</summary>
@@ -1286,7 +1304,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_MinimizeFullscreenFocusLoss", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Miscellaneous.
         '''</summary>
@@ -1295,7 +1313,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_miscellaneous", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Music volume:.
         '''</summary>
@@ -1304,7 +1322,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_MusicVolume", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Options.
         '''</summary>
@@ -1313,7 +1331,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_options_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Output Path:.
         '''</summary>
@@ -1322,7 +1340,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_outputPath_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Play Intro.
         '''</summary>
@@ -1331,7 +1349,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_playIntroButton_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Download Development Builds.
         '''</summary>
@@ -1340,7 +1358,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_rdoDevelop", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Download Stable Builds Only.
         '''</summary>
@@ -1349,7 +1367,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_rdoStable", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Ride Music.
         '''</summary>
@@ -1358,7 +1376,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_rideMusic", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Save Output to File.
         '''</summary>
@@ -1367,7 +1385,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_saveOutputFile_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Export plug-in objects with saved games.
         '''</summary>
@@ -1376,7 +1394,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_savePluginData_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Screenshot Format:.
         '''</summary>
@@ -1385,7 +1403,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_screenshotFormat_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Show Confirmation Prompt.
         '''</summary>
@@ -1394,7 +1412,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_showConfirmationPrompt_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Sound.
         '''</summary>
@@ -1403,7 +1421,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_sound", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Arguments:.
         '''</summary>
@@ -1412,7 +1430,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_startArguments_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Celsius (°C).
         '''</summary>
@@ -1421,7 +1439,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_temperature_celsius", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Fahrenheit (F).
         '''</summary>
@@ -1430,7 +1448,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_temperature_fahrenheit", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Temperature:.
         '''</summary>
@@ -1439,7 +1457,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_temperature_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Options.
         '''</summary>
@@ -1448,7 +1466,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_title", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Title screen music:.
         '''</summary>
@@ -1457,7 +1475,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_titleScreenMusic_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to None.
         '''</summary>
@@ -1466,7 +1484,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_titleScreenMusic_none", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to RollerCoaster Tycoon 1.
         '''</summary>
@@ -1475,7 +1493,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_titleScreenMusic_RCT1", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to RollerCoaster Tycoon 2.
         '''</summary>
@@ -1484,7 +1502,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_titleScreenMusic_RCT2", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Show cheats button on toolbar.
         '''</summary>
@@ -1493,7 +1511,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_toolbarShowCheats", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Show finances button on toolbar.
         '''</summary>
@@ -1502,7 +1520,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_toolbarShowFinances", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Show research button on toolbar.
         '''</summary>
@@ -1511,7 +1529,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_toolbarShowResearch", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Twitch.
         '''</summary>
@@ -1520,7 +1538,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_twitch", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Uncap FPS.
         '''</summary>
@@ -1529,7 +1547,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_UncapFPS", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Unlock all prices.
         '''</summary>
@@ -1538,7 +1556,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_unlockAllPrices", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Window height:.
         '''</summary>
@@ -1547,7 +1565,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_windowHeight_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Window snap proximity:.
         '''</summary>
@@ -1556,7 +1574,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_windowSnapProximity", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Window width:.
         '''</summary>
@@ -1565,17 +1583,17 @@ Namespace My.Resources
                 Return ResourceManager.GetString("frmOptions_windowWidth_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property Icon_64_() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Icon(64)", resourceCulture)
-                Return CType(obj, System.Drawing.Bitmap)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to There is an update to the launcher available. Update?.
         '''</summary>
@@ -1584,47 +1602,47 @@ Namespace My.Resources
                 Return ResourceManager.GetString("LauncherUpdateAvail", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property login_screen() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("login_screen", resourceCulture)
-                Return CType(obj, System.Drawing.Bitmap)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property Logo() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Logo", resourceCulture)
-                Return CType(obj, System.Drawing.Bitmap)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property logo_icon() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("logo_icon", resourceCulture)
-                Return CType(obj, System.Drawing.Bitmap)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property offline() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("offline", resourceCulture)
-                Return CType(obj, System.Drawing.Bitmap)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to OpenRCT.net Configuration.
         '''</summary>
@@ -1633,7 +1651,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetConfigure_configuration", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to You are logged in as .
         '''</summary>
@@ -1642,7 +1660,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetConfigure_loggedInAs", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to OpenRCT.net Configuration.
         '''</summary>
@@ -1651,7 +1669,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetConfigure_title", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Upload play time to Server.
         '''</summary>
@@ -1660,7 +1678,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetConfigure_uploadPlayTime_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Upload Saves to Server.
         '''</summary>
@@ -1669,7 +1687,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetConfigure_uploadSaves_label", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Are you sure you want to enable this? This will slow 
         '''down the launcher when opening, since it needs to 
@@ -1680,7 +1698,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetConfigureSlowDownWarn", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Get your account at OpenRCT.net.
         '''</summary>
@@ -1689,7 +1707,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_getAccount", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Get your account at OpenRCT.net.
         '''</summary>
@@ -1698,7 +1716,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_getAccountText", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Login to OpenRCT.NET.
         '''</summary>
@@ -1707,7 +1725,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_login", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Password.
         '''</summary>
@@ -1716,7 +1734,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_password", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Password.
         '''</summary>
@@ -1725,7 +1743,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_passwordLabel", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Login to OpenRCT.NET.
         '''</summary>
@@ -1734,7 +1752,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_title", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Upload Play Time to Server?.
         '''</summary>
@@ -1743,7 +1761,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_uploadPlayTime_text", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Upload Play Time?.
         '''</summary>
@@ -1752,7 +1770,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_uploadPlayTime_title", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to User name.
         '''</summary>
@@ -1761,7 +1779,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_username", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to User name.
         '''</summary>
@@ -1770,7 +1788,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_usernameLabel", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Welcome, .
         '''</summary>
@@ -1779,7 +1797,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetLogin_welcome", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Idle.
         '''</summary>
@@ -1788,7 +1806,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetSaveSyncIdle", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Currently Downloading.
         '''</summary>
@@ -1797,7 +1815,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetSaveSyncStatusDown", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Currently Uploading.
         '''</summary>
@@ -1806,7 +1824,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetSaveSyncStatusUpload", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Save Sync.
         '''</summary>
@@ -1815,7 +1833,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetSyncSaves_saveSync", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Sync.
         '''</summary>
@@ -1824,24 +1842,24 @@ Namespace My.Resources
                 Return ResourceManager.GetString("OpenRCTdotNetSyncSaves_sync", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
         Friend ReadOnly Property OpenRCTIcon() As System.Drawing.Icon
             Get
                 Dim obj As Object = ResourceManager.GetObject("OpenRCTIcon", resourceCulture)
-                Return CType(obj, System.Drawing.Icon)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property paypal() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("paypal", resourceCulture)
-                Return CType(obj, System.Drawing.Bitmap)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
     End Module

@@ -170,7 +170,8 @@ Namespace Forms
             chkConsoleSmallFont.Checked              = c.ConsoleSmallFont
             cbConstructionMarkerColour.SelectedIndex = c.ConstructionMarkerColour
             cbCurrency.SelectedIndex                 = c.CurrencyFormat
-            cbDateFormat.SelectedIndex               = c.DateFormat
+            cbDateFormat.SelectedIndex = c.DateFormat
+            chkDayNightCycle.Checked = c.DayNightCycle
             chkDebuggingTools.Checked                = c.DebuggingTools
             chkDisableAllBreakdowns.Checked          = c.DisableAllBreakdowns
             chkDisableBrakesFailure.Checked          = c.DisableBrakesFailure
@@ -204,6 +205,7 @@ Namespace Forms
             cbTitleMusic.SelectedIndex               = c.TitleMusic
             chkToolbarShowCheats.Checked             = c.ToolbarShowCheats
             chkToolbarShowFinances.Checked           = c.ToolbarShowFinances
+            chkToolbarShowRecentMessages.Checked     = c.ToolbarShowRecentMessages
             chkToolbarShowResearch.Checked           = c.ToolbarShowResearch
             chkUncapFPS.Checked                      = c.UncapFPS
             chkUnlockAllPrices.Checked               = c.UnlockAllPrices
@@ -226,7 +228,8 @@ Namespace Forms
             c.ConsoleSmallFont                       = chkConsoleSmallFont.Checked
             c.ConstructionMarkerColour               = cbConstructionMarkerColour.SelectedIndex
             c.CurrencyFormat                         = cbCurrency.SelectedIndex
-            c.DateFormat                             = cbDateFormat.SelectedIndex
+            c.DateFormat = cbDateFormat.SelectedIndex
+            c.DayNightCycle = chkDayNightCycle.Checked
             c.DebuggingTools                         = chkDebuggingTools.Checked
             c.DisableAllBreakdowns                   = chkDisableAllBreakdowns.Checked
             c.DisableBrakesFailure                   = chkDisableBrakesFailure.Checked
@@ -260,6 +263,7 @@ Namespace Forms
             c.TitleMusic                             = cbTitleMusic.SelectedIndex
             c.ToolbarShowCheats                      = chkToolbarShowCheats.Checked
             c.ToolbarShowFinances                    = chkToolbarShowFinances.Checked
+            c.ToolbarShowRecentMessages              = chkToolbarShowRecentMessages.Checked
             c.ToolbarShowResearch                    = chkToolbarShowResearch.Checked
             c.UncapFPS                               = chkUncapFPS.Checked
             c.UnlockAllPrices                        = chkUnlockAllPrices.Checked
