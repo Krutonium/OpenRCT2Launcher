@@ -103,7 +103,7 @@ Public Class OpenRCTdotNetStoreBrowser
     Const URLMON_OPTION_USERAGENT As Integer = &H10000001
     Public Function ChangeUserAgent(ByVal Agent As String)
         UrlMkSetSessionOption(URLMON_OPTION_USERAGENT, Agent, Agent.Length, 0)
-    #End Function
+    End Function
 
     Private Sub WebBrowser1_NewWindow(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles WebBrowser1.NewWindow
         e.Cancel = True
