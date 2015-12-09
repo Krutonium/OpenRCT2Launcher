@@ -88,6 +88,15 @@ namespace LauncherWPF.Resources.Text {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use the Development Branch (Unstable).
+        /// </summary>
+        public static string UI_WINDOWS_WELCOME_DEV_BRANCH {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_WELCOME_DEV_BRANCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download Folder:.
         /// </summary>
         public static string UI_WINDOWS_WELCOME_DOWNLOAD_BLOCK {

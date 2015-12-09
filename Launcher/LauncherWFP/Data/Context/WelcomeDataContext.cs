@@ -1,6 +1,7 @@
 ﻿using LauncherWPF.UI;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using PropertyChanged;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace LauncherWPF.Data.Context
@@ -9,6 +10,10 @@ namespace LauncherWPF.Data.Context
     [ImplementPropertyChanged]
     public sealed class WelcomeDataContext
     {
+
+        private bool DisableRctBrowseButton { get; set; }
+
+        public ICommand LoadedCommand { get; }
 
         public ICommand OKCommand { get; }
 
@@ -26,16 +31,32 @@ namespace LauncherWPF.Data.Context
 
         public bool AutoUpdateOpenRct2 { get; set; }
 
+        public bool UseDevBranch { get; set; }
+
         public WelcomeDataContext()
         {
+            DisableRctBrowseButton = true;
             BaseDownloadPath = System.Environment.ExpandEnvironmentVariables("%appdata%\\ORCT2\\Downloads");
             BaseInstallPath = System.Environment.ExpandEnvironmentVariables("%appdata%\\ORCT2\\Builds");
-            Rct2InstallPath = Management.RctLocator.DiscoverRct2InstallationDirectory() ?? string.Empty;
             AutoUpdateOpenRct2 = true;
+            UseDevBranch = false;
             BrowseDownloadPathCommand = new RelayCommand(BrowseDownloadPathCommandImpl, null);
             BrowseExtractPathCommand = new RelayCommand(BrowseExtractPathCommandImpl, null);
-            BrowseRctPathCommand = new RelayCommand(BrowseRctPathCommandImpl, null);
+            BrowseRctPathCommand = new RelayCommand(BrowseRctPathCommandImpl, (o) => !DisableRctBrowseButton);
             OKCommand = new RelayCommand(OkCommandImpl, CanOkCommandRunImpl);
+
+            // Async to not block. Mean things done here to ensure we don't block in case detecting the install is slow.
+            LoadedCommand = new RelayCommand(async (o) =>
+            {
+                Rct2InstallPath = "Detecting...";
+                Rct2InstallPath = (await Task.Factory.StartNew(() =>
+                {
+                    var rctPath = Management.RctLocator.DiscoverRct2InstallationDirectory() ?? string.Empty;
+                    DisableRctBrowseButton = false;
+                    return rctPath;
+                }));
+                CommandManager.InvalidateRequerySuggested();
+            });
         }
 
 
@@ -95,6 +116,7 @@ namespace LauncherWPF.Data.Context
             Properties.Settings.Default.OpenRctExtractDir = BaseInstallPath;
             Properties.Settings.Default.RctInstallDir = Rct2InstallPath;
             Properties.Settings.Default.AutoUpdateToLatest = AutoUpdateOpenRct2;
+            Properties.Settings.Default.IsOnDevelopBranch = UseDevBranch;
             Properties.Settings.Default.IsFirstRun = false;
             Properties.Settings.Default.Save();
             window.DialogResult = true;
@@ -104,11 +126,10 @@ namespace LauncherWPF.Data.Context
         {
             return !string.IsNullOrWhiteSpace(BaseDownloadPath) &&
                 !string.IsNullOrWhiteSpace(BaseInstallPath) &&
-                !string.IsNullOrWhiteSpace(Rct2InstallPath);
+                !string.IsNullOrWhiteSpace(Rct2InstallPath) && !DisableRctBrowseButton;
         }
 
         #endregion
-
 
     }
 

@@ -6,50 +6,20 @@
         xmlns:local="clr-namespace:LauncherWPF.UI.Windows"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:r="clr-namespace:LauncherWPF.Resources.Text"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         ResizeMode="NoResize"
         GlowBrush="{DynamicResource AccentColorBrush}"
         DataContext="{Binding RelativeSource={RelativeSource Self}, Path=Context}"
         WindowStartupLocation="CenterScreen"
         Title="Welcome" Height="400" Width="500">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <TabControl Margin="10">
-            <!--<TabItem Header="{x:Static r:Strings.UI_WINDOWS_WELCOME_TAB_HEADER_GETTING_STARTED}">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="67*"/>
-                        <RowDefinition Height="35*"/>
-                    </Grid.RowDefinitions>
-                    <ScrollViewer Grid.RowSpan="2">
-                        <TextBlock
-                            Margin="10,10,10,0"
-                            TextWrapping="Wrap"
-                            Text="{x:Static r:Strings.UI_WINDOWS_WELCOME_HELLO}"
-                            VerticalAlignment="Top"/>
-                    </ScrollViewer>
-                    <StackPanel
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Grid.Row="1"
-                        Orientation="Horizontal"
-                        Margin="10">
-                        <Button
-                            IsDefault="True"
-                            Margin="10,0,10,0"
-                            Content="OK"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Width="75"/>
-                        <Button
-                            IsCancel="True"
-                            Margin="10,0,10,0"
-                            Content="Cancel"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Width="75"/>
-                    </StackPanel>
-                </Grid>
-            </TabItem>-->
             <TabItem Header="{x:Static r:Strings.UI_WINDOWS_WELCOME_TAB_HEADER_CONFIGURATION}">
                 <Grid>
                     <TextBlock
@@ -123,6 +93,12 @@
                         Content="{x:Static r:Strings.UI_WINDOWS_WELCOME_AUTOUPDATE}"
                         HorizontalAlignment="Left"
                         Margin="160,140,0,0" VerticalAlignment="Top"/>
+                    <CheckBox
+                        IsChecked="{Binding UseDevBranch}"
+                        Content="{x:Static r:Strings.UI_WINDOWS_WELCOME_DEV_BRANCH}"
+                        HorizontalAlignment="Left"
+                        Margin="160,163,0,0" VerticalAlignment="Top"/>
+                    
                     <Button
                         IsDefault="True"
                         Command="{Binding OKCommand}"
@@ -132,6 +108,7 @@
                         Margin="0,0,10,10"
                         VerticalAlignment="Bottom"
                         Width="75"/>
+                    
 
                 </Grid>
             </TabItem>

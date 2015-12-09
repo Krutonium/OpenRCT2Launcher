@@ -126,6 +126,9 @@
   <data name="UI_WINDOWS_WELCOME_CONFIGURATION" xml:space="preserve">
     <value>We're going to setup a few basic settings for the launcher to use. These can be changed anytime you wish under the Settings button on the main form.</value>
   </data>
+  <data name="UI_WINDOWS_WELCOME_DEV_BRANCH" xml:space="preserve">
+    <value>Use the Development Branch (Unstable)</value>
+  </data>
   <data name="UI_WINDOWS_WELCOME_DOWNLOAD_BLOCK" xml:space="preserve">
     <value>Download Folder:</value>
   </data>
