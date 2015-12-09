@@ -6,6 +6,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace LauncherWFP.Management
@@ -101,7 +102,7 @@ namespace LauncherWFP.Management
             // Now then, let's calculate the extraction path.
             var extractDirectory = Path.Combine(Properties.Settings.Default.OpenRctExtractDir, buildId.ToString());
             if (!Directory.Exists(extractDirectory)) Directory.CreateDirectory(extractDirectory);
-
+            
             // So, now, let's download the build!
             using (var wc = new WebClient())
             {
@@ -109,12 +110,28 @@ namespace LauncherWFP.Management
             }
 
             // Good. The zip file has been downloaded.
-            // At a later date, we'll do checksum calculation here.
-            // Until then, we skip it.
-            using (var z = ZipFile.OpenRead(downloadFile))
-                z.ExtractToDirectory(extractDirectory);
+            // Validate the SHA1 hash!
+            string hash;
+            using (var sha1 = new SHA1Managed())
+            using (var fileStream = File.OpenRead(downloadFile))
+            {
+                hash = Calculate(sha1, fileStream);
+            }
 
-            // Now then.
+            // Out of the using statement means there is no lock on the file anymore
+            // since we opened up a file stream.
+            if (!hash.Equals(build.SHA1, StringComparison.OrdinalIgnoreCase))
+            {
+                File.Delete(downloadFile);
+                throw new InvalidOperationException();
+            }
+
+            // If we get here, hash comparison was valid.
+            using (var z = ZipFile.OpenRead(downloadFile)) z.ExtractToDirectory(extractDirectory);
+
+            // Now then. Register it in the manager and get it ready for primetime.
+            // We get to set these because we warned the caller that we would. Piss
+            // on them if they don't expect this :)
             Install(buildId, build);
             SetActiveBuild(buildId, build);
 
@@ -173,6 +190,26 @@ namespace LauncherWFP.Management
             ));
         }
 
+
+
+        /// <summary>
+        ///     Calculates the hash of a <see cref="Stream"/> of data.
+        /// </summary>
+        /// <param name="algorithm">The <see cref="HashAlgorithm"/> that will be used to generate the <see cref="string"/> hash.</param>
+        /// <param name="data">A <see cref="Stream"/> of data to generate the hash from</param>
+        /// <returns><see cref="string"/></returns>
+        /// <remarks>
+        ///     Under the hood, this method will use a <see cref="BufferedStream"/>. While it doesn't necessarily have to, it means that I shouldn't blow memory limitations. I think?
+        /// </remarks>
+        private static string Calculate(HashAlgorithm algorithm, Stream data)
+        {
+            using (var buffered = new BufferedStream(data, 16000))
+            {
+                byte[] checksum = algorithm.ComputeHash(buffered);
+                return BitConverter.ToString(checksum).Replace("-", string.Empty).ToLower();
+            }
+        }
+        
     }
 
 }

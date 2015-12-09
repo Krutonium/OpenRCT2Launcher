@@ -1,5 +1,6 @@
 ﻿using LauncherWFP.UI;
 using PropertyChanged;
+using System.Windows;
 using System.Windows.Input;
 
 namespace LauncherWFP.Data.Context
@@ -39,12 +40,15 @@ namespace LauncherWFP.Data.Context
         public ICommand LoadedCommand { get; }
 
 
+        public Visibility WindowVisibility { get; private set; }
+
 
         /// <summary>
         ///     Creates a new instance of the <see cref="MainWindowContext"/>
         /// </summary>
         public MainWindowContext()
         {
+            WindowVisibility = Visibility.Visible;
             LaunchCommand = new RelayCommand(LaunchCommandImpl, CanLaunchCommandExecute);
             UpdateCommand = new RelayCommand(UpdateCommandImpl, CanUpdateCommandExecute);
             ConfigCommand = new RelayCommand(ConfigCommandImpl, CanConfigCommandExecute);
@@ -109,7 +113,14 @@ namespace LauncherWFP.Data.Context
         #region LoadedCommand
         private void LoadedCommandImpl(object param)
         {
-            if(Properties.Settings.Default.IsFirstRun) new UI.Windows.Welcome().ShowDialog();
+            if (Properties.Settings.Default.IsFirstRun)
+            {
+                WindowVisibility = Visibility.Hidden;
+                var result = new UI.Windows.Welcome().ShowDialog();
+            }
+
+            WindowVisibility = Visibility.Visible;
+
         }
         private bool CanLoadedCommandExecute(object param)
         {

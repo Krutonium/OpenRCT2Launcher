@@ -61,11 +61,65 @@ namespace LauncherWFP.Resources.Text {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Launcher has a few settings that can be adjusted here. Don&apos;t worry, you can always change these later!.
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string UI_WINDOWS_GENERAL_CONFIRM {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_GENERAL_CONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatically check for updates.
+        /// </summary>
+        public static string UI_WINDOWS_WELCOME_AUTOUPDATE {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_WELCOME_AUTOUPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We&apos;re going to setup a few basic settings for the launcher to use. These can be changed anytime you wish under the Settings button on the main form..
         /// </summary>
         public static string UI_WINDOWS_WELCOME_CONFIGURATION {
             get {
                 return ResourceManager.GetString("UI_WINDOWS_WELCOME_CONFIGURATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download Folder:.
+        /// </summary>
+        public static string UI_WINDOWS_WELCOME_DOWNLOAD_BLOCK {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_WELCOME_DOWNLOAD_BLOCK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the launcher discovers that a build of OpenRCT2 is ready to download, this is the folder that the build is downloaded to..
+        /// </summary>
+        public static string UI_WINDOWS_WELCOME_DOWNLOAD_BLOCK_TOOLTIP {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_WELCOME_DOWNLOAD_BLOCK_TOOLTIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extract Folder:.
+        /// </summary>
+        public static string UI_WINDOWS_WELCOME_EXTRACT_BLOCK {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_WELCOME_EXTRACT_BLOCK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is the folder that a build will be extracted to..
+        /// </summary>
+        public static string UI_WINDOWS_WELCOME_EXTRACT_BLOCK_TOOLTIP {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_WELCOME_EXTRACT_BLOCK_TOOLTIP", resourceCulture);
             }
         }
         
@@ -81,6 +135,24 @@ namespace LauncherWFP.Resources.Text {
         public static string UI_WINDOWS_WELCOME_HELLO {
             get {
                 return ResourceManager.GetString("UI_WINDOWS_WELCOME_HELLO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RCT2 Folder:.
+        /// </summary>
+        public static string UI_WINDOWS_WELCOME_RCT2_BLOCK {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_WELCOME_RCT2_BLOCK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The path where Roller Coaster Tycoon 2 is installed..
+        /// </summary>
+        public static string UI_WINDOWS_WELCOME_RCT2_BLOCK_TOOLTIP {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_WELCOME_RCT2_BLOCK_TOOLTIP", resourceCulture);
             }
         }
         

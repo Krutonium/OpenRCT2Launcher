@@ -11,6 +11,7 @@
         GlowBrush="{DynamicResource AccentColorBrush}"
         Title="OpenRCT2 Launcher" Height="350" Width="478"
         DataContext="{Binding RelativeSource={RelativeSource Self}, Path=Context}"
+        Visibility="{Binding WindowVisibility}"
         WindowStartupLocation="CenterScreen" Icon="Resources/OpenRCTIcon.ico">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">

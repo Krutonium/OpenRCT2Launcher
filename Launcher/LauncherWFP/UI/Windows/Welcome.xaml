@@ -14,7 +14,7 @@
         Title="Welcome" Height="400" Width="500">
     <Grid>
         <TabControl Margin="10">
-            <TabItem Header="{x:Static r:Strings.UI_WINDOWS_WELCOME_TAB_HEADER_GETTING_STARTED}">
+            <!--<TabItem Header="{x:Static r:Strings.UI_WINDOWS_WELCOME_TAB_HEADER_GETTING_STARTED}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="67*"/>
@@ -49,14 +49,90 @@
                             Width="75"/>
                     </StackPanel>
                 </Grid>
-            </TabItem>
+            </TabItem>-->
             <TabItem Header="{x:Static r:Strings.UI_WINDOWS_WELCOME_TAB_HEADER_CONFIGURATION}">
                 <Grid>
                     <TextBlock
-                            Margin="10,10,10,0"
-                            TextWrapping="Wrap"
-                            Text="{x:Static r:Strings.UI_WINDOWS_WELCOME_CONFIGURATION}"
-                            VerticalAlignment="Top"/>
+                        Margin="10,10,10,0"
+                        TextWrapping="Wrap"
+                        Text="{x:Static r:Strings.UI_WINDOWS_WELCOME_CONFIGURATION}"
+                        VerticalAlignment="Top"/>
+
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Margin="10,51,0,0"
+                        Text="{x:Static r:Strings.UI_WINDOWS_WELCOME_DOWNLOAD_BLOCK}"
+                        ToolTip="{x:Static r:Strings.UI_WINDOWS_WELCOME_DOWNLOAD_BLOCK_TOOLTIP}"
+                        VerticalAlignment="Top"/>
+                    <TextBox
+                        IsReadOnly="True"
+                        Height="23"
+                        Margin="160,47,60,0"
+                        Text="{Binding BaseDownloadPath}"
+                        VerticalAlignment="Top"/>
+                    <Button
+                        Command="{Binding BrowseDownloadPathCommand}"
+                        Content="..."
+                        Margin="0,47,10,231"
+                        HorizontalAlignment="Right"
+                        Width="30"/>
+
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Margin="10,82,0,0"
+                        Text="{x:Static r:Strings.UI_WINDOWS_WELCOME_EXTRACT_BLOCK}"
+                        ToolTip="{x:Static r:Strings.UI_WINDOWS_WELCOME_EXTRACT_BLOCK_TOOLTIP}"
+                        VerticalAlignment="Top"/>
+                    <TextBox
+                        IsReadOnly="True"
+                        Height="23"
+                        Margin="160,78,60,0"
+                        Text="{Binding BaseInstallPath}"
+                        VerticalAlignment="Top"/>
+                    <Button
+                        Command="{Binding BrowseExtractPathCommand}"
+                        Content="..."
+                        Margin="0,78,10,200"
+                        HorizontalAlignment="Right"
+                        Width="30"/>
+
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Margin="10,113,0,0"
+                        Text="{x:Static r:Strings.UI_WINDOWS_WELCOME_RCT2_BLOCK}"
+                        ToolTip="{x:Static r:Strings.UI_WINDOWS_WELCOME_RCT2_BLOCK_TOOLTIP}"
+                        VerticalAlignment="Top"/>
+                    <TextBox
+                        IsReadOnly="True"
+                        Height="23"
+                        Margin="160,109,60,0"
+                        Text="{Binding Rct2InstallPath}"
+                        VerticalAlignment="Top"/>
+                    <Button
+                        Command="{Binding BrowseRctPathCommand}"
+                        Content="..."
+                        Margin="0,109,10,0"
+                        VerticalAlignment="Top"
+                        Height="26"
+                        HorizontalAlignment="Right"
+                        Width="30"/>
+
+
+                    <CheckBox
+                        IsChecked="{Binding AutoUpdateOpenRct2}"
+                        Content="{x:Static r:Strings.UI_WINDOWS_WELCOME_AUTOUPDATE}"
+                        HorizontalAlignment="Left"
+                        Margin="160,140,0,0" VerticalAlignment="Top"/>
+                    <Button
+                        IsDefault="True"
+                        Command="{Binding OKCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                        Content="{x:Static r:Strings.UI_WINDOWS_GENERAL_CONFIRM}"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,10,10"
+                        VerticalAlignment="Bottom"
+                        Width="75"/>
+
                 </Grid>
             </TabItem>
         </TabControl>

@@ -117,8 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="UI_WINDOWS_GENERAL_CONFIRM" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="UI_WINDOWS_WELCOME_AUTOUPDATE" xml:space="preserve">
+    <value>Automatically check for updates</value>
+  </data>
   <data name="UI_WINDOWS_WELCOME_CONFIGURATION" xml:space="preserve">
-    <value>The Launcher has a few settings that can be adjusted here. Don't worry, you can always change these later!</value>
+    <value>We're going to setup a few basic settings for the launcher to use. These can be changed anytime you wish under the Settings button on the main form.</value>
+  </data>
+  <data name="UI_WINDOWS_WELCOME_DOWNLOAD_BLOCK" xml:space="preserve">
+    <value>Download Folder:</value>
+  </data>
+  <data name="UI_WINDOWS_WELCOME_DOWNLOAD_BLOCK_TOOLTIP" xml:space="preserve">
+    <value>When the launcher discovers that a build of OpenRCT2 is ready to download, this is the folder that the build is downloaded to.</value>
+  </data>
+  <data name="UI_WINDOWS_WELCOME_EXTRACT_BLOCK" xml:space="preserve">
+    <value>Extract Folder:</value>
+  </data>
+  <data name="UI_WINDOWS_WELCOME_EXTRACT_BLOCK_TOOLTIP" xml:space="preserve">
+    <value>This is the folder that a build will be extracted to.</value>
   </data>
   <data name="UI_WINDOWS_WELCOME_HELLO" xml:space="preserve">
     <value>Hello there! This appears to be your first time running the OpenRCT2 Launcher. This won't take very long to get underway.
@@ -128,6 +146,12 @@ Here are the actions I'm going to perform:
 	2) I'm going to generate a bunch of OpenRCT2 directories inside of "Documents".
 	3) I'm going to download the latest version of OpenRCT2.
 If you are OK with this, press "OK" below. If you are NOT okay with this, go ahead and close out now. I won't do anything else.</value>
+  </data>
+  <data name="UI_WINDOWS_WELCOME_RCT2_BLOCK" xml:space="preserve">
+    <value>RCT2 Folder:</value>
+  </data>
+  <data name="UI_WINDOWS_WELCOME_RCT2_BLOCK_TOOLTIP" xml:space="preserve">
+    <value>The path where Roller Coaster Tycoon 2 is installed.</value>
   </data>
   <data name="UI_WINDOWS_WELCOME_TAB_HEADER_CONFIGURATION" xml:space="preserve">
     <value>Launcher Configuration</value>

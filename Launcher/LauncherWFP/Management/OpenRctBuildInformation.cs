@@ -36,6 +36,12 @@ namespace LauncherWFP.Management
         [JsonProperty("download")]
         public string URL { get; set; }
 
+        /// <summary>
+        ///     Gets or sets the SHA1 hash of the download.
+        /// </summary>
+        [JsonProperty("sha1_file")]
+        public string SHA1 { get; set; }
+
 
         public override string ToString()
         {

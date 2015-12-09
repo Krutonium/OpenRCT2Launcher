@@ -63,6 +63,46 @@ namespace LauncherWFP.Management
             }
         }
 
+        /// <summary>
+        ///     Returns the latest build number on this server.
+        /// </summary>
+        /// <returns><see cref="Option{T}"/></returns>
+        public Option<int> GetLatestBuildNumber()
+        {
+            var endPoint = ApiEndpoint + "openrct2/latest/version.txt";
+            using (var wc = new WebClient())
+            {
+                try
+                {
+                    return int.Parse(wc.DownloadString(endPoint));
+                }
+                catch (WebException)
+                {
+                    return Option.Empty;
+                }
+            }
+        }
+
+        /// <summary>
+        ///     Asychronously returns the latest build number on this server.
+        /// </summary>
+        /// <returns><see cref="Option{T}"/></returns>
+        public async Task<Option<int>> GetLatestBuildNumberAsync()
+        {
+            var endPoint = ApiEndpoint + "openrct2/latest/version.txt";
+            using (var wc = new WebClient())
+            {
+                try
+                {
+                    return int.Parse(await wc.DownloadStringTaskAsync(endPoint));
+                }
+                catch (WebException)
+                {
+                    return Option.Empty;
+                }
+            }
+        }
+
         #endregion
 
 

@@ -49,7 +49,7 @@ namespace LauncherWFP.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Adam\\AppData\\Roaming\\ORCT2\\Downloads")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string OpenRctDownloadDir {
             get {
                 return ((string)(this["OpenRctDownloadDir"]));
@@ -61,7 +61,7 @@ namespace LauncherWFP.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Adam\\AppData\\Roaming\\ORCT2\\Builds")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string OpenRctExtractDir {
             get {
                 return ((string)(this["OpenRctExtractDir"]));
