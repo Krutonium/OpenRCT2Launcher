@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace LauncherWFP.Management
+namespace LauncherWPF.Management
 {
 
     public sealed class OpenRctBuildInformation

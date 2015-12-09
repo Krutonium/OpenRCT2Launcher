@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace LauncherWFP.Data
+namespace LauncherWPF.Data
 {
 
     /// <summary>

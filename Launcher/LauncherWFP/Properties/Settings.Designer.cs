@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LauncherWFP.Properties {
+namespace LauncherWPF.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -90,6 +90,18 @@ namespace LauncherWFP.Properties {
         public string OpenRctApiSecret {
             get {
                 return ((string)(this["OpenRctApiSecret"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsOnDevelopBranch {
+            get {
+                return ((bool)(this["IsOnDevelopBranch"]));
+            }
+            set {
+                this["IsOnDevelopBranch"] = value;
             }
         }
     }

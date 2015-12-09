@@ -1,7 +1,7 @@
-﻿<Application x:Class="LauncherWFP.App"
+﻿<Application x:Class="LauncherWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:LauncherWFP"
+             xmlns:local="clr-namespace:LauncherWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

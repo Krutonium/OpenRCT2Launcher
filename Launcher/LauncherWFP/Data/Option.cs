@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LauncherWFP.Data
+namespace LauncherWPF.Data
 {
 
     /// <summary>

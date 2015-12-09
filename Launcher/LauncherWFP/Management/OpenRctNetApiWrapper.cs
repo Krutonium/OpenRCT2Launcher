@@ -1,10 +1,10 @@
-﻿using LauncherWFP.Data;
+﻿using LauncherWPF.Data;
 using Newtonsoft.Json;
 using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace LauncherWFP.Management
+namespace LauncherWPF.Management
 {
 
     /// <summary>

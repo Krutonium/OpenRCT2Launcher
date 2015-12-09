@@ -9,7 +9,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace LauncherWFP.Management
+namespace LauncherWPF.Management
 {
 
     /// <summary>

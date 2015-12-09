@@ -1,7 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using PropertyChanged;
 
-namespace LauncherWFP
+namespace LauncherWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,6 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 
-namespace LauncherWFP.UI.Windows
+namespace LauncherWPF.UI.Windows
 {
     /// <summary>
     /// Interaction logic for Welcome.xaml

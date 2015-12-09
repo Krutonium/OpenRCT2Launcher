@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace LauncherWFP.Management
+namespace LauncherWPF.Management
 {
 
     /// <summary>

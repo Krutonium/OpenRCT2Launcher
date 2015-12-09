@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace LauncherWFP.UI
+namespace LauncherWPF.UI
 {
 
     /// <summary>

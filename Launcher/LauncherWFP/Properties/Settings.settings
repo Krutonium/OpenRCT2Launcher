@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LauncherWFP.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LauncherWPF.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="RctInstallDir" Type="System.String" Scope="User">
@@ -19,6 +19,9 @@
     </Setting>
     <Setting Name="OpenRctApiSecret" Type="System.String" Scope="Application">
       <Value Profile="(Default)">NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg</Value>
+    </Setting>
+    <Setting Name="IsOnDevelopBranch" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

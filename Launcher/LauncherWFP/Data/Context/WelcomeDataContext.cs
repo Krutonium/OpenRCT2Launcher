@@ -1,9 +1,9 @@
-﻿using LauncherWFP.UI;
+﻿using LauncherWPF.UI;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using PropertyChanged;
 using System.Windows.Input;
 
-namespace LauncherWFP.Data.Context
+namespace LauncherWPF.Data.Context
 {
 
     [ImplementPropertyChanged]

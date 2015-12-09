@@ -1,9 +1,9 @@
-﻿using LauncherWFP.UI;
+﻿using LauncherWPF.UI;
 using PropertyChanged;
 using System.Windows;
 using System.Windows.Input;
 
-namespace LauncherWFP.Data.Context
+namespace LauncherWPF.Data.Context
 {
 
     /// <summary>
