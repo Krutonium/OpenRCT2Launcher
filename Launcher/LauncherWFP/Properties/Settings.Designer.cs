@@ -49,7 +49,7 @@ namespace LauncherWFP.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Adam\\AppData\\Roaming\\ORCT2\\Downloads")]
         public string OpenRctDownloadDir {
             get {
                 return ((string)(this["OpenRctDownloadDir"]));
@@ -61,7 +61,7 @@ namespace LauncherWFP.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Adam\\AppData\\Roaming\\ORCT2\\Builds")]
         public string OpenRctExtractDir {
             get {
                 return ((string)(this["OpenRctExtractDir"]));
@@ -80,6 +80,16 @@ namespace LauncherWFP.Properties {
             }
             set {
                 this["AutoUpdateToLatest"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQL" +
+            "br0mIDHoPMYropLd0Sg")]
+        public string OpenRctApiSecret {
+            get {
+                return ((string)(this["OpenRctApiSecret"]));
             }
         }
     }

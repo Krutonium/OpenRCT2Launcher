@@ -61,6 +61,15 @@ namespace LauncherWFP.Resources.Text {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The supplied BuildId ({0}) already exists..
+        /// </summary>
+        public static string BUILDMANAGER_BUILDID_EXISTS {
+            get {
+                return ResourceManager.GetString("BUILDMANAGER_BUILDID_EXISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot initialize the BuildManager. Configuration not setup..
         /// </summary>
         public static string BUILDMANAGER_INITIALIZE_ERROR {

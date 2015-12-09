@@ -50,6 +50,16 @@ namespace LauncherWFP.Data.Context
             ConfigCommand = new RelayCommand(ConfigCommandImpl, CanConfigCommandExecute);
             ExtrasCommand = new RelayCommand(ExtrasCommandImpl, CanExtrasCommandExecute);
             LoadedCommand = new RelayCommand(LoadedCommandImpl, CanLoadedCommandExecute);
+
+            // We're gonna shove in some testing shit here because why not?
+            var wrapper = new Management.OpenRctNetApiWrapper();
+            var builds = wrapper.GetBuildInformation().Value;
+            var mgr = new Management.OpenRctBuildManager();
+
+            var currentBuild = builds.Builds[builds.CurrentBuild];
+            currentBuild.URL = "https://openrct.net/builds/" + currentBuild.ZipFile;
+            mgr.Download(builds.CurrentBuild, currentBuild);
+            mgr.Save();
         }
 
         #region Launch Command

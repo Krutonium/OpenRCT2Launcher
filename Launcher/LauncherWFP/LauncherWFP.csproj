@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -75,7 +77,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\Extensions.cs" />
-    <Compile Include="Management\BuildManager.cs" />
+    <Compile Include="Data\Option.cs" />
+    <Compile Include="Management\OpenRctBuildManager.cs" />
+    <Compile Include="Management\OpenRctBuildCollection.cs" />
+    <Compile Include="Management\OpenRctBuildInformation.cs" />
+    <Compile Include="Management\OpenRctNetApiWrapper.cs" />
     <Compile Include="Management\RctLocator.cs" />
     <Compile Include="Resources\Text\Errors.Designer.cs">
       <AutoGen>True</AutoGen>

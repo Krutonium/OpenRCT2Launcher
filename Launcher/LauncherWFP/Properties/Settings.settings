@@ -9,13 +9,16 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="OpenRctDownloadDir" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">C:\Users\Adam\AppData\Roaming\ORCT2\Downloads</Value>
     </Setting>
     <Setting Name="OpenRctExtractDir" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">C:\Users\Adam\AppData\Roaming\ORCT2\Builds</Value>
     </Setting>
     <Setting Name="AutoUpdateToLatest" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="OpenRctApiSecret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NXgFj50WlithAa5sK9Z3WGAGnboyJTrwRHcaNd78vAq6LvywEyzAfahDlFb5zCCqjOB62JfxkGE5bcCQLbr0mIDHoPMYropLd0Sg</Value>
     </Setting>
   </Settings>
 </SettingsFile>
