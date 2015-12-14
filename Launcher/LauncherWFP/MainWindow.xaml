@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         GlowBrush="{DynamicResource AccentColorBrush}"
-        Title="OpenRCT2 Launcher" Height="350" Width="478"
+        Title="OpenRCT2 Launcher" Height="450" Width="650"
         DataContext="{Binding RelativeSource={RelativeSource Self}, Path=Context}"
         Visibility="{Binding WindowVisibility}"
         WindowStartupLocation="CenterScreen" Icon="Resources/OpenRCTIcon.ico">
@@ -24,8 +24,6 @@
             <RowDefinition Height="58*"/>
         </Grid.RowDefinitions>
         <Image
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
             Height="240"
             Width="450"
             Margin="10,10,0,0" Source="Resources/offline.png"/>

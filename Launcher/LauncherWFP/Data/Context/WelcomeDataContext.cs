@@ -128,7 +128,6 @@ namespace LauncherWPF.Data.Context
                 !string.IsNullOrWhiteSpace(BaseInstallPath) &&
                 !string.IsNullOrWhiteSpace(Rct2InstallPath) && !DisableRctBrowseButton;
         }
-
         #endregion
 
     }

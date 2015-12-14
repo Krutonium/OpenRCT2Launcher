@@ -61,11 +61,128 @@ namespace LauncherWPF.Resources.Text {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Yes &amp; remember..
+        /// </summary>
+        public static string UI_MAIN_UPDATE_MB_AUX1 {
+            get {
+                return ResourceManager.GetString("UI_MAIN_UPDATE_MB_AUX1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to install the latest update to OpenRCT2?.
+        /// </summary>
+        public static string UI_MAIN_UPDATE_MB_MESSAGE1 {
+            get {
+                return ResourceManager.GetString("UI_MAIN_UPDATE_MB_MESSAGE1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OpenRCT2 has been updated..
+        /// </summary>
+        public static string UI_MAIN_UPDATE_MB_MESSAGE2 {
+            get {
+                return ResourceManager.GetString("UI_MAIN_UPDATE_MB_MESSAGE2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string UI_MAIN_UPDATE_MB_TITLE1 {
+            get {
+                return ResourceManager.GetString("UI_MAIN_UPDATE_MB_TITLE1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished.
+        /// </summary>
+        public static string UI_MAIN_UPDATE_MB_TITLE2 {
+            get {
+                return ResourceManager.GetString("UI_MAIN_UPDATE_MB_TITLE2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connecting to OpenRCT.NET, please wait!.
+        /// </summary>
+        public static string UI_MAIN_UPDATE_PB_MESSAGE1 {
+            get {
+                return ResourceManager.GetString("UI_MAIN_UPDATE_PB_MESSAGE1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was a problem downloading updates from OpenRCT.NET.
+        /// </summary>
+        public static string UI_MAIN_UPDATE_PB_MESSAGE2 {
+            get {
+                return ResourceManager.GetString("UI_MAIN_UPDATE_PB_MESSAGE2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installed Build: {0} Latest Build: {1}.
+        /// </summary>
+        public static string UI_MAIN_UPDATE_PB_MESSAGE3 {
+            get {
+                return ResourceManager.GetString("UI_MAIN_UPDATE_PB_MESSAGE3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading {0}....
+        /// </summary>
+        public static string UI_MAIN_UPDATE_PB_MESSAGE4 {
+            get {
+                return ResourceManager.GetString("UI_MAIN_UPDATE_PB_MESSAGE4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating OpenRCT2.
+        /// </summary>
+        public static string UI_MAIN_UPDATE_PB_TITLE1 {
+            get {
+                return ResourceManager.GetString("UI_MAIN_UPDATE_PB_TITLE1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string UI_WINDOWS_GENERAL_CONFIRM {
             get {
                 return ResourceManager.GetString("UI_WINDOWS_GENERAL_CONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong!.
+        /// </summary>
+        public static string UI_WINDOWS_GENERAL_ERROR {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_GENERAL_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string UI_WINDOWS_GENERAL_NO {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_GENERAL_NO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string UI_WINDOWS_GENERAL_YES {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_GENERAL_YES", resourceCulture);
             }
         }
         

@@ -11,11 +11,12 @@ namespace LauncherWPF.Management
     ///     A managed wrapper for the OpenRCT.net API.
     /// </summary>
     /// <remarks>
-    ///     No functionality is hidden here. The entire documentation for the API is readily available at <![CDATA[https://openrct.net/api.php/]]>
+    ///     No functionality is hidden here. The entire documentation for the API is readily available at <![CDATA[https://openrct.net/api.php/]]>. Also, this class won't fully implement the API. No reason to. I implement what's needed.
     /// </remarks>
     public sealed class OpenRctNetApiWrapper
     {
         private const string ApiEndpoint = "https://openrct.net/api/v2/";
+        private readonly JsonSerializerSettings _dateTimeJsonSettings = new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd HH:mm:ss" };
 
         #region Basics
 
@@ -105,22 +106,23 @@ namespace LauncherWPF.Management
 
         #endregion
 
-
         #region Downloads
 
         /// <summary>
         ///     Retrieves the available downlaods from OpenRCT.NET
         /// </summary>
-        /// <returns></returns>
-        public Option<OpenRctBuildCollection> GetBuildInformation()
+        /// <param name="develop">If true, pulls the <see cref="OpenRctBuildCollection"/> for the development branch.</param>
+        /// <returns>
+        ///     <see cref="OpenRctBuildCollection"/> of builds.
+        /// </returns>
+        public Option<OpenRctBuildCollection> GetBuildInformation(bool develop = true)
         {
-            var endPoint = ApiEndpoint + "openrct2/builds.json";
+            var endPoint = ApiEndpoint + (!develop ? "openrct2/stable.json" : "openrct2/builds.json");
             using (var wc = new WebClient())
             {
                 try
                 {
-                    return JsonConvert.DeserializeObject<OpenRctBuildCollection>(wc.DownloadString(endPoint),
-                        new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd HH:mm:ss" });
+                    return JsonConvert.DeserializeObject<OpenRctBuildCollection>(wc.DownloadString(endPoint), _dateTimeJsonSettings);
                 }
                 catch (WebException)
                 {
@@ -130,18 +132,20 @@ namespace LauncherWPF.Management
         }
 
         /// <summary>
-        ///     Asychronously retrieves the available downloads from OpenRCT.NET
+        ///     Asynchronously retrieves the available downlaods from OpenRCT.NET
         /// </summary>
-        /// <returns></returns>
-        public async Task<Option<OpenRctBuildCollection>> GetBuildInformationAsync()
+        /// <param name="develop">If true, pulls the <see cref="OpenRctBuildCollection"/> for the development branch.</param>
+        /// <returns>
+        ///     <see cref="OpenRctBuildCollection"/> of builds.
+        /// </returns>
+        public async Task<Option<OpenRctBuildCollection>> GetBuildInformationAsync(bool develop = true)
         {
-            var endPoint = ApiEndpoint + "openrct2/builds.json";
+            var endPoint = ApiEndpoint + (!develop ? "openrct2/stable.json" : "openrct2/builds.json");
             using (var wc = new WebClient())
             {
                 try
                 {
-                    return JsonConvert.DeserializeObject<OpenRctBuildCollection>(await wc.DownloadStringTaskAsync(endPoint),
-                        new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd HH:mm:ss" });
+                    return JsonConvert.DeserializeObject<OpenRctBuildCollection>(await wc.DownloadStringTaskAsync(endPoint), _dateTimeJsonSettings);
                 }
                 catch (WebException)
                 {
@@ -152,12 +156,23 @@ namespace LauncherWPF.Management
 
         #endregion
 
+        #region Utilities only useful to this class
 
+        /// <summary>
+        ///     Takes a given Unix timestamp and converts it to a <see cref="DateTime"/>
+        /// </summary>
+        /// <param name="timestamp">The number of seconds that have passed since January 1st of 1970 at midnight.</param>
+        /// <returns><see cref="DateTime"/></returns>
+        /// <remarks>
+        ///     For further information, you may kindly point your browser to <![CDATA[https://en.wikipedia.org/wiki/Unix_time/]]>
+        /// </remarks>
         private static DateTime FromUnixTimeStamp(long timestamp)
         {
             return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
                 .AddSeconds(timestamp);
         }
+
+        #endregion
 
     }
 }

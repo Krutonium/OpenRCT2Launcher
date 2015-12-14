@@ -1,5 +1,10 @@
 ﻿using LauncherWPF.UI;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using PropertyChanged;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -12,6 +17,9 @@ namespace LauncherWPF.Data.Context
     [ImplementPropertyChanged]
     public sealed class MainWindowContext
     {
+        private TaskScheduler _scheduler = null;
+        private Management.OpenRctBuildManager _buildManager = null;
+        private Management.OpenRctNetApiWrapper _apiWrapper = new Management.OpenRctNetApiWrapper();
 
 
         /// <summary>
@@ -39,8 +47,25 @@ namespace LauncherWPF.Data.Context
         /// </summary>
         public ICommand LoadedCommand { get; }
 
-
+        /// <summary>
+        ///     Gets the <see cref="Visibility"/> of the <see cref="MainWindow"/>.
+        /// </summary>
         public Visibility WindowVisibility { get; private set; }
+
+        /// <summary>
+        ///     A master switch boolean that will enable or disable all the buttons on the form.
+        /// </summary>
+        private bool FormButtonsEnabled { get; set; }
+
+        /// <summary>
+        ///     Gets or sets, privately, whether or not <see cref="UpdateCommand"/> can be invoked.
+        /// </summary>
+        private bool UpdateButtonEnabled { get; set; }
+
+        /// <summary>
+        ///     Gets or sets, privately, the <see cref="Process"/> for OpenRCT2.
+        /// </summary>
+        private Process RctProcess { get; set; }
 
 
         /// <summary>
@@ -48,6 +73,9 @@ namespace LauncherWPF.Data.Context
         /// </summary>
         public MainWindowContext()
         {
+            _scheduler = TaskScheduler.FromCurrentSynchronizationContext();
+            UpdateButtonEnabled = true;
+            FormButtonsEnabled = true;
             WindowVisibility = Visibility.Visible;
             LaunchCommand = new RelayCommand(LaunchCommandImpl, CanLaunchCommandExecute);
             UpdateCommand = new RelayCommand(UpdateCommandImpl, CanUpdateCommandExecute);
@@ -56,25 +84,120 @@ namespace LauncherWPF.Data.Context
             LoadedCommand = new RelayCommand(LoadedCommandImpl, CanLoadedCommandExecute);
         }
 
+
+
         #region Launch Command
         private void LaunchCommandImpl(object param)
         {
 
+            // OK, so it's time to run the process.
+            var activeBuildNumber = _buildManager.ActiveBuildId.Value;
+            var activeBuild = _buildManager.Active.Value;
+            var activeRct2File = Path.Combine(Properties.Settings.Default.OpenRctExtractDir, activeBuildNumber.ToString(), "openrct2.exe");
+
+            // Great.
+            var pStartInfo = new ProcessStartInfo(activeRct2File)
+            {
+                CreateNoWindow = false
+            };
+            RctProcess = Process.Start(pStartInfo);
+            AttachToRct2Process();
+
         }
         private bool CanLaunchCommandExecute(object param)
         {
-            return false;
+            return FormButtonsEnabled && _buildManager != null && _buildManager.Active.HasValue && RctProcess == null;
         }
         #endregion
 
         #region Update Command
-        private void UpdateCommandImpl(object param)
+        private async void UpdateCommandImpl(object param)
         {
+            UpdateButtonEnabled = false;
+            await UpdateCommandAsync();
+            UpdateButtonEnabled = true;
+            CommandManager.InvalidateRequerySuggested();
+        }
+        private async Task UpdateCommandAsync()
+        {
+            // So, here's what we've got to do.
+            // We're gonna grab the MainWindow (which'll be the LauncherWPF.MainWindow instance).
+            // After we grab that, we're going to setup some dialogs for use. These dialogs will
+            // be key to communicating with the end user that's going on. We're also going to declare
+            // a few things up front that'll make life easier.
 
+            // Once we get some dialogs up to display what's going on, we're going to sync with the current server
+            // what build number is currently the latest one. After we do that, we'll do a little bit of logic to see
+            // if it's time to update. We'll prompt the user if it's OK to update, then install the update if they are OK
+            // with it. There might not be many comments throughout this code, hence the massive blob of text up here.
+            // Thankfully this is all async too.
+            // This'll work, trust me.
+            var mainWindow = (MetroWindow)Application.Current.MainWindow;
+
+            // Get the Progress Dialog up and running. This is the important one here. When we have this open,
+            // we can actually show what's going on to the end user.
+            var progressDialog = await mainWindow.ShowProgressAsync(Resources.Text.Strings.UI_MAIN_UPDATE_PB_TITLE1,
+                Resources.Text.Strings.UI_MAIN_UPDATE_PB_MESSAGE1, false);
+            progressDialog.SetIndeterminate();
+
+            // Now then, let's fetch our list from OpenRCT.NET
+            var apiResultsOption = await _apiWrapper.GetBuildInformationAsync(Properties.Settings.Default.IsOnDevelopBranch);
+            if (!apiResultsOption.HasValue)
+            {
+                await progressDialog.CloseAsync();
+                await mainWindow.ShowMessageAsync(Resources.Text.Strings.UI_WINDOWS_GENERAL_ERROR,
+                    Resources.Text.Strings.UI_MAIN_UPDATE_PB_MESSAGE2, MessageDialogStyle.Affirmative);
+                return;
+            }
+
+            var apiResults = apiResultsOption.Value;
+            var latestBuild = apiResults.Builds[apiResults.CurrentBuild];
+            progressDialog.SetMessage(string.Format(Resources.Text.Strings.UI_MAIN_UPDATE_PB_MESSAGE3,
+                _buildManager.ActiveBuildId.HasValue ? _buildManager.ActiveBuildId.Value : 0,
+                apiResults.CurrentBuild));
+
+            // Now that we've gotten all the information from the server, let's see what we can do about it.
+            if (!_buildManager.ActiveBuildId.HasValue || _buildManager.ActiveBuildId.Value < apiResults.CurrentBuild)
+            {
+                await progressDialog.CloseAsync();
+
+                // If we currently do not have the "AutoUpdateToLatest" option enabled, we need
+                // to explicitly ask if we're allowed to do this.
+                if (!Properties.Settings.Default.AutoUpdateToLatest)
+                {
+                    // Let's leave the option to update to the end user.
+                    var questionDialogResult = await mainWindow.ShowMessageAsync(Resources.Text.Strings.UI_MAIN_UPDATE_MB_TITLE1,
+                        Resources.Text.Strings.UI_MAIN_UPDATE_MB_MESSAGE1,
+                        MessageDialogStyle.AffirmativeAndNegativeAndSingleAuxiliary, new MetroDialogSettings
+                        {
+                            AffirmativeButtonText = Resources.Text.Strings.UI_WINDOWS_GENERAL_YES,
+                            NegativeButtonText = Resources.Text.Strings.UI_WINDOWS_GENERAL_NO,
+                            FirstAuxiliaryButtonText = Resources.Text.Strings.UI_MAIN_UPDATE_MB_AUX1
+                        });
+
+                    switch (questionDialogResult)
+                    {
+                        case MessageDialogResult.FirstAuxiliary:
+                            Properties.Settings.Default.AutoUpdateToLatest = true;
+                            break;
+                        case MessageDialogResult.Negative:
+                            return;
+                    }
+                }
+
+                progressDialog = await mainWindow.ShowProgressAsync(Resources.Text.Strings.UI_MAIN_UPDATE_PB_TITLE1, string.Format(Resources.Text.Strings.UI_MAIN_UPDATE_PB_MESSAGE4, latestBuild.ZipFile));
+                await Task.Factory.StartNew(() =>
+                {
+                    _buildManager.Download(apiResults.CurrentBuild, latestBuild);
+                    _buildManager.Save();
+                });
+            }
+            await progressDialog.CloseAsync();
+            await mainWindow.ShowMessageAsync(Resources.Text.Strings.UI_MAIN_UPDATE_MB_TITLE2, Resources.Text.Strings.UI_MAIN_UPDATE_MB_MESSAGE2);
         }
         private bool CanUpdateCommandExecute(object param)
         {
-            return false;
+            return UpdateButtonEnabled && FormButtonsEnabled;
         }
         #endregion
 
@@ -85,7 +208,7 @@ namespace LauncherWPF.Data.Context
         }
         private bool CanConfigCommandExecute(object param)
         {
-            return false;
+            return false && FormButtonsEnabled;
         }
         #endregion
 
@@ -96,7 +219,7 @@ namespace LauncherWPF.Data.Context
         }
         private bool CanExtrasCommandExecute(object param)
         {
-            return false;
+            return false && FormButtonsEnabled;
         }
         #endregion
 
@@ -111,12 +234,49 @@ namespace LauncherWPF.Data.Context
                 if (!result.HasValue || !result.Value) Application.Current.Shutdown();
             }
             WindowVisibility = Visibility.Visible;
+
+            // Time to setup the build manager. With this setup and running, we can
+            // begin to actually do some work!
+            _buildManager = new Management.OpenRctBuildManager(Properties.Settings.Default.IsOnDevelopBranch ?
+                Properties.Settings.Default.DevelopName : Properties.Settings.Default.ReleaseName);
+
+            // Before update runs, let's see if openrct2 is running already.
+            // this is a pretty nice quality-of-life feature to have.
+            FindOpenRct2Process();
+            if (Properties.Settings.Default.AutoUpdateToLatest && RctProcess == null) UpdateCommand.Execute(null);
         }
         private bool CanLoadedCommandExecute(object param)
         {
             return true; // this will always return true.
         }
         #endregion
+
+
+        private void FindOpenRct2Process()
+        {
+            var processes = Process.GetProcessesByName("openrct2");
+            if (processes.Length == 0) return;
+            if (processes.Length > 1) throw new System.ApplicationException();
+            RctProcess = processes[0];
+            AttachToRct2Process();
+        }
+
+        private void InvokeOnUiThread(System.Action action)
+        {
+            Task.Factory.StartNew(action, System.Threading.CancellationToken.None, TaskCreationOptions.None, _scheduler).Wait();
+        }
+
+        private void AttachToRct2Process()
+        {
+            RctProcess.EnableRaisingEvents = true;
+            RctProcess.Exited += (o, e) =>
+            {
+                Debug.WriteLine("Exited");
+                RctProcess.Dispose();
+                RctProcess = null;
+                InvokeOnUiThread(() => CommandManager.InvalidateRequerySuggested());
+            };
+        }
 
     }
 }

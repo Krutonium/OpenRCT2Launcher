@@ -104,5 +104,29 @@ namespace LauncherWPF.Properties {
                 this["IsOnDevelopBranch"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("stable.json")]
+        public string ReleaseName {
+            get {
+                return ((string)(this["ReleaseName"]));
+            }
+            set {
+                this["ReleaseName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("develop.json")]
+        public string DevelopName {
+            get {
+                return ((string)(this["DevelopName"]));
+            }
+            set {
+                this["DevelopName"] = value;
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LauncherWPF.Data;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,7 +8,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
-using System.Threading.Tasks;
 
 namespace LauncherWPF.Management
 {
@@ -22,10 +22,9 @@ namespace LauncherWPF.Management
         {
             public OpenRctBuildInformation Active { get; set; }
             public Dictionary<int, OpenRctBuildInformation> Builds { get; set; }
-            public int ActiveBuildId { get; set; }
+            public int? ActiveBuildId { get; set; }
         }
-
-        private const string DefaultBuildFile = "builds.json";
+        
         private readonly string _buildFileLocation;
         private readonly Dictionary<int, OpenRctBuildInformation> _builds = new Dictionary<int, OpenRctBuildInformation>();
 
@@ -33,12 +32,12 @@ namespace LauncherWPF.Management
         /// <summary>
         ///     Gets the Active <see cref="OpenRctBuildInformation"/>.
         /// </summary>
-        public OpenRctBuildInformation Active { get; private set; }
+        public Option<OpenRctBuildInformation> Active { get; private set; }
 
         /// <summary>
         ///     Gets the active build number.
         /// </summary>
-        public int ActiveBuildId { get; private set; }
+        public Option<int> ActiveBuildId { get; private set; }
 
         /// <summary>
         ///     Gets the currently installed <see cref="OpenRctBuildInformation"/>.
@@ -60,26 +59,30 @@ namespace LauncherWPF.Management
         /// <remarks>
         ///     <paramref name="file"/> only needs the name because <see cref="Properties.Settings.Default"/> contains OpenRctExtractDir. That variable contains the folder that builds will get extracted to.
         /// </remarks>
-        public OpenRctBuildManager(string file = DefaultBuildFile)
+        public OpenRctBuildManager(string file)
         {
             if(string.IsNullOrWhiteSpace(Properties.Settings.Default.OpenRctExtractDir))
                 throw new InvalidOperationException(Resources.Text.Errors.BUILDMANAGER_INITIALIZE_ERROR);
-            _buildFileLocation = DefaultBuildFile;
+            _buildFileLocation = file;
             var buildsFile = Path.Combine(Properties.Settings.Default.OpenRctExtractDir, file);
             if (!File.Exists(buildsFile))
                 using (var buildFile = new StreamWriter(buildsFile))
                     buildFile.Write(JsonConvert.SerializeObject(new OpenRctBuildJsonFile
                     {
                         Builds = new Dictionary<int, OpenRctBuildInformation>(),
-                        Active = new OpenRctBuildInformation(),
-                        ActiveBuildId = 0
+                        Active = null,
+                        ActiveBuildId = null
                     }
                 ));
             var buildsJson = File.ReadAllText(buildsFile);
             var buildInformation = JsonConvert.DeserializeObject<OpenRctBuildJsonFile>(buildsJson);
             _builds = buildInformation.Builds;
-            Active = buildInformation.Active;
-            ActiveBuildId = buildInformation.ActiveBuildId;
+            Active = buildInformation.Active == null ?
+                Option.Empty :
+                new Option<OpenRctBuildInformation>(buildInformation.Active);
+            ActiveBuildId = buildInformation.ActiveBuildId.HasValue ?
+                new Option<int>(buildInformation.ActiveBuildId.Value) :
+                Option.Empty;
         }
 
 
@@ -181,11 +184,11 @@ namespace LauncherWPF.Management
         {
             var buildsFile = Path.Combine(Properties.Settings.Default.OpenRctExtractDir, _buildFileLocation);
             using (var buildFile = new StreamWriter(buildsFile))
-                buildFile.Write(JsonConvert.SerializeObject(new
+                buildFile.Write(JsonConvert.SerializeObject(new OpenRctBuildJsonFile
                 {
                     Builds = _builds,
-                    Active = Active,
-                    ActiveBuildId = ActiveBuildId
+                    Active = Active.HasValue ? Active.Value : null,
+                    ActiveBuildId = ActiveBuildId.HasValue ? (int?)ActiveBuildId.Value : null
                 }
             ));
         }

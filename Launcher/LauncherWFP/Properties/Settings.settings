@@ -23,5 +23,11 @@
     <Setting Name="IsOnDevelopBranch" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ReleaseName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">stable.json</Value>
+    </Setting>
+    <Setting Name="DevelopName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">develop.json</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -117,8 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="UI_MAIN_UPDATE_MB_AUX1" xml:space="preserve">
+    <value>Yes &amp; remember.</value>
+  </data>
+  <data name="UI_MAIN_UPDATE_MB_MESSAGE1" xml:space="preserve">
+    <value>Do you want to install the latest update to OpenRCT2?</value>
+  </data>
+  <data name="UI_MAIN_UPDATE_MB_MESSAGE2" xml:space="preserve">
+    <value>OpenRCT2 has been updated.</value>
+  </data>
+  <data name="UI_MAIN_UPDATE_MB_TITLE1" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="UI_MAIN_UPDATE_MB_TITLE2" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="UI_MAIN_UPDATE_PB_MESSAGE1" xml:space="preserve">
+    <value>Connecting to OpenRCT.NET, please wait!</value>
+  </data>
+  <data name="UI_MAIN_UPDATE_PB_MESSAGE2" xml:space="preserve">
+    <value>There was a problem downloading updates from OpenRCT.NET</value>
+  </data>
+  <data name="UI_MAIN_UPDATE_PB_MESSAGE3" xml:space="preserve">
+    <value>Installed Build: {0} Latest Build: {1}</value>
+  </data>
+  <data name="UI_MAIN_UPDATE_PB_MESSAGE4" xml:space="preserve">
+    <value>Downloading {0}...</value>
+  </data>
+  <data name="UI_MAIN_UPDATE_PB_TITLE1" xml:space="preserve">
+    <value>Updating OpenRCT2</value>
+  </data>
   <data name="UI_WINDOWS_GENERAL_CONFIRM" xml:space="preserve">
     <value>OK</value>
+  </data>
+  <data name="UI_WINDOWS_GENERAL_ERROR" xml:space="preserve">
+    <value>Something went wrong!</value>
+  </data>
+  <data name="UI_WINDOWS_GENERAL_NO" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="UI_WINDOWS_GENERAL_YES" xml:space="preserve">
+    <value>Yes</value>
   </data>
   <data name="UI_WINDOWS_WELCOME_AUTOUPDATE" xml:space="preserve">
     <value>Automatically check for updates</value>
