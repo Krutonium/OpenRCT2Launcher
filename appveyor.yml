@@ -5,7 +5,8 @@ build:
   
 before_build:
   - appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/v3.2.0-rc/nuget.exe
-  
+  - nuget-restore
+
 configuration:
   - Release
   
