@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using Exceptionless;
+using MahApps.Metro.Controls;
 using PropertyChanged;
 
 namespace LauncherWPF
@@ -20,6 +21,7 @@ namespace LauncherWPF
         /// </summary>
         public MainWindow()
         {
+            ExceptionlessClient.Default.Register();
             Context = new Data.Context.MainWindowContext();
             InitializeComponent();
         }

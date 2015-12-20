@@ -13,5 +13,6 @@ namespace LauncherWPF
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }
