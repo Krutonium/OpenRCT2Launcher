@@ -2,6 +2,7 @@
 
 namespace HelperLibrary.Classes {
     public static class Constants {
+
         public static string OpenRCT2Folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\OpenRCT2";
         public static string OpenRCT2Bin = OpenRCT2Folder + @"\bin";
         public static string OpenRCT2ConfigFile = OpenRCT2Folder + @"\config.ini";
