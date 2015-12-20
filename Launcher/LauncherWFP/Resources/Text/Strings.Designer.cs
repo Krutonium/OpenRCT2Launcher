@@ -283,7 +283,16 @@ namespace LauncherWPF.Resources.Text {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Launcher Configuration.
+        ///   Looks up a localized string similar to CloudCoaster.
+        /// </summary>
+        public static string UI_WINDOWS_WELCOME_TAB_HEADER_CLOUDCOASTER {
+            get {
+                return ResourceManager.GetString("UI_WINDOWS_WELCOME_TAB_HEADER_CLOUDCOASTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setup.
         /// </summary>
         public static string UI_WINDOWS_WELCOME_TAB_HEADER_CONFIGURATION {
             get {

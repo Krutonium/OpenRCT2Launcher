@@ -112,6 +112,13 @@
 
                 </Grid>
             </TabItem>
+            <TabItem Header="{x:Static r:Strings.UI_WINDOWS_WELCOME_TAB_HEADER_CLOUDCOASTER}" Visibility="Hidden">
+                <Grid>
+                    
+                </Grid>
+            </TabItem>
+            
+            
         </TabControl>
     </Grid>
 </Controls:MetroWindow>

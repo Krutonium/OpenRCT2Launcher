@@ -18,6 +18,7 @@ namespace LauncherWPF.Data.Context
     public sealed class MainWindowContext
     {
         private TaskScheduler _scheduler = null;
+        private Management.OpenRctIniManager _iniManager = null;
         private Management.OpenRctBuildManager _buildManager = null;
         private Management.OpenRctNetApiWrapper _apiWrapper = new Management.OpenRctNetApiWrapper();
 
@@ -66,6 +67,7 @@ namespace LauncherWPF.Data.Context
         ///     Gets or sets, privately, the <see cref="Process"/> for OpenRCT2.
         /// </summary>
         private Process RctProcess { get; set; }
+
 
 
         /// <summary>
@@ -123,15 +125,17 @@ namespace LauncherWPF.Data.Context
             // So, here's what we've got to do.
             // We're gonna grab the MainWindow (which'll be the LauncherWPF.MainWindow instance).
             // After we grab that, we're going to setup some dialogs for use. These dialogs will
-            // be key to communicating with the end user that's going on. We're also going to declare
-            // a few things up front that'll make life easier.
+            // be key to communicating with the end user that's going on.
 
             // Once we get some dialogs up to display what's going on, we're going to sync with the current server
             // what build number is currently the latest one. After we do that, we'll do a little bit of logic to see
             // if it's time to update. We'll prompt the user if it's OK to update, then install the update if they are OK
             // with it. There might not be many comments throughout this code, hence the massive blob of text up here.
-            // Thankfully this is all async too.
-            // This'll work, trust me.
+            // This is all async too.
+
+            // This'll work, trust me. The reason why this works is that the MainWindow (declared in App.xaml) is MainWindow.xaml.
+            // MainWindow.xaml is a subclass of MetroWindow. That's why this cast is 100% valid. For now. If we ever change from
+            // MahApps to some other... UI framework, we'll suffer an untimely death of compile and runtime errors.
             var mainWindow = (MetroWindow)Application.Current.MainWindow;
 
             // Get the Progress Dialog up and running. This is the important one here. When we have this open,
@@ -227,23 +231,20 @@ namespace LauncherWPF.Data.Context
         private void LoadedCommandImpl(object param)
         {
             Properties.Settings.Default.Upgrade();
-            if (true)
-            {
-                WindowVisibility = Visibility.Hidden;
-                var result = new UI.Windows.Welcome().ShowDialog();
-                if (!result.HasValue || !result.Value) Application.Current.Shutdown();
-            }
+            PerformFirstRunAndSetupCheck();
             WindowVisibility = Visibility.Visible;
 
             // Time to setup the build manager. With this setup and running, we can
             // begin to actually do some work!
-            _buildManager = new Management.OpenRctBuildManager(Properties.Settings.Default.IsOnDevelopBranch ?
-                Properties.Settings.Default.DevelopName : Properties.Settings.Default.ReleaseName);
+            _buildManager = new Management.OpenRctBuildManager(
+                Properties.Settings.Default.IsOnDevelopBranch ?
+                    Properties.Settings.Default.DevelopName :
+                    Properties.Settings.Default.ReleaseName);
 
             // Before update runs, let's see if openrct2 is running already.
             // this is a pretty nice quality-of-life feature to have.
             FindOpenRct2Process();
-            if (Properties.Settings.Default.AutoUpdateToLatest && RctProcess == null) UpdateCommand.Execute(null);
+            InvokeAutoUpdateFeature();
         }
         private bool CanLoadedCommandExecute(object param)
         {
@@ -251,32 +252,76 @@ namespace LauncherWPF.Data.Context
         }
         #endregion
 
+        #region Miscellaneous Methods
 
+        /// <summary>
+        ///     Attempts to locate the RCT2 Process.
+        /// </summary>
+        /// <remarks>
+        ///     If ONE process is found, <see cref="RctProcess"/> will be set to the <see cref="Process"/> that is discovered. <see cref="AttachToRct2Process"/> will then be invoked. If there are multiple processes that are discovered, the function returns.
+        /// </remarks>
         private void FindOpenRct2Process()
         {
             var processes = Process.GetProcessesByName("openrct2");
             if (processes.Length == 0) return;
-            if (processes.Length > 1) throw new System.ApplicationException();
+            if (processes.Length > 1) return;
             RctProcess = processes[0];
             AttachToRct2Process();
         }
 
+        /// <summary>
+        ///     Invokes a <see cref="System.Action"/> on the UI thread and blocks until the <see cref="System.Action"/> has completed.
+        /// </summary>
+        /// <param name="action">The <see cref="System.Action"/> to invoke.</param>
         private void InvokeOnUiThread(System.Action action)
         {
             Task.Factory.StartNew(action, System.Threading.CancellationToken.None, TaskCreationOptions.None, _scheduler).Wait();
         }
 
+        /// <summary>
+        ///     Attaches an event handler to the OpenRCT2 <see cref="Process.Exited"/> event.
+        /// </summary>
         private void AttachToRct2Process()
         {
             RctProcess.EnableRaisingEvents = true;
             RctProcess.Exited += (o, e) =>
             {
-                Debug.WriteLine("Exited");
                 RctProcess.Dispose();
                 RctProcess = null;
                 InvokeOnUiThread(() => CommandManager.InvalidateRequerySuggested());
             };
         }
 
+        /// <summary>
+        ///     Invokes the auto-update functionality.
+        /// </summary>
+        private void InvokeAutoUpdateFeature()
+        {
+            if (Properties.Settings.Default.AutoUpdateToLatest && RctProcess == null) UpdateCommand.Execute(null);
+        }
+
+        /// <summary>
+        ///     Checks to see if this is our first run. If so, does some dialog things.
+        /// </summary>
+        private void PerformFirstRunAndSetupCheck()
+        {
+            if (Properties.Settings.Default.IsFirstRun)
+            {
+                WindowVisibility = Visibility.Hidden;
+                var result = new UI.Windows.Welcome().ShowDialog();
+                if (!result.HasValue || !result.Value) Application.Current.Shutdown();
+
+                // Create the INI file.
+                Management.OpenRctIniManager.Create();
+                _iniManager = new Management.OpenRctIniManager();
+                _iniManager.GamePath = Properties.Settings.Default.RctInstallDir;
+                _iniManager.Save();
+
+            }
+        }
+
+        #endregion
+
     }
+
 }

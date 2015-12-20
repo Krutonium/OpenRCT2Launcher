@@ -195,8 +195,11 @@ If you are OK with this, press "OK" below. If you are NOT okay with this, go ahe
   <data name="UI_WINDOWS_WELCOME_RCT2_BLOCK_TOOLTIP" xml:space="preserve">
     <value>The path where Roller Coaster Tycoon 2 is installed.</value>
   </data>
+  <data name="UI_WINDOWS_WELCOME_TAB_HEADER_CLOUDCOASTER" xml:space="preserve">
+    <value>CloudCoaster</value>
+  </data>
   <data name="UI_WINDOWS_WELCOME_TAB_HEADER_CONFIGURATION" xml:space="preserve">
-    <value>Launcher Configuration</value>
+    <value>Setup</value>
   </data>
   <data name="UI_WINDOWS_WELCOME_TAB_HEADER_GETTING_STARTED" xml:space="preserve">
     <value>Getting Started</value>
