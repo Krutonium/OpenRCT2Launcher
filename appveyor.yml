@@ -3,6 +3,9 @@ build:
   project: Launcher\Launcher.sln
   verbosity: normal
   
+before_build:
+  - appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/v3.2.0-rc/nuget.exe
+  
 configuration:
   - Release
   
