@@ -240,6 +240,7 @@ namespace LauncherWPF.Data.Context
                 Properties.Settings.Default.IsOnDevelopBranch ?
                     Properties.Settings.Default.DevelopName :
                     Properties.Settings.Default.ReleaseName);
+            _iniManager = new Management.OpenRctIniManager();
 
             // Before update runs, let's see if openrct2 is running already.
             // this is a pretty nice quality-of-life feature to have.
@@ -313,9 +314,10 @@ namespace LauncherWPF.Data.Context
 
                 // Create the INI file.
                 Management.OpenRctIniManager.Create();
-                _iniManager = new Management.OpenRctIniManager();
-                _iniManager.GamePath = Properties.Settings.Default.RctInstallDir;
-                _iniManager.Save();
+                var localManager = new Management.OpenRctIniManager();
+                localManager = new Management.OpenRctIniManager();
+                localManager.GamePath = Properties.Settings.Default.RctInstallDir;
+                localManager.Save();
 
             }
         }
