@@ -2,6 +2,9 @@ version: 1.0.{build}
 build:
   project: Launcher\Launcher.sln
   verbosity: normal
+
+before_build:
+  - nuget restore
   
 configuration:
   - Release
