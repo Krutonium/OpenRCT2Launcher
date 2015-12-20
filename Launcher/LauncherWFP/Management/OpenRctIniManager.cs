@@ -96,9 +96,9 @@ namespace LauncherWPF.Management
         private readonly FileIniDataParser _iniParser;
         private readonly string _iniFile;
 
+        public static readonly string DefaultOpenRct2Cfg = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "OpenRCT2");
+        public static readonly string DefaultOpenRct2Ini = Path.Combine(DefaultOpenRct2Cfg, OpenRct2IniFileName);
         private const string OpenRct2IniFileName = "config.ini";
-        private static readonly string DefaultOpenRct2Cfg = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "OpenRCT2");
-        private static readonly string DefaultOpenRct2Ini = Path.Combine(DefaultOpenRct2Cfg, OpenRct2IniFileName);
         private IniData _iniData;
 
 

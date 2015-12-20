@@ -240,6 +240,23 @@ namespace LauncherWPF.Data.Context
                 Properties.Settings.Default.IsOnDevelopBranch ?
                     Properties.Settings.Default.DevelopName :
                     Properties.Settings.Default.ReleaseName);
+
+            // Bug fix: 2015-12-20
+            // <START>
+            // There's a possibility the INI file can go missing after
+            // the first run process has done its thing. We can actually
+            // just invoke the create process again with no risk. But that
+            // seems really silly. So, the INI Manager class exposes
+            // the default INI path. (I don't support changing it in the
+            // program but the INI manager does).
+            // Let's make this really simple and check if it exists. If
+            // it doesn't, then, we'll invoke a helper method that does the
+            // hard work of creating it and setting the default value for us.
+            // <END>
+            if(!File.Exists(Management.OpenRctIniManager.DefaultOpenRct2Ini))
+            {
+                CreateIniFileWithDefaultValues();
+            }
             _iniManager = new Management.OpenRctIniManager();
 
             // Before update runs, let's see if openrct2 is running already.
@@ -306,20 +323,32 @@ namespace LauncherWPF.Data.Context
         /// </summary>
         private void PerformFirstRunAndSetupCheck()
         {
-            if (Properties.Settings.Default.IsFirstRun)
-            {
-                WindowVisibility = Visibility.Hidden;
-                var result = new UI.Windows.Welcome().ShowDialog();
-                if (!result.HasValue || !result.Value) Application.Current.Shutdown();
+            // Change: 2015-12-20
+            // <START>
+            // I decided to invert the IF statement here to reduce nesting.
+            // I really don't like nesting...
+            // <END>
+            if (!Properties.Settings.Default.IsFirstRun) return;
 
-                // Create the INI file.
-                Management.OpenRctIniManager.Create();
-                var localManager = new Management.OpenRctIniManager();
-                localManager = new Management.OpenRctIniManager();
-                localManager.GamePath = Properties.Settings.Default.RctInstallDir;
-                localManager.Save();
+            WindowVisibility = Visibility.Hidden;
+            var result = new UI.Windows.Welcome().ShowDialog();
+            if (!result.HasValue || !result.Value) Application.Current.Shutdown();
 
-            }
+            // Create the INI file.
+            CreateIniFileWithDefaultValues();
+
+        }
+
+        /// <summary>
+        ///     Creates the OpenRCT2 configuration INI file and sets the <see cref="Management.OpenRctIniManager.GamePath"/> value.
+        /// </summary>
+        private static void CreateIniFileWithDefaultValues()
+        {
+            Management.OpenRctIniManager.Create();
+            var localManager = new Management.OpenRctIniManager();
+            localManager = new Management.OpenRctIniManager();
+            localManager.GamePath = Properties.Settings.Default.RctInstallDir;
+            localManager.Save();
         }
 
         #endregion
