@@ -1,6 +1,9 @@
 OpenRCT2 Launcher
 ================
 
+#This launcher has been retired, Please see http://openrct2.org/ for a new one. The chat below is still active.
+
+
 [![Join the chat at https://gitter.im/PFCKrutonium/OpenRCT2Launcher](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/PFCKrutonium/OpenRCT2Launcher?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/k0yrr9b169epvf3y?svg=true)](https://ci.appveyor.com/project/PFCKrutonium/openrct2launcher)
